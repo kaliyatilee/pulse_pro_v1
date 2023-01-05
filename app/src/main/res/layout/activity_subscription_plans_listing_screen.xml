@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorgrey"
+    android:isScrollContainer="true"
+    android:orientation="vertical"
+    tools:context=".activities.SubscriptionPlansListingScreen">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarpolicy"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:navigationIcon="@drawable/ic_home_back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/white" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/subscription_recycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarpolicy"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:orientation="vertical" />
+
+    <ScrollView
+        android:visibility="gone"
+        android:id="@+id/scroll"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subscription_recycle"
+        android:layout_marginLeft="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_marginRight="@dimen/margin_20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:elevation="@dimen/margin_10dp"
+                app:cardCornerRadius="10dp">
+
+                <WebView
+                    android:id="@+id/simpleWebView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/h5"
+                    android:layout_marginTop="@dimen/h5"
+                    android:textAlignment="center" />
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/getNow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:layout_marginBottom="@dimen/margin_20dp"
+                android:background="@drawable/round_border_green"
+                android:elevation="5dp"
+                android:text="Get Now"
+                android:textColor="@color/white"
+                android:transitionName="transition_next_btn" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/addCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:layout_marginBottom="@dimen/margin_20dp"
+                android:background="@drawable/round_border_green"
+                android:elevation="5dp"
+                android:text="Add Card"
+                android:textColor="@color/white"
+                android:transitionName="transition_next_btn"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

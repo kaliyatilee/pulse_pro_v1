@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.NewsLikeActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarpolicy"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/ic_home_back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/AppTheme.AppBarOverlay"/>
+
+    <TextView
+        android:id="@+id/like_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="0 Pulse"
+        android:layout_marginTop="10dp"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        tools:textColor="@color/black"
+        android:layout_gravity="right"
+        android:paddingRight="16dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:id="@+id/recycle_likes"/>
+</LinearLayout>

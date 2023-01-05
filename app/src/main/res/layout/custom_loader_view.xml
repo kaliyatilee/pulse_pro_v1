@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+    ***Multiple loaders names use according to your application.
+
+    app:indicatorName="BallSpinFadeLoaderIndicator"
+
+    1.BallPulseIndicator
+    2.BallGridPulseIndicator
+    3.allClipRotateIndicator
+    4.BallClipRotatePulseIndicator
+    5.SquareSpinIndicator
+    6.BallClipRotateMultipleIndicator
+    7.BallPulseRiseIndicator
+    8.BallRotateIndicator
+    9.CubeTransitionIndicator
+    10.BallZigZagIndicator
+    11.BallZigZagDeflectIndicator
+    12.BallTrianglePathIndicator
+    13.BallScaleIndicator
+    14.LineScaleIndicator
+    15.LineScalePartyIndicator
+    16.BallScaleMultipleIndicator
+    17.BallPulseSyncIndicator
+    18.BallBeatIndicator
+    19.LineScalePulseOutIndicator
+    20.LineScalePulseOutRapidIndicator
+    21.BallScaleRippleIndicator
+    22.BallScaleRippleMultipleIndicator
+    23.BallSpinFadeLoaderIndicator
+    24.LineSpinFadeLoaderIndicator
+    25.TriangleSkewSpinIndicator
+    26.PacmanIndicator
+    27.BallGridBeatIndicator
+    28.SemiCircleSpinIndicator
+    -->
+    <!--<ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/indicator"
+        android:indeterminate="true"
+        android:progress="1000"
+        android:layout_centerInParent="true"/>-->
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/indicator"
+        app:indicatorName="BallSpinFadeLoaderIndicator"
+        app:indicatorColor="@color/white"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_centerInParent="true"/>
+
+
+
+</RelativeLayout>

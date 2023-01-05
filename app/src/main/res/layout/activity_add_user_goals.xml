@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/colorgrey"
+    tools:context=".activities.AddUserGoals">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarpolicy"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:navigationIcon="@drawable/ic_home_back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/white" />
+
+
+    <ImageView
+        android:id="@+id/userIcon"
+        android:layout_width="@dimen/margin_200dp"
+        android:layout_height="@dimen/margin_200dp"
+        android:layout_above="@+id/bottom"
+        android:layout_below="@id/toolbarpolicy"
+        android:layout_centerInParent="true"
+        android:src="@drawable/training" />
+
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/top_corner"
+        android:elevation="@dimen/margin_10dp"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_20dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/muli_semibold"
+                android:text="Weight (kg)"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin_16dp" />
+
+            <TextView
+                android:id="@+id/lose_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="end"
+                android:text="0 gm"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin_16dp" />
+
+
+            <SeekBar
+                android:id="@+id/seekBar1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lose_weight"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:progressBackgroundTint="@color/sec_primary"
+                android:thumbTint="@color/primary" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/muli_semibold"
+                android:text="Running  distance"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin_16dp" />
+
+            <TextView
+                android:id="@+id/running_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="end"
+                android:text="0 km"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin_16dp" />
+
+
+            <SeekBar
+                android:id="@+id/seekBar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/running_distance"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:max="200"
+                android:progressBackgroundTint="@color/sec_primary"
+                android:thumbTint="@color/primary" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/muli_semibold"
+                android:text="Calories (kcal)"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin_16dp" />
+
+            <TextView
+                android:id="@+id/calories_burn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="end"
+                android:text="0 kcal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin_16dp" />
+
+
+            <SeekBar
+                android:id="@+id/seekBar3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/calories_burn"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:progressBackgroundTint="@color/sec_primary"
+                android:max="20000"
+                android:thumbTint="@color/primary" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/muli_semibold"
+                android:text="Steps"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin_16dp" />
+
+            <TextView
+                android:id="@+id/steps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="end"
+                android:text="0 steps"
+                android:textColor="@color/black"
+                android:textSize="@dimen/margin_16dp" />
+
+
+            <SeekBar
+                android:id="@+id/seekBar4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/steps"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:progressBackgroundTint="@color/sec_primary"
+                android:max="150000"
+                android:thumbTint="@color/primary" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/set_goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:background="@drawable/shape_round_corner"
+            android:fontFamily="@font/muli_semibold"
+            android:text="set goal" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rounde_corner"
+    tools:context=".activities.AddCardActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/muli_semibold"
+        android:textStyle="bold"
+        android:gravity="left"
+        android:text="Enter Card Details"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_20" />
+
+
+    <LinearLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:maxLines="1"
+            android:digits="01234 56789"
+            android:maxLength="19"
+            android:imeOptions="actionNext"
+            android:padding="@dimen/text_14"
+            android:drawableEnd="@drawable/ic_card"
+            android:textColorHint="@color/silver"
+            android:textColor="@color/black"
+            android:background="@drawable/bg_border_round_grey"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/muli_semibold"
+            android:inputType="number"
+            android:id="@+id/card_number"
+            android:textSize="@dimen/text_14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Card Number" />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <EditText
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:maxLength="5"
+                android:padding="@dimen/text_14"
+                android:textSize="@dimen/text_14"
+                android:background="@drawable/bg_border_round_grey"
+                android:textColorHint="@color/silver"
+                android:textColor="@color/black"
+                android:fontFamily="@font/muli_semibold"
+                android:id="@+id/expiry"
+                android:inputType="number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:hint="Expiry" />
+
+
+            <EditText
+                android:maxLines="1"
+                android:imeOptions="actionDone"
+                android:maxLength="3"
+                android:padding="@dimen/text_14"
+                android:textColorHint="@color/silver"
+                android:textColor="@color/black"
+                android:layout_marginStart="4dp"
+                android:textSize="@dimen/text_14"
+                android:background="@drawable/bg_border_round_grey"
+                android:fontFamily="@font/muli_semibold"
+                android:id="@+id/cvv"
+                android:inputType="number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="CVV" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:textSize="@dimen/text_16"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/Add"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_border_green"
+        android:elevation="5dp"
+        android:text="Add Card"
+        android:textColor="@color/white" />
+
+</LinearLayout>

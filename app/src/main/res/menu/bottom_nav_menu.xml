@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        app:labelVisibilityMode="labeled"
+        android:id="@+id/newsFeed"
+        android:icon="@drawable/ic_view_list"
+        android:title="News Feed" />
+
+
+    <item
+        app:labelVisibilityMode="labeled"
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_message_black"
+        android:title="@string/community" />
+
+
+    <item
+        app:labelVisibilityMode="labeled"
+        android:id="@+id/navigation_home"
+        android:title="Home"
+        android:enabled="true"
+        android:checked="true"/>
+
+    <item android:id="@+id/store"
+        android:title="Rewards"
+        android:icon="@drawable/ic_store_black"/>
+
+    <item
+        app:labelVisibilityMode="labeled"
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_baseline_settings"
+        android:title="Profile" />
+
+</menu>

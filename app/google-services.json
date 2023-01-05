@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890133968451",
+    "project_id": "pulseapp-bdf49",
+    "storage_bucket": "pulseapp-bdf49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890133968451:android:b3444ed1d4b24d6d1386f6",
+        "android_client_info": {
+          "package_name": "com.algebratech.pulse_wellness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890133968451-5fv5bhmvghj8gqlgqld61et9m5uc9t20.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmomK5ax7BMbMQTTL1c8LyvctSyty7NDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890133968451-5fv5bhmvghj8gqlgqld61et9m5uc9t20.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

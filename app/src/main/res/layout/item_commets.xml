@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userProfile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/placeholder" />
+
+    <LinearLayout
+        android:layout_toLeftOf="@+id/like_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/userProfile"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/muli_semibold"
+            android:text="User 1"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:textColor="@color/black" />
+
+        <TextView
+            android:paddingEnd="@dimen/margin_30dp"
+            android:id="@+id/userComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/muli_semibold"
+            android:text="User's commentUser's commentUser's commentUser's commentUser's commentUser's commentUser's commentUser's comment"
+            android:textColor="@color/grey_60"
+            android:textSize="12sp"
+            tools:textColor="@color/gray" />
+
+        <LinearLayout
+            android:layout_marginTop="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/userCommentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/muli_semibold"
+                android:text="1h"
+                android:textColor="@color/grayDark"
+                android:textSize="10sp"
+                tools:textColor="@color/gray" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/likenum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/muli_semibold"
+                android:text="0 Pulse"
+                android:textColor="@color/grayDark"
+                android:textSize="10sp"
+                tools:textColor="@color/gray" />
+
+            <TextView
+                android:id="@+id/reply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/muli_semibold"
+                android:text="Reply"
+                android:textColor="@color/grayDark"
+                android:textSize="10sp"
+                tools:textColor="@color/gray" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+     <ImageView
+            android:id="@+id/like_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/ic_heart" />
+
+    </RelativeLayout>
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_marginLeft="40dp"
+    android:visibility="visible"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/nestedComment"/>
+</LinearLayout>
+

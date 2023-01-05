@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_10"
+    android:orientation="vertical"
+    tools:context=".DetailActivityScreen">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarpolicy"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:navigationIcon="@drawable/ic_home_back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/white" />
+
+    <RelativeLayout
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarpolicy"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/margin_10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profilePic"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/placeholder" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profilePic"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="User 1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin_16dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pointsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="250"
+                android:textColor="@color/primary"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            //here steps is temporary we have to replace with points
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/montserrat_bold"
+                android:text=" steps"
+                android:textColor="@color/primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/top_corner"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_activity_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/margin_10dp"
+            android:paddingTop="@dimen/margin_20dp"
+            android:paddingRight="@dimen/margin_10dp"
+            android:paddingBottom="@dimen/margin_20dp" />
+
+        <TextView
+            android:id="@+id/no_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_50dp"
+            android:fontFamily="@font/muli_semibold"
+            android:gravity="center"
+            android:text="No data found"
+            android:textColor="@color/sec_primary"
+            android:textSize="@dimen/text_16"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</RelativeLayout>

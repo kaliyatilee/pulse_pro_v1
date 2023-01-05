@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/resultView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_20">
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/socialview"
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+
+
+            <ImageView
+                android:id="@+id/mapimg"
+                android:layout_width="match_parent"
+                android:layout_height="500dp" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/logo_new_one" />
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="@dimen/margin_20dp"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:backgroundTint="@color/primary"
+                android:elevation="@dimen/margin_0dp"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                app:backgroundTint="@color/white"
+                app:elevation="@dimen/margin_0dp"
+                app:fabSize="mini"
+                app:rippleColor="@color/transparent"
+                app:tint="@android:color/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:visibility="gone">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <RelativeLayout
+                    android:id="@+id/showMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/btn_res_left">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_map"
+                        app:tint="@color/white" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="0dp" />
+
+                <RelativeLayout
+                    android:id="@+id/showImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/btn_res_right">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_photo"
+                        app:tint="@color/white" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <!--            <androidx.cardview.widget.CardView-->
+        <!--                android:padding="2dp"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:elevation="1dp">-->
+        <!--                <LinearLayout-->
+        <!--                    android:layout_marginTop="10dp"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:orientation="horizontal">-->
+        <!--                    <LinearLayout-->
+        <!--                        android:orientation="vertical"-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:layout_weight="1">-->
+
+        <!--                    </LinearLayout>-->
+        <!--                    <LinearLayout-->
+        <!--                        android:orientation="vertical"-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:layout_weight="1">-->
+        <!--                        <ImageView-->
+        <!--                            android:layout_gravity="center"-->
+        <!--                            android:layout_width="wrap_content"-->
+        <!--                            android:layout_height="wrap_content"-->
+        <!--                            android:src="@drawable/calories"/>-->
+
+        <!--                        <TextView-->
+        <!--                            android:id="@+id/calories"-->
+        <!--                            android:layout_width="wrap_content"-->
+        <!--                            android:layout_height="wrap_content"-->
+        <!--                            android:layout_gravity="center"-->
+        <!--                            android:text=""-->
+        <!--                            android:textSize="24dp"-->
+        <!--                            android:textStyle="bold" />-->
+        <!--                        <TextView-->
+        <!--                            android:layout_gravity="center"-->
+        <!--                            android:layout_width="wrap_content"-->
+        <!--                            android:layout_height="wrap_content"-->
+        <!--                            android:text="Kcals"/>-->
+        <!--                    </LinearLayout>-->
+        <!--                    <LinearLayout-->
+        <!--                        android:orientation="vertical"-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:layout_weight="1">-->
+        <!--                        <ImageView-->
+        <!--                            android:layout_gravity="center"-->
+        <!--                            android:layout_width="wrap_content"-->
+        <!--                            android:layout_height="wrap_content"-->
+        <!--                            android:src="@drawable/footprints"/>-->
+        <!--                        <TextView-->
+        <!--                            android:id="@+id/steps"-->
+        <!--                            android:textSize="24dp"-->
+        <!--                            android:textStyle="bold"-->
+        <!--                            android:layout_gravity="center"-->
+        <!--                            android:layout_width="wrap_content"-->
+        <!--                            android:layout_height="wrap_content"-->
+        <!--                            android:text=""/>-->
+        <!--                        <TextView-->
+        <!--                            android:layout_gravity="center"-->
+        <!--                            android:layout_width="wrap_content"-->
+        <!--                            android:layout_height="wrap_content"-->
+        <!--                            android:text="Steps"/>-->
+
+        <!--                    </LinearLayout>-->
+        <!--                    <LinearLayout-->
+        <!--                        android:orientation="vertical"-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:layout_weight="1">-->
+        <!--                        <ImageView-->
+        <!--                            android:layout_gravity="center"-->
+        <!--                            android:layout_width="36dp"-->
+        <!--                            android:layout_height="36dp"-->
+        <!--                            android:src="@drawable/heartrate"/>-->
+
+        <!--                        <TextView-->
+        <!--                            android:id="@+id/heatRate"-->
+        <!--                            android:layout_width="wrap_content"-->
+        <!--                            android:layout_height="wrap_content"-->
+        <!--                            android:layout_gravity="center"-->
+        <!--                            android:text=""-->
+        <!--                            android:textSize="24dp"-->
+        <!--                            android:textStyle="bold" />-->
+        <!--                        <TextView-->
+        <!--                            android:layout_gravity="center"-->
+        <!--                            android:layout_width="wrap_content"-->
+        <!--                            android:layout_height="wrap_content"-->
+        <!--                            android:text="Average Heart Rate"/>-->
+        <!--                    </LinearLayout>-->
+
+
+        <!--                </LinearLayout>-->
+        <!--            </androidx.cardview.widget.CardView>-->
+
+    </LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_marginEnd="@dimen/margin_20dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        app:cardCornerRadius="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/activityName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:fontFamily="@font/muli"
+                    android:gravity="center"
+                    android:text="Activity"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_18" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/primary"
+                    android:elevation="@dimen/margin_0dp"
+                    android:src="@drawable/ic_share_white_24dp"
+                    app:backgroundTint="@color/white"
+                    app:elevation="@dimen/margin_0dp"
+                    app:fabSize="mini"
+                    app:rippleColor="@color/transparent"
+                    app:tint="@android:color/white" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorgrey" />
+
+            <LinearLayout
+                android:id="@+id/row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_10dp"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/margin_24dp"
+                        android:layout_height="@dimen/margin_24dp"
+                        android:layout_gravity="center"
+                        android:foregroundTint="@color/colorPrimary"
+                        android:src="@drawable/road"
+                        android:tintMode="src_in"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/distance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="***"
+                        android:textSize="24dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Distance" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="(km)" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_timer_black_24dp"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:id="@+id/tvTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="***"
+                        android:textSize="24dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Duration" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/margin_24dp"
+                        android:layout_height="@dimen/margin_24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_directions_walk_black_24dp"
+                        app:tint="@color/primary" />
+
+                    <TextView
+                        android:id="@+id/avpace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="24dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Avg Pace" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=" Min/Km" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_10dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    tools:ignore="NestedWeights">
+
+                    <ImageView
+                        android:layout_width="@dimen/margin_24dp"
+                        android:layout_height="@dimen/margin_24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/calories" />
+
+                    <TextView
+                        android:id="@+id/calories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="24dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Kcals" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/margin_24dp"
+                        android:layout_height="@dimen/margin_24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/footprints" />
+
+                    <TextView
+                        android:id="@+id/steps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="24dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Steps" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/margin_24dp"
+                        android:layout_height="@dimen/margin_24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/heartrate" />
+
+                    <TextView
+                        android:id="@+id/heatRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textSize="24dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Heart\n Rate" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <!--    <Button-->
+    <!--        android:id="@+id/btnShare"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@+id/linear1"-->
+    <!--        android:layout_margin="20dp"-->
+    <!--        android:background="@drawable/button_bg"-->
+    <!--        android:backgroundTint="@color/primary"-->
+    <!--        android:text="Share Activity"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:visibility="gone" />-->
+</RelativeLayout>

@@ -1,0 +1,168 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="colorAccent">@color/sec_primary</item>
+        <item name="android:statusBarColor">@color/primary</item>
+    </style>
+
+    <style name="AppThemeMain" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="colorAccent">@color/sec_primary</item>
+        <item name="android:statusBarColor">@color/primary</item>
+    </style>
+
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/primary</item>
+    </style>
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/primary</item>
+        <item name="colorControlNormal">#ffffff</item>
+    </style>
+    <style name="settings_header">
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textSize">@dimen/large_text</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="settings_sub_header">
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="settings_details">
+        <item name="android:textColor">@color/sec_primary</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="switch_theme">
+        <item name="thumbTint">#fff</item>
+        <item name="trackTint">#000</item>
+    </style>
+
+    <style name="ConnectivityDialog" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@color/primary</item>
+    </style>
+
+    <style name="ProgDialog" parent="AppTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="colorAccent">@color/sec_primary</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+
+    </style>
+
+    <style name="botoombar_textchange">
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <!--    Settings Styles-->
+
+    <style name="viewParent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="viewParent.headerText">
+        <item name="android:textColor">@color/contentTextColor</item>
+        <item name="android:textSize">@dimen/headerTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="viewParent.headerText.settingsMiniTitle">
+        <item name="android:textColor">#5D5C5C</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+
+    <style name="settingsText" parent="viewParent.headerText.settingsMiniTitle">
+        <item name="android:textColor">@color/miniTitle</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">20dp</item>
+    </style>
+    <style name="viewParent.headerText.settingsTextIcon" parent="settingsText">
+        <item name="android:drawableRight">@drawable/ic_more</item>
+    </style>
+
+    <style name="Button.Green" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/light_green_500</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Button.White" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@android:color/white</item>
+        <item name="android:textColor">@color/grey_60</item>
+    </style>
+
+    <style name="Yellow.Small.AppCompatRatingBar" parent="Base.Widget.AppCompat.RatingBar.Small">
+        <item name="colorControlNormal">@color/grey_60</item>
+        <item name="colorControlActivated">@color/yellow_600</item>
+    </style>
+
+    <style name="Yellow.Small.AppCompatRatingBar.White" parent="Base.Widget.AppCompat.RatingBar.Small">
+        <item name="colorControlNormal">@color/grey_20</item>
+        <item name="colorControlActivated">@color/yellow_600</item>
+    </style>
+
+    <style name="Yellow.Very.Small.AppCompatRatingBar" parent="@style/Yellow.Small.AppCompatRatingBar">
+        <item name="android:minHeight">8dp</item>
+        <item name="android:maxHeight">8dp</item>
+    </style>
+
+    <style name="Yellow.AppCompatRatingBar" parent="Base.Widget.AppCompat.RatingBar.Indicator">
+        <item name="colorControlNormal">@color/grey_60</item>
+        <item name="colorControlActivated">@color/yellow_600</item>
+    </style>
+
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/colorPrimary</item>
+    </style>
+
+    <style name="CardViewStyle" parent="android:Widget.TextView">
+        <item name="android:foreground">@drawable/selector_bg_card</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
+    <style name="BottomSheetDialog" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetDialogStyle</item>
+    </style>
+
+    <style name="BottomSheetDialogStyle" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+    </style>
+
+    <style name="CircularDeterminateProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/circle_progress</item>
+    </style>
+</resources>

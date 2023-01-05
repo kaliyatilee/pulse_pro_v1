@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/friendcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/placeholder" />
+
+        <TextView
+            android:id="@+id/tvFullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@id/imgView"
+            android:text="Name"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:id="@+id/addMember"
+            android:layout_width="50dp"
+            android:layout_height="@dimen/margin_50dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_add"
+            app:tint="@color/primary" />
+
+    </RelativeLayout>

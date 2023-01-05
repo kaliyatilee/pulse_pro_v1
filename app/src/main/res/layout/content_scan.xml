@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mydevice"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:cardCornerRadius="25dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/watchRel"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/bg_border_round_grey">
+
+                <ImageView
+                    android:id="@+id/img_watch"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_centerInParent="true" />
+
+
+            </RelativeLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/devicesettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/watchRel"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="-30dp"
+                android:background="@color/sec_primary"
+                android:src="@drawable/ic_baseline_settings_24"
+                android:tint="@color/white"
+                app:fabSize="mini" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_toEndOf="@+id/watchRel"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pulse Watch"
+                    android:textColor="@color/grey"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/device"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pulse Watch"
+                    android:textColor="@color/grey"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+                <Switch
+                    android:id="@+id/switch_noti"
+                    style="@style/settingsText"
+                    android:checked="false"
+                    android:drawableLeft="@drawable/ic_notifications"
+                    android:text="Notifications" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/mian_swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mydevice"
+        android:background="#ffffff">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_recylerlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scrollbars="none" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/search_device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/margin_50dp"
+        android:fontFamily="@font/muli_semibold"
+        android:gravity="center"
+        android:text="No device found\nSwipe down for refresh"
+        android:textColor="@color/sec_primary"
+        android:textSize="@dimen/text_16" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/add_more_device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/margin_50dp"
+        android:fontFamily="@font/muli_semibold"
+        android:gravity="center"
+        android:text="Swipe down for add other device"
+        android:textColor="@color/sec_primary"
+        android:textSize="@dimen/text_16" />
+
+</RelativeLayout>

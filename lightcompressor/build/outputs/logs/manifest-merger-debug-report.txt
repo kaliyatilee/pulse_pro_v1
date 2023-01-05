@@ -1,0 +1,37 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml:1:1-64
+INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml:1:1-64
+INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml:1:1-64
+INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml:1:1-64
+INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml:1:1-64
+INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml:1:1-64
+INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml:1:1-64
+	package
+		ADDED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml:1:11-61
+		INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+		INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+		ADDED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml:1:1-64
+		INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml:1:1-64
+	android:versionCode
+		INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+		ADDED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml:1:1-64
+		INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+uses-sdk
+INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+		ADDED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+		INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+		ADDED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml
+		INJECTED from /home/lee/Documents/P/Pulse/Pulse-Health-App/lightcompressor/src/main/AndroidManifest.xml

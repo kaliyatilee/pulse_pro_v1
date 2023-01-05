@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <View
+        android:layout_width="11dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="130dp"
+        android:background="@drawable/ic_side_bg"
+        android:backgroundTint="@color/sec_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="20dp" />
+
+    <View
+        android:layout_width="11dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="130dp"
+        android:background="@drawable/ic_side_bg_left"
+        android:backgroundTint="@color/sec_primary"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="130dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/todo"
+            android:onClick="goToLogin"
+            android:padding="5dp"
+            android:src="@drawable/general_close_icon"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/muli_black"
+            android:includeFontPadding="false"
+            android:text="@string/otp_code_text"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="100sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/muli_black"
+            android:includeFontPadding="false"
+            android:text="@string/otp_verification_text"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+
+        <TextView
+            android:id="@+id/otp_description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/muli"
+            android:includeFontPadding="false"
+            android:text="@string/otp_description_text"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="changeNumber">
+
+
+            <TextView
+                android:id="@+id/otp_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/muli"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_edit"
+                app:tint="@color/red" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:id="@+id/resend"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/muli"
+            android:includeFontPadding="false"
+            android:text="Resend"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/pin_view"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:itemBackground="#65EAEAEA"
+            app:cursorColor="@color/black"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="45dp"
+            app:itemRadius="5dp"
+            app:itemWidth="45dp"
+            app:lineColor="@color/sec_primary"
+            app:lineWidth="1dp" />
+
+
+        <Button
+            android:id="@+id/verify_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorPrimary"
+            android:onClick="callNextScreenFromOTP"
+            android:text="@string/verify_code"
+            android:textColor="@color/white"
+            android:transitionName="transition_OTP_screen" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

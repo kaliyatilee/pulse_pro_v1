@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ActivitySum"
+    android:layout_marginBottom="@dimen/margin_10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/margin_5dp"
+        android:layout_marginEnd="@dimen/margin_5dp"
+        android:gravity="center_vertical"
+        android:padding="@dimen/margin_5dp">
+
+        <ImageView
+            android:id="@+id/activityImage"
+            android:layout_width="@dimen/margin_50dp"
+            android:layout_height="@dimen/margin_50dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/runningg" />
+
+        <TextView
+            android:id="@+id/activityTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activityTitle"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_toRightOf="@+id/activityImage"
+            android:fontFamily="@font/muli_semibold"
+            android:text="11:24 AM-11:30AM"
+            android:textColor="@color/grey_60" />
+
+        <TextView
+            android:id="@+id/activityTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_toEndOf="@+id/activityImage"
+            android:fontFamily="@font/muli_semibold"
+            android:text="Outdoor Running"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/activityData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activityTime"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_toRightOf="@+id/activityImage"
+            android:fontFamily="@font/muli_semibold"
+            android:text="30 Steps"
+            android:textColor="@color/grey_60" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
