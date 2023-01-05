@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +18,7 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -99,22 +101,53 @@ public class SelectDisease extends AppCompatActivity implements NewsFeedListner 
     }
 
     private void userNotes() {
-        CM.ShowDialogueWithCustomAction(
-                SelectDisease.this,
-                SelectDisease.this.getString(R.string.mcdMessage),
-                "I Understood", "", false,
-                new DialogClickListener() {
-                    @Override
-                    public void onPositiveClick() {
-                        finish();
-                    }
+        Dialog dialog = new Dialog(SelectDisease.this);
+        dialog.setContentView(R.layout.dialog_common_custom_msg);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
 
-                    @Override
-                    public void onNegativeClick() {
+        Button btnNo = dialog.findViewById(R.id.btnNo);
+        Button btnyes = dialog.findViewById(R.id.btnYes);
 
-                    }
-                }
-        );
+        btnNo.setVisibility(View.GONE);
+        TextView txtMsg = dialog.findViewById(R.id.cDialog_txtMsg);
+
+        txtMsg.setText(R.string.mcdMessage);
+        btnyes.setText("I understood");
+
+        btnyes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                Toast.makeText(SelectDisease.this, "Thank you !!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        dialog.show();
+
+
+
+
+
+
+//
+//        CM.ShowDialogueWithCustomAction(
+//                SelectDisease.this,
+//                SelectDisease.this.getString(R.string.mcdMessage),
+//                "I Understood", "", false,
+//                new DialogClickListener() {
+//                    @Override
+//                    public void onPositiveClick() {
+//
+////                        finish();
+//                    }
+//
+//                    @Override
+//                    public void onNegativeClick() {
+//
+//                    }
+//                }
+//        );
     }
 
     private void getDisease() {

@@ -186,9 +186,10 @@ public class RewardsFragment extends Fragment {
 
                         String description = object.getString("description");
                         String imageurl = object.getString("imageurl");
+                        String merchant_name = object.getString("name");
 
 
-                        RewardsModel product = new RewardsModel(id, title, description, pulse_points, imageurl);
+                        RewardsModel product = new RewardsModel(id, title, imageurl, description, pulse_points,merchant_name);
                         products.add(product);
                         if (products.size() == 0) {
                             recyclerView.setVisibility(View.GONE);

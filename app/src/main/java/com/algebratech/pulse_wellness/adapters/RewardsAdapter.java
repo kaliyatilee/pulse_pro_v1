@@ -45,7 +45,7 @@ public class RewardsAdapter  extends RecyclerView.Adapter<RewardsAdapter.MyViewH
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvHeadline, tvDesc,tvPrice;
+        private TextView tvHeadline, tvDesc,tvPrice,tvMerchant;
         private ImageView imageView;
         private CardView mContainer;
         private YouTubePlayerView youtube_vid;
@@ -60,6 +60,7 @@ public class RewardsAdapter  extends RecyclerView.Adapter<RewardsAdapter.MyViewH
             tvPrice = view.findViewById(R.id.tvPrice);
             mContainer = view.findViewById(R.id.outdoorRunning);
             youtube_vid = view.findViewById(R.id.youtube_vid);
+            tvMerchant = view.findViewById(R.id.tvMerchant);
         }
     }
 
@@ -79,7 +80,8 @@ public class RewardsAdapter  extends RecyclerView.Adapter<RewardsAdapter.MyViewH
         holder.tvDesc.setText(product.getDescription());
         holder.tvHeadline.setText(product.getTitle());
         Glide.with(mContext).load(product.getImage()).into(holder.imageView);
-        holder.tvPrice.setText(product.getPoints() +"Pulse Points");
+        holder.tvPrice.setText(product.getPoints());
+        holder.tvMerchant.setText(product.getMerchantName());
 
         holder.mContainer.setOnClickListener(new View.OnClickListener() {
             @Override
