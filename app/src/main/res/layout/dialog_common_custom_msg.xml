@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/margin_10dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logoo"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/cDialog_txtMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/margin_18dp"
+        android:paddingLeft="@dimen/margin_30dp"
+        android:paddingRight="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_40dp"
+        android:layout_marginBottom="@dimen/margin_40dp"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:id="@+id/cDialog_llTwoButtonParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnNo"
+            android:layout_width="@dimen/margin_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="No"
+            android:textSize="@dimen/margin_20dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:background="@color/colorPrimary"
+            android:paddingTop="@dimen/margin_5dp"
+            android:paddingBottom="@dimen/margin_5dp"
+            android:layout_marginRight="@dimen/margin_5dp"
+            />
+
+        <Button
+            android:id="@+id/btnYes"
+            android:layout_width="@dimen/margin_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Yes"
+            android:textSize="@dimen/margin_20dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:background="@color/colorPrimary"
+            android:paddingTop="@dimen/margin_5dp"
+            android:paddingBottom="@dimen/margin_5dp"
+            android:layout_marginLeft="@dimen/margin_1dp"
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        android:textSize="@dimen/margin_20dp"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
+        android:paddingTop="@dimen/margin_5dp"
+        android:visibility="gone"
+        android:paddingBottom="@dimen/margin_5dp"
+        />
+
+
+</LinearLayout>

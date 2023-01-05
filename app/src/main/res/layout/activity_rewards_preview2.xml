@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarpolicy"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:navigationIcon="@drawable/ic_home_back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/white" />
+
+
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/toolbarpolicy"
+        android:background="@color/white"
+        android:elevation="0dp"
+        app:sliderAnimationDuration="700"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderIndicatorAnimationDuration="700"
+        app:sliderIndicatorEnabled="false"
+        app:sliderIndicatorGravity="center_horizontal|bottom"
+        app:sliderIndicatorMargin="15dp"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorPadding="3dp"
+        app:sliderIndicatorRadius="2dp"
+        app:sliderIndicatorSelectedColor="@color/primary"
+        app:sliderIndicatorUnselectedColor="@color/colorgrey"
+        app:sliderScrollTimeInSec="2" />
+
+
+    <RelativeLayout
+        android:elevation="@dimen/margin_20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/slider"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/top_corner_grey"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_20dp"
+        android:paddingTop="@dimen/margin_10dp"
+        android:paddingRight="@dimen/margin_20dp"
+        android:paddingBottom="@dimen/margin_20dp">
+
+        <TextView
+            android:id="@+id/tvHeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/muli_semibold"
+            android:padding="@dimen/margin_10dp"
+            android:text="Product Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin_18dp" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/muli_semibold"
+            android:padding="@dimen/margin_10dp"
+            android:text="Coins"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/margin_18dp" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPrice"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:fontFamily="@font/muli_semibold"
+            android:padding="@dimen/margin_10dp"
+            android:text="Description"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/grey_90"
+            android:textSize="@dimen/margin_18dp" />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description"
+            android:fontFamily="@font/muli_semibold"
+            android:padding="@dimen/margin_10dp"
+            android:text="Product Description"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/grey_60"
+            android:textSize="@dimen/margin_14dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_add_to_cart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:background="@drawable/button_bg"
+            android:gravity="center"
+            android:text="Redeem"
+            android:theme="@style/Button.Green" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

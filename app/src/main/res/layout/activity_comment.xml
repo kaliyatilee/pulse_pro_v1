@@ -1,0 +1,87 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_gravity="center"
+    android:layout_height="fill_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarpolicy"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:navigationIcon="@drawable/ic_home_back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/white" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/commentLayout"
+        android:layout_below="@+id/toolbarpolicy"
+        android:layout_weight="12"
+        android:clipToPadding="false"
+        android:padding="8dp" />
+
+
+    <LinearLayout
+        android:id="@+id/commentLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/round_border_grey"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+
+        <EditText
+            android:id="@+id/commentMessage"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="6"
+            android:background="@null"
+            android:fontFamily="sans-serif-medium"
+            android:hint="Add a comment..."
+            android:inputType="textMultiLine|textCapSentences"
+            android:minLines="2"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:scrollHorizontally="false"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            tools:textColor="@color/gray"
+            android:id="@+id/send"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:width="1dp"
+            android:text="Post"
+            android:paddingRight="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="16sp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/no_comment"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textColor="@color/sec_primary"
+        android:textSize="@dimen/text_16"
+        android:fontFamily="@font/muli_semibold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No comments yet."/>
+
+</RelativeLayout>

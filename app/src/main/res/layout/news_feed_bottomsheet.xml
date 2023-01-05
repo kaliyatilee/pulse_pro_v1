@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:background="@drawable/top_corner_grey"
+    android:elevation="@dimen/margin_20dp"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/margin_20dp"
+    android:paddingTop="@dimen/margin_10dp"
+    android:paddingRight="@dimen/margin_20dp"
+    android:paddingBottom="@dimen/margin_20dp"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="100dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    android:id="@+id/bottom_sheet_layout">
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/bottomSheetGrapple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_bottom_sheet_grapple"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/muli_semibold"
+        android:padding="@dimen/margin_5dp"
+        android:text="13 dec"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/text_14" />
+
+
+    <TextView
+        android:id="@+id/post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date"
+        android:fontFamily="@font/muli_semibold"
+        android:isScrollContainer="true"
+        android:justificationMode="inter_word"
+        android:padding="@dimen/margin_5dp"
+        android:text="Newsfeed"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_16" />
+
+
+</RelativeLayout>

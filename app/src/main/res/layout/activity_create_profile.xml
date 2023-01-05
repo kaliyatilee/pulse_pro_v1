@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarpolicy"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:navigationIcon="@drawable/ic_home_back"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/white" />
+        <TextView
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Firstname"/>
+
+        <EditText
+            android:id="@+id/etfirstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:background="@drawable/edit_text_background"
+            android:enabled="false"
+            android:focusable="false"
+            android:fontFamily="@font/muli_semibold"
+            android:hint="Firstname"
+            android:padding="10dp"
+            android:textSize="@dimen/text_16" />
+        <TextView
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LastName"/>
+
+        <EditText
+            android:id="@+id/etlastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:background="@drawable/edit_text_background"
+            android:enabled="false"
+            android:focusable="false"
+            android:fontFamily="@font/muli_semibold"
+            android:hint="Lastname"
+            android:padding="10dp"
+            android:textSize="@dimen/text_16" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Weight (In KG)"/>
+        <EditText
+            android:id="@+id/etWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:background="@drawable/edit_text_background"
+            android:fontFamily="@font/muli_semibold"
+            android:hint="Weight"
+            android:inputType="numberDecimal"
+            android:padding="10dp"
+            android:textSize="@dimen/text_16" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Height in CM"/>
+        <EditText
+            android:id="@+id/etHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:background="@drawable/edit_text_background"
+            android:fontFamily="@font/muli_semibold"
+            android:hint="Height"
+            android:inputType="numberDecimal"
+            android:padding="10dp"
+            android:textSize="@dimen/text_16" />
+        <TextView
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gender"/>
+
+        <Spinner
+            android:id="@+id/etGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:background="@drawable/edit_text_background"
+            android:entries="@array/gender"
+            android:fontFamily="@font/muli_semibold"
+            android:padding="10dp"
+            android:textSize="@dimen/text_16" />
+        <TextView
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DOB"/>
+        <Button
+            android:id="@+id/etDate"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_40dp"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/muli_semibold"
+            android:minHeight="0dp"
+            android:paddingLeft="@dimen/text_20"
+            android:paddingRight="@dimen/text_20"
+            android:text="Pick your Date of birth"
+            android:textColor="@color/white" />
+        <TextView
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone Number"/>
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:background="@drawable/edit_text_background"
+            android:fontFamily="@font/muli_semibold"
+            android:hint="Phone Number"
+            android:padding="10dp"
+            android:inputType="phone"
+            android:textSize="@dimen/text_16" />
+
+
+        <Button
+            android:id="@+id/btnCreate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/muli_semibold"
+            android:text="Save Profile"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,190 @@
+<resources>
+    <string name="app_name">Pulse Health</string>
+    <string name="action_settings">Daily Targets</string>
+    <string name="title_activity_main_page">MainPage</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Achivements</string>
+    <string name="title_notifications">Community</string>
+    <string name="share">Share Profile</string>
+    <string name="sett_reminder_time_content">Reminder</string>
+    <string name="Reminder">Reminder</string>
+    <string name="sett_reminder_header">Set Reminder</string>
+    <string name="signout">SignOut</string>
+    <string name="walkandsteps">Walk &#38; Steps</string>
+    <string name="mcdTitle">Alert !</string>
+    <string name="mcdMessage">Please be advised that the following information is optional to divulge. However, it helps us with populating a customised activity plan that helps you to live a healthier life</string>
+
+    <string-array name="plans">
+        <item>Astro Mobile</item>
+        <item>Psmas</item>
+    </string-array>
+    <string-array name="categories">
+        <item>Select post type</item>
+        <item>Motivation</item>
+        <item>Running</item>
+        <item>Exercising</item>
+        <item>Dietry</item>
+        <item>Out Breaks</item>
+        <item>Chronic Illness</item>
+    </string-array>
+
+    <string-array name="chronic">
+        <item>Blood Pressure</item>
+        <item>Heart Disease</item>
+        <item>Asthma</item>
+        <item>Diabetes</item>
+        <item>Cancer</item>
+    </string-array>
+
+    <string-array name="medicationType">
+        <item>Vitamins</item>
+        <item>Vascular</item>
+        <item>Tranquilizers</item>
+        <item>Non-steroidal</item>
+        <item>Spasmolytic</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="medUnit">
+        <item>Unit</item>
+        <item>Mg.</item>
+        <item>G.</item>
+        <item>Pill</item>
+        <item>Drop</item>
+        <item>Ml</item>
+        <item>Mcg.</item>
+        <item>Oz</item>
+
+
+    </string-array>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string name="title_activity_main2">Main2Activity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_membership_groups">Wellness Groups</string>
+    <string name="congradulations">Congradulations</string>
+    <string name="google_maps_key">AIzaSyDe6jguftGYyo9BRRHqVsurTRUOmV_kVn8</string>
+    <string name="Meals">Meals</string>
+    <string name="spinner_title">Chronic Condition</string>
+    <string name="community">Community</string>
+
+
+    <string name="camera_tip">Tap to Take a Photo,Hold to Record Video</string>
+    <string name="audio_permission_error">Audio Permissions are Missing</string>
+
+    <!--Titles-->
+    <string name="first_slide_title">24/7 Service</string>
+    <string name="second_slide_title">Just a touch</string>
+    <string name="third_slide_title">Worry Free</string>
+    <string name="fourth_slide_title">Chat </string>
+
+    <!--Descriptions-->
+    <string name="first_slide_desc">We are always ready and alert to react to any emergency situation. Our Control Room operates 24/7 , even during public holidays.</string>
+    <string name="second_slide_desc">Realtime locating you from where ever you , when you need assistance. Just slide , scream or shake your device and we will be there. </string>
+    <string name="third_slide_desc">Connect your loved ones , famlily and friends to app and create your own safety net.</string>
+    <string name="fourth_slide_desc">Our chat allow you to create group , share (media,document,location &amp; many more) and you can voice and video call six user in conferencing. Upon a panic a emergency group to create with your safetynet members.  .  </string>
+
+    <!--Buttons-->
+    <string name="skip_btn">Skip</string>
+    <string name="next_btn">Next</string>
+    <string name="let_get_started">Lets Get Started</string>
+
+    <!--Welcome Screen-->
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="create_account">Create Account</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="welcome_tag_line"></string>
+    <string name="welcome_heading">SafetyNett APP \n FOR</string>
+    <string name="how_we_work">How we work</string>
+
+    <!-- Sign Up Screen -->
+    <string name="create_account_signup">Create \nProfile</string>
+    <string name="login_signup">Already have an account? Login</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_confirm_password">Confirm Password</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="select_orgranisation">Select Your Organization</string>
+
+    <!-- Login Screen -->
+    <string name="remember_me">Remember Me</string>
+    <string name="signup_login">Don\'t have an account? Sign Up</string>
+
+    <!-- Verify OTP Screen -->
+    <string name="verify_code">Verify Code</string>
+    <string name="otp_description_text">Enter the one time password send on</string>
+    <string name="otp_verification_text">VERIFICATION</string>
+    <string name="otp_code_text">CO\nDE</string>
+    <string name="todo">Close</string>
+
+    <!-- Forget Password Screen -->
+    <string name="forget_password_detail">Provide your account email or phone number for which you want to reset password</string>
+    <string name="via_mail">via email</string>
+    <string name="via_sms">via sms</string>
+    <string name="make_selection_detail">Select which contact detail should we use to reset password</string>
+    <string name="make_selection">Make \nSelection</string>
+    <string name="new_credentials_detail">Your identity has been verified! \nSet your new password</string>
+    <string name="new_credentials">New\n Credentials</string>
+    <string name="password_updated">Password\n Updated</string>
+    <string name="password_updated_success_message">your password has been updated!</string>
+
+    <string name="long_lorem_ipsum">
+        Duis tellus metus, elementum a lectus id, aliquet interdum mauris. Nam bibendum efficitur sollicitudin. Proin eleifend libero velit, nec fringilla dolor finibus quis. nMorbi eu libero pellentesque, rutrum metus quis, blandit est. Fusce bibendum accumsan nisi vulputate feugiat. In fermentum laoreet euismod. Praesent sem nisl, facilisis eget odio at, rhoncus scelerisque ipsum. Nulla orci dui, dignissim a risus ut, lobortis porttitor velit.
+        \n\nNulla id lectus metus. Maecenas a lorem in odio auctor facilisis non vitae nunc. Sed malesuada volutpat massa. Praesent sit amet lacinia augue, mollis tempor dolor.
+    </string>
+
+    <string name="plan_1">
+        \u25CF Individualized weekly and monthly wellness targets personalized for you based on your age, weight, height and comorbidities.
+        \n\n \u25CF Real-time activity tracking through Pulse Wearables that is automatically recorded on the Pulse Health App
+        \n\n \u25CF Weekly activity reports to help you stay on top of your wellness targets
+        \n\n \u25CF Earn up to 30 000 Pulse Points through achieving your monthly targets
+        \n\n \u25CF Redeem points for Rewards and Purchases in the Pulse Store.
+        \n\n \u25CF Exclusive access to Pulse marathons, Walkathons and Zumba Sessions.
+        \n\n \u25CF Discounts of up to 10% at Pulse Partner Restaurants
+    </string>
+
+    <string name="plan_2">
+       \u25CF Individualized weekly and monthly wellness targets personalized for you based on your age, weight, height and comorbidities.
+\n\n \u25CF Real-time activity tracking through Pulse Wearables that is automatically recorded on the Pulse Health App
+\n\n \u25CF Weekly activity reports to help you stay on top of your wellness targets
+\n\n \u25CF Earn up to 50 000 Pulse Points through achieving your monthly targets
+\n\n \u25CF Redeem points for Rewards and Purchases in the Pulse Store.
+\n\n \u25CF Exclusive access to Pulse marathons, Walkathons and Zumba Sessions.
+\n\n \u25CF Discounts of up to 20% at Pulse Partner Restaurants
+    </string>
+
+    <string name="plan_3">
+         \u25CF Individualized weekly and monthly wellness targets personalized for you based on your age, weight, height and comorbidities.
+\n\n \u25CF Access to Personal Pulse Fitness trainer to help encourage you towards your fitness goals
+\n\n \u25CF Access to a Personalized Diet and Eating Plan created exclusively for you by a Pulse Dietician
+\n\n \u25CF Earn up to 75 000 Pulse Points through achieving your monthly targets
+\n\n \u25CF Redeem points for Rewards and Purchases in the Pulse Store.
+\n\n \u25CF Discounts of up to 20% at Pulse Partner Restaurants
+\n\n \u25CF Redeem Pulse Points for Miles at Partner Airlines
+    </string>
+
+    <string name="wellness_plan_string">
+        \u25CF Daily Steps target = 5000
+\n\n \u25CF Daily distance covered =5.000km
+\n\n \u25CF Calories burnt daily = 300
+\n\n \u25CF Frequency of Activity (Running, Walking, Cycling) = 3x week
+\n\n \u25CF Daily Calorie Intake = 2000 – 2500 Calories
+\n\n \u25CF Daily reminder for 3 meals and 2 snacks
+\n\n \u25CF Encourage participation in Pulse marathons, Walkathons and Zumba Sessions
+
+    </string>
+    <string name="mpercent">3 meals <![CDATA[&]]></string>
+    <string name="noInternet">It seems no internet connection, please turn on your internet</string>
+</resources>

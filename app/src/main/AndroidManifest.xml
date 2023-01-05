@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.algebratech.pulse_wellness">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:supportsRtl,android:theme">
+        <activity
+            android:name=".activities.WatchActivities"
+            android:exported="true" />
+        <activity
+            android:name=".activities.DetailActivitySummary"
+            android:exported="true" />
+        <activity
+            android:name=".activities.RowingMachineActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.StationaryBikeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.StairStepperActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.IndoorWalkActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.IndoorRunActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.HikingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".fragments.ShowDataFragment"
+            android:exported="true" />
+        <activity
+            android:name=".gridDemo"
+            android:exported="true" />
+        <activity
+            android:name=".MySubscriptionplan"
+            android:exported="true" />
+        <activity
+            android:name=".activities.AddUserGoals"
+            android:exported="true" />
+<!--        <activity-->
+<!--            android:name=".fragments.LeaderboardFragment"-->
+<!--            android:exported="true" />-->
+<!--        <activity-->
+<!--            android:name=".FragmentTabLeaderboardFriendlist"-->
+<!--            android:exported="true" />-->
+<!--        <activity-->
+<!--            android:name=".activities.SettingFragment"-->
+<!--            android:exported="true" />-->
+<!--        <activity-->
+<!--            android:name=".fragment_tab_newsfeed_dashboard"-->
+<!--            android:exported="true" />-->
+        <activity
+            android:name=".activities.AddCardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.generatingWellnessPlan"
+            android:exported="true" />
+        <activity
+            android:name=".AddFriendScreen"
+            android:exported="true" />
+        <activity
+            android:name=".activities.FriendProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DetailActivityScreen"
+            android:exported="true" />
+        <activity
+            android:name=".fragments.ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.AllTransaction"
+            android:exported="true" />
+        <activity
+            android:name=".activities.MyWellnesPlanScreen"
+            android:exported="true" />
+        <activity
+            android:name=".activities.NotificationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ProfileCreatedView"
+            android:exported="true" />
+
+        <service
+            android:name=".services.MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <!-- <action android:name="com.google.android.c2dm.intent.RECEIVE" /> -->
+                <!--                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/> -->
+            </intent-filter>
+        </service> <!-- <service -->
+        <!-- android:name=".services.MyFirebaseInstanceIDService" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.INSTANCE_ID_EVENT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <activity
+            android:name=".activities.MyNewsFeedActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SelectDisease"
+            android:exported="true" />
+        <activity
+            android:name=".Comment_activity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.NewsLikeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SubscriptionPlansListingScreen"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name=".activities.ForgetPasswordSelectionActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ForgetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name=".activities.ForgetPasswordEmailActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name=".activities.VerityOtpActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name=".activities.ChangePasswordDoneActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name=".activities.NewPassword"
+            android:theme="@style/AppThemeMain"
+            android:exported="true"/>
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name=".activities.CreateProfileActivity"
+            android:label="Edit Profile"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activities.CreateProfileOneActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name=".activities.CreateProfileTwoActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name=".activities.CreateProfileThreeActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.ScanActivity"
+            android:label="Wearable Settings"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activities.AddFriendActivity"
+            android:label="Add New Friend"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activities.RewardsPreview"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.RewardsPreviewTest"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.OutdoorRunActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.OutdoorWalkingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.OutdoorCyclingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.TreadmillActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.RunResultsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Camera2Activity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.NewsFeedDetailActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ShowRecordsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.GiveFeedBackActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".fragments.ActivitySummaryFragment"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.FriendDetailScreen"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name="com.inuker.bluetooth.library.BluetoothService"
+            android:exported="true"/>
+        <service
+            android:name=".services.DeviceConnect"
+            android:exported="true"
+            android:enabled="true" /> <!-- <service android:name=".utils.NotifyListener" android:enabled="true"> -->
+        <!-- <intent-filter > -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- <action android:name="android.accessibilityservice.AccessibilityService"/> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <!-- <receiver android:name=".recievers.PhoneStateReceiver"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.PHONE_STATE" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <!--  -->
+         <service
+             android:name=".services.NotificationService"
+             android:enabled="true"
+             android:label="@string/app_name"
+             android:exported="false"
+             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+             <intent-filter>
+                 <action android:name="android.service.notification.NotificationListenerService" />
+             </intent-filter>
+         </service>
+        <receiver
+            android:name=".recievers.IncomingSmsReciever"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".recievers.IncomingCallReciever"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+        <!--
+ <receiver
+            android:name=".recievers.OnBootReciever"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        -->
+        <receiver
+            android:name=".recievers.OnBootReciever"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+
+            <!-- 2147483647 -->
+            <intent-filter android:priority="999">
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.REBOOT" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+            </intent-filter>
+        </receiver> <!--  -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_like_btn" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="com.algebratech.pulse_wellness" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path" />
+        </provider>
+    </application>
+
+</manifest>

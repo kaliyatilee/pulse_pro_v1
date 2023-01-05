@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_margin="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:id="@+id/imageView"/>
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/tvHeadline"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvDesc"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:layout_below="@+id/tvHeadline"
+                android:text=""/>
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvPrice"
+                android:text="$"
+                android:textSize="18dp"
+                android:layout_below="@+id/tvDesc"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvPrice"
+                android:padding="20dp">
+
+                <Button
+                    android:id="@+id/btnRedeem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:minHeight="0dp"
+                    android:padding="10dp"
+                    android:text="Redeem Point ($) "
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</ScrollView>

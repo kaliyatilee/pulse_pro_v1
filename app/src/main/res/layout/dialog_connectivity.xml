@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/connectivity_bg">
+
+
+    <TextView
+        android:id="@+id/connecthead"
+        android:text="Connect your wearable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        />
+
+    <ImageView
+        android:id="@+id/connectimg"
+        android:layout_below="@+id/connecthead"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:src="@drawable/connectivity"
+        android:layout_marginBottom="0dp"/>
+
+    <TextView
+        android:id="@+id/connectdesc"
+        android:layout_below="@+id/connectimg"
+        android:text="Please enable your bluetooth for pairing with the wearable."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textStyle="normal"
+        android:textColor="@color/grey"
+        android:textAlignment="center"
+        android:padding="15dp"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/connectact"
+        android:layout_below="@+id/connectdesc"
+        android:layout_centerHorizontal="true"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:text="ENABLE BLUETOOTH"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_marginBottom="30dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

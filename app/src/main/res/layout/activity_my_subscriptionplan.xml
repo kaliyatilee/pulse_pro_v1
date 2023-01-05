@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/top_corner"
+    android:orientation="vertical"
+    tools:context=".MySubscriptionplan">
+
+    <TextView
+        android:id="@+id/mySubscription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:fontFamily="@font/muli_semibold"
+        android:gravity="center"
+        android:text="Plan Details"
+        android:textColor="@color/black"
+        android:textSize="@dimen/margin_20dp" />
+
+    <TextView
+        android:id="@+id/planName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mySubscription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:fontFamily="@font/muli_semibold"
+        android:text="Pulse Gold"
+        android:textColor="@color/sec_primary"
+        android:textSize="@dimen/margin_18dp" />
+
+    <TextView
+        android:id="@+id/planPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/planName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:fontFamily="@font/muli_semibold"
+        android:text="12.99$ / Month"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/margin_24dp" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/cancelStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/planPrice"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/muli_semibold"
+        android:text="cancelled"
+        android:textColor="@color/red_500"
+        android:textSize="@dimen/margin_12dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cancelStatus"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="@dimen/margin_20dp"
+            android:layout_height="@dimen/margin_20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/calendar"
+            app:tint="@color/primary" />
+
+
+        <TextView
+            android:id="@+id/endDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="14 Mar 2022"
+            android:textColor="@color/sec_primary"
+            android:textSize="@dimen/margin_14dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_marginBottom="@dimen/margin_10dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_40dp"
+            android:layout_marginRight="@dimen/margin_10dp"
+            android:background="@drawable/button_bg"
+            android:paddingLeft="@dimen/margin_10dp"
+            android:paddingRight="@dimen/margin_10dp"
+            android:text="Cancel plan"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15" />
+
+        <Button
+            android:id="@+id/Change"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_40dp"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:background="@drawable/button_bg"
+            android:paddingLeft="@dimen/margin_10dp"
+            android:paddingRight="@dimen/margin_10dp"
+            android:text="Change plan"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

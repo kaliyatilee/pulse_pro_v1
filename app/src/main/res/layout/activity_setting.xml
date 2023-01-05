@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.SettingFragment">
+
+
+    <LinearLayout
+        android:id="@+id/profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_person"
+            app:tint="@color/primary"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="Profile"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin_16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/myReport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_report"
+            app:tint="@color/primary"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="My Report"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin_16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/my_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_news"
+            app:tint="@color/primary"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="My Newsfeed"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin_16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/myWellnessPlan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_wellness"
+            app:tint="@color/primary"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="My Wellnessplan"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin_16dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/all_transactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_transaction"
+            app:tint="@color/primary"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="All Transactions"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin_16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/subscription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_transaction"
+            app:tint="@color/primary"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="Subscription"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin_16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_notification"
+            app:tint="@color/primary"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="Notification"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin_16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:id="@+id/givefeedback"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_email"
+            app:tint="@color/primary"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="Leave Feedback"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin_16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:id="@+id/signout"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_shutdown"
+            app:tint="@color/primary"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="Logout"
+            android:textColor="@color/black"
+            android:textSize="@dimen/margin_16dp" />
+
+    </LinearLayout>
+
+
+    <View
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/sec_primary" />
+
+    <ScrollView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_40dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/select_disease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_bg"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="select disease"
+                android:textColor="@color/white" />
+
+
+            <Button
+                android:id="@+id/subscription_plans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_bg"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="Subscription Plans"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/friend_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_bg"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="Friend Profile"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/detail_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_bg"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="Detail Activity"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

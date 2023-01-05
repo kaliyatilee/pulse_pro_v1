@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_margin="@dimen/margin_20dp"
+    android:background="@drawable/alert_round_corner"
+    android:padding="@dimen/margin_20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/checked"
+        android:layout_width="@dimen/margin_100dp"
+        android:layout_height="@dimen/margin_100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/checked" />
+
+    <TextView
+        android:id="@+id/thankou"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/checked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thank you!"
+        android:fontFamily="@font/muli_semibold"
+        android:textSize="@dimen/text_20"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/success"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/thankou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Your subscription plan successfully purchased"
+        android:fontFamily="@font/muli_semibold"
+        android:textSize="@dimen/text_18"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:textColor="@color/grey_60"/>
+
+    <Button
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/success"
+        android:layout_centerHorizontal="true"
+        android:text="ok" />
+</RelativeLayout>

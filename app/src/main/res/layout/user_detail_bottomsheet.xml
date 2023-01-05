@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounde_corner"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="User Name"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/general_close_icon" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profilePic"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/placeholder" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:fontFamily="@font/muli_semibold"-->
+                <!--                    android:text="Gender:"-->
+                <!--                    android:textAlignment="textStart"-->
+                <!--                    android:textSize="14sp" />-->
+
+                <TextView
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="start"
+                    android:text="Gender: -"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <!--                <TextView-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:fontFamily="@font/muli_semibold"-->
+                <!--                    android:text="Country:"-->
+                <!--                    android:textAlignment="textStart"-->
+                <!--                    android:textSize="14sp" />-->
+
+                <TextView
+                    android:id="@+id/country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="start"
+                    android:text="Country: -"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:fontFamily="@font/muli_semibold"-->
+                <!--                    android:text="DOB:"-->
+                <!--                    android:textAlignment="textStart"-->
+                <!--                    android:textSize="14sp" />-->
+
+                <TextView
+                    android:id="@+id/dob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="start"
+                    android:text="DOB: -"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:fontFamily="@font/muli_semibold"-->
+                <!--                    android:text="Member since:"-->
+                <!--                    android:textAlignment="textStart"-->
+                <!--                    android:textSize="14sp" />-->
+
+                <TextView
+                    android:id="@+id/memberSince"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="start"
+                    android:text="Member since: -"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/addFriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="@dimen/margin_10dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:padding="@dimen/text_10"
+        android:text="Add Friend"
+        android:textColor="@color/white" />
+</LinearLayout>
