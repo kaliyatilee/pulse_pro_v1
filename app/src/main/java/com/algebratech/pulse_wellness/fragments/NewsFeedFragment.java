@@ -213,7 +213,7 @@ public class NewsFeedFragment extends Fragment implements RecyclerView.OnScrollC
                                         String total_likes = object.optString("tot_likes");
                                         String like_status = object.optString("like_status");
                                         String tot_comment_count = object.optString("tot_comment_count");
-                                        String points = object.optString("points");
+                                        String points = object.optString("loyaltpoints");
 
                                         NewsFeedModel newsfeed = new NewsFeedModel(id, category, headline, post, imageurl, postedby, partnerid, created_at, username, profliepic, type, total_likes, like_status, false, tot_comment_count, points);
                                         news.add(newsfeed);
