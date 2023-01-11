@@ -268,7 +268,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyView
             }
         });
 
-        holder.points.setText("("+product.getPoints() + " Points)");
+        holder.points.setText("Activity Points: "+product.getPoints());
 
 //        holder.tvPrice.setText(product.getPoints());
 //

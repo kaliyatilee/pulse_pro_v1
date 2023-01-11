@@ -58,8 +58,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:fontFamily="@font/muli_semibold"
                         android:text="(0 points)"
+                        android:textStyle="bold"
                         android:textColor="@color/sec_primary"
                         android:textSize="@dimen/text_12" />
                 </LinearLayout>
