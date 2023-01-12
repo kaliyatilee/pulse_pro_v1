@@ -11,12 +11,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.algebratech.pulse_wellness.R;
+import com.algebratech.pulse_wellness.activities.DailyWalkReport;
 import com.algebratech.pulse_wellness.activities.ShowRecordsActivity;
 
 public class ShowDataFragment extends AppCompatActivity {
 
     private ScrollView layout;
-    private CardView outdoorRunning, outdoorwalk, indoorRun, indoorWalk, Hiking, stairStepper, outdoorCycle, stationaryBike, treadmill, rowingMachine;
+    private CardView outdoorRunning, outdoorwalk, indoorRun, indoorWalk, Hiking, stairStepper, outdoorCycle, stationaryBike, treadmill, rowingMachine,dailyWalk;
     private Toolbar toolbarPolicy;
 
     @Override
@@ -24,6 +25,7 @@ public class ShowDataFragment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_show_data);
 
+        dailyWalk = findViewById(R.id.dailyWalk);
         outdoorRunning = findViewById(R.id.outdoorRunning);
         outdoorwalk = findViewById(R.id.outdoorwalk);
         indoorRun = findViewById(R.id.indoorRun);
@@ -48,6 +50,16 @@ public class ShowDataFragment extends AppCompatActivity {
         });
 
         Intent intent = new Intent(ShowDataFragment.this, ShowRecordsActivity.class);
+
+        dailyWalk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShowDataFragment.this, DailyWalkReport.class);
+                intent.putExtra("title", "Daily Walking");
+                intent.putExtra("type", "walking");
+                startActivity(intent);
+            }
+        });
 
         outdoorRunning.setOnClickListener(new View.OnClickListener() {
             @Override

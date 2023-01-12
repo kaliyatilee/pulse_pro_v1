@@ -43,6 +43,13 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:supportsRtl,android:theme">
         <activity
+            android:name=".activities.DailyWalkReport"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activities.WatchActivities"
             android:exported="true" />
         <activity
@@ -77,19 +84,18 @@
             android:exported="true" />
         <activity
             android:name=".activities.AddUserGoals"
-            android:exported="true" />
-<!--        <activity-->
-<!--            android:name=".fragments.LeaderboardFragment"-->
-<!--            android:exported="true" />-->
-<!--        <activity-->
-<!--            android:name=".FragmentTabLeaderboardFriendlist"-->
-<!--            android:exported="true" />-->
-<!--        <activity-->
-<!--            android:name=".activities.SettingFragment"-->
-<!--            android:exported="true" />-->
-<!--        <activity-->
-<!--            android:name=".fragment_tab_newsfeed_dashboard"-->
-<!--            android:exported="true" />-->
+            android:exported="true" /> <!-- <activity -->
+        <!-- android:name=".fragments.LeaderboardFragment" -->
+        <!-- android:exported="true" /> -->
+        <!-- <activity -->
+        <!-- android:name=".FragmentTabLeaderboardFriendlist" -->
+        <!-- android:exported="true" /> -->
+        <!-- <activity -->
+        <!-- android:name=".activities.SettingFragment" -->
+        <!-- android:exported="true" /> -->
+        <!-- <activity -->
+        <!-- android:name=".fragment_tab_newsfeed_dashboard" -->
+        <!-- android:exported="true" /> -->
         <activity
             android:name=".activities.AddCardActivity"
             android:exported="true" />
@@ -127,7 +133,7 @@
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
                 <!-- <action android:name="com.google.android.c2dm.intent.RECEIVE" /> -->
-                <!--                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/> -->
+                <!-- <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/> -->
             </intent-filter>
         </service> <!-- <service -->
         <!-- android:name=".services.MyFirebaseInstanceIDService" -->
@@ -153,8 +159,8 @@
             android:exported="true" />
         <activity
             android:name=".activities.SplashActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -164,8 +170,8 @@
         </activity>
         <activity
             android:name=".activities.LoginActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeMain" />
         <activity
             android:name=".activities.ForgetPasswordSelectionActivity"
@@ -173,69 +179,69 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.ForgetPasswordActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeMain" />
         <activity
             android:name=".activities.ForgetPasswordEmailActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeMain" />
         <activity
             android:name=".activities.VerityOtpActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeMain" />
         <activity
             android:name=".activities.ChangePasswordDoneActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeMain" />
         <activity
             android:name=".activities.NewPassword"
-            android:theme="@style/AppThemeMain"
-            android:exported="true"/>
-        <activity
-            android:name=".activities.RegisterActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/AppThemeMain" />
         <activity
-            android:name=".activities.CreateProfileActivity"
-            android:label="Edit Profile"
+            android:name=".activities.RegisterActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name=".activities.CreateProfileActivity"
+            android:exported="true"
+            android:label="Edit Profile"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.CreateProfileOneActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeMain" />
         <activity
             android:name=".activities.CreateProfileTwoActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeMain" />
         <activity
             android:name=".activities.CreateProfileThreeActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeMain" />
         <activity
             android:name=".activities.MainActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.ScanActivity"
-            android:label="Wearable Settings"
             android:exported="true"
+            android:label="Wearable Settings"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.AddFriendActivity"
-            android:label="Add New Friend"
             android:exported="true"
+            android:label="Add New Friend"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
@@ -291,22 +297,22 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".fragments.ActivitySummaryFragment"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.FriendDetailScreen"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <service
             android:name="com.inuker.bluetooth.library.BluetoothService"
-            android:exported="true"/>
+            android:exported="true" />
         <service
             android:name=".services.DeviceConnect"
-            android:exported="true"
-            android:enabled="true" /> <!-- <service android:name=".utils.NotifyListener" android:enabled="true"> -->
+            android:enabled="true"
+            android:exported="true" /> <!-- <service android:name=".utils.NotifyListener" android:enabled="true"> -->
         <!-- <intent-filter > -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->
         <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
@@ -319,16 +325,17 @@
         <!-- </intent-filter> -->
         <!-- </receiver> -->
         <!--  -->
-         <service
-             android:name=".services.NotificationService"
-             android:enabled="true"
-             android:label="@string/app_name"
-             android:exported="false"
-             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-             <intent-filter>
-                 <action android:name="android.service.notification.NotificationListenerService" />
-             </intent-filter>
-         </service>
+        <service
+            android:name=".services.NotificationService"
+            android:enabled="true"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
         <receiver
             android:name=".recievers.IncomingSmsReciever"
             android:exported="false">
