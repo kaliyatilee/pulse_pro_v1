@@ -622,7 +622,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
                     public void onSportModelStateChange(SportModelStateData sportModelStateData) {
                         int SportsMode = sportModelStateData.getSportModeType();
                         if (SportsMode == 0) {
-                            StopActivity();
+                           // StopActivity();
                         }
 
                     }
