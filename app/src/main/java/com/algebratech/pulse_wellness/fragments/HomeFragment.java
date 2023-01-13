@@ -541,6 +541,7 @@ public class HomeFragment extends Fragment {
                                             myPlanKcalPro.setProgress(tempweekKCal);
 
                                             if(tempweekKCal >= 100) {
+                                                myPlanKcalProText.setText("100 %");
                                                 txtPlanStatus.setText("Well done, You have achieved your Weekly Goals.");
                                             } else {
                                                 txtPlanStatus.setText("Great! You are almost there.");
@@ -552,6 +553,7 @@ public class HomeFragment extends Fragment {
                                             myPlanKMPro.setProgress(tempweekKCal);
 
                                             if(tempweekKM >= 100) {
+                                                myPlanKMProText.setText("100 %");
                                                 txtDistancePlanStatus.setText("Well done, You have achieved your Weekly Goals.");
                                             } else {
                                                 txtDistancePlanStatus.setText("Great! You are almost there.");
@@ -676,8 +678,6 @@ public class HomeFragment extends Fragment {
 
 
     private void getTodaysActivities() {
-
-
         if (CM.isConnected(getActivity())) {
             CM.showProgressLoader(getActivity());
             JSONObject object = new JSONObject();

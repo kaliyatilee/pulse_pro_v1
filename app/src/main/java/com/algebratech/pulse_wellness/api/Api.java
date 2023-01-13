@@ -29,7 +29,7 @@ public class Api {
     //Add FCM Tokken
     public static final String addfcmtokken = api + "addfcmtokken";
     //Get News Feed
-    public static final String allfeeds = api + "allfeeds";
+    public static final String allfeeds = api + " ";
     //Get My News Feed
     public static final String myfeeds = api + "myfeeds";
     //  public static final String allfeeds = "https://demo1.pulse-wellness.tech/api/allfeeds";
@@ -113,4 +113,6 @@ public class Api {
     public static final String getUserDetails = api + "getUserDetails";
     //Api for cancel subscription
     public static final String cancelSubscribe = api + "cancelSubscribe";
+    //Api for daily walk report
+    public static final String getDailyWalkReport  = api + "getDailyWalkReport";
 }
