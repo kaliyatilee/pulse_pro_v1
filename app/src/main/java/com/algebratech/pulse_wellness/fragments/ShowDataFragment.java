@@ -66,7 +66,7 @@ public class ShowDataFragment extends AppCompatActivity {
             public void onClick(View v) {
 
                 intent.putExtra("title", "Outdoor Running");
-                intent.putExtra("type", "Outdoor Running");
+                intent.putExtra("type", "Outdoor Run");
                 startActivity(intent);
 
             }
@@ -77,7 +77,7 @@ public class ShowDataFragment extends AppCompatActivity {
             public void onClick(View v) {
 
                 intent.putExtra("title", "Outdoor Walking");
-                intent.putExtra("type", "Outdoor Walking");
+                intent.putExtra("type", "Outdoor Walk");
                 startActivity(intent);
 
             }
@@ -88,7 +88,7 @@ public class ShowDataFragment extends AppCompatActivity {
             public void onClick(View v) {
 
                 intent.putExtra("title", "Indoor Running");
-                intent.putExtra("type", "Indoor Running");
+                intent.putExtra("type", "Indoor Run");
                 startActivity(intent);
 
             }

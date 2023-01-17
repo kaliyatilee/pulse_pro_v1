@@ -187,4 +187,9 @@
     </string>
     <string name="mpercent">3 meals <![CDATA[&]]></string>
     <string name="noInternet">It seems no internet connection, please turn on your internet</string>
+    
+    
+    activity names
+    <string name="Outdoor_Walk">Outdoor Walk</string>
+"
 </resources>
