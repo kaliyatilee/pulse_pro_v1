@@ -101,6 +101,7 @@ public class ShowRecordsActivity extends AppCompatActivity {
             activityData.setVisibility(View.GONE);
             noData.setVisibility(View.VISIBLE);
         } else {
+            noData.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
             activityLog.setVisibility(View.VISIBLE);
             mAdapter = new ShowDataAdapter(ShowRecordsActivity.this, activityListModels);
@@ -117,7 +118,7 @@ public class ShowRecordsActivity extends AppCompatActivity {
             JSONObject object = new JSONObject();
             try {
                 object.put("user_id", user_id);
-                object.put("activity", activityName);
+                object.put("activity", type);
 
             } catch (JSONException e) {
                 e.printStackTrace();
