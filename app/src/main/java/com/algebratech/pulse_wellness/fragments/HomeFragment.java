@@ -17,9 +17,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,7 +91,7 @@ public class HomeFragment extends Fragment {
     private BluetoothManager mBManager;
     private BluetoothAdapter mBAdapter;
     private BluetoothLeScanner mBScanner;
-    TextView stepsTextview, txtWalk, distance;
+    TextView stepsTextview, txtWalk, distance,latestHeart,avarageHeart;
     ProgressBar progressBar, runningProgress, myPlanKcalPro, myPlanKMPro, weightPro, kcalPro, stepsPro;
     private final int REQUEST_CODE = 1;
     VPOperateManager mVpoperateManager;
@@ -207,6 +209,34 @@ public class HomeFragment extends Fragment {
             userGoals = root.findViewById(R.id.userGoals);
             activitiesSummary = root.findViewById(R.id.activitiesSummary);
             seeAll = root.findViewById(R.id.seeAll);
+            avarageHeart = root.findViewById(R.id.avarageHeart);
+            latestHeart = root.findViewById(R.id.latestHeart);
+            //sete the heart rate from local storage
+             BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    String heartStatus;
+                    String heartRate = intent.getStringExtra("heartRate");
+                    if(heartRate.equals("0")){
+                        latestHeart.setText("Scanning");
+                    }
+                    else{
+                        latestHeart.setText("Latest HR :"+ heartRate);
+                    }
+
+                     heartStatus = intent.getStringExtra("heartStatus");
+                    if(heartStatus.equals("STATE_HEART_NORMAL")){
+                        heartStatus = "Normal";
+                        avarageHeart.setTextColor(Color.parseColor("#7CBE31"));
+                    }
+                    else{
+                        avarageHeart.setTextColor(Color.parseColor("#000000"));
+                    }
+                    avarageHeart.setText(heartStatus);
+                }
+            };
+            registerReceiver(broadcastReceiver, new IntentFilter(DeviceConnect.BROADCAST_ACTION));
+
 
             DashBoardAPI();
 
