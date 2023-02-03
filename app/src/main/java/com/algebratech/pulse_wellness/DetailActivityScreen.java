@@ -68,7 +68,6 @@ public class DetailActivityScreen extends AppCompatActivity {
         setSupportActionBar(toolbarPolicy);
         setTitle("Detail Activity");
 
-        WristbandManager.getInstance().startScan();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbarPolicy.setNavigationOnClickListener(new View.OnClickListener() {
