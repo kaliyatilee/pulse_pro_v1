@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.algebratech.pulse_wellness.activities.DetailActivitySummary;
 import com.algebratech.pulse_wellness.activities.FriendDetailScreen;
 import com.algebratech.pulse_wellness.activities.RegisterActivity;
@@ -66,6 +67,7 @@ public class DetailActivityScreen extends AppCompatActivity {
         no_data = findViewById(R.id.no_data);
         setSupportActionBar(toolbarPolicy);
         setTitle("Detail Activity");
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbarPolicy.setNavigationOnClickListener(new View.OnClickListener() {

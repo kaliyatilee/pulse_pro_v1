@@ -43,14 +43,7 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:supportsRtl,android:theme">
         <activity
-            android:name=".FunctionsActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".StepActivity"
+            android:name=".WeightMonitoring"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -63,6 +56,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".activities.WeightMonitoring"
+            android:exported="true"/>
         <activity
             android:name=".activities.WatchActivities"
             android:exported="true" />

@@ -25,6 +25,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
@@ -820,15 +821,28 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
                     }
                 });
 
-//                VPOperateManager.getMangerInstance(mContext).startDetectHeart(DeviceConnect.this, new IHeartDataListener() {
-//                    @Override
-//                    public void onDataChange(HeartData heartData) {
-//                        String heartRate = String.valueOf(heartData.getData());
-//                        intent.putExtra("heartRate",heartRate);
-//                    }
-//                });
+
             }
         }, 0, 8000);
+
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                Log.e("Lee", "READ SPORT Heart Rate");
+                VPOperateManager.getMangerInstance(mContext).startDetectHeart(DeviceConnect.this, new IHeartDataListener() {
+                    @Override
+                    public void onDataChange(HeartData heartData) {
+                        Log.e("Lee", String.valueOf(heartData.getHeartStatus()));
+                        String heartRate = String.valueOf(heartData.getData());
+                        intent.putExtra("heartRate",heartRate);
+                        intent.putExtra("heartStatus",String.valueOf(heartData.getHeartStatus()));
+                        sendBroadcast(intent);
+                    }
+                });
+//                VPOperateManager.getMangerInstance(mContext).stopDetectHeart(DeviceConnect.this);
+
+            }
+        },0,180000);
 
 
 //        new Timer().scheduleAtFixedRate(new TimerTask() {
@@ -928,7 +942,6 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
                     public void onResponse(JSONObject response) {
                         try {
                             if (response.getString("status").equals("true")) {
-                                //Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
                             } else {
                                 //Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
                             }
