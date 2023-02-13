@@ -5,10 +5,11 @@ import static com.veepoo.protocol.model.enums.EFunctionStatus.SUPPORT;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.le.BluetoothLeScanner;
+import android.bluetooth.le.ScanRecord;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -39,6 +40,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.algebratech.pulse_wellness.DeviceCompare;
+import com.algebratech.pulse_wellness.FunctionsActivity;
 import com.algebratech.pulse_wellness.R;
 import com.algebratech.pulse_wellness.adapters.BleScanViewAdapter;
 import com.algebratech.pulse_wellness.api.Api;
@@ -77,11 +79,19 @@ import com.veepoo.protocol.model.datas.PwdData;
 import com.veepoo.protocol.model.datas.SportData;
 import com.veepoo.protocol.model.enums.EFunctionStatus;
 import com.veepoo.protocol.model.settings.CustomSettingData;
+import com.wosmart.ukprotocollibary.WristbandManager;
+import com.wosmart.ukprotocollibary.WristbandManagerCallback;
+import com.wosmart.ukprotocollibary.WristbandScanCallback;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBeginPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerStepItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerStepPacket;
+import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
@@ -156,11 +166,13 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
         Log.d(TAG, "onSearchStarted");
+        String tag = "Device Login";
 
         deviceTypeList.add("V19");
         deviceTypeList.add("GT2");
         deviceTypeList.add("Pulse F");
         deviceTypeList.add("Pulse S");
+        deviceTypeList.add("V270");
 
         toolbarPolicy = findViewById(R.id.toolbar);
         setSupportActionBar(toolbarPolicy);
@@ -226,9 +238,9 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
             @Override
             public void onClick(View v) {
                 if (notificationListeners != null && notificationListeners.contains(LISTENER_PATH)) {
-                    Log.e("ENABLE_LISTENER_PATH","YES");
+                    Log.e("ENABLE_LISTENER_PATH", "YES");
                 } else {
-                    Log.e("ENABLE_LISTENER_PATH","NO");
+                    Log.e("ENABLE_LISTENER_PATH", "NO");
                 }
                 startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
             }
@@ -519,6 +531,7 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
 
 
     private boolean scanDevice() {
+
         if (!mListAddress.isEmpty()) {
             mListAddress.clear();
         }
@@ -531,49 +544,120 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
             Toast.makeText(mContext, "bluetoothIsNotTurnedOn", Toast.LENGTH_SHORT).show();
             return true;
         }
-        mVpoperateManager.startScanDevice(mSearchResponse);
-        return false;
-    }
-
-
-    private void connectDevice(final String mac, final String deviceName) {
-
-        Log.d("Trynos Decive Info", mac + " | " + deviceName);
-
-        mVpoperateManager.registerConnectStatusListener(mac, mBleConnectStatusListener);
-
-        mVpoperateManager.connectDevice(mac, deviceName, new IConnectResponse() {
+        Log.d("DeviceResults", "Running scan device");
+//        mVpoperateManager.startScanDevice(mSearchResponse);
+        WristbandManager.getInstance(this).startScan(true, new WristbandScanCallback() {
+            @Override
+            public void onWristbandDeviceFind(BluetoothDevice device, int rssi, byte[] scanRecord) {
+                super.onWristbandDeviceFind(device, rssi, scanRecord);
+                SearchResult result = new SearchResult(device, rssi, scanRecord);
+                Log.d("DeviceResults", result.toString());
+//                if (!devices.contains(result)) {
+//                    devices.add(result);
+//                    Collections.sort(devices, new RssiComparable());
+//                    adapter.notifyDataSetChanged();
+//                }
+            }
 
             @Override
-            public void connectState(int code, BleGattProfile profile, boolean isoadModel) {
-                if (code == Code.REQUEST_SUCCESS) {
-                    //bluetoothAndDeviceConnectionStatus
-                    Log.d(TAG, "connectionSucceeded");
-                    Log.d(TAG, "whetherItIsFirmwareUpgradeMode=" + isoadModel);
-                    mIsOadModel = isoadModel;
-                } else {
-                    Log.d(TAG, "connectionFailed");
+            public void onWristbandDeviceFind(BluetoothDevice device, int rssi, ScanRecord scanRecord) {
+                super.onWristbandDeviceFind(device, rssi, scanRecord);
+                SearchResult result = new SearchResult(device, rssi, null);
+                Log.d("DeviceResults 2", result.getName());
+             if (!mListAddress.contains(device.getAddress())) {
+                    mListData.add(result);
+                    mListAddress.add(device.getAddress());
+//                    Collections.sort(devices, new RssiComparable());
+//               adapter.notifyDataSetChanged();
+                System.out.println("mListData"+mListData);
+              }
+
+            }
+
+            @Override
+            public void onLeScanEnable(boolean enable) {
+                super.onLeScanEnable(enable);
+                if (!enable) {
+//                    srl_search.setRefreshing(false);
                 }
             }
-        }, new INotifyResponse() {
+
             @Override
-            public void notifyState(int state) {
-                if (state == Code.REQUEST_SUCCESS) {
-                    //bluetoothAndDeviceConnectionStatus
-                    Log.d(TAG, "Successful monitoring-other operations can be performed");
+            public void onWristbandLoginStateChange(boolean connected) {
+                super.onWristbandLoginStateChange(connected);
+            }
 
-//                    Intent intent = new Intent(mContext, OperaterActivity.class);
-//                    intent.putExtra("isoadmodel", mIsOadModel);
-//                    intent.putExtra("deviceaddress", mac);
-//                    startActivity(intent);
-                    afterconnection();
-                } else {
-                    Log.d(TAG, "monitorFailed，reconnect");
-                }
+            @Override
+            public void onStartLeScan() {
+                super.onStartLeScan();
+            }
 
+            @Override
+            public void onStopLeScan() {
+                super.onStopLeScan();
+            }
+
+            @Override
+            public void onCancelLeScan() {
+                super.onCancelLeScan();
             }
         });
+
+        return false;
     }
+    private void stopScan(){
+        WristbandManager.getInstance(this).stopScan();
+    }
+    private void connect(final String mac, final String name){
+        Toast.makeText(mContext, "Running is Connect", Toast.LENGTH_SHORT).show();
+        WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback(){
+            @Override
+            public void onConnectionStateChange(boolean status) {
+                super.onConnectionStateChange(status);
+                if(status){
+                    Toast.makeText(mContext, "Running is Status", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent();
+                    intent.putExtra("mac", mac);
+                    intent.putExtra("name", name);
+                    setResult(0x02, intent);
+                    ScanActivity.this.finish();
+                    syncData();
+                    Intent intent1 = new Intent(ScanActivity.this, FunctionsActivity.class);
+                    startActivity(intent1);
+            }else {
+                    Toast.makeText(mContext, "Running is Else Status", Toast.LENGTH_SHORT).show();
+                    disConnect();
+                }
+        }
+        @Override
+            public void onError(int error){
+                super.onError(error);
+        }
+            });
+        WristbandManager.getInstance(this).connect(mac);
+    }
+
+    private void disConnect() {
+        WristbandManager.getInstance(this).close();
+    }
+
+    private void syncData() {
+        WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback() {
+            @Override
+            public void onLoginStateChange(int state) {
+                super.onLoginStateChange(state);
+                if (state == WristbandManager.STATE_WRIST_LOGIN) {
+                    Log.d("Lee", "Device Login Success");
+                }
+            }
+        });
+
+        WristbandManager.getInstance(this).startLoginProcess("01234567890");
+    }
+
+
+
+
 
     private void afterconnection() {
         Log.d(TAG, "After Connection");
@@ -836,10 +920,10 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
 
 
         // startService(new Intent(getApplicationContext(), DeviceConnect.class));
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        finish();
-
-        //connectDevice(searchResult.getAddress(), searchResult.getName());
+//        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//        finish();
+        stopScan();
+        connect(searchResult.getAddress(), searchResult.getName());
     }
 
     private void saveMacOnline(String address) {

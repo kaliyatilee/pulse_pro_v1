@@ -85,6 +85,8 @@ dependencies {
 //    implementation files('libs/gson-2.2.4.jar')
     implementation files('libs\\vpbluetooth_1.0.3.jar')
     implementation files('libs\\vpprotocol_2.1.27.15.jar')
+    implementation files('libs/UkProtocolLibary-release-1.2.6.aar')
+    implementation files('libs/RealtekSDK-1.0.1-release.aar')
 //    implementation 'com.google.code.gson:gson:2.10'
 
     //Test & Debug

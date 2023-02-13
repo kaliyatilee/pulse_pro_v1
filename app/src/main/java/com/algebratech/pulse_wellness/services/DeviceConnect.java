@@ -168,6 +168,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
         //initBLE();
         //scanDevice();
 
+
     }
 
     @Override
@@ -274,7 +275,8 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
             //Toast.makeText(mContext, "bluetoothIsNotTurnedOn", Toast.LENGTH_SHORT).show();
             return true;
         }
-        mVpoperateManager.startScanDevice(mSearchResponse);
+//        mVpoperateManager.startScanDevice(mSearchResponse);
+
         return false;
     }
 

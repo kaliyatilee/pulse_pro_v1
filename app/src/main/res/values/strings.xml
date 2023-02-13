@@ -118,6 +118,7 @@
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="select_orgranisation">Select Your Organization</string>
 
+
     <!-- Login Screen -->
     <string name="remember_me">Remember Me</string>
     <string name="signup_login">Don\'t have an account? Sign Up</string>
@@ -187,9 +188,10 @@
     </string>
     <string name="mpercent">3 meals <![CDATA[&]]></string>
     <string name="noInternet">It seems no internet connection, please turn on your internet</string>
-    
-    
+
+
     activity names
     <string name="Outdoor_Walk">Outdoor Walk</string>
-"
+
+    "
 </resources>

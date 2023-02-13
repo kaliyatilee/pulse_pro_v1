@@ -62,6 +62,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.inuker.bluetooth.library.utils.BluetoothUtils;
 import com.veepoo.protocol.VPOperateManager;
+import com.wosmart.ukprotocollibary.WristbandManager;
+import com.wosmart.ukprotocollibary.WristbandManagerCallback;
+import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
+import com.wosmart.ukprotocollibary.model.sport.SportData;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
@@ -135,7 +139,9 @@ public class HomeFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+              //  initData();
                 init();
+
                 onFragment = true;
                 DashBoardAPI();
             }
@@ -152,6 +158,7 @@ public class HomeFragment extends Fragment {
     }
 
     void init() {
+        //readStepLocal();
         if (root != null && getActivity() != null) {
             sharedPreferences = getActivity().getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
             myEdit = sharedPreferences.edit();
@@ -229,6 +236,9 @@ public class HomeFragment extends Fragment {
             // getting initial points from firebase
 
 
+
+
+
             addGoals.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -242,7 +252,6 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getContext(), DetailActivitySummary.class);
-
                     startActivity(intent);
                 }
             });
@@ -819,6 +828,7 @@ public class HomeFragment extends Fragment {
 
         }
     }
+
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getActivity().getSystemService(Context.ACTIVITY_SERVICE);

@@ -43,6 +43,20 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:supportsRtl,android:theme">
         <activity
+            android:name=".FunctionsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".StepActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activities.DailyWalkReport"
             android:exported="false">
             <meta-data
