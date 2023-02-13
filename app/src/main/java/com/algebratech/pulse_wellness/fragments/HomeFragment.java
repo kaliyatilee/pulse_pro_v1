@@ -35,6 +35,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,6 +46,7 @@ import com.algebratech.pulse_wellness.activities.AddUserGoals;
 import com.algebratech.pulse_wellness.activities.DetailActivitySummary;
 import com.algebratech.pulse_wellness.activities.RegisterActivity;
 import com.algebratech.pulse_wellness.activities.SelectDisease;
+import com.algebratech.pulse_wellness.activities.WeightMonitoring;
 import com.algebratech.pulse_wellness.adapters.ActivitiesSummaryAdapter;
 import com.algebratech.pulse_wellness.api.Api;
 import com.algebratech.pulse_wellness.db.DBHelper;
@@ -124,6 +126,7 @@ public class HomeFragment extends Fragment {
     private ActivitiesSummaryAdapter activitiesSummaryAdapter;
     private RecyclerView.Adapter mAdapter;
     TextView seeAll;
+    CardView cardWeight;
     List<TodaysActivityModel> todaysActivityModels = new ArrayList<>();
 
     TextView myPLanKcal, bmi, bmi_text, myPLanCurrentKcal, myPlanKm, weeklyKm, addGoalText, goalWeight, goalKcal, goalSteps, myPlanKcalProText, myPlanKMProText, weightProText, runningProgressText, stepsProText, kcalProText, noActvity;
@@ -166,6 +169,7 @@ public class HomeFragment extends Fragment {
             runningProgress = root.findViewById(R.id.runningProgress);
             addGoals = root.findViewById(R.id.addGoals);
             noActvity = root.findViewById(R.id.noActvity);
+            cardWeight = root.findViewById(R.id.cardWeight);
 
             distance = root.findViewById(R.id.distance);
 
@@ -264,6 +268,15 @@ public class HomeFragment extends Fragment {
                 public void onClick(View view) {
                     Intent intent = new Intent(mContext, AddUserGoals.class);
                     startActivityForResult(intent, 2);
+                }
+            });
+
+            cardWeight.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getContext(), WeightMonitoring.class);
+                    startActivity(intent);
+
                 }
             });
 
