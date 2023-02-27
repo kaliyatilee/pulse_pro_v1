@@ -85,10 +85,8 @@ dependencies {
 //    implementation files('libs/gson-2.2.4.jar')
     implementation files('libs\\vpbluetooth_1.0.3.jar')
     implementation files('libs\\vpprotocol_2.1.27.15.jar')
-
-    implementation(name: 'UkProtocolLibary-release-1.2.6', ext: 'aar')
-    implementation(name: 'RealtekSDK-1.0.1-release', ext: 'aar')
-//    implementation 'com.google.code.gson:gson:2.10'
+    implementation files('libs/UkProtocolLibary-release-1.2.8.aar')
+    implementation files('libs/RealtekSDK-1.0.1-release.aar')
 
     //Test & Debug
   //  implementation 'com.bugsnag:bugsnag-android:4.2.2'

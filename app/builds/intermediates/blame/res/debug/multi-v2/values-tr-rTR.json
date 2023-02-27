@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-tr-rTR/values-tr-rTR.xml",
+            "map": [
+                {
+                    "source": "/home/lee/.gradle/caches/transforms-2/files-2.1/14bf425124a49a7358a0001d0b9050da/jetified-stripe-3ds2-android-6.1.5/res/values-tr-rTR/values-tr-rTR.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,140,239,308,377,440,511",
+                        "endColumns": "84,98,68,68,62,70,66",
+                        "endOffsets": "135,234,303,372,435,506,573"
+                    },
+                    "to": {
+                        "startLines": "17,18,19,20,21,22,23",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "1046,1131,1230,1299,1368,1431,1502",
+                        "endColumns": "84,98,68,68,62,70,66",
+                        "endOffsets": "1126,1225,1294,1363,1426,1497,1564"
+                    }
+                },
+                {
+                    "source": "/home/lee/.gradle/caches/transforms-2/files-2.1/a51e0b96ab05fa2c4dad1322fe7ad58f/jetified-matisse-0.5.3-beta3/res/values-tr-rTR/values-tr-rTR.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,108,162,218,263,307,360,415,485,595,683,774,835,931,992",
+                        "endColumns": "52,53,55,44,43,52,54,69,109,87,90,60,95,60,53",
+                        "endOffsets": "103,157,213,258,302,355,410,480,590,678,769,830,926,987,1041"
+                    }
+                }
+            ]
+        }
+    ]
+}

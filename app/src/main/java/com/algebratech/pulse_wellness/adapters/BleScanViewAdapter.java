@@ -61,6 +61,12 @@ public class BleScanViewAdapter extends RecyclerView.Adapter<BleScanViewAdapter.
             Glide.with(mContext).load(R.drawable.watchimage).error(R.drawable.watchimage).into(holder.deviceImg);
         }
 
+        if (itemData.get(position).getName().equals("V270")){
+            holder.mBleRssi.setText("Pulse v270");
+            holder.device.setText("( "+ itemData.get(position).getAddress()+" )");
+            Glide.with(mContext).load(R.drawable.newwear).error(R.drawable.newwear).into(holder.deviceImg);
+        }
+
 
     }
 

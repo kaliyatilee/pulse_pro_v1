@@ -3,12 +3,14 @@ package com.algebratech.pulse_wellness;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.algebratech.pulse_wellness.activities.SyncDataActivity;
 import com.wosmart.ukprotocollibary.WristbandManager;
 import com.wosmart.ukprotocollibary.WristbandManagerCallback;
 import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBeginPacket;
@@ -82,40 +84,17 @@ public class FunctionsActivity extends AppCompatActivity {
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(FunctionsActivity.this, "Sync Device Data", Toast.LENGTH_SHORT).show();
-//                Thread thread = new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-                        WristbandManager.getInstance(FunctionsActivity.this).sendDataRequest(); {
-                            //handler.sendEmptyMessage(0x01);
-                            System.out.println("+++++++++++++++++++Sync Data True");
-//                        } else {
-                          //  handler.sendEmptyMessage(0x02);
-                        }
-                    }
-//                });
-//                thread.start();
 
-//            }
+
+
+            }
         });
         tv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(FunctionsActivity.this, "ync today step to device", Toast.LENGTH_SHORT).show();
-                Thread thread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (WristbandManager.getInstance(FunctionsActivity.this).sendSyncTodayStepCommand()) {
-                            System.out.println("+++++++++++++++++++++++++True");
-                         //   Toast.makeText(FunctionsActivity.this, "Sync Done", Toast.LENGTH_SHORT).show();
-                        //    handler.sendEmptyMessage(0x01);
-                        } else {
-                            System.out.println("+++++++++++++++++++++++False");
-                          //  handler.sendEmptyMessage(0x02);
-                        }
-                    }
-                });
-                thread.start();
+                Toast.makeText(FunctionsActivity.this, "Sync today step to device", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(FunctionsActivity.this, SyncDataActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -132,15 +111,6 @@ public class FunctionsActivity extends AppCompatActivity {
 
                 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                 Date date = new Date();
-
-
-//                List<SportData> steps = GlobalGreenDAO.getInstance().loadSportDataByDate(date);
-//                Log.d("Date",""+date);
-
-
-               // List<HrpData> hrpData = GlobalGreenDAO.getInstance().loadHrpDataByDate(year,month,day);
-               // System.out.println("++++++++++++++"+hrpData);
-              // GlobalGreenDAO.getInstance().deleteAllSportData();
 
                 List<SportData> sportData = GlobalGreenDAO.getInstance().loadAllSportData();
                 if (null != sportData) {
@@ -293,32 +263,32 @@ public class FunctionsActivity extends AppCompatActivity {
                 Log.d("Lee", "size = " + packet.getStepsItems().size());
             }
 
-//            @Override
-//            public void onSleepDataReceiveIndication(ApplicationLayerSleepPacket packet) {
-//                super.onSleepDataReceiveIndication(packet);
-//                for (ApplicationLayerSleepItemPacket item : packet.getSleepItems()) {
-//                    Log.d("Lee",item.toString());
-//                }
-//                Log.d("Lee","size = " + packet.getSleepItems().size());
-//            }
+            @Override
+            public void onSleepDataReceiveIndication(ApplicationLayerSleepPacket packet) {
+                super.onSleepDataReceiveIndication(packet);
+                for (ApplicationLayerSleepItemPacket item : packet.getSleepItems()) {
+                    Log.d("Lee",item.toString());
+                }
+                Log.d("Lee","size = " + packet.getSleepItems().size());
+            }
 
-//            @Override
-//            public void onHrpDataReceiveIndication(ApplicationLayerHrpPacket packet) {
-//                super.onHrpDataReceiveIndication(packet);
-//                for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
-//                    Log.d("Lee", item.toString());
-//                }
-//                Log.d("Lee", "size = " + packet.getHrpItems().size());
-//            }
+            @Override
+            public void onHrpDataReceiveIndication(ApplicationLayerHrpPacket packet) {
+                super.onHrpDataReceiveIndication(packet);
+                for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
+                    Log.d("Lee", item.toString());
+                }
+                Log.d("Lee", "size = " + packet.getHrpItems().size());
+            }
 
-//            @Override
-//            public void onRateList(ApplicationLayerRateListPacket packet) {
-//                super.onRateList(packet);
-//                for (ApplicationLayerRateItemPacket item : packet.getRateList()) {
-//                    Log.d("Lee", item.toString());
-//                }
-//                Log.d("Lee","size = " + packet.getRateList().size());
-//            }
+            @Override
+            public void onRateList(ApplicationLayerRateListPacket packet) {
+                super.onRateList(packet);
+                for (ApplicationLayerRateItemPacket item : packet.getRateList()) {
+                    Log.d("Lee", item.toString());
+                }
+                Log.d("Lee","size = " + packet.getRateList().size());
+            }
 
             @Override
             public void onSportDataReceiveIndication(ApplicationLayerSportPacket packet) {
@@ -329,28 +299,28 @@ public class FunctionsActivity extends AppCompatActivity {
                 Log.d("Lee","size = " + packet.getSportItems().size());
             }
 
-            //温度检测回调
-            // temperature measure data call back
-//            @Override
-//            public void onTemperatureData(ApplicationLayerHrpPacket packet) {
-//                super.onTemperatureData(packet);
-//
-//                for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
-//                    Log.d("Lee","temperature = " + item.toString());
-//                }
-//                Log.d("Lee", "temperature size = " + packet.getHrpItems().size());
-//            }
+//            温度检测回调
+//             temperature measure data call back
+            @Override
+            public void onTemperatureData(ApplicationLayerHrpPacket packet) {
+                super.onTemperatureData(packet);
 
-            //温度历史数据回调
-            // temperature history data call back
-//            @Override
-//            public void onTemperatureList(ApplicationLayerRateListPacket packet) {
-//                super.onTemperatureList(packet);
-//                for (ApplicationLayerRateItemPacket item : packet.getRateList()) {
-//                    Log.d("Lee", "temperature = " + item.toString());
-//                }
-//                Log.d("Lee", "temperature size = " + packet.getRateList().size());
-//            }
+                for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
+                    Log.d("Lee","temperature = " + item.toString());
+                }
+                Log.d("Lee", "temperature size = " + packet.getHrpItems().size());
+            }
+
+//            温度历史数据回调
+//             temperature history data call back
+            @Override
+            public void onTemperatureList(ApplicationLayerRateListPacket packet) {
+                super.onTemperatureList(packet);
+                for (ApplicationLayerRateItemPacket item : packet.getRateList()) {
+                    Log.d("Lee", "temperature = " + item.toString());
+                }
+                Log.d("Lee", "temperature size = " + packet.getRateList().size());
+            }
 
             @Override
             public void onSyncDataEnd(ApplicationLayerTodaySumSportPacket packet) {
@@ -366,15 +336,15 @@ public class FunctionsActivity extends AppCompatActivity {
              *
              * @param packet
              */
-//            @Override
-//            public void onBpList(ApplicationLayerBpListPacket packet) {
-//                super.onBpList(packet);
-//
-//                for (ApplicationLayerBpListItemPacket item : packet.getBpListItemPackets()) {
-//                    Log.d("Lee", "bpItem = " + item.toString());
-//                }
-//                Log.d("Lee","bp size = " + packet.getBpListItemPackets().size());
-//            }
+            @Override
+            public void onBpList(ApplicationLayerBpListPacket packet) {
+                super.onBpList(packet);
+
+                for (ApplicationLayerBpListItemPacket item : packet.getBpListItemPackets()) {
+                    Log.d("Lee", "bpItem = " + item.toString());
+                }
+                Log.d("Lee","bp size = " + packet.getBpListItemPackets().size());
+            }
         });
     }
 

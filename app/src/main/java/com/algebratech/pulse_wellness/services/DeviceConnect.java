@@ -3,6 +3,7 @@ package com.algebratech.pulse_wellness.services;
 import static android.bluetooth.BluetoothProfile.GATT;
 import static com.veepoo.protocol.model.enums.EFunctionStatus.SUPPORT;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -13,11 +14,13 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.bluetooth.le.BluetoothLeScanner;
+import android.bluetooth.le.ScanRecord;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -29,13 +32,18 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import com.algebratech.pulse_wellness.FunctionsActivity;
 import com.algebratech.pulse_wellness.R;
 import com.algebratech.pulse_wellness.activities.AddUserGoals;
 import com.algebratech.pulse_wellness.activities.MainActivity;
+import com.algebratech.pulse_wellness.activities.ScanActivity;
+import com.algebratech.pulse_wellness.activities.SyncDataActivity;
 import com.algebratech.pulse_wellness.adapters.BleScanViewAdapter;
 import com.algebratech.pulse_wellness.api.Api;
 import com.algebratech.pulse_wellness.db.DBHelper;
@@ -78,7 +86,6 @@ import com.veepoo.protocol.model.datas.FunctionSocailMsgData;
 import com.veepoo.protocol.model.datas.HeartData;
 import com.veepoo.protocol.model.datas.PersonInfoData;
 import com.veepoo.protocol.model.datas.PwdData;
-import com.veepoo.protocol.model.datas.SportData;
 import com.veepoo.protocol.model.datas.SportModelStateData;
 import com.veepoo.protocol.model.enums.EFunctionStatus;
 import com.veepoo.protocol.model.enums.EOprateStauts;
@@ -87,6 +94,28 @@ import com.veepoo.protocol.model.enums.ESocailMsg;
 import com.veepoo.protocol.model.settings.ContentPhoneSetting;
 import com.veepoo.protocol.model.settings.ContentSetting;
 import com.veepoo.protocol.model.settings.CustomSettingData;
+import com.wosmart.ukprotocollibary.WristbandManager;
+import com.wosmart.ukprotocollibary.WristbandManagerCallback;
+import com.wosmart.ukprotocollibary.WristbandScanCallback;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBeginPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBpListItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBpListPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerPrivateBpPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerRateItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerRateListPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSleepItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSleepPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSportItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSportPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerStepItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerStepPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerTodaySumSportPacket;
+import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
+import com.wosmart.ukprotocollibary.model.hrp.HrpData;
+import com.wosmart.ukprotocollibary.model.sleep.SleepData;
+import com.wosmart.ukprotocollibary.model.sport.SportData;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
@@ -106,7 +135,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
 
     public static boolean IsRunning = false;
     public static boolean IsWearableConnected = false;
-//    private static final String TAG = com.algebratech.pulse_wellness.utils.Constants.TAG;
+    //    private static final String TAG = com.algebratech.pulse_wellness.utils.Constants.TAG;
     private static final String TAG = "CONNECT SERVICE===>";
     public static final String BROADCAST_ACTION = "com.algebratech.pulse_wellness.DeviceConnectData";
     private final Handler handler = new Handler();
@@ -144,6 +173,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     private String CHANNEL_ID;
     private DBHelper db;
     private String user_id;
+    private String tag = "SyncDataActivity";
     int STEPS = 0;
     double KCAL = 0;
     double DISS = 0;
@@ -159,7 +189,6 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
         SQLiteDatabase.loadLibs(getApplicationContext());
         db = new DBHelper(getApplicationContext());
 
-        //Log.e("TrynosTira", deviceMac);
 
         intent = new Intent(BROADCAST_ACTION);
         mVpoperateManager = mVpoperateManager.getMangerInstance(mContext.getApplicationContext());
@@ -273,12 +302,61 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
         }
 
         if (!BluetoothUtils.isBluetoothEnabled()) {
-            //Toast.makeText(mContext, "bluetoothIsNotTurnedOn", Toast.LENGTH_SHORT).show();
             return true;
         }
-//        mVpoperateManager.startScanDevice(mSearchResponse);
+
+        searchDevice();
 
         return false;
+    }
+
+    private void searchDevice() {
+        WristbandManager.getInstance(this).startScan(true, new WristbandScanCallback() {
+            @Override
+            public void onWristbandDeviceFind(BluetoothDevice device, int rssi, ScanRecord scanRecord) {
+                super.onWristbandDeviceFind(device, rssi, scanRecord);
+                SearchResult result = new SearchResult(device, rssi, null);
+                Log.d("DeviceResults 2", result.getName());
+                if (!mListAddress.contains(device.getAddress())) {
+                    mListAddress.add(device.getAddress());
+                    if (result.getAddress().equals(deviceMac)) {
+                        WristbandManager.getInstance(DeviceConnect.this).stopScan();
+                        connectDevice(result.getAddress(), result.getName());
+                    }
+                }
+
+            }
+
+            @Override
+            public void onLeScanEnable(boolean enable) {
+                super.onLeScanEnable(enable);
+                if (!enable) {
+//                    srl_search.setRefreshing(false);
+                }
+            }
+
+            @Override
+            public void onWristbandLoginStateChange(boolean connected) {
+                super.onWristbandLoginStateChange(connected);
+            }
+
+            @Override
+            public void onStartLeScan() {
+                super.onStartLeScan();
+            }
+
+            @Override
+            public void onStopLeScan() {
+                super.onStopLeScan();
+            }
+
+            @Override
+            public void onCancelLeScan() {
+                super.onCancelLeScan();
+            }
+        });
+
+
     }
 
 
@@ -406,13 +484,11 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     private final SearchResponse mSearchResponse = new SearchResponse() {
         @Override
         public void onSearchStarted() {
-            Log.e("IDIGIT_21_07_11111", "onSearchStarted");
         }
 
         @Override
         public void onDeviceFounded(final SearchResult device) {
             if (deviceMac != null) {
-
                 if (String.valueOf(device.getAddress()).contains(deviceMac)) {
                     intent.putExtra("steps", "");
                     intent.putExtra("distances", "");
@@ -431,10 +507,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
                         mVpoperateManager.disconnectWatch(DeviceConnect.this);
                     }
                 }
-//                else {
-//                    mVpoperateManager.stopScanDevice();
-//                    mVpoperateManager.disconnectWatch(DeviceConnect.this);
-//                }
+
             }
         }
 
@@ -454,9 +527,27 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     };
 
     private void connectDevice(final String mac, final String deviceName) {
-        Log.e("Lee Decive Info", mac + " | " + deviceName);
-
         BluetoothManager btManager = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         List<BluetoothDevice> connectedDevices = btManager.getConnectedDevices(GATT);
         boolean isConnected = false;
         if (connectedDevices != null) {
@@ -474,144 +565,73 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
             afterconnection();
         } else {
             Log.e("IDIGIT_CONNECTED", "FALSE");
-            mVpoperateManager.registerConnectStatusListener(mac, mBleConnectStatusListener);
-
-            mVpoperateManager.connectDevice(mac, deviceName, new IConnectResponse() {
-
+            WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback(){
                 @Override
-                public void connectState(int code, BleGattProfile profile, boolean isoadModel) {
-                    if (code == Code.REQUEST_SUCCESS) {
-                        //bluetoothAndDeviceConnectionStatus
-                        Log.e(TAG, "connectionSucceeded");
-                        Log.e(TAG, "whetherItIsFirmwareUpgradeMode=" + isoadModel);
-                        mIsOadModel = isoadModel;
-                    } else {
-                        Log.e(TAG, "connectionFailed");
+                public void onConnectionStateChange(boolean status) {
+                    super.onConnectionStateChange(status);
+                    if(status){
+                        Toast.makeText(mContext, "Running is Status", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent();
+                        intent.putExtra("mac", mac);
+                        intent.putExtra("macaddress", mac);
+                        intent.putExtra("connect", "connected");
+                        sendBroadcast(intent);
+                       // setResult(0x02, intent);
+                        syncData();
+
+                    }else {
+                        Toast.makeText(mContext, "Running is Else Status", Toast.LENGTH_SHORT).show();
+                        disConnect();
                     }
                 }
-            }, new INotifyResponse() {
                 @Override
-                public void notifyState(int state) {
-                    Log.e(TAG, "notifystate");
-                    Log.e(TAG, "--->>>"+String.valueOf(state));
-                    if (state == Code.REQUEST_SUCCESS) {
-                        //bluetoothAndDeviceConnectionStatus
-                        Log.e(TAG, "Successful monitoring-other operations can be performed");
-
-                        if (!IsWearableConnected) {
-                            afterconnection();
-                        }
-
-                        //hidedialog();
-                    } else {
-                        Log.e(TAG, "monitorFailed，reconnect");
-                    }
-
+                public void onError(int error){
+                    super.onError(error);
                 }
             });
+            WristbandManager.getInstance(this).connect(mac);
         }
 
 
     }
 
+    private void disConnect() {
+        WristbandManager.getInstance(this).close();
+    }
+    private void syncData() {
+        WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback() {
+
+            @Override
+            public void onLoginStateChange(int state) {
+                super.onLoginStateChange(state);
+                if (state == WristbandManager.STATE_WRIST_LOGIN) {
+                    Log.d("Lee", "Device Login Success");
+
+                }
+            }
+            });
+        WristbandManager.getInstance(this).startLoginProcess("01234567890");
+        afterconnection();
+    }
 
     private void afterconnection() {
         Log.e(TAG, "After Connection");
         MediaPlayer mediaPlayer = MediaPlayer.create(mContext, R.raw.beep);
         mediaPlayer.start();
-        //Toast.makeText(getApplicationContext(),"Connected to Device",Toast.LENGTH_LONG).show();
-        //checkForResumeActivity();
 
-        intent.putExtra("steps", "");
-        intent.putExtra("distances", "");
-        intent.putExtra("kcals", "");
+//        intent.putExtra("steps", "");
+//        intent.putExtra("distances", "");
+//        intent.putExtra("kcals", "");
         intent.putExtra("connect", "connected");
         sendBroadcast(intent);
 
         noSoundNotification("Wearable Connected", "");
-        //successDialog();
-        //qr_scan.setVisibility(View.GONE);
-        //circleImageView.setBorderColor(ResourcesCompat.getColor(mContext.getResources(), R.color.green, null));
-        VPOperateManager.getMangerInstance(mContext).confirmDevicePwd(DeviceConnect.this, new IPwdDataListener() {
-            @Override
-            public void onPwdDataChange(PwdData pwdData) {
-                String message = "PwdData:\n" + pwdData.toString();
-                Log.e(TAG, message);
-                deviceNumber = pwdData.getDeviceNumber();
-                deviceVersion = pwdData.getDeviceVersion();
-                deviceTestVersion = pwdData.getDeviceTestVersion();
-            }
-        }, new IDeviceFuctionDataListener() {
-            @Override
-            public void onFunctionSupportDataChange(FunctionDeviceSupportData functionSupport) {
-                String message = "FunctionDeviceSupportData:\n" + functionSupport.toString();
-                Log.e(TAG, message);
-                //  sendMsg(message, 2);
-                EFunctionStatus newCalcSport = functionSupport.getNewCalcSport();
-                if (newCalcSport != null && newCalcSport.equals(SUPPORT)) {
-                    isNewSportCalc = true;
-                } else {
-                    isNewSportCalc = false;
-                }
-                watchDataDay = functionSupport.getWathcDay();
-                contactMsgLength = functionSupport.getContactMsgLength();
-                allMsgLenght = functionSupport.getAllMsgLength();
-                isSleepPrecision = functionSupport.getPrecisionSleep() == SUPPORT;
-            }
-        }, new ISocialMsgDataListener() {
-            @Override
-            public void onSocialMsgSupportDataChange(FunctionSocailMsgData functionSocailMsgData) {
-                String message = "FunctionSocailMsgData:\n" + functionSocailMsgData.toString();
-                Log.e(TAG, message);
-                functionSocailMsgData.getGmail();
-                Log.e("email", functionSocailMsgData.getGmail().name());
-                //  sendMsg(message, 3);
-            }
-        }, new ICustomSettingDataListener() {
-            @Override
-            public void OnSettingDataChange(CustomSettingData customSettingData) {
-                String message = "FunctionCustomSettingData:\n" + customSettingData.toString();
-                Log.e(TAG, message);
-                //   sendMsg(message, 4);
-            }
-        }, "0000", is24Hourmodel);
-
-
-        //Trynos Set Notifications
-
-//        FunctionSocailMsgData socailMsgData = new FunctionSocailMsgData();
-//        socailMsgData.setPhone(SUPPORT);
-//        socailMsgData.setMsg(SUPPORT);
-//        socailMsgData.setWechat(SUPPORT);
-//        // socailMsgData.setQq(SUPPORT);
-//        socailMsgData.setFacebook(SUPPORT);
-//        socailMsgData.setTwitter(SUPPORT);
-//        socailMsgData.setWhats(SUPPORT);
-//        // socailMsgData.setSina(SUPPORT);
-//        //socailMsgData.setFlickr(SUPPORT);
-//        socailMsgData.setLinkin(SUPPORT);
-//        // socailMsgData.setLine(SUPPORT);
-//        socailMsgData.setInstagram(SUPPORT);
-//        // socailMsgData.setSnapchat(SUPPORT);
-//        // socailMsgData.setSkype(SUPPORT);
-//        socailMsgData.setGmail(SUPPORT);
-//        socailMsgData.setOther(SUPPORT);
-
-//        VPOperateManager.getMangerInstance(mContext).settingSocialMsg(DeviceConnect.this, new ISocialMsgDataListener() {
-//            @Override
-//            public void onSocialMsgSupportDataChange(FunctionSocailMsgData socailMsgData) {
-//                String message = " socialInformationReminderSettings:\n" + socailMsgData.toString();
-//                Log.e(TAG, message);
-//                //sendMsg(message, 1);
-//            }
-//        }, socailMsgData);
-
         try {
 
             int height = Integer.parseInt(sharedPreferences.getString("height", "0"));
             int weight = Integer.parseInt(sharedPreferences.getString("weight", "0"));
             int target = Integer.parseInt(sharedPreferences.getString("master_target", "10000"));
-            int age = getAge(sharedPreferences.getString("dob", ""));
+            int age = 28;
             String gender = sharedPreferences.getString("gender", "Male");
             ESex eSex = null;
             if (gender.equals("Male")) {
@@ -633,244 +653,178 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
         }
 
 
-//        LocalBroadcastManager.getInstance(this).registerReceiver(onNotice, new IntentFilter(com.algebratech.pulse_wellness.utils.Constants.NOTIFY));
-//        VPOperateManager.getMangerInstance(mContext).settingFindDevice(this, new IFindDeviceDatalistener() {
-//            @Override
-//            public void onFindDevice(FindDeviceData findDeviceData) {
-//                MediaPlayer mediaPlayer = MediaPlayer.create(mContext, R.raw.beep);
-//                Log.e("find","my");
-//                mediaPlayer.start();
-//            }
-//        },true);
-//        VPOperateManager.getMangerInstance(mContext).settingFindPhoneListener(new IFindPhonelistener() {
-//            @Override
-//            public void findPhone() {
-//                MediaPlayer mediaPlayer = MediaPlayer.create(mContext, R.raw.beep);
-//                mediaPlayer.isLooping();
-//                mediaPlayer.start();
-//                Log.e("find","phone");
-//            }
-//        });
-
-        //VPOperateManager.getMangerInstance(mContext).clearDeviceData(this);
-
         IsWearableConnected = true;
 
-
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
 
-//testing
-
-
-//                VPOperateManager.getMangerInstance(mContext).readSportModelState(DeviceConnect.this, new ISportModelStateListener() {
-//
-//
-//                    @Override
-//                    public void onSportModelStateChange(SportModelStateData sportModelStateData) {
-//                        Log.e("Activity mode", String.valueOf(sportModelStateData.getSportModeType()));
-//                        int SportsMode = sportModelStateData.getSportModeType();
-//
-//
-//                        if(SportsMode != 0)
-//                        {
-//                            //start activity
-//
-//                            myEdit.putInt("STEPS", STEPS);
-//                            myEdit.putLong("KCAL", Double.doubleToRawLongBits(KCAL));
-//                            myEdit.putLong("DISS", Double.doubleToRawLongBits(DISS));
-//
-//                            myEdit.apply();
-//
-//                            Log.e("testing", String.valueOf(sharedPreferences.getInt("STEPS", 0)));
-//                        }
-//                        else
-//                        {
-//                            //end activity
-//
-//                            int stepDiff = STEPS -  sharedPreferences.getInt("STEPS", 0);
-//                            double kcalDiff = KCAL - Double.longBitsToDouble(sharedPreferences.getLong("KCAL", Double.doubleToLongBits(0)));
-//                            double dissDiff = DISS -Double.longBitsToDouble(sharedPreferences.getLong("DISS", Double.doubleToLongBits(0)));
-//                            Log.e("stepDiff", String.valueOf(stepDiff));
-//                            Log.e("kcalDiff", String.valueOf(kcalDiff));
-//                            Log.e("dissDiff", String.valueOf(dissDiff));
-//
-//                            myEdit.clear();
-//
-//                        }
-//
-//
-//
-//
-//
-//                    }
-//                });
-
-
-//                VPOperateManager.getMangerInstance(mContext).readSportModelOrigin(DeviceConnect.this, new ISportModelOriginListener() {
-//                    @Override
-//                    public void onReadOriginProgress(float v) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onReadOriginProgressDetail(int i, String s, int i1, int i2) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onHeadChangeListListener(SportModelOriginHeadData sportModelOriginHeadData) {
-//                        Log.e("hellooooo", String.valueOf(sportModelOriginHeadData.getSportType()));
-//                    }
-//
-//                    @Override
-//                    public void onItemChangeListListener(List<SportModelOriginItemData> list) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onReadOriginComplete() {
-//
-//                    }
-//                });
-//
-//                VPOperateManager.getMangerInstance(mContext).readDetectBP(DeviceConnect.this, new IBPSettingDataListener() {
-//                    @Override
-//                    public void onDataChange(BpSettingData bpSettingData) {
-//                        bpSettingData.getHighPressure();
-//                        bpSettingData.getLowPressure();
-//                        Log.e("high", String.valueOf(bpSettingData.getHighPressure()));
-//                        Log.e("low", String.valueOf(bpSettingData.getLowPressure()));
-//                    }
-//                });
-//
-//                VPOperateManager.getMangerInstance(mContext).readAlarm(DeviceConnect.this, new IAlarmDataListener() {
-//                    @Override
-//                    public void onAlarmDataChangeListener(AlarmData alarmData) {
-//                        List<AlarmSetting> list = alarmData.getAlarmSettingList();
-//                        Log.e("alerm", list.get(0).toString());
-//                    }
-//                });
-//
-//                VPOperateManager.getMangerInstance(mContext).readScreenLightTime(DeviceConnect.this, new IScreenLightTimeListener() {
-//                    @Override
-//                    public void onScreenLightTimeDataChange(ScreenLightTimeData screenLightTimeData) {
-//                        //screenLightTimeData.setMaxDuration(8);
-//                        Log.e("time", String.valueOf(screenLightTimeData.getScreenLightState()));
-//                    }
-//                });
-//
-//                ILanguageDataListener ll = new ILanguageDataListener() {
-//                    @Override
-//                    public void onLanguageDataChange(LanguageData languageData) {
-//
-//                    }
-//                };
-//
-//                VPOperateManager.getMangerInstance(mContext).settingDeviceLanguage(DeviceConnect.this, ll, ELanguage.ENGLISH);
-
-                //testing
-
-                //   VPOperateManager.getMangerInstance(mContext).sendSocialMsgContent(DeviceConnect.this, contentsmsSetting2);
-
-                /*
-                 * Read the Activities Data from Watch
-                 * */
-                VPOperateManager manager = VPOperateManager.getMangerInstance(mContext);
-                manager.readSportStep(DeviceConnect.this, new ISportDataListener() {
-                    @SuppressLint("SetTextI18n")
+                WristbandManager.getInstance(mContext).registerCallback(new WristbandManagerCallback() {
                     @Override
-                    public void onSportDataChange(SportData sportData) {
-                        Log.e("IDIGIT_21_07_RED_SPORT", "READ SPORT STEPS");
-                        String message = "Current step count: " + sportData.toString();
-                        String steps = String.valueOf(sportData.getStep());
-                        String distances = String.valueOf(sportData.getDis());
-                        //String kcals = String.valueOf(sportData.getKcal() - 2.000);
-                        String kcals = String.valueOf(sportData.getKcal());
-                        intent.putExtra("steps", steps);
-                        intent.putExtra("distances", distances);
-                        intent.putExtra("kcals", kcals);
-                        intent.putExtra("connect", "reco");
-                        sendBroadcast(intent);
-                        STEPS = sportData.getStep();
-                        KCAL = sportData.getDis();
-                        DISS = sportData.getKcal();
-                        IsWearableConnected = true;
+                    public void onSyncDataBegin(ApplicationLayerBeginPacket packet) {
+                        super.onSyncDataBegin(packet);
+                        Log.i(tag, "sync begin");
+                    }
 
-                        noSoundNotification("Wearable Connected", "Steps : " + steps + " \n Distance : " + distances + " \n Kcals : " + kcals);
-                        try {
-                            pointsmanipulation(sportData.getStep(), distances, kcals);
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                    @Override
+                    public void onStepDataReceiveIndication(ApplicationLayerStepPacket packet) {
+                        super.onStepDataReceiveIndication(packet);
+                        for (ApplicationLayerStepItemPacket item : packet.getStepsItems()) {
+
+                            Log.i(tag, item.toString());
                         }
-
-
-//                        double kcoin = StaticMethods.calculatePoint(sportData.getStep());
-//                        String kpoints = String.valueOf(kcoin);
-//                        double kcoin2 = StaticMethods.calPulseCoins(sportData.getStep());
-//                        String kpoints2 = String.valueOf(kcoin2);
-//
-//                        Log.e("KylerTest : ",kpoints);
-//                        Log.e("KylerTest2 : ",kpoints2);
-//
-//                        Log.e(TAG, message);
-
-
-                        //sendMsg(message, 1);
+                        Log.i(tag, "size = " + packet.getStepsItems().size());
                     }
-                });
 
-
-            }
-        }, 0, 8000);
-
-        new Timer().scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                Log.e("Lee", "READ SPORT Heart Rate");
-                VPOperateManager.getMangerInstance(mContext).startDetectHeart(DeviceConnect.this, new IHeartDataListener() {
                     @Override
-                    public void onDataChange(HeartData heartData) {
-                        Log.e("Lee", String.valueOf(heartData.getHeartStatus()));
-                        String heartRate = String.valueOf(heartData.getData());
-                        intent.putExtra("heartRate",heartRate);
-                        intent.putExtra("heartStatus",String.valueOf(heartData.getHeartStatus()));
-                        sendBroadcast(intent);
+                    public void onSleepDataReceiveIndication(ApplicationLayerSleepPacket packet) {
+                        super.onSleepDataReceiveIndication(packet);
+                        for (ApplicationLayerSleepItemPacket item : packet.getSleepItems()) {
+                            Log.i(tag, item.toString());
+                        }
+                        Log.i(tag, "size = " + packet.getSleepItems().size());
+                    }
+
+                    @Override
+                    public void onHrpDataReceiveIndication(ApplicationLayerHrpPacket packet) {
+                        super.onHrpDataReceiveIndication(packet);
+                        for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
+                            Log.i(tag, item.toString());
+                        }
+                        Log.i(tag, "size = " + packet.getHrpItems().size());
+                    }
+
+                    @Override
+                    public void onRateList(ApplicationLayerRateListPacket packet) {
+                        super.onRateList(packet);
+                        for (ApplicationLayerRateItemPacket item : packet.getRateList()) {
+                            Log.i(tag, item.toString());
+                        }
+                        Log.i(tag, "size = " + packet.getRateList().size());
+                    }
+
+                    @Override
+                    public void onSportDataReceiveIndication(ApplicationLayerSportPacket packet) {
+                        super.onSportDataReceiveIndication(packet);
+                        for (ApplicationLayerSportItemPacket item : packet.getSportItems()) {
+                            System.out.println("onSportDataReceiveIndication"+item.getDistance()+""+item.getCalories()+""+item.getMinutes()+""+item.getRateAvg());
+                            Log.i(tag, item.toString());
+                        }
+                        Log.i(tag, "size = " + packet.getSportItems().size());
+                    }
+
+
+
+
+
+                    /**
+                     * 血压自动检测回调
+                     *
+                     * bp auto measure callback
+                     *
+                     * @param packet
+                     */
+                    @Override
+                    public void onBpList(ApplicationLayerBpListPacket packet) {
+                        super.onBpList(packet);
+
+                        for (ApplicationLayerBpListItemPacket item : packet.getBpListItemPackets()) {
+                            Log.i(tag, "bpItem = " + item.toString());
+                        }
+                        Log.i(tag, "bp size = " + packet.getBpListItemPackets().size());
+                    }
+                    @Override
+                    public void onSyncDataEnd(ApplicationLayerTodaySumSportPacket packet) {
+                        super.onSyncDataEnd(packet);
+                        Log.i(tag, "sync end");
                     }
                 });
-//                VPOperateManager.getMangerInstance(mContext).stopDetectHeart(DeviceConnect.this);
+
+
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH) + 1;
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                int stepcount = 0;
+                int calories = 0;
+                int distance  = 0;
+                List<SportData> steps = GlobalGreenDAO.getInstance().loadSportDataByDate(year,month,day);
+                if (null != steps) {
+                    for (SportData item : steps) {
+                        distance = distance + item.getDistance();
+                        calories = calories + item.getCalory();
+                        stepcount = stepcount + item.getStepCount();
+                        Log.i(tag, "item = " + item.toString());
+                    }
+                }
+
+                //List<SleepData> sleepData = GlobalGreenDAO.getInstance().loadAllSleepData();
+
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (WristbandManager.getInstance(mContext).sendDataRequest()) {
+                            System.out.println("++++++++++++++++++++Send data request successfull");
+                        } else {
+                            System.out.println("++++++++++++++++++++Send data request error");
+                        }
+                    }
+                });
+                thread.start();
+
+                 List<HrpData> hrpData = GlobalGreenDAO.getInstance().loadAllHrpData();
+                int total = 0 ;
+                int size = 0;
+                int average = 0;
+                int mValue = 0;
+                if (null != hrpData) {
+                    size = hrpData.size();
+                    for (HrpData item : hrpData) {
+                        total = total + item.getValue();
+                    }
+                }
+                if (size != 0){
+                    average = total / size;
+                }
+
+                System.out.println("+++++++++++++++++++++++++steps3"+steps);
+
+
+
+
+
+               ApplicationLayerPrivateBpPacket packet = WristbandManager.getInstance(mContext).readPrivateBp();
+
+                int final_distance = loadCalculate(distance);
+                int final_calorie = loadCalculate(calories);
+
+                intent.putExtra("bp_high_value",String.valueOf(packet.getHighValue()));
+                intent.putExtra("bp_low_value", String.valueOf(packet.getLowValue()));
+                intent.putExtra("kcals", String.valueOf(final_calorie));
+                intent.putExtra("distance",String.valueOf(final_distance));
+                intent.putExtra("steps",String.valueOf(stepcount));
+                intent.putExtra("hr",String.valueOf(average));
+                intent.putExtra("connect", "connected");
+                sendBroadcast(intent);
+                System.out.println("+++++++++++++++++++++++++steps4"+steps);
+                noSoundNotification("Wearable Connected", "Steps : " + stepcount + " \n Distance : " + String.valueOf(final_distance) + " \n Kcals : " + String.valueOf(final_calorie));
+                System.out.println("+++++++++++++++++++++++++steps5"+steps);
+                try {
+                  pointsmanipulation(stepcount,String.valueOf(final_distance),String.valueOf(final_calorie));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                System.out.println("+++++++++++++++++++++++++steps6"+steps);
 
             }
-        },0,180000);
+        }, 0, 120000);
 
 
-//        new Timer().scheduleAtFixedRate(new TimerTask() {
-//            @Override
-//            public void run() {
-//                //your method
-//                VPOperateManager.getMangerInstance(mContext).readSportStep(DeviceConnect.this, new ISportDataListener() {
-//                    @SuppressLint("SetTextI18n")
-//                    @Override
-//                    public void onSportDataChange(SportData sportData) {
-//                        String message = "Current step count: " + sportData.toString();
-//                        //long tmStamp = StaticVariables.timeStamp;
-//                        //String dateM = StaticMethods.getDate(tmStamp);
-//                        //update firebase record
-//                       // DailyStepHistory dailyStepHistory = new DailyStepHistory(sportData.getStep(), sportData.getKcal(), sportData.getDis(), tmStamp, StaticVariables.user_id, 1);
-////                        FirebaseDatabase.getInstance().getReference("DailyStepReport")
-////                                .child(StaticVariables.user_id)
-////                                .child(dateM)
-////                                .setValue(dailyStepHistory);
-//
-//                        Log.e(TAG, message);
-//
-//                    }
-//                });
-//
-//            }
-//        }, 0, 120000);
+    }
 
+    private int loadCalculate(int value) {
+        return value/1000;
     }
 
 
@@ -919,8 +873,6 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     }
 
     private void dailyReadSync(String points, String steps, String kcals, String distance, String date) {
-
-        // Log.e("TrynosDailyToSync", points + "#" + distance + "#" + kcals + "#" + "#" + steps + "#" + "#" + date + "#");
 
         JSONObject object = new JSONObject();
         try {
@@ -973,70 +925,6 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
 
     }
 
-    //this api call is commened as not usefull
-//    private void activitiesSync(String type, String duration, String steps, String kcals, String distance, String date, String route, String map_pic, String pic, String pace) {
-//
-//        Log.e("TrynosDailyToSync", type + "#" + distance + "#" + kcals + "#" + "#" + steps + "#" + "#" + date + "#");
-//
-//        JSONObject object = new JSONObject();
-//        try {
-//            //input your API parameters
-//            object.put("user_id", user_id);
-//            object.put("type", type);
-//            object.put("date", date);
-//            object.put("distance", distance);
-//            object.put("steps", steps);
-//            object.put("kcal", kcals);
-//            object.put("duration", duration);
-//            object.put("route", route);
-//            object.put("map_pic", map_pic);
-//            object.put("pic", pic);
-//            object.put("pace", pace);
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Api.actsync, object,
-//                new Response.Listener<JSONObject>() {
-//                    @RequiresApi(api = Build.VERSION_CODES.M)
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        Log.e("actsync", object.toString());
-//                        Log.e("actsync response", String.valueOf(response));
-//
-//
-//                        try {
-//
-//                            if (response.getString("status").equals("true")) {
-//
-//                                //Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
-//
-//                            } else {
-//
-//                                //Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
-//
-//                            }
-//
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//
-//
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                VolleyLog.e("Error", "Error: " + error.toString());
-//
-//            }
-//        });
-//
-//        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-//        requestQueue.add(jsonObjectRequest);
-//
-//
-//    }
 
     @SuppressLint({"LongLogTag", "NewApi"})
     @Override

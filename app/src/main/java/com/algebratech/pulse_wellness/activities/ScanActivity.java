@@ -66,26 +66,9 @@ import com.veepoo.protocol.VPOperateManager;
 import com.veepoo.protocol.listener.base.IABleConnectStatusListener;
 import com.veepoo.protocol.listener.base.IABluetoothStateListener;
 import com.veepoo.protocol.listener.base.IBleWriteResponse;
-import com.veepoo.protocol.listener.base.IConnectResponse;
-import com.veepoo.protocol.listener.base.INotifyResponse;
-import com.veepoo.protocol.listener.data.ICustomSettingDataListener;
-import com.veepoo.protocol.listener.data.IDeviceFuctionDataListener;
-import com.veepoo.protocol.listener.data.IPwdDataListener;
-import com.veepoo.protocol.listener.data.ISocialMsgDataListener;
-import com.veepoo.protocol.listener.data.ISportDataListener;
-import com.veepoo.protocol.model.datas.FunctionDeviceSupportData;
-import com.veepoo.protocol.model.datas.FunctionSocailMsgData;
-import com.veepoo.protocol.model.datas.PwdData;
-import com.veepoo.protocol.model.datas.SportData;
-import com.veepoo.protocol.model.enums.EFunctionStatus;
-import com.veepoo.protocol.model.settings.CustomSettingData;
 import com.wosmart.ukprotocollibary.WristbandManager;
 import com.wosmart.ukprotocollibary.WristbandManagerCallback;
 import com.wosmart.ukprotocollibary.WristbandScanCallback;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBeginPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerStepItemPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerStepPacket;
-import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -285,6 +268,10 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
                 devicename.setText("Pulse Spirit");
                 Glide.with(mContext).load(R.drawable.watchimage).error(R.drawable.watchimage).into(img_watch);
             }
+            if (device_type.equals("V270")) {
+                devicename.setText("Pulse v270");
+                Glide.with(mContext).load(R.drawable.newwear).error(R.drawable.watchimage).into(img_watch);
+            }
         }
 
         if (notificationListeners != null && notificationListeners.contains(LISTENER_PATH)) {
@@ -461,20 +448,13 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
     private void initRecyleView() {
         mSwipeRefreshLayout = (SwipeRefreshLayout) super.findViewById(R.id.mian_swipeRefreshLayout);
         mRecyclerView = (RecyclerView) super.findViewById(R.id.main_recylerlist);
-
-
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         bleConnectAdatpter = new BleScanViewAdapter(this, mListData);
         mRecyclerView.setAdapter(bleConnectAdatpter);
-//        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-//        mRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
         bleConnectAdatpter.setBleItemOnclick(this);
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
-
     }
-
-
     private void checkPermission() {
         Log.d(TAG, "Build.VERSION.SDK_INT =" + Build.VERSION.SDK_INT);
         if (Build.VERSION.SDK_INT <= 22) {
@@ -508,7 +488,7 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
                         MY_PERMISSIONS_REQUEST_BLUETOOTH);
             }
         } else {
-            Log.d(TAG, "requestPermission,shouldShowRequestPermissionRationale hehe");
+            Log.d(TAG, "requestPermission,shouldShowRequestPermissionRationale");
         }
     }
 
@@ -545,18 +525,13 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
             return true;
         }
         Log.d("DeviceResults", "Running scan device");
-//        mVpoperateManager.startScanDevice(mSearchResponse);
         WristbandManager.getInstance(this).startScan(true, new WristbandScanCallback() {
             @Override
             public void onWristbandDeviceFind(BluetoothDevice device, int rssi, byte[] scanRecord) {
                 super.onWristbandDeviceFind(device, rssi, scanRecord);
                 SearchResult result = new SearchResult(device, rssi, scanRecord);
                 Log.d("DeviceResults", result.toString());
-//                if (!devices.contains(result)) {
-//                    devices.add(result);
-//                    Collections.sort(devices, new RssiComparable());
-//                    adapter.notifyDataSetChanged();
-//                }
+
             }
 
             @Override
@@ -567,13 +542,11 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
              if (!mListAddress.contains(device.getAddress())) {
                     mListData.add(result);
                     mListAddress.add(device.getAddress());
-//                    Collections.sort(devices, new RssiComparable());
-//               adapter.notifyDataSetChanged();
-                System.out.println("mListData"+mListData);
+                 // Collections.sort(devices, new RssiComparable());
+                 bleConnectAdatpter.notifyDataSetChanged();
               }
 
             }
-
             @Override
             public void onLeScanEnable(boolean enable) {
                 super.onLeScanEnable(enable);
@@ -609,23 +582,22 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
         WristbandManager.getInstance(this).stopScan();
     }
     private void connect(final String mac, final String name){
-        Toast.makeText(mContext, "Running is Connect", Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, "Connecting Wearable", Toast.LENGTH_SHORT).show();
         WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback(){
             @Override
             public void onConnectionStateChange(boolean status) {
                 super.onConnectionStateChange(status);
                 if(status){
-                    Toast.makeText(mContext, "Running is Status", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent();
                     intent.putExtra("mac", mac);
                     intent.putExtra("name", name);
+                    intent.putExtra("macaddress", mac);
+                    intent.putExtra("userID","01234567890");
                     setResult(0x02, intent);
-                    ScanActivity.this.finish();
                     syncData();
-                    Intent intent1 = new Intent(ScanActivity.this, FunctionsActivity.class);
+                    Intent intent1 = new Intent(ScanActivity.this, MainActivity.class);
                     startActivity(intent1);
-            }else {
-                    Toast.makeText(mContext, "Running is Else Status", Toast.LENGTH_SHORT).show();
+            }else{
                     disConnect();
                 }
         }
@@ -634,7 +606,7 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
                 super.onError(error);
         }
             });
-        WristbandManager.getInstance(this).connect(mac);
+              WristbandManager.getInstance(this).connect(mac);
     }
 
     private void disConnect() {
@@ -651,76 +623,8 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
                 }
             }
         });
-
         WristbandManager.getInstance(this).startLoginProcess("01234567890");
     }
-
-
-
-
-
-    private void afterconnection() {
-        Log.d(TAG, "After Connection");
-
-        VPOperateManager.getMangerInstance(mContext).confirmDevicePwd(writeResponse, new IPwdDataListener() {
-            @Override
-            public void onPwdDataChange(PwdData pwdData) {
-                String message = "PwdData:\n" + pwdData.toString();
-                Log.d(TAG, message);
-
-                deviceNumber = pwdData.getDeviceNumber();
-                deviceVersion = pwdData.getDeviceVersion();
-                deviceTestVersion = pwdData.getDeviceTestVersion();
-
-            }
-        }, new IDeviceFuctionDataListener() {
-            @Override
-            public void onFunctionSupportDataChange(FunctionDeviceSupportData functionSupport) {
-                String message = "FunctionDeviceSupportData:\n" + functionSupport.toString();
-                Log.d(TAG, message);
-                //  sendMsg(message, 2);
-                EFunctionStatus newCalcSport = functionSupport.getNewCalcSport();
-                if (newCalcSport != null && newCalcSport.equals(SUPPORT)) {
-                    isNewSportCalc = true;
-                } else {
-                    isNewSportCalc = false;
-                }
-                watchDataDay = functionSupport.getWathcDay();
-                contactMsgLength = functionSupport.getContactMsgLength();
-                allMsgLenght = functionSupport.getAllMsgLength();
-                isSleepPrecision = functionSupport.getPrecisionSleep() == SUPPORT;
-            }
-        }, new ISocialMsgDataListener() {
-            @Override
-            public void onSocialMsgSupportDataChange(FunctionSocailMsgData functionSocailMsgData) {
-                String message = "FunctionSocailMsgData:\n" + functionSocailMsgData.toString();
-                Log.d(TAG, message);
-                //  sendMsg(message, 3);
-            }
-        }, new ICustomSettingDataListener() {
-            @Override
-            public void OnSettingDataChange(CustomSettingData customSettingData) {
-                String message = "FunctionCustomSettingData:\n" + customSettingData.toString();
-                Log.d(TAG, message);
-                //   sendMsg(message, 4);
-            }
-        }, "0000", is24Hourmodel);
-
-        VPOperateManager.getMangerInstance(mContext).readSportStep(writeResponse, new ISportDataListener() {
-            @Override
-            public void onSportDataChange(SportData sportData) {
-
-                Log.e("IDIGIT_21_07_RED_SCAN", "READ SPORT STEPS");
-
-                String message = "Current step count: " + sportData.toString();
-                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-                Log.d(TAG, message);
-
-                //sendMsg(message, 1);
-            }
-        });
-    }
-
 
     /**
      * bluetoothOnOrOff
@@ -769,7 +673,6 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
         @Override
         public void onDeviceFounded(final SearchResult device) {
             //  Log.d(TAG,String.format("device for %s-%s-%d", device.getName(), device.getAddress(), device.rssi));
-
 
             runOnUiThread(new Runnable() {
                 @Override
@@ -820,13 +723,9 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
                 refreshStop();
             }
         }
-
         if (requestCode == REQUEST_CODE_NOTIFY) {
-
             checkEnabled();
-
         }
-
     }
 
     private void checkEnabled() {
@@ -901,12 +800,8 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
         });
 
         final SearchResult searchResult = mListData.get(position);
-
-
         if (old_deviceMac != null) {
-
             mVpoperateManager.disconnectWatch(writeResponse);
-
         }
 
         saveMacOnline(searchResult.getAddress());
@@ -917,11 +812,6 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         intent = new Intent(ScanActivity.this, DeviceConnect.class);
         stopService(intent);
-
-
-        // startService(new Intent(getApplicationContext(), DeviceConnect.class));
-//        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//        finish();
         stopScan();
         connect(searchResult.getAddress(), searchResult.getName());
     }

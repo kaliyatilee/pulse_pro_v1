@@ -1,6 +1,7 @@
 package com.algebratech.pulse_wellness.activities;
 
 import static android.bluetooth.BluetoothProfile.GATT;
+import static com.algebratech.pulse_wellness.services.DeviceConnect.BROADCAST_ACTION;
 import static com.inuker.bluetooth.library.BluetoothService.getContext;
 
 import android.app.Activity;
@@ -17,8 +18,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -54,7 +53,6 @@ import com.algebratech.pulse_wellness.adapters.gridActivityAdapter;
 import com.algebratech.pulse_wellness.api.Api;
 import com.algebratech.pulse_wellness.fragment_tab_newsfeed_dashboard;
 import com.algebratech.pulse_wellness.fragments.CommunityFragment;
-import com.algebratech.pulse_wellness.fragments.HomeFragment;
 import com.algebratech.pulse_wellness.fragments.RewardsFragment;
 import com.algebratech.pulse_wellness.models.gridActivityModel;
 import com.algebratech.pulse_wellness.services.DeviceConnect;
@@ -87,9 +85,28 @@ import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.UpdateAvailability;
 //import com.google.firebase.iid.FirebaseInstanceId;
 import com.stripe.android.PaymentConfiguration;
-import com.veepoo.protocol.VPOperateManager;
-import com.veepoo.protocol.listener.data.ISportModelStateListener;
-import com.veepoo.protocol.model.datas.SportModelStateData;
+import com.wosmart.ukprotocollibary.WristbandManager;
+import com.wosmart.ukprotocollibary.WristbandManagerCallback;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBeginPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBpListItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBpListPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerPrivateBpPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerRateItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerRateListPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSleepItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSleepPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSportItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSportPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerStepItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerStepPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerTodaySumSportPacket;
+import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
+import com.wosmart.ukprotocollibary.model.db.HrpDataDao;
+import com.wosmart.ukprotocollibary.model.hrp.HrpData;
+import com.wosmart.ukprotocollibary.model.sleep.SleepData;
+import com.wosmart.ukprotocollibary.model.sport.SportData;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -97,8 +114,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -649,10 +666,9 @@ public class MainActivity extends AppCompatActivity {
             Log.e("IDIGIT_21_07_CONNECTED", "DEVICE IS CONNECTED");
             //profile_image.setBorderColor(ResourcesCompat.getColor(getResources(), R.color.green, null));
             watch_icon.setColorFilter(ResourcesCompat.getColor(getResources(), R.color.green, null));
-            // hidedialog();
+             //hidedialog();
             //  successDialog();
             //checkForResumeActivity();
-
         }
         if (connect.contains("reco")) {
             //profile_image.setBorderColor(ResourcesCompat.getColor(getResources(), R.color.green, null));
@@ -1003,5 +1019,181 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+//    private void iniData() {
+//        // handler = new MyHandler();
+//        WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback() {
+//
+//            @Override
+//            public void onSyncDataBegin(ApplicationLayerBeginPacket packet) {
+//                super.onSyncDataBegin(packet);
+//                Log.i(tag, "sync begin");
+//            }
+//
+//            @Override
+//            public void onStepDataReceiveIndication(ApplicationLayerStepPacket packet) {
+//                super.onStepDataReceiveIndication(packet);
+//                for (ApplicationLayerStepItemPacket item : packet.getStepsItems()) {
+//
+//                    Log.i(tag, item.toString());
+//                }
+//                Log.i(tag, "size = " + packet.getStepsItems().size());
+//            }
+//
+//            @Override
+//            public void onSleepDataReceiveIndication(ApplicationLayerSleepPacket packet) {
+//                super.onSleepDataReceiveIndication(packet);
+//                for (ApplicationLayerSleepItemPacket item : packet.getSleepItems()) {
+//                    Log.i(tag, item.toString());
+//                }
+//                Log.i(tag, "size = " + packet.getSleepItems().size());
+//            }
+//
+//            @Override
+//            public void onHrpDataReceiveIndication(ApplicationLayerHrpPacket packet) {
+//                super.onHrpDataReceiveIndication(packet);
+//                for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
+//                    Log.i(tag, item.toString());
+//                }
+//                Log.i(tag, "size = " + packet.getHrpItems().size());
+//            }
+//
+//            @Override
+//            public void onRateList(ApplicationLayerRateListPacket packet) {
+//                super.onRateList(packet);
+//                for (ApplicationLayerRateItemPacket item : packet.getRateList()) {
+//                    Log.i(tag, item.toString());
+//                }
+//                Log.i(tag, "size = " + packet.getRateList().size());
+//            }
+//
+//            @Override
+//            public void onSportDataReceiveIndication(ApplicationLayerSportPacket packet) {
+//                super.onSportDataReceiveIndication(packet);
+//                for (ApplicationLayerSportItemPacket item : packet.getSportItems()) {
+//                    System.out.println("onSportDataReceiveIndication"+item.getDistance()+""+item.getCalories()+""+item.getMinutes()+""+item.getRateAvg());
+//                    Log.i(tag, item.toString());
+//                }
+//                Log.i(tag, "size = " + packet.getSportItems().size());
+//            }
+//
+//            //温度检测回调
+//            // temperature measure data call back
+//            @Override
+//            public void onTemperatureData(ApplicationLayerHrpPacket packet) {
+//                super.onTemperatureData(packet);
+//
+//                for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
+//                    System.out.println("++++++++Tempreture"+ item.getTemperature());
+//                    Log.i(tag, "temperature = " + item.toString());
+//                }
+//                Log.i(tag, "temperature size = " + packet.getHrpItems().size());
+//            }
+//
+//            //温度历史数据回调
+//            // temperature history data call back
+//            @Override
+//            public void onTemperatureList(ApplicationLayerRateListPacket packet) {
+//                super.onTemperatureList(packet);
+//                for (ApplicationLayerRateItemPacket item : packet.getRateList()) {
+//                    System.out.println("++++++++++++++Tempreture"+item.toString());
+//                    Log.i(tag, "temperature = " + item.toString());
+//                }
+//                Log.i(tag, "temperature size = " + packet.getRateList().size());
+//            }
+//
+//
+//
+//            /**
+//             * 血压自动检测回调
+//             *
+//             * bp auto measure callback
+//             *
+//             * @param packet
+//             */
+//            @Override
+//            public void onBpList(ApplicationLayerBpListPacket packet) {
+//                super.onBpList(packet);
+//
+//                for (ApplicationLayerBpListItemPacket item : packet.getBpListItemPackets()) {
+//                    Log.i(tag, "bpItem = " + item.toString());
+//                }
+//                Log.i(tag, "bp size = " + packet.getBpListItemPackets().size());
+//            }
+//            @Override
+//            public void onSyncDataEnd(ApplicationLayerTodaySumSportPacket packet) {
+//                super.onSyncDataEnd(packet);
+//                Log.i(tag, "sync end");
+//            }
+//        });
+//
+//        Calendar calendar = Calendar.getInstance();
+//        int year = calendar.get(Calendar.YEAR);
+//        int month = calendar.get(Calendar.MONTH) + 1;
+//        int day = calendar.get(Calendar.DAY_OF_MONTH);
+//
+//        int stepcount = 0;
+//        int calories = 0;
+//        int distance  = 0;
+//        List<SportData> steps = GlobalGreenDAO.getInstance().loadSportDataByDate(year,month,day);
+//        if (null != steps) {
+//            for (SportData item : steps) {
+//                distance = distance + item.getDistance();
+//                calories = calories + item.getCalory();
+//                stepcount = stepcount + item.getStepCount();
+//                Log.i(tag, "item = " + item.toString());
+//            }
+//        }
+//
+//       List<SleepData> sleepData = GlobalGreenDAO.getInstance().loadAllSleepData();
+//        System.out.println("+++++++++++++++++SleepData"+sleepData);
+//        List<HrpData> hrpData = GlobalGreenDAO.getInstance().loadAllHrpData();
+//        int total = 0 ;
+//        int size = 0;
+//        int average = 0;
+//        int mValue = 0;
+//        if (null != hrpData) {
+//            size = hrpData.size();
+//            for (HrpData item : hrpData) {
+//                total = total + item.getValue();
+//            }
+//        }
+//        if (size != 0){
+//            average = total / size;
+//        }
+//
+//
+//
+//        ApplicationLayerPrivateBpPacket packet = WristbandManager.getInstance(MainActivity.this).readPrivateBp();
+//
+//        int final_distance = loadCalculate(distance);
+//        int final_calorie = loadCalculate(calories);
+//
+//        Thread thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (WristbandManager.getInstance(MainActivity.this).setTemperatureStatus(true)) {
+//                    System.out.println("++++++++++++++++++++Start tempreture true");
+//                } else {
+//                    System.out.println("++++++++++++++++++++Start tempreture False");
+//                }
+//            }
+//        });
+//        thread.start();
+//
+//
+//        intent1.putExtra("bp_high_value",String.valueOf(packet.getHighValue()));
+//        intent1.putExtra("bp_low_value", String.valueOf(packet.getLowValue()));
+//        intent1.putExtra("kcals", String.valueOf(final_calorie));
+//        intent1.putExtra("distance",String.valueOf(final_distance));
+//        intent1.putExtra("steps",String.valueOf(stepcount));
+//        intent1.putExtra("hr",String.valueOf(average));
+//        intent1.putExtra("connect", "dis");
+//        sendBroadcast(intent1);
+//    }
+//
+//    private int loadCalculate(int value) {
+//        return value/1000;
+//    }
 
 }

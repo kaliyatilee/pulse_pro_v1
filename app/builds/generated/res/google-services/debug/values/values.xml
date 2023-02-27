@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">890133968451-5fv5bhmvghj8gqlgqld61et9m5uc9t20.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">890133968451</string>
+    <string name="google_api_key" translatable="false">AIzaSyDmomK5ax7BMbMQTTL1c8LyvctSyty7NDM</string>
+    <string name="google_app_id" translatable="false">1:890133968451:android:b3444ed1d4b24d6d1386f6</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDmomK5ax7BMbMQTTL1c8LyvctSyty7NDM</string>
+    <string name="google_storage_bucket" translatable="false">pulseapp-bdf49.appspot.com</string>
+    <string name="project_id" translatable="false">pulseapp-bdf49</string>
+</resources>

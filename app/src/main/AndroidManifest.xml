@@ -42,13 +42,46 @@
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:replace="android:supportsRtl,android:theme">
+        <service
+            android:name=".DeviceSyncService"
+            android:exported="false"></service>
+
         <activity
-            android:name=".WeightMonitoring"
+            android:name=".dashboardReports.HeartRateActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".dashboardReports.SleepActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".dashboardReports.StepsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.WearableLogin"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.SyncDataActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity android:name=".FunctionsActivity" />
         <activity
             android:name=".activities.DailyWalkReport"
             android:exported="false">
@@ -56,8 +89,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".activities.WeightMonitoring"
-            android:exported="true"/>
+        <activity
+            android:name=".activities.WeightMonitoring"
+            android:exported="true" />
         <activity
             android:name=".activities.WatchActivities"
             android:exported="true" />

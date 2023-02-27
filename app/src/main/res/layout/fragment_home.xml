@@ -82,6 +82,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:visibility="gone"
                 android:layout_width="@dimen/margin_0dp"
                 android:layout_height="@dimen/margin_100dp"
                 android:layout_gravity="center"
@@ -143,6 +144,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:visibility="gone"
                 android:layout_width="@dimen/margin_0dp"
                 android:layout_height="@dimen/margin_100dp"
                 android:layout_gravity="center"
@@ -201,10 +203,11 @@
 
         </LinearLayout>
         <androidx.cardview.widget.CardView
-            android:layout_margin="@dimen/margin_10dp"
-            android:elevation="@dimen/margin_10dp"
+            android:id="@+id/stepsCard"
+            android:layout_margin="@dimen/margin_5dp"
+            android:elevation="@dimen/margin_5dp"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/margin_20dp"
+            app:cardCornerRadius="@dimen/margin_5dp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_100dp">
 
@@ -212,16 +215,321 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_100dp">
 
-                <ImageView
-                    android:id="@+id/heartIcon"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/stepIcon"
+                    android:layout_width="@dimen/margin_60dp"
+                    android:layout_height="@dimen/margin_60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_5dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/margin_5dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:src="@drawable/walking"
+                    app:civ_border_color="@color/primary"
+                    app:civ_border_width="1dp" />
+
+                <LinearLayout
+                    android:layout_toRightOf="@+id/stepIcon"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/muli_semibold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        android:text="Steps"/>
+                    <TextView
+                        android:id="@+id/tmpCals"
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calories Reading"/>
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/margin_10dp"
                     android:layout_marginTop="@dimen/margin_10dp"
                     android:layout_marginEnd="@dimen/margin_10dp"
                     android:layout_marginBottom="@dimen/margin_10dp"
-                    android:src="@drawable/pulseheart" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tmpSteps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/muli_semibold"
+                        android:text="--"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+
+                    <TextView
+                        android:id="@+id/tmpDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="---"
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_margin="@dimen/margin_5dp"
+            android:elevation="@dimen/margin_5dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/margin_5dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_100dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_100dp">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_margin="@dimen/margin_5dp"
+                    app:civ_border_width="1dp"
+                    app:civ_border_color="@color/red"
+                    android:layout_width="@dimen/margin_60dp"
+                    android:layout_height="@dimen/margin_60dp"
+                    android:id="@+id/tmpIcon"
+                    android:src="@drawable/tmp"
+                    android:layout_centerVertical="true"/>
+
+                <LinearLayout
+                    android:layout_toRightOf="@+id/tmpIcon"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/muli_semibold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        android:text="Temperature"/>
+                    <TextView
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Latest Reading"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:id="@+id/tmpReading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/muli_semibold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        android:text="---"/>
+                    <TextView
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Normal"
+                        android:id="@+id/tmpStatus"/>
+                    <Button
+                        android:id="@+id/check_tmp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Check"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_margin="@dimen/margin_5dp"
+            android:elevation="@dimen/margin_5dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/margin_5dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_100dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_100dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/bpIcon"
+                    android:layout_width="@dimen/margin_60dp"
+                    android:layout_height="@dimen/margin_60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_5dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/margin_5dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:src="@drawable/bp"
+                    app:civ_border_color="@color/purple_200"
+                    app:civ_border_width="1dp" />
+
+                <LinearLayout
+                    android:layout_toRightOf="@+id/bpIcon"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/muli_semibold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        android:text="Blood Pressure"/>
+                    <TextView
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Latest Reading"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:id="@+id/bpReading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/muli_semibold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        android:text="--/--"/>
+                    <TextView
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Normal"
+                        android:id="@+id/bpStatus"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardSleep"
+            android:layout_margin="@dimen/margin_5dp"
+            android:elevation="@dimen/margin_5dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/margin_5dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_100dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_100dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/sleepIcon"
+                    android:layout_width="@dimen/margin_60dp"
+                    android:layout_height="@dimen/margin_60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_5dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/margin_5dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:src="@drawable/night"
+                    app:civ_border_color="@color/orange_200"
+                    app:civ_border_width="1dp" />
+
+                <LinearLayout
+                    android:layout_toRightOf="@+id/sleepIcon"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/muli_semibold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        android:text="Sleep"/>
+                    <TextView
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Deep: None"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:id="@+id/bpReading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/muli_semibold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        android:text="None"/>
+                    <TextView
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quality"
+                        android:id="@+id/sleepStatus"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardHeart"
+            android:layout_margin="@dimen/margin_5dp"
+            android:elevation="@dimen/margin_10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/margin_5dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_100dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_100dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/heartIcon"
+                    android:layout_width="@dimen/margin_60dp"
+                    android:layout_height="@dimen/margin_60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_5dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/margin_5dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:src="@drawable/pulseheart"
+                    app:civ_border_color="@color/primary"
+                    app:civ_border_width="1dp" />
+
+
                 <LinearLayout
                     android:layout_toRightOf="@+id/heartIcon"
                     android:layout_centerVertical="true"
@@ -241,8 +549,8 @@
                         android:textSize="@dimen/text_14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Latest HR :10"
-                        android:id="@+id/latestHeart"/>
+                        android:text="Latest HR"
+                        android:id="@+id/latestHeart1"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -270,30 +578,30 @@
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cardWeight"
-            android:layout_margin="@dimen/margin_10dp"
+            android:layout_margin="@dimen/margin_5dp"
             android:elevation="@dimen/margin_10dp"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/margin_20dp"
+            app:cardCornerRadius="@dimen/margin_5dp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_100dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_100dp">
-
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/weightIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/margin_60dp"
+                    android:layout_height="@dimen/margin_60dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/margin_10dp"
-                    android:layout_marginTop="@dimen/margin_10dp"
-                    android:layout_marginEnd="@dimen/margin_10dp"
-                    android:layout_marginBottom="@dimen/margin_10dp"
-                    android:src="@drawable/nweight" />
+                    android:layout_marginStart="@dimen/margin_5dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/margin_5dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:src="@drawable/nweight"
+                    app:civ_border_color="@color/red_50"
+                    app:civ_border_width="1dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -325,7 +633,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/margin_10dp"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
                     android:orientation="vertical">
 
                     <TextView

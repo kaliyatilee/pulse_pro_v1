@@ -1,0 +1,2878 @@
+[
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_rewards_preview2.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_rewards_preview2.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_footprint.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/footprint.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_logoo.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/logoo.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_doc.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/doc.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_placeholder.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/placeholder.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_profile.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/profile.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_img_reminder.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/img_reminder.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout-hdpi_activity_register2.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout-hdpi/activity_register2.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_top_corner_grey.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/top_corner_grey.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_sync_data.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_sync_data.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_clapping.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/clapping.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_weight.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/weight.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_act_profile_created_success.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/act_profile_created_success.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_logo_new.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/logo_new.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_share.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/share.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_keyboard_arrow_right_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_keyboard_arrow_right_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_dark_mode.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_dark_mode.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_bmi.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/bmi.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_data.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_data.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_password_updated_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/password_updated_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_weight_monitoring.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_weight_monitoring.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_thumb_up.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/ic_thumb_up.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_edit.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/edit.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_create_profile3.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_create_profile3.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_av_timer_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_av_timer_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_wallet.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/wallet.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_night.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/night.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_message.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/message.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_wellness_orange.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_wellness_orange.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_subscription_plans_listing_screen.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_subscription_plans_listing_screen.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_card.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_card.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_workout.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/workout.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_calories_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/calories_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_fragment_home.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_public_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_public_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_weight.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/weight.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_friends.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_friends.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_watchh.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/watchh.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_report.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_report.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_search_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_search_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_visaa.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/visaa.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_doctor.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/doctor.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_weight.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/weight.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_account_balance.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_account_balance.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_news_feed.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_news_feed.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_login_hero.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/generated/res/pngs/debug/drawable-mdpi/ic_login_hero.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_muli_black.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/muli_black.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_raw_activity_grid.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/raw_activity_grid.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_heart_grey.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_heart_grey.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_remove.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_remove.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_login_button_press1.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/login_button_press1.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_number_picker_dialog.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/number_picker_dialog.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_img_reminder.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/img_reminder.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_wallet.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/wallet.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_brandon_grotesque_light.otf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/brandon_grotesque_light.otf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_login_button_press.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/login_button_press.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_directions_run_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_directions_run_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_side_bg.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/ic_side_bg.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_notifications.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/notifications.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_marker.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/marker.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_celebrate_gif.gif.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/celebrate_gif.gif"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_pulse_force.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/pulse_force.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_brandon_grotesque_medium_italic.otf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/brandon_grotesque_medium_italic.otf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_mail_custom_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/mail_custom_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_bg_border_round_grey.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/bg_border_round_grey.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_run.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_run.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_fragment_news_feed_details.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/fragment_news_feed_details.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_watch.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/watch.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_plankposition.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/plankposition.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_marker_end.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/marker_end.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_logo.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/logo.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_treadmilllarge.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/treadmilllarge.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_baseline_arrow_downward_24.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_baseline_arrow_downward_24.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_watch.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/watch.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_medal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/medal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_person_add_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_person_add_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_bg_run_semi_rec.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/bg_run_semi_rec.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_fragment_tab_newsfeed_dashboard.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_fragment_tab_newsfeed_dashboard.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_banner_3.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/banner_3.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_doc.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/doc.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_archivement.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/archivement.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_pulse_force.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/pulse_force.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_baseline_delete_24.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_baseline_delete_24.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_like_btn_active.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_like_btn_active.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_goldmedal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/goldmedal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_edit.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/edit.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_local_florist_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_local_florist_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_play_circle_outline.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_play_circle_outline.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_custom_auto.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/custom_auto.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_workout.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/workout.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_friend_detail_screen.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/friend_detail_screen.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_exercise.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/exercise.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_login_button_normal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/login_button_normal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_gym.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/gym.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_thumb.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/thumb.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_blood.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/blood.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_my_news_feed.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_my_news_feed.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_more.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/more.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_fragment_profile2.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/fragment_profile2.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_login2.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_login2.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_celebration.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/celebration.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_plankposition.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/plankposition.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_running.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/running.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_phone_android.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_phone_android.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_exercise.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/exercise.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_baloo.ttf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/baloo.ttf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_camera.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_camera.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_steps.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_steps.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_archivement.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/archivement.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_bottom_bg.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/bottom_bg.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_monetization_on_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_monetization_on_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_post_bg_lines.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/post_bg_lines.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_forget_password_sms.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_forget_password_sms.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_connectivity_bg.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/connectivity_bg.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_pressuregauge.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/pressuregauge.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_stationary_bike.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/stationary_bike.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_footprints.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/footprints.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_bike.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/bike.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_distance.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/distance.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_banner_calculator.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/banner_calculator.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_clapping.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/clapping.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_goal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/goal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_wallet.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/wallet.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_more.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/more.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_download.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/download.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_marker.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/marker.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_edit_password.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_edit_password.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_banner_1.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/banner_1.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_login_button.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/login_button.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_treadmilllarge.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/treadmilllarge.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_logo_new.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/logo_new.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_greetings_notification_layout.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/greetings_notification_layout.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_rounded_bg.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/rounded_bg.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_round_border_green.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/round_border_green.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_directions_bike_black_24dp_white.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_directions_bike_black_24dp_white.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_like_btn_green.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_like_btn_green.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_toolbar.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/toolbar.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_black_border.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/black_border.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_side_bg_left.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-ldpi/ic_side_bg_left.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_rowing_machine.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_rowing_machine.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_running.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/running.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_setting.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_setting.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_watch.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/watch.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_connectivity.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/connectivity.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_fragment_tab_leaderboard_friendlist.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_fragment_tab_leaderboard_friendlist.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_banner_reminder.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/banner_reminder.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_insert_photo.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_insert_photo.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_transfer_within_a_station_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_transfer_within_a_station_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_american.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/american.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_banner_3.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/banner_3.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_news_feed_bottomsheet.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/news_feed_bottomsheet.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_wallet.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/wallet.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_full_circle_background.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/full_circle_background.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_running.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/running.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_pressuregauge.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/pressuregauge.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_start_activity_bottomsheet.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/start_activity_bottomsheet.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-v24_pulseheart.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-v24/pulseheart.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_round_border_grey.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/round_border_grey.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_fragment_show_data.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/fragment_show_data.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_bike.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/bike.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_golf_course_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_golf_course_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_grid_demo.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_grid_demo.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_exercise.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/exercise.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_friend_requests.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_friend_requests.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_footprint.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/footprint.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_logo_now.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/logo_now.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_add_circle.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_add_circle.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_main.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_main.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_logo.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/logo.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_white_rounded.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/white_rounded.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_stair_stepper.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/stair_stepper.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_doctor.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/doctor.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_like_btn.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_like_btn.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_btn_rounded_green_selection.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/btn_rounded_green_selection.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_doc.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/doc.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_medal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/medal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_add_friend_screen.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_add_friend_screen.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_login_hero.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/generated/res/pngs/debug/drawable-hdpi/ic_login_hero.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-v24_shoe.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-v24/shoe.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_goal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/goal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_functions.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_functions.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_treadmill.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/treadmill.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_subscription.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_subscription.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-ldpi_marker.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-ldpi/marker.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_bicycle.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/bicycle.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_pulse.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/pulse.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_done.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_done.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_password_updated_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/password_updated_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_pulse_force.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/pulse_force.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_thumb.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/thumb.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_bottom_bg.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/bottom_bg.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_mail_custom_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/mail_custom_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_pulse_log.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/pulse_log.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_gymnastics.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/gymnastics.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_assessment_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_assessment_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_heartrate.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/heartrate.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_download.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/download.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_login_button_press.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/login_button_press.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_heartrate.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/heartrate.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_gym.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/gym.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_banner_calculator.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/banner_calculator.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_circle_outline.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_circle_outline.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_rounded_gray_transparent.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/rounded_gray_transparent.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_bottom_bg.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/bottom_bg.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_shape_round_corner.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/shape_round_corner.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_chat_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_chat_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_brandon_grotesque_light_italic.otf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/brandon_grotesque_light_italic.otf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_logo_new.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/logo_new.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_run_results.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_run_results.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_marker.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/marker.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_login_button_press1.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/login_button_press1.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_notifications.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_notifications.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_yoga_men.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/yoga_men.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_contract.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/contract.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_password_updated_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/password_updated_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_marker_distance.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/marker_distance.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_dinnersclub.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/dinnersclub.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_list_divider_5dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/list_divider_5dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_qr_layout.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/qr_layout.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_outdoorcycling.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_outdoorcycling.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_treadmill.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_treadmill.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_connectivity.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/connectivity.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_rowing_machine.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/rowing_machine.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_placeholder.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/placeholder.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_edit_text_background.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/edit_text_background.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_splash.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_splash.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_muli_extralight_italic.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/muli_extralight_italic.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_commets.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_commets.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_goldmedal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/goldmedal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_bottomline.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/bottomline.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_map.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_map.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_connectivity.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/connectivity.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_more.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/ic_more.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_baseline_settings.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_baseline_settings.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_circle_background.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/circle_background.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_btn_rounded_green.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/btn_rounded_green.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_selector_bg_card.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/selector_bg_card.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_leaderboard_fragment.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_leaderboard_fragment.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_watchimage.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/watchimage.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_banner_reminder.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/banner_reminder.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_field_phone_number_icon.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/field_phone_number_icon.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_pulse_log.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/pulse_log.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_bg_gray.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/bg_gray.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_dialog_report_more.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/dialog_report_more.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_plank.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/plank.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_active.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/active.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_like_count_view.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/like_count_view.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_medal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/medal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_fragment_activity_summary.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/fragment_activity_summary.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_bicycle.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/bicycle.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_a1_grad.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/a1_grad.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_logo_now.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/logo_now.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_silvermedal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/silvermedal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_group.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/group.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_connectivity.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/connectivity.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_notifications_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_silvermedal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/silvermedal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_add.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_add.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_heart.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_heart.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_plank.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/plank.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_logo_moto.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/logo_moto.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_silvermedal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/silvermedal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_circle_white.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/circle_white.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_heart_green.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_heart_green.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_bookmark_gray_18dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_bookmark_gray_18dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_walking.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/walking.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_download.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/download.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_rounde_corner.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/rounde_corner.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_corner.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/corner.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_banner_1.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/banner_1.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_mobile_custom_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/mobile_custom_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_thumb_up.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/ic_thumb_up.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_archivement.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/archivement.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_heart.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/heart.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_crown.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/crown.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_banner_3.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/banner_3.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_thumb_up.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/ic_thumb_up.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_mobile_custom_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/mobile_custom_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_top_corner.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/top_corner.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-v24_logoo_new.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-v24/logoo_new.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_more_vert_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_more_vert_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_group.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/group.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_weight.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/weight.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_notify_cancel.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/ic_action_notify_cancel.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_heart.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/heart.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_rewards.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_rewards.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_doctor.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/doctor.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_mail_custom_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/mail_custom_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_round_rect_white.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/round_rect_white.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_running.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_running.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_bottom_bg.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/bottom_bg.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_watchimage.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/watchimage.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_camera_alt_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_camera_alt_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_login_button_press1.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/login_button_press1.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_all_transaction.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_all_transaction.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_background_color.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/background_color.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_bmi.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/bmi.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_subscription_success.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/subscription_success.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_checked.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/checked.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_bp.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/bp.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_blood.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/blood.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_indoor_run.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_indoor_run.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_plank.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/plank.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_check_box_dialog.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/check_box_dialog.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_scan.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_scan.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_watch_activities.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_watch_activities.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_heart.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/heart.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_change_password_done.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_change_password_done.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_message.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/message.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_fragment_rewards.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/fragment_rewards.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_active.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/active.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_medal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/medal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_plankposition.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/plankposition.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_cycling.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/cycling.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_custom_autotext.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/custom_autotext.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_fragment_post_feed.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/fragment_post_feed.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_search.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/search.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-v24_logo_new_one.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-v24/logo_new_one.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_group.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/group.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_heartrate.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/heartrate.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_refresh.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/refresh.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_btn_res_left.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/btn_res_left.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_message_black.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_message_black.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_kanit.ttf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/kanit.ttf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_flag_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_flag_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_newspaper.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/newspaper.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_banner_calculator.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/banner_calculator.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_mail_custom_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/mail_custom_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_login_hero.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_login_hero.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_show_data.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_show_data.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_blood.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/blood.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_mobile_custom_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/mobile_custom_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_edit_profile.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_edit_profile.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_doc.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/doc.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_forget_password_email.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_forget_password_email.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_clapping.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/clapping.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_footprint.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/footprint.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_edit.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/edit.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_friendreq_success.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/friendreq_success.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_outdoor_run_activity.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/outdoor_run_activity.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_refresh.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/refresh.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_create_profile2.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_create_profile2.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_banner_calculator.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/banner_calculator.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_login_button_normal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/login_button_normal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_login_button_press.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/login_button_press.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout-hdpi_activity_login2.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout-hdpi/activity_login2.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_plankposition.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/plankposition.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_goldmedal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/goldmedal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_blood.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/blood.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_rewards_preview.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_rewards_preview.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_field_email_icon.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/field_email_icon.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_img_reminder.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/img_reminder.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_nweight.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/nweight.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/xml_provider_path.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/xml/provider_path.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_discover.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/discover.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_button_bg.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/button_bg.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_rounded_grey_button.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/rounded_grey_button.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_bottom_sheet_grapple.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_bottom_sheet_grapple.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_dialog_connectivity.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/dialog_connectivity.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_download.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/download.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_wave.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/wave.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_logo_new.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/logo_new.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_banner_1.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/banner_1.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_dashboard_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_refresh.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/refresh.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_avatar_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/avatar_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_muli_extralight.ttf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/muli_extralight.ttf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_plankposition.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/plankposition.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_home_back.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_home_back.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_button_bg_green.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/button_bg_green.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/menu_bottom_nav_menu.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_archivement.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/archivement.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_weight_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/weight_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_banner_calculator.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/banner_calculator.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_brandon_grotesque_regular_italic.otf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/brandon_grotesque_regular_italic.otf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_notification.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_notification.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_favorite_border_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_favorite_border_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_timeline_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_timeline_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_hiking.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/hiking.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_baseline_done_24.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_baseline_done_24.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_gymnastics.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/gymnastics.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_directions_run_black_24dp_white.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_directions_run_black_24dp_white.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_logo.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/logo.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_edit.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_edit.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_height.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_height.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_login_button_normal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/login_button_normal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_doc.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/doc.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_add_user_goals.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_add_user_goals.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_mobile_custom_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/mobile_custom_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_bicycle.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/bicycle.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_logo_new.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/logo_new.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_profile.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/profile.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_transactioncard.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/transactioncard.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_marker_mylocation.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/marker_mylocation.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_transaction.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_transaction.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_pressuregauge.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/pressuregauge.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_summary_card.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_summary_card.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_view_list.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_view_list.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_detail_summary.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_detail_summary.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_banner_1.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/banner_1.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_fiber_manual_record_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_fiber_manual_record_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_silvermedal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/silvermedal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_clapping.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/clapping.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_custom_progressbar_drawable.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/custom_progressbar_drawable.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_notify_cancel.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/ic_action_notify_cancel.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_dialog_common_custom_msg.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/dialog_common_custom_msg.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_pulse.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/pulse.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_footprint.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/footprint.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_my_wellnes_plan_screen.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_my_wellnes_plan_screen.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_marker_start.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/marker_start.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_verified_user_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_verified_user_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_banner_3.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/banner_3.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_treadmilllarge.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/treadmilllarge.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_leader_board.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_leader_board.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_watch.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/watch.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_active.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_active.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_dumbbels.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/dumbbels.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_pressuregauge.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/pressuregauge.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_brandon_grotesque_black.otf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/brandon_grotesque_black.otf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_running.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/running.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_bicycle.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/bicycle.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_marker.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/marker.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_bicyclee.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/bicyclee.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_breakfast.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_breakfast.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_group_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_group_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_bmi.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/bmi.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_edit.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/edit.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_pulse_force.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/pulse_force.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_road.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/road.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_edit.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/edit.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_profile.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_profile.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_share_gray_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_share_gray_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_sliding_layout.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/sliding_layout.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_add_button1.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/add_button1.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_community.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_community.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_watch.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/watch.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_goldmedal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/goldmedal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_send.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_send.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_gym.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/gym.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_treadmill.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/treadmill.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_comment_gray_18dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_comment_gray_18dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_goal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/goal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_newspaper.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/newspaper.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_brandon_grotesque_bold_italic.otf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/brandon_grotesque_bold_italic.otf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_elliptical_workout.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/elliptical_workout.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_gymnastics.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/gymnastics.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_run_results2.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_run_results2.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_logo_now.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/logo_now.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_add_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_add_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_select_disease.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_select_disease.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_heartrate.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/heartrate.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_bicyclee.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/bicyclee.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_placeholder.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/placeholder.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_clapping.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/clapping.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_watch_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_watch_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_dialog_token_activation.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/dialog_token_activation.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_wellness.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_wellness.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_goal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/goal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_friend_profile.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_friend_profile.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_more.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/more.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_logo_now.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/logo_now.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_thumb.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/thumb.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_content_main.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/content_main.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_add_button.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/add_button.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_thumb.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/thumb.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_goldmedal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/goldmedal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_placeholder.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/placeholder.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_pulse_log.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/pulse_log.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_gymnastics.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/gymnastics.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_layer.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/layer.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_banner_1.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/banner_1.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_more.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/more.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_shutdown.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_shutdown.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_bike.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/bike.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_streetview_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_streetview_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_bike.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/bike.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_bicycle.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/bicycle.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_create_profile4.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_create_profile4.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_running.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/running.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_new_password.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_new_password.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_slider_layout.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/slider_layout.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_local_pharmacy_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_local_pharmacy_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_lock.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_lock.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_banner_3.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/banner_3.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_connectivity.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/connectivity.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_stop_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_stop_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_wearable_login.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_wearable_login.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_thumb.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/thumb.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_outdoorwalking.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_outdoorwalking.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_wallet.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/wallet.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_login.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_pause_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_pause_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_logo_moto.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/logo_moto.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_pulse_force.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/pulse_force.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_outline_close.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_outline_close.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_contract.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/contract.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_email.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_email.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_timer_black.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_timer_black.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_contract.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/contract.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_refresh.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/refresh.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_vpn_key.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_vpn_key.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_friends_community.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_friends_community.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_montserrat_bold.ttf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/montserrat_bold.ttf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_circle_black_border.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/circle_black_border.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_newspaper.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/newspaper.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_login_button_normal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/login_button_normal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_logo_moto.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/logo_moto.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_distance_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/distance_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_fragment_community.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/fragment_community.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_step.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_step.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_exercise.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/exercise.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_weight.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/weight.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_brandon_grotesque_thin_italic.otf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/brandon_grotesque_thin_italic.otf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout-hdpi_activity_feedback.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout-hdpi/activity_feedback.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_more.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/more.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_logo_now.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/logo_now.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_treadmill.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/treadmill.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_person.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_person.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_newspaper.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/newspaper.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_bmi.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/bmi.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_comment.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_comment.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_comment_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_comment_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_photo.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_photo.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_placeholder.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/placeholder.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_heart.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/heart.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_user_detail_bottomsheet.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/user_detail_bottomsheet.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_logo_moto.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/logo_moto.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_jcb.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/jcb.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_group.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/group.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_droid_sans_bold.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/droid_sans_bold.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_treadmill.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/treadmill.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_search.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/search.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_maestro.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/maestro.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_person_black.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_person_black.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_login_button_press1.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/login_button_press1.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_bmi.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/bmi.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_directions_bike_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_directions_bike_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_forget_password_selection.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_forget_password_selection.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_search.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_search.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_stationary_bike.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_stationary_bike.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_indoor_walk.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_indoor_walk.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_archivement.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/archivement.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_img_reminder.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/img_reminder.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_comment.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_comment.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_watchimage.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/watchimage.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_banner_reminder.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/banner_reminder.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_medal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/medal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_watchimage.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/watchimage.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_login_button_press.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/login_button_press.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_attach.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_attach.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_treadmill.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_treadmill.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_training.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/training.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_treadmilll.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/treadmilll.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_doctor.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/doctor.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_peoples.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_peoples.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_weight.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_weight.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_message.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/message.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_rounded_rect.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/rounded_rect.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_dialog_searchable_spinner.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/dialog_searchable_spinner.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_goal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/goal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_background_gradient.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/background_gradient.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_login_hero.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/generated/res/pngs/debug/drawable-ldpi/ic_login_hero.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_btn_res_right.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/btn_res_right.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_pulse_log.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/pulse_log.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_create_profile.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_create_profile.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_hiking.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_hiking.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_weight.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/weight.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_fragment_news_feed.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/fragment_news_feed.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_treadmilll.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/treadmilll.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_blood.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/blood.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_play_arrow_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_play_arrow_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_mobile_custom_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/mobile_custom_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_timer.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_timer.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_stair_stepper.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_stair_stepper.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_notify_cancel.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/ic_action_notify_cancel.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_alert_round_corner.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/alert_round_corner.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_circle_progress.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/circle_progress.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_visa.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/visa.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_exercise.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/exercise.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_round_border_green_border.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/round_border_green_border.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_bottom_bg.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/bottom_bg.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_gothic.ttf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/gothic.ttf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_notify_cancel.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/ic_action_notify_cancel.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_plank.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/plank.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_dinner.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_dinner.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_contract.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/contract.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_refresh.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/refresh.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_directions_walk_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_directions_walk_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_watchh.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/watchh.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_runningg.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/runningg.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_show_data_daily.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_show_data_daily.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_password_updated_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/password_updated_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_heartrate.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/heartrate.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_more_24.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_more_24.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_home_back_green.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_home_back_green.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_gym.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/gym.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_border.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/border.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_login_hero.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_login_hero.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_password_updated_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/password_updated_icon.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_muli_semibold.ttf.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/muli_semibold.ttf"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_content_scan.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/content_scan.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_pressuregauge.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/pressuregauge.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_item_disease.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/item_disease.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_login_hero.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_login_hero.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_message.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/message.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_show_records.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_show_records.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_doctor.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/doctor.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_bottom_corner.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/bottom_corner.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_notifications.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/notifications.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_tag_shape.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/tag_shape.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_badge_view.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/badge_view.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_login_button_press.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/login_button_press.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_detail_activity_screen.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_detail_activity_screen.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_profile.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/profile.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_active.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/active.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_pulse.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/pulse.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_active.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/active.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_footprint.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/footprint.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_logo_moto.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/logo_moto.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_register2.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_register2.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_lunch.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_lunch.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_gym.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/gym.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_generating_wellness_plan.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_generating_wellness_plan.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_message.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/message.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_img_reminder.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/img_reminder.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_round_border.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/round_border.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_field_password_icon.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/field_password_icon.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_treadmilllarge.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/treadmilllarge.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_banner_reminder.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/banner_reminder.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_my_subscriptionplan.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_my_subscriptionplan.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_treadmill.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/treadmill.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_login_button_normal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/login_button_normal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_news.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_news.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_white_circle.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/white_circle.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_notification.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_notification.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_dialog_progress.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/dialog_progress.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_register.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_register.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_pulse.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/pulse.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_logoo.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/logoo.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_newspaper.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/newspaper.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_edit_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_edit_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_news_like.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_news_like.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_badge_view.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/badge_view.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_like_gray_18dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_like_gray_18dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_list_item_home.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/list_item_home.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_thumb_up.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/ic_thumb_up.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_gymnastics.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/gymnastics.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_general_close_icon.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/general_close_icon.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_contract.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/contract.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_circle_check.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_circle_check.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_circular_progress_bar.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/circular_progress_bar.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_tag_shape_green.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/tag_shape_green.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_check_circle_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_check_circle_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_play_circle_outline_36dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_play_circle_outline_36dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_general_back_icon.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/general_back_icon.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_treadmilllarge.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/treadmilllarge.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_scan.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_scan.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/font_muli.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/font/muli.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_timer_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_timer_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_store_black.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_store_black.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_fab_background.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/fab_background.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_circular_shape.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/circular_shape.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_silvermedal.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/silvermedal.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_banner_reminder.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/banner_reminder.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_login_hero.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_login_hero.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_tmp.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/tmp.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_share_white_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_share_white_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_plank.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/plank.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_add_card.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_add_card.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/raw_beep.mp3.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/raw/beep.mp3"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_forget_password_icon.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/forget_password_icon.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_cycling.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_cycling.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_download.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/download.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_add_friend.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_add_friend.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_watchimage.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/watchimage.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_activity_verify_otp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/activity_verify_otp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_custom_loader_view.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/custom_loader_view.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_pulse_log.jpg.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/pulse_log.jpg"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_home_black_24dp.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_home_black_24dp.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_bike.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/bike.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_heart.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/heart.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_logo.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/logo.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_field_username_icon.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/field_username_icon.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_field_full_name_icon.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/field_full_name_icon.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_calendar.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/calendar.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/layout_collected_token_card.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/layout/collected_token_card.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_login_button_press1.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/login_button_press1.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_account_circle.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_account_circle.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_pulse.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/pulse.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_logo.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/logo.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-mdpi_marker.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-mdpi/marker.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-hdpi_active.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-hdpi/active.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_ic_arrow_right.xml.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/ic_arrow_right.xml"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_action_notify_cancel.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/ic_action_notify_cancel.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xhdpi_profile.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xhdpi/profile.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_profile.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/profile.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable_calories.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable/calories.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxhdpi_group.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxhdpi/group.png"
+    },
+    {
+        "merged": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_mail_custom_icon.png.flat",
+        "source": "/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/res/drawable-xxxhdpi/mail_custom_icon.png"
+    }
+]

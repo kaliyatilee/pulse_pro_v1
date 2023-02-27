@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_10"
-        android:text="Sync Device Data"/>
+        android:text="Wearable Login"/>
     <TextView
         android:id="@+id/tv2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_10"
-        android:text="Sync today step to device"/>
+        android:text="Sync Device Data"/>
     <TextView
         android:id="@+id/tv3"
         android:layout_width="match_parent"

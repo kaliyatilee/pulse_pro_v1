@@ -40,15 +40,20 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.algebratech.pulse_wellness.FunctionsActivity;
 import com.algebratech.pulse_wellness.R;
 import com.algebratech.pulse_wellness.activities.AddFriendActivity;
 import com.algebratech.pulse_wellness.activities.AddUserGoals;
 import com.algebratech.pulse_wellness.activities.DetailActivitySummary;
 import com.algebratech.pulse_wellness.activities.RegisterActivity;
+import com.algebratech.pulse_wellness.activities.ScanActivity;
 import com.algebratech.pulse_wellness.activities.SelectDisease;
 import com.algebratech.pulse_wellness.activities.WeightMonitoring;
 import com.algebratech.pulse_wellness.adapters.ActivitiesSummaryAdapter;
 import com.algebratech.pulse_wellness.api.Api;
+import com.algebratech.pulse_wellness.dashboardReports.HeartRateActivity;
+import com.algebratech.pulse_wellness.dashboardReports.SleepActivity;
+import com.algebratech.pulse_wellness.dashboardReports.StepsActivity;
 import com.algebratech.pulse_wellness.db.DBHelper;
 import com.algebratech.pulse_wellness.interfaces.DialogClickListener;
 import com.algebratech.pulse_wellness.models.SlidingModel;
@@ -68,6 +73,9 @@ import com.inuker.bluetooth.library.utils.BluetoothUtils;
 import com.veepoo.protocol.VPOperateManager;
 import com.wosmart.ukprotocollibary.WristbandManager;
 import com.wosmart.ukprotocollibary.WristbandManagerCallback;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpItemPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerTemperatureControlPacket;
 import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
 import com.wosmart.ukprotocollibary.model.sport.SportData;
 
@@ -87,6 +95,7 @@ import java.util.Locale;
 public class HomeFragment extends Fragment {
 
     private ArrayList<SlidingModel> imageModelArrayList;
+    private String tag = "SyncDataActivity";
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
     private Intent intent;
@@ -119,9 +128,9 @@ public class HomeFragment extends Fragment {
     private List<WellnessPlanModel> wellnessPlanModels = new ArrayList<>();
     String userId;
     Button addGoals;
-    TextView total_lose_weight, total_running, total_calories, total_steps;
+    TextView total_lose_weight, total_running, total_calories, total_steps , bpReading;
     LinearLayout userGoals;
-    TextView currentSteps, currentKcal, currentRunning;
+    TextView currentSteps, currentKcal, currentRunning,tmpCals,tmpSteps,tmpDistance;
     String steps, distances, kcals, hasMac;
     String sum_of_calories_for_day = "0";
     String sum_of_steps_for_day = "0";
@@ -129,9 +138,13 @@ public class HomeFragment extends Fragment {
     RecyclerView activitiesSummary;
     private ActivitiesSummaryAdapter activitiesSummaryAdapter;
     private RecyclerView.Adapter mAdapter;
-    TextView seeAll;
-    CardView cardWeight;
+    TextView seeAll,currentWeight;
+    CardView cardWeight,stepsCard,cardSleep,cardHeart;
     List<TodaysActivityModel> todaysActivityModels = new ArrayList<>();
+    Intent intent1;
+    String today_kcals,today_distance,today_steps;
+    Button check_tmp;
+
 
     TextView myPLanKcal, bmi, bmi_text, myPLanCurrentKcal, myPlanKm, weeklyKm, addGoalText, goalWeight, goalKcal, goalSteps, myPlanKcalProText, myPlanKMProText, weightProText, runningProgressText, stepsProText, kcalProText, noActvity;
     TextView txtPlanStatus,txtDistancePlanStatus;
@@ -144,9 +157,8 @@ public class HomeFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-              //  initData();
+                initData();
                 init();
-
                 onFragment = true;
                 DashBoardAPI();
             }
@@ -154,6 +166,44 @@ public class HomeFragment extends Fragment {
 
 
     }
+
+    private void initData() {
+            WristbandManager.getInstance(mContext).registerCallback(new WristbandManagerCallback() {
+
+                //此方法需要读取设备支持功能后才会回调
+                @Override
+                public void onTemperatureData(ApplicationLayerHrpPacket packet) {
+                    super.onTemperatureData(packet);
+                    for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
+                        Log.i(tag, "temp origin value :" + item.getTempOriginValue() + " temperature adjust value : " + item.getTemperature() + " is wear :" + item.isWearStatus() + " is adjust : " + item.isAdjustStatus() + "is animation :" + item.isAnimationStatus());
+                    }
+                }
+
+                @Override
+                public void onTemperatureMeasureSetting(ApplicationLayerTemperatureControlPacket packet) {
+                    super.onTemperatureMeasureSetting(packet);
+                    Log.i(tag, "temp setting : show = " + packet.isShow() + " adjust = " + packet.isAdjust() + " celsius unit = " + packet.isCelsiusUnit());
+                }
+
+                @Override
+                public void onTemperatureMeasureStatus(int status) {
+                    super.onTemperatureMeasureStatus(status);
+                    Log.i(tag, "temp status :" + status);
+                }
+            });
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (WristbandManager.getInstance(mContext).setTemperatureStatus(true)) {
+                    WristbandManager.getInstance(mContext).setTemperatureStatus(false);
+                } else {
+                   // handler.sendEmptyMessage(0x02);
+                }
+            }
+        });
+        thread.start();
+        }
 
 
     @Override
@@ -177,6 +227,8 @@ public class HomeFragment extends Fragment {
             addGoals = root.findViewById(R.id.addGoals);
             noActvity = root.findViewById(R.id.noActvity);
             cardWeight = root.findViewById(R.id.cardWeight);
+            stepsCard = root.findViewById(R.id.stepsCard);
+            check_tmp = root.findViewById(R.id.check_tmp);
 
             distance = root.findViewById(R.id.distance);
 
@@ -190,6 +242,10 @@ public class HomeFragment extends Fragment {
             currentRunning = root.findViewById(R.id.currentRunning);
             total_lose_weight = root.findViewById(R.id.total_lose_weight);
             total_running = root.findViewById(R.id.total_running);
+            bpReading = root.findViewById(R.id.bpReading);
+            cardSleep = root.findViewById(R.id.cardSleep);
+            cardHeart = root.findViewById(R.id.cardHeart);
+            currentWeight = root.findViewById(R.id.currentWeight);
             total_calories = root.findViewById(R.id.total_calories);
             total_steps = root.findViewById(R.id.total_steps);
             bmi = root.findViewById(R.id.bmi);
@@ -216,6 +272,9 @@ public class HomeFragment extends Fragment {
             runningProgressText = root.findViewById(R.id.runningProgressText);
             stepsProText = root.findViewById(R.id.stepsProText);
             kcalProText = root.findViewById(R.id.kcalProText);
+            tmpSteps = root.findViewById(R.id.tmpSteps);
+            tmpCals = root.findViewById(R.id.tmpCals);
+            tmpDistance = root.findViewById(R.id.tmpDistance);
 
             userGoals = root.findViewById(R.id.userGoals);
             activitiesSummary = root.findViewById(R.id.activitiesSummary);
@@ -226,30 +285,27 @@ public class HomeFragment extends Fragment {
              BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
                 @Override
                 public void onReceive(Context context, Intent intent) {
-                    String heartStatus;
-                    String heartRate = intent.getStringExtra("heartRate");
-                    if(heartRate.equals("0")){
-                        latestHeart.setText("Scanning");
-                    }
-                    else{
-                        latestHeart.setText("Latest HR :"+ heartRate);
-                    }
+                    String bp_high_value = intent.getStringExtra("bp_high_value");
+                    String bp_low_value = intent.getStringExtra("bp_low_value");
+                     today_kcals = intent.getStringExtra("kcals");
+                     today_distance = intent.getStringExtra("distance");
+                     today_steps = intent.getStringExtra("steps");
+                    String hrate = intent.getStringExtra("hr");
+                    currentSteps.setText(steps);
+                    currentKcal.setText(kcals);
+                    avarageHeart.setText(hrate+" BPS");
+                    tmpSteps.setText(today_steps+" Steps");
+                    tmpCals.setText(today_kcals+" kCals Burnt");
+                    tmpDistance.setText(today_distance+" KM");
+                    bpReading.setText(bp_high_value +"/" + bp_low_value);
 
-                     heartStatus = intent.getStringExtra("heartStatus");
-                    if(heartStatus.equals("STATE_HEART_NORMAL")){
-                        heartStatus = "Normal";
-                        avarageHeart.setTextColor(Color.parseColor("#7CBE31"));
-                    }
-                    else{
-                        avarageHeart.setTextColor(Color.parseColor("#000000"));
-                    }
-                    avarageHeart.setText(heartStatus);
                 }
             };
             registerReceiver(broadcastReceiver, new IntentFilter(DeviceConnect.BROADCAST_ACTION));
 
 
             DashBoardAPI();
+            initTempreture();
 
 
             myEdit = sharedPreferences.edit();
@@ -269,8 +325,24 @@ public class HomeFragment extends Fragment {
             // final DatabaseHelper db = new DatabaseHelper(getContext());
             // getting initial points from firebase
 
+            check_tmp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startMeasure();
+                }
+            });
 
+            stepsCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
+                    Intent intent1 = new Intent(mContext, StepsActivity.class);
+                    intent1.putExtra("today_steps",today_steps);
+                    intent1.putExtra("today_kcals",today_kcals);
+                    intent1.putExtra("today_distance",today_distance);
+                    startActivity(intent1);
+                }
+            });
 
 
             addGoals.setOnClickListener(new View.OnClickListener() {
@@ -284,8 +356,27 @@ public class HomeFragment extends Fragment {
             cardWeight.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(getContext(), WeightMonitoring.class);
-                    startActivity(intent);
+                    Intent intent1 = new Intent(mContext, WeightMonitoring.class);
+                    startActivity(intent1);
+
+                }
+            });
+
+
+
+            cardSleep.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent1 = new Intent(mContext, SleepActivity.class);
+                    startActivity(intent1);
+
+                }
+            });
+            cardHeart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent1 = new Intent(mContext, HeartRateActivity.class);
+                    startActivity(intent1);
 
                 }
             });
@@ -301,6 +392,70 @@ public class HomeFragment extends Fragment {
 
             initBLE();
         }
+    }
+
+    private void initTempreture() {
+        System.out.println("+++++++++++++Running Init Temp");
+            WristbandManager.getInstance(mContext).registerCallback(new WristbandManagerCallback() {
+                //此方法需要读取设备支持功能后才会回调
+                @Override
+                public void onTemperatureData(ApplicationLayerHrpPacket packet) {
+                    super.onTemperatureData(packet);
+                    for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
+                        Log.i(tag, "temp origin value :" + item.getTempOriginValue() + " temperature adjust value : " + item.getTemperature() + " is wear :" + item.isWearStatus() + " is adjust : " + item.isAdjustStatus() + "is animation :" + item.isAnimationStatus());
+                    }
+                }
+
+                @Override
+                public void onTemperatureMeasureSetting(ApplicationLayerTemperatureControlPacket packet) {
+                    super.onTemperatureMeasureSetting(packet);
+                    Log.i(tag, "temp setting : show = " + packet.isShow() + " adjust = " + packet.isAdjust() + " celsius unit = " + packet.isCelsiusUnit());
+                }
+
+                @Override
+                public void onTemperatureMeasureStatus(int status) {
+                    super.onTemperatureMeasureStatus(status);
+                    Log.i(tag, "temp status :" + status);
+                }
+            });
+        }
+
+    private void startMeasure() {
+        CM.showProgressLoader(getActivity());
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (WristbandManager.getInstance(mContext).readHrpValue()) {
+                    new java.util.Timer().schedule(
+                            new java.util.TimerTask() {
+                                @Override
+                                public void run() {
+                                    stopMeasure();
+                                }
+                            },
+                            20000
+                    );
+                } else {
+                    System.out.println("+++++++++++++++++++Start Measure failed");
+                }
+            }
+        });
+        thread.start();
+    }
+
+    private void stopMeasure() {
+        CM.HideProgressLoader();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (WristbandManager.getInstance(mContext).stopReadHrpValue()) {
+                    System.out.println("+++++++++++++++++++Stop Measure sucess");
+                } else {
+                    System.out.println("+++++++++++++++++++Stop Measure failed");
+                }
+            }
+        });
+        thread.start();
     }
 
     void setdataAdapter() {
@@ -524,7 +679,6 @@ public class HomeFragment extends Fragment {
 //
 //    }
 
-
     private void DashBoardAPI() {
 
         if (CM.isConnected(getActivity())) {
@@ -660,6 +814,7 @@ public class HomeFragment extends Fragment {
                                             total_calories.setText(setgoal_calories);
                                             total_steps.setText(setgoal_steps);
                                             goalWeight.setText(sum_of_weight_for_day);
+                                            currentWeight.setText(sharedPreferences.getString("weight",""));
                                             currentRunning.setText(sum_of_distance_for_day);
                                             goalKcal.setText(sum_of_calories_for_day);
                                             goalSteps.setText(sum_of_steps_for_day);
@@ -828,30 +983,30 @@ public class HomeFragment extends Fragment {
 
 
     private void updateSmartWatchServeUI(Intent intent) {
-        sum_of_steps_for_day = intent.getStringExtra("steps");
-        sum_of_distance_for_day = intent.getStringExtra("distances");
-        sum_of_calories_for_day = intent.getStringExtra("kcals");
-        String connect = intent.getStringExtra("connect");
-
-        Log.e("STEPSSSSS", sum_of_steps_for_day);
-        Log.e("KCALLL", sum_of_calories_for_day);
-        Log.e("DISTANCEEE", sum_of_distance_for_day);
-
-        if (onFragment) {
-            if (!sum_of_calories_for_day.equals("")) {
-                currentKcal.setText(sum_of_calories_for_day);
-                goalKcal.setText(sum_of_calories_for_day);
-            }
-
-            if (!sum_of_steps_for_day.equals("")) {
-                currentSteps.setText(sum_of_steps_for_day);
-                goalSteps.setText(sum_of_steps_for_day);
-            }
-
-            if (!sum_of_distance_for_day.equals(""))
-                currentRunning.setText(sum_of_distance_for_day);
-
-        }
+//        sum_of_steps_for_day = intent.getStringExtra("steps");
+//        sum_of_distance_for_day = intent.getStringExtra("distances");
+//        sum_of_calories_for_day = intent.getStringExtra("kcals");
+//        String connect = intent.getStringExtra("connect");
+//
+//        Log.e("STEPSSSSS", sum_of_steps_for_day);
+//        Log.e("KCALLL", sum_of_calories_for_day);
+//        Log.e("DISTANCEEE", sum_of_distance_for_day);
+//
+//        if (onFragment) {
+//            if (!sum_of_calories_for_day.equals("")) {
+//                currentKcal.setText(sum_of_calories_for_day);
+//                goalKcal.setText(sum_of_calories_for_day);
+//            }
+//
+//            if (!sum_of_steps_for_day.equals("")) {
+//                currentSteps.setText(sum_of_steps_for_day);
+//                goalSteps.setText(sum_of_steps_for_day);
+//            }
+//
+//            if (!sum_of_distance_for_day.equals(""))
+//                currentRunning.setText(sum_of_distance_for_day);
+//
+//        }
 
 
     }

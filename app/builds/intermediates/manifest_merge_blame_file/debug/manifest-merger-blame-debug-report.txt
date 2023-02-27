@@ -1,0 +1,1528 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.algebratech.pulse_wellness"
+4    android:versionCode="148"
+5    android:versionName="7.0.8" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.BLUETOOTH" />
+11-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:6:5-68
+11-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:6:22-65
+12    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+12-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:7:5-76
+12-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:7:22-73
+13    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+13-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:8:5-74
+13-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:8:22-71
+14    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+14-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:9:5-73
+14-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:9:22-70
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:10:5-79
+15-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:10:22-76
+16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+16-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:11:5-81
+16-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:11:22-78
+17    <uses-permission android:name="android.permission.INTERNET" />
+17-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:12:5-67
+17-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:12:22-64
+18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+18-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:13:5-79
+18-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:13:22-76
+19    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+19-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:14:5-16:40
+19-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:15:9-65
+20    <uses-permission android:name="android.permission.CAMERA" />
+20-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:17:5-65
+20-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:17:22-62
+21    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+21-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:18:5-80
+21-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:18:22-77
+22    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+22-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:19:5-75
+22-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:19:22-72
+23    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+23-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:20:5-72
+23-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:20:22-69
+24    <uses-permission android:name="android.permission.READ_CONTACTS" />
+24-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:21:5-72
+24-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:21:22-69
+25    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+25-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:22:5-81
+25-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:22:22-78
+26    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+26-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:23:5-71
+26-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:23:22-68
+27    <uses-permission android:name="android.permission.FLASHLIGHT" />
+27-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:24:5-69
+27-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:24:22-66
+28    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+28-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:25:5-82
+28-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:25:22-79
+29
+30    <uses-feature android:name="android.hardware.camera" />
+30-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:27:5-60
+30-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:27:19-57
+31    <uses-feature android:name="android.hardware.camera.autofocus" />
+31-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:28:5-70
+31-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:28:19-67
+32    <uses-feature
+32-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:29:5-31:35
+33        android:name="android.hardware.bluetooth_le"
+33-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:30:9-53
+34        android:required="true" />
+34-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:31:9-32
+35
+36    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
+36-->[RealtekSDK-1.0.1-release.aar] /home/lee/.gradle/caches/transforms-2/files-2.1/bc50e40c0d64ecbff4bbad7b2f0e4c93/jetified-RealtekSDK-1.0.1-release/AndroidManifest.xml:13:5-79
+36-->[RealtekSDK-1.0.1-release.aar] /home/lee/.gradle/caches/transforms-2/files-2.1/bc50e40c0d64ecbff4bbad7b2f0e4c93/jetified-RealtekSDK-1.0.1-release/AndroidManifest.xml:13:22-76
+37    <uses-permission android:name="android.permission.VIBRATE" />
+37-->[com.fxn769:pix:1.5.6] /home/lee/.gradle/caches/transforms-2/files-2.1/db5ce3ce2ff4d6789afb39a583e647af/jetified-pix-1.5.6/AndroidManifest.xml:13:5-66
+37-->[com.fxn769:pix:1.5.6] /home/lee/.gradle/caches/transforms-2/files-2.1/db5ce3ce2ff4d6789afb39a583e647af/jetified-pix-1.5.6/AndroidManifest.xml:13:22-63
+38    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" /> <!-- See https://developer.android.com/training/package-visibility/declaring for more details. -->
+38-->[com.fxn769:pix:1.5.6] /home/lee/.gradle/caches/transforms-2/files-2.1/db5ce3ce2ff4d6789afb39a583e647af/jetified-pix-1.5.6/AndroidManifest.xml:16:5-80
+38-->[com.fxn769:pix:1.5.6] /home/lee/.gradle/caches/transforms-2/files-2.1/db5ce3ce2ff4d6789afb39a583e647af/jetified-pix-1.5.6/AndroidManifest.xml:16:22-77
+39    <queries>
+39-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:10:5-14:15
+40
+41        <!-- Added to check if Chrome is installed for browser-based payment authentication (e.g. 3DS1). -->
+42        <package android:name="com.android.chrome" />
+42-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:13:9-54
+42-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:13:18-51
+43    </queries> <!-- See https://developer.android.com/training/package-visibility/declaring for more details. -->
+44    <queries>
+44-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:10:5-14:15
+45
+46        <!-- Added to check the default browser that will host the AuthFlow. -->
+47        <intent>
+48            <action android:name="android.intent.action.VIEW" />
+48-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:54:17-69
+48-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:54:25-66
+49
+50            <data android:scheme="http" />
+50-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:60:17-63:50
+50-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:63:21-47
+51        </intent>
+52    </queries>
+53
+54    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+54-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:26:5-77
+54-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:26:22-74
+55    <uses-permission android:name="android.permission.WAKE_LOCK" />
+55-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:27:5-68
+55-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:27:22-65
+56
+57    <uses-feature
+57-->[com.otaliastudios:cameraview:2.7.0] /home/lee/.gradle/caches/transforms-2/files-2.1/4602aea413a0af5ee03b583002da4319/jetified-cameraview-2.7.0/AndroidManifest.xml:27:5-29:36
+58        android:name="android.hardware.camera.front"
+58-->[com.otaliastudios:cameraview:2.7.0] /home/lee/.gradle/caches/transforms-2/files-2.1/4602aea413a0af5ee03b583002da4319/jetified-cameraview-2.7.0/AndroidManifest.xml:28:9-53
+59        android:required="false" />
+59-->[com.otaliastudios:cameraview:2.7.0] /home/lee/.gradle/caches/transforms-2/files-2.1/4602aea413a0af5ee03b583002da4319/jetified-cameraview-2.7.0/AndroidManifest.xml:29:9-33
+60    <uses-feature
+60-->[com.otaliastudios:cameraview:2.7.0] /home/lee/.gradle/caches/transforms-2/files-2.1/4602aea413a0af5ee03b583002da4319/jetified-cameraview-2.7.0/AndroidManifest.xml:30:5-32:36
+61        android:name="android.hardware.microphone"
+61-->[com.otaliastudios:cameraview:2.7.0] /home/lee/.gradle/caches/transforms-2/files-2.1/4602aea413a0af5ee03b583002da4319/jetified-cameraview-2.7.0/AndroidManifest.xml:31:9-51
+62        android:required="false" />
+62-->[com.otaliastudios:cameraview:2.7.0] /home/lee/.gradle/caches/transforms-2/files-2.1/4602aea413a0af5ee03b583002da4319/jetified-cameraview-2.7.0/AndroidManifest.xml:32:9-33
+63
+64    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+64-->[com.google.android.gms:play-services-measurement-api:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/13e98fb91281027cb273575ad16b25ee/jetified-play-services-measurement-api-21.1.0/AndroidManifest.xml:25:5-79
+64-->[com.google.android.gms:play-services-measurement-api:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/13e98fb91281027cb273575ad16b25ee/jetified-play-services-measurement-api-21.1.0/AndroidManifest.xml:25:22-76
+65
+66    <uses-feature
+66-->[com.google.android.gms:play-services-maps:18.0.2] /home/lee/.gradle/caches/transforms-2/files-2.1/b75737450ac9d73c7fa14d300831c2fc/jetified-play-services-maps-18.0.2/AndroidManifest.xml:26:5-28:35
+67        android:glEsVersion="0x00020000"
+67-->[com.google.android.gms:play-services-maps:18.0.2] /home/lee/.gradle/caches/transforms-2/files-2.1/b75737450ac9d73c7fa14d300831c2fc/jetified-play-services-maps-18.0.2/AndroidManifest.xml:27:9-41
+68        android:required="true" />
+68-->[com.google.android.gms:play-services-maps:18.0.2] /home/lee/.gradle/caches/transforms-2/files-2.1/b75737450ac9d73c7fa14d300831c2fc/jetified-play-services-maps-18.0.2/AndroidManifest.xml:28:9-32
+69
+70    <queries>
+70-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:10:5-14:15
+71
+72        <!-- Needs to be explicitly declared on Android R+ -->
+73        <package android:name="com.google.android.apps.maps" />
+74    </queries>
+75
+76    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+76-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:26:5-110
+76-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:26:22-107
+77
+78    <permission
+78-->[androidx.core:core:1.9.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2ac33d9eb1ecfa93a46408fa1a74828e/core-1.9.0/AndroidManifest.xml:22:5-24:47
+79        android:name="com.algebratech.pulse_wellness.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+79-->[androidx.core:core:1.9.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2ac33d9eb1ecfa93a46408fa1a74828e/core-1.9.0/AndroidManifest.xml:23:9-81
+80        android:protectionLevel="signature" />
+80-->[androidx.core:core:1.9.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2ac33d9eb1ecfa93a46408fa1a74828e/core-1.9.0/AndroidManifest.xml:24:9-44
+81
+82    <uses-permission android:name="com.algebratech.pulse_wellness.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Permission will be merged into the manifest of the hosting app. -->
+82-->[androidx.core:core:1.9.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2ac33d9eb1ecfa93a46408fa1a74828e/core-1.9.0/AndroidManifest.xml:26:5-97
+82-->[androidx.core:core:1.9.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2ac33d9eb1ecfa93a46408fa1a74828e/core-1.9.0/AndroidManifest.xml:26:22-94
+83    <!-- Is required to launch foreground extraction service for targetSdkVersion 28+. -->
+84    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+84-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:8:3-74
+84-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:8:20-72
+85
+86    <application
+86-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:33:5-434:19
+87        android:name="com.algebratech.pulse_wellness.App"
+87-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:34:9-28
+88        android:allowBackup="true"
+88-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:35:9-35
+89        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+89-->[androidx.core:core:1.9.0] /home/lee/.gradle/caches/transforms-2/files-2.1/2ac33d9eb1ecfa93a46408fa1a74828e/core-1.9.0/AndroidManifest.xml:28:18-86
+90        android:debuggable="true"
+91        android:icon="@mipmap/ic_launcher"
+91-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:36:9-43
+92        android:label="@string/app_name"
+92-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:37:9-41
+93        android:largeHeap="true"
+93-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:38:9-33
+94        android:requestLegacyExternalStorage="true"
+94-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:39:9-52
+95        android:roundIcon="@mipmap/ic_launcher_round"
+95-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:40:9-54
+96        android:supportsRtl="true"
+96-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:41:9-35
+97        android:testOnly="true"
+98        android:theme="@style/AppTheme.NoActionBar"
+98-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:42:9-52
+99        android:usesCleartextTraffic="true" >
+99-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:43:9-44
+100        <activity
+100-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:45:9-51:20
+101            android:name="com.algebratech.pulse_wellness.StepsActivity"
+101-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:46:13-42
+102            android:exported="false" >
+102-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:47:13-37
+103            <meta-data
+103-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:48:13-50:36
+104                android:name="android.app.lib_name"
+104-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:49:17-52
+105                android:value="" />
+105-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:50:17-33
+106        </activity>
+107        <activity
+107-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:52:9-58:20
+108            android:name="com.algebratech.pulse_wellness.activities.WearableLogin"
+108-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:53:13-53
+109            android:exported="false" >
+109-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:54:13-37
+110            <meta-data
+110-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:48:13-50:36
+111                android:name="android.app.lib_name"
+111-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:49:17-52
+112                android:value="" />
+112-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:50:17-33
+113        </activity>
+114        <activity
+114-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:59:9-65:20
+115            android:name="com.algebratech.pulse_wellness.activities.SyncDataActivity"
+115-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:60:13-56
+116            android:exported="false" >
+116-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:61:13-37
+117            <meta-data
+117-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:48:13-50:36
+118                android:name="android.app.lib_name"
+118-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:49:17-52
+119                android:value="" />
+119-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:50:17-33
+120        </activity>
+121        <activity android:name="com.algebratech.pulse_wellness.FunctionsActivity" />
+121-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:66:9-55
+121-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:66:19-52
+122        <activity
+122-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:67:9-73:20
+123            android:name="com.algebratech.pulse_wellness.activities.DailyWalkReport"
+123-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:68:13-55
+124            android:exported="false" >
+124-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:69:13-37
+125            <meta-data
+125-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:48:13-50:36
+126                android:name="android.app.lib_name"
+126-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:49:17-52
+127                android:value="" />
+127-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:50:17-33
+128        </activity>
+129        <activity
+129-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:74:9-76:39
+130            android:name="com.algebratech.pulse_wellness.activities.WeightMonitoring"
+130-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:75:13-56
+131            android:exported="true" />
+131-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:76:13-36
+132        <activity
+132-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:77:9-79:39
+133            android:name="com.algebratech.pulse_wellness.activities.WatchActivities"
+133-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:78:13-55
+134            android:exported="true" />
+134-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:79:13-36
+135        <activity
+135-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:80:9-82:39
+136            android:name="com.algebratech.pulse_wellness.activities.DetailActivitySummary"
+136-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:81:13-61
+137            android:exported="true" />
+137-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:82:13-36
+138        <activity
+138-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:83:9-85:39
+139            android:name="com.algebratech.pulse_wellness.activities.RowingMachineActivity"
+139-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:84:13-61
+140            android:exported="true" />
+140-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:85:13-36
+141        <activity
+141-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:86:9-88:39
+142            android:name="com.algebratech.pulse_wellness.activities.StationaryBikeActivity"
+142-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:87:13-62
+143            android:exported="true" />
+143-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:88:13-36
+144        <activity
+144-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:89:9-91:39
+145            android:name="com.algebratech.pulse_wellness.activities.StairStepperActivity"
+145-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:90:13-60
+146            android:exported="true" />
+146-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:91:13-36
+147        <activity
+147-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:92:9-94:39
+148            android:name="com.algebratech.pulse_wellness.activities.IndoorWalkActivity"
+148-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:93:13-58
+149            android:exported="true" />
+149-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:94:13-36
+150        <activity
+150-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:95:9-97:39
+151            android:name="com.algebratech.pulse_wellness.activities.IndoorRunActivity"
+151-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:96:13-57
+152            android:exported="true" />
+152-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:97:13-36
+153        <activity
+153-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:98:9-100:39
+154            android:name="com.algebratech.pulse_wellness.activities.HikingActivity"
+154-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:99:13-54
+155            android:exported="true" />
+155-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:100:13-36
+156        <activity
+156-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:101:9-103:39
+157            android:name="com.algebratech.pulse_wellness.fragments.ShowDataFragment"
+157-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:102:13-55
+158            android:exported="true" />
+158-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:103:13-36
+159        <activity
+159-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:104:9-106:39
+160            android:name="com.algebratech.pulse_wellness.gridDemo"
+160-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:105:13-37
+161            android:exported="true" />
+161-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:106:13-36
+162        <activity
+162-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:107:9-109:39
+163            android:name="com.algebratech.pulse_wellness.MySubscriptionplan"
+163-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:108:13-47
+164            android:exported="true" />
+164-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:109:13-36
+165        <activity
+165-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:110:9-112:39
+166            android:name="com.algebratech.pulse_wellness.activities.AddUserGoals"
+166-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:111:13-52
+167            android:exported="true" /> <!-- <activity -->
+167-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:112:13-36
+168        <!-- android:name=".fragments.LeaderboardFragment" -->
+169        <!-- android:exported="true" /> -->
+170        <!-- <activity -->
+171        <!-- android:name=".FragmentTabLeaderboardFriendlist" -->
+172        <!-- android:exported="true" /> -->
+173        <!-- <activity -->
+174        <!-- android:name=".activities.SettingFragment" -->
+175        <!-- android:exported="true" /> -->
+176        <!-- <activity -->
+177        <!-- android:name=".fragment_tab_newsfeed_dashboard" -->
+178        <!-- android:exported="true" /> -->
+179        <activity
+179-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:124:9-126:39
+180            android:name="com.algebratech.pulse_wellness.activities.AddCardActivity"
+180-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:125:13-55
+181            android:exported="true" />
+181-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:126:13-36
+182        <activity
+182-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:127:9-129:39
+183            android:name="com.algebratech.pulse_wellness.activities.generatingWellnessPlan"
+183-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:128:13-62
+184            android:exported="true" />
+184-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:129:13-36
+185        <activity
+185-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:130:9-132:39
+186            android:name="com.algebratech.pulse_wellness.AddFriendScreen"
+186-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:131:13-44
+187            android:exported="true" />
+187-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:132:13-36
+188        <activity
+188-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:133:9-135:39
+189            android:name="com.algebratech.pulse_wellness.activities.FriendProfileActivity"
+189-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:134:13-61
+190            android:exported="true" />
+190-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:135:13-36
+191        <activity
+191-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:136:9-138:39
+192            android:name="com.algebratech.pulse_wellness.DetailActivityScreen"
+192-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:137:13-49
+193            android:exported="true" />
+193-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:138:13-36
+194        <activity
+194-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:139:9-141:39
+195            android:name="com.algebratech.pulse_wellness.fragments.ProfileActivity"
+195-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:140:13-54
+196            android:exported="true" />
+196-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:141:13-36
+197        <activity
+197-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:142:9-144:39
+198            android:name="com.algebratech.pulse_wellness.activities.AllTransaction"
+198-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:143:13-54
+199            android:exported="true" />
+199-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:144:13-36
+200        <activity
+200-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:145:9-147:39
+201            android:name="com.algebratech.pulse_wellness.activities.MyWellnesPlanScreen"
+201-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:146:13-59
+202            android:exported="true" />
+202-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:147:13-36
+203        <activity
+203-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:148:9-150:39
+204            android:name="com.algebratech.pulse_wellness.activities.NotificationActivity"
+204-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:149:13-60
+205            android:exported="true" />
+205-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:150:13-36
+206        <activity
+206-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:151:9-153:39
+207            android:name="com.algebratech.pulse_wellness.activities.ProfileCreatedView"
+207-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:152:13-58
+208            android:exported="true" />
+208-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:153:13-36
+209
+210        <service
+210-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:155:9-163:19
+211            android:name="com.algebratech.pulse_wellness.services.MyFirebaseMessagingService"
+211-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:156:13-64
+212            android:exported="true" >
+212-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:157:13-36
+213            <intent-filter>
+213-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:158:13-162:29
+214                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+214-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:159:17-78
+214-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:159:25-75
+215                <!-- <action android:name="com.google.android.c2dm.intent.RECEIVE" /> -->
+216                <!-- <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/> -->
+217            </intent-filter>
+218        </service> <!-- <service -->
+219        <!-- android:name=".services.MyFirebaseInstanceIDService" -->
+220        <!-- android:exported="true"> -->
+221        <!-- <intent-filter> -->
+222        <!-- <action android:name="com.google.firebase.INSTANCE_ID_EVENT" /> -->
+223        <!-- </intent-filter> -->
+224        <!-- </service> -->
+225        <activity
+225-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:170:9-172:39
+226            android:name="com.algebratech.pulse_wellness.activities.MyNewsFeedActivity"
+226-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:171:13-58
+227            android:exported="true" />
+227-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:172:13-36
+228        <activity
+228-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:173:9-175:39
+229            android:name="com.algebratech.pulse_wellness.activities.SelectDisease"
+229-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:174:13-53
+230            android:exported="true" />
+230-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:175:13-36
+231        <activity
+231-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:176:9-178:39
+232            android:name="com.algebratech.pulse_wellness.Comment_activity"
+232-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:177:13-45
+233            android:exported="true" />
+233-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:178:13-36
+234        <activity
+234-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:179:9-181:39
+235            android:name="com.algebratech.pulse_wellness.activities.NewsLikeActivity"
+235-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:180:13-56
+236            android:exported="true" />
+236-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:181:13-36
+237        <activity
+237-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:182:9-184:39
+238            android:name="com.algebratech.pulse_wellness.activities.SubscriptionPlansListingScreen"
+238-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:183:13-70
+239            android:exported="true" />
+239-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:184:13-36
+240        <activity
+240-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:185:9-195:20
+241            android:name="com.algebratech.pulse_wellness.activities.SplashActivity"
+241-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:186:13-54
+242            android:exported="true"
+242-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:187:13-36
+243            android:screenOrientation="portrait"
+243-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:188:13-49
+244            android:theme="@style/AppTheme.NoActionBar" >
+244-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:189:13-56
+245            <intent-filter>
+245-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:190:13-194:29
+246                <action android:name="android.intent.action.MAIN" />
+246-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:191:17-69
+246-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:191:25-66
+247
+248                <category android:name="android.intent.category.LAUNCHER" />
+248-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:193:17-77
+248-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:193:27-74
+249            </intent-filter>
+250        </activity>
+251        <activity
+251-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:196:9-200:51
+252            android:name="com.algebratech.pulse_wellness.activities.LoginActivity"
+252-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:197:13-53
+253            android:exported="true"
+253-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:198:13-36
+254            android:screenOrientation="portrait"
+254-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:199:13-49
+255            android:theme="@style/AppThemeMain" />
+255-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:200:13-48
+256        <activity
+256-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:201:9-204:52
+257            android:name="com.algebratech.pulse_wellness.activities.ForgetPasswordSelectionActivity"
+257-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:202:13-71
+258            android:exported="true"
+258-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:203:13-36
+259            android:screenOrientation="portrait" />
+259-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:204:13-49
+260        <activity
+260-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:205:9-209:51
+261            android:name="com.algebratech.pulse_wellness.activities.ForgetPasswordActivity"
+261-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:206:13-62
+262            android:exported="true"
+262-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:207:13-36
+263            android:screenOrientation="portrait"
+263-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:208:13-49
+264            android:theme="@style/AppThemeMain" />
+264-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:209:13-48
+265        <activity
+265-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:210:9-214:51
+266            android:name="com.algebratech.pulse_wellness.activities.ForgetPasswordEmailActivity"
+266-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:211:13-67
+267            android:exported="true"
+267-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:212:13-36
+268            android:screenOrientation="portrait"
+268-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:213:13-49
+269            android:theme="@style/AppThemeMain" />
+269-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:214:13-48
+270        <activity
+270-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:215:9-219:51
+271            android:name="com.algebratech.pulse_wellness.activities.VerityOtpActivity"
+271-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:216:13-57
+272            android:exported="true"
+272-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:217:13-36
+273            android:screenOrientation="portrait"
+273-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:218:13-49
+274            android:theme="@style/AppThemeMain" />
+274-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:219:13-48
+275        <activity
+275-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:220:9-224:51
+276            android:name="com.algebratech.pulse_wellness.activities.ChangePasswordDoneActivity"
+276-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:221:13-66
+277            android:exported="true"
+277-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:222:13-36
+278            android:screenOrientation="portrait"
+278-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:223:13-49
+279            android:theme="@style/AppThemeMain" />
+279-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:224:13-48
+280        <activity
+280-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:225:9-228:51
+281            android:name="com.algebratech.pulse_wellness.activities.NewPassword"
+281-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:226:13-51
+282            android:exported="true"
+282-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:227:13-36
+283            android:theme="@style/AppThemeMain" />
+283-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:228:13-48
+284        <activity
+284-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:229:9-233:51
+285            android:name="com.algebratech.pulse_wellness.activities.RegisterActivity"
+285-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:230:13-56
+286            android:exported="true"
+286-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:231:13-36
+287            android:screenOrientation="portrait"
+287-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:232:13-49
+288            android:theme="@style/AppThemeMain" />
+288-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:233:13-48
+289        <activity
+289-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:234:9-239:47
+290            android:name="com.algebratech.pulse_wellness.activities.CreateProfileActivity"
+290-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:235:13-61
+291            android:exported="true"
+291-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:236:13-36
+292            android:label="Edit Profile"
+292-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:237:13-41
+293            android:screenOrientation="portrait"
+293-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:238:13-49
+294            android:theme="@style/AppTheme" />
+294-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:239:13-44
+295        <activity
+295-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:240:9-244:51
+296            android:name="com.algebratech.pulse_wellness.activities.CreateProfileOneActivity"
+296-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:241:13-64
+297            android:exported="true"
+297-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:242:13-36
+298            android:screenOrientation="portrait"
+298-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:243:13-49
+299            android:theme="@style/AppThemeMain" />
+299-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:244:13-48
+300        <activity
+300-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:245:9-249:51
+301            android:name="com.algebratech.pulse_wellness.activities.CreateProfileTwoActivity"
+301-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:246:13-64
+302            android:exported="true"
+302-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:247:13-36
+303            android:screenOrientation="portrait"
+303-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:248:13-49
+304            android:theme="@style/AppThemeMain" />
+304-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:249:13-48
+305        <activity
+305-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:250:9-254:51
+306            android:name="com.algebratech.pulse_wellness.activities.CreateProfileThreeActivity"
+306-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:251:13-66
+307            android:exported="true"
+307-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:252:13-36
+308            android:screenOrientation="portrait"
+308-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:253:13-49
+309            android:theme="@style/AppThemeMain" />
+309-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:254:13-48
+310        <activity
+310-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:255:9-259:59
+311            android:name="com.algebratech.pulse_wellness.activities.MainActivity"
+311-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:256:13-52
+312            android:exported="true"
+312-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:257:13-36
+313            android:screenOrientation="portrait"
+313-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:258:13-49
+314            android:theme="@style/AppTheme.NoActionBar" />
+314-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:259:13-56
+315        <activity
+315-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:260:9-265:47
+316            android:name="com.algebratech.pulse_wellness.activities.ScanActivity"
+316-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:261:13-52
+317            android:exported="true"
+317-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:262:13-36
+318            android:label="Wearable Settings"
+318-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:263:13-46
+319            android:screenOrientation="portrait"
+319-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:264:13-49
+320            android:theme="@style/AppTheme" />
+320-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:265:13-44
+321        <activity
+321-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:266:9-271:47
+322            android:name="com.algebratech.pulse_wellness.activities.AddFriendActivity"
+322-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:267:13-57
+323            android:exported="true"
+323-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:268:13-36
+324            android:label="Add New Friend"
+324-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:269:13-43
+325            android:screenOrientation="portrait"
+325-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:270:13-49
+326            android:theme="@style/AppTheme" />
+326-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:271:13-44
+327        <activity
+327-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:272:9-275:52
+328            android:name="com.algebratech.pulse_wellness.activities.RewardsPreview"
+328-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:273:13-54
+329            android:exported="true"
+329-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:274:13-36
+330            android:screenOrientation="portrait" />
+330-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:275:13-49
+331        <activity
+331-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:276:9-279:52
+332            android:name="com.algebratech.pulse_wellness.activities.RewardsPreviewTest"
+332-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:277:13-58
+333            android:exported="true"
+333-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:278:13-36
+334            android:screenOrientation="portrait" />
+334-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:279:13-49
+335        <activity
+335-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:280:9-283:52
+336            android:name="com.algebratech.pulse_wellness.activities.OutdoorRunActivity"
+336-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:281:13-58
+337            android:exported="true"
+337-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:282:13-36
+338            android:screenOrientation="portrait" />
+338-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:283:13-49
+339        <activity
+339-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:284:9-287:52
+340            android:name="com.algebratech.pulse_wellness.activities.OutdoorWalkingActivity"
+340-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:285:13-62
+341            android:exported="true"
+341-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:286:13-36
+342            android:screenOrientation="portrait" />
+342-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:287:13-49
+343        <activity
+343-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:288:9-291:52
+344            android:name="com.algebratech.pulse_wellness.activities.OutdoorCyclingActivity"
+344-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:289:13-62
+345            android:exported="true"
+345-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:290:13-36
+346            android:screenOrientation="portrait" />
+346-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:291:13-49
+347        <activity
+347-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:292:9-295:52
+348            android:name="com.algebratech.pulse_wellness.activities.TreadmillActivity"
+348-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:293:13-57
+349            android:exported="true"
+349-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:294:13-36
+350            android:screenOrientation="portrait" />
+350-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:295:13-49
+351        <activity
+351-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:296:9-299:52
+352            android:name="com.algebratech.pulse_wellness.activities.RunResultsActivity"
+352-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:297:13-58
+353            android:exported="true"
+353-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:298:13-36
+354            android:screenOrientation="portrait" />
+354-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:299:13-49
+355        <activity
+355-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:300:9-304:59
+356            android:name="com.algebratech.pulse_wellness.activities.Camera2Activity"
+356-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:301:13-55
+357            android:exported="true"
+357-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:302:13-36
+358            android:screenOrientation="portrait"
+358-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:303:13-49
+359            android:theme="@style/AppTheme.NoActionBar" />
+359-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:304:13-56
+360        <activity
+360-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:305:9-309:59
+361            android:name="com.algebratech.pulse_wellness.activities.NewsFeedDetailActivity"
+361-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:306:13-62
+362            android:exported="true"
+362-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:307:13-36
+363            android:screenOrientation="portrait"
+363-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:308:13-49
+364            android:theme="@style/AppTheme.NoActionBar" />
+364-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:309:13-56
+365        <activity
+365-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:310:9-313:52
+366            android:name="com.algebratech.pulse_wellness.activities.ProfileActivity"
+366-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:311:13-55
+367            android:exported="true"
+367-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:312:13-36
+368            android:screenOrientation="portrait" />
+368-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:313:13-49
+369        <activity
+369-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:314:9-317:52
+370            android:name="com.algebratech.pulse_wellness.activities.ShowRecordsActivity"
+370-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:315:13-59
+371            android:exported="true"
+371-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:316:13-36
+372            android:screenOrientation="portrait" />
+372-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:317:13-49
+373        <activity
+373-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:318:9-322:59
+374            android:name="com.algebratech.pulse_wellness.activities.GiveFeedBackActivity"
+374-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:319:13-60
+375            android:exported="true"
+375-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:320:13-36
+376            android:screenOrientation="portrait"
+376-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:321:13-49
+377            android:theme="@style/AppTheme.NoActionBar" />
+377-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:322:13-56
+378        <activity
+378-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:323:9-327:59
+379            android:name="com.algebratech.pulse_wellness.fragments.ActivitySummaryFragment"
+379-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:324:13-62
+380            android:exported="true"
+380-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:325:13-36
+381            android:screenOrientation="portrait"
+381-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:326:13-49
+382            android:theme="@style/AppTheme.NoActionBar" />
+382-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:327:13-56
+383        <activity
+383-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:328:9-332:59
+384            android:name="com.algebratech.pulse_wellness.activities.FriendDetailScreen"
+384-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:329:13-58
+385            android:exported="true"
+385-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:330:13-36
+386            android:screenOrientation="portrait"
+386-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:331:13-49
+387            android:theme="@style/AppTheme.NoActionBar" />
+387-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:332:13-56
+388
+389        <service
+389-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:334:9-336:39
+390            android:name="com.inuker.bluetooth.library.BluetoothService"
+390-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:335:13-73
+391            android:exported="true" />
+391-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:336:13-36
+392        <service
+392-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:337:9-340:39
+393            android:name="com.algebratech.pulse_wellness.services.DeviceConnect"
+393-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:338:13-51
+394            android:enabled="true"
+394-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:339:13-35
+395            android:exported="true" /> <!-- <service android:name=".utils.NotifyListener" android:enabled="true"> -->
+395-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:340:13-36
+396        <!-- <intent-filter > -->
+397        <!-- <action android:name="android.intent.action.MAIN" /> -->
+398        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+399        <!-- <action android:name="android.accessibilityservice.AccessibilityService"/> -->
+400        <!-- </intent-filter> -->
+401        <!-- </service> -->
+402        <!-- <receiver android:name=".recievers.PhoneStateReceiver"> -->
+403        <!-- <intent-filter> -->
+404        <!-- <action android:name="android.intent.action.PHONE_STATE" /> -->
+405        <!-- </intent-filter> -->
+406        <!-- </receiver> -->
+407        <!--  -->
+408        <service
+408-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:353:9-362:19
+409            android:name="com.algebratech.pulse_wellness.services.NotificationService"
+409-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:354:13-57
+410            android:enabled="true"
+410-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:355:13-35
+411            android:exported="false"
+411-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:356:13-37
+412            android:label="@string/app_name"
+412-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:357:13-45
+413            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
+413-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:358:13-87
+414            <intent-filter>
+414-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:359:13-361:29
+415                <action android:name="android.service.notification.NotificationListenerService" />
+415-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:360:17-99
+415-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:360:25-96
+416            </intent-filter>
+417        </service>
+418
+419        <receiver
+419-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:364:9-370:20
+420            android:name="com.algebratech.pulse_wellness.recievers.IncomingSmsReciever"
+420-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:365:13-58
+421            android:exported="false" >
+421-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:366:13-37
+422            <intent-filter>
+422-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:367:13-369:29
+423                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+423-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:368:17-82
+423-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:368:25-79
+424            </intent-filter>
+425        </receiver>
+426        <receiver
+426-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:371:9-377:20
+427            android:name="com.algebratech.pulse_wellness.recievers.IncomingCallReciever"
+427-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:372:13-59
+428            android:exported="false" >
+428-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:373:13-37
+429            <intent-filter>
+429-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:374:13-376:29
+430                <action android:name="android.intent.action.PHONE_STATE" />
+430-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:375:17-76
+430-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:375:25-73
+431            </intent-filter>
+432        </receiver>
+433        <!--
+434 <receiver
+435            android:name=".recievers.OnBootReciever"
+436            android:enabled="true"
+437            android:exported="true">
+438            <intent-filter android:priority="999">
+439                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+440                <category android:name="android.intent.category.DEFAULT"/>
+441            </intent-filter>
+442        </receiver>
+443        -->
+444        <receiver
+444-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:389:9-406:20
+445            android:name="com.algebratech.pulse_wellness.recievers.OnBootReciever"
+445-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:390:13-53
+446            android:enabled="true"
+446-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:391:13-35
+447            android:exported="false"
+447-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:392:13-37
+448            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+448-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:393:13-75
+449
+450            <!-- 2147483647 -->
+451            <intent-filter android:priority="999" >
+451-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:396:13-405:29
+451-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:396:28-50
+452                <category android:name="android.intent.category.DEFAULT" />
+452-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:397:17-76
+452-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:397:27-73
+453
+454                <action android:name="android.intent.action.BOOT_COMPLETED" />
+454-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:399:17-79
+454-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:399:25-76
+455                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
+455-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:400:17-86
+455-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:400:25-83
+456                <action android:name="android.intent.action.REBOOT" />
+456-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:401:17-71
+456-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:401:25-68
+457                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+457-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:402:17-82
+457-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:402:25-79
+458                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+458-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:403:17-82
+458-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:403:25-79
+459                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+459-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:404:17-80
+459-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:404:25-77
+460            </intent-filter>
+461        </receiver> <!--  -->
+462        <meta-data
+462-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:407:9-409:55
+463            android:name="com.google.android.geo.API_KEY"
+463-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:408:13-58
+464            android:value="@string/google_maps_key" />
+464-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:409:13-52
+465
+466        <uses-library
+466-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:411:9-413:40
+467            android:name="org.apache.http.legacy"
+467-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:412:13-50
+468            android:required="false" />
+468-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:413:13-37
+469
+470        <meta-data
+470-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:415:9-417:56
+471            android:name="com.google.firebase.messaging.default_notification_icon"
+471-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:416:13-83
+472            android:resource="@drawable/ic_like_btn" />
+472-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:417:13-53
+473        <meta-data
+473-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:418:9-420:53
+474            android:name="com.google.firebase.messaging.default_notification_color"
+474-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:419:13-84
+475            android:resource="@color/colorAccent" />
+475-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:420:13-50
+476        <meta-data
+476-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:421:9-423:62
+477            android:name="com.google.firebase.messaging.default_notification_channel_id"
+477-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:422:13-89
+478            android:value="com.algebratech.pulse_wellness" />
+478-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:423:13-59
+479
+480        <provider
+481            android:name="androidx.core.content.FileProvider"
+481-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:426:13-62
+482            android:authorities="com.algebratech.pulse_wellness.provider"
+482-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:427:13-60
+483            android:exported="false"
+483-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:428:13-37
+484            android:grantUriPermissions="true" >
+484-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:429:13-47
+485            <meta-data
+485-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:430:13-432:57
+486                android:name="android.support.FILE_PROVIDER_PATHS"
+486-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:431:17-67
+487                android:resource="@xml/provider_path" />
+487-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:432:17-54
+488        </provider>
+489
+490        <activity
+490-->[com.fxn769:pix:1.5.6] /home/lee/.gradle/caches/transforms-2/files-2.1/db5ce3ce2ff4d6789afb39a583e647af/jetified-pix-1.5.6/AndroidManifest.xml:21:9-24:52
+491            android:name="com.fxn.pix.Pix"
+491-->[com.fxn769:pix:1.5.6] /home/lee/.gradle/caches/transforms-2/files-2.1/db5ce3ce2ff4d6789afb39a583e647af/jetified-pix-1.5.6/AndroidManifest.xml:22:13-43
+492            android:noHistory="true"
+492-->[com.fxn769:pix:1.5.6] /home/lee/.gradle/caches/transforms-2/files-2.1/db5ce3ce2ff4d6789afb39a583e647af/jetified-pix-1.5.6/AndroidManifest.xml:23:13-37
+493            android:screenOrientation="portrait" />
+493-->[com.fxn769:pix:1.5.6] /home/lee/.gradle/caches/transforms-2/files-2.1/db5ce3ce2ff4d6789afb39a583e647af/jetified-pix-1.5.6/AndroidManifest.xml:24:13-49
+494        <activity
+494-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:10:9-13:69
+495            android:name="com.stripe.android.paymentsheet.PaymentSheetActivity"
+495-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:11:13-80
+496            android:exported="false"
+496-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:12:13-37
+497            android:theme="@style/StripePaymentSheetDefaultTheme" />
+497-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:13:13-66
+498        <activity
+498-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:14:9-17:69
+499            android:name="com.stripe.android.paymentsheet.PaymentOptionsActivity"
+499-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:15:13-82
+500            android:exported="false"
+500-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:16:13-37
+501            android:theme="@style/StripePaymentSheetDefaultTheme" />
+501-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:17:13-66
+502        <activity
+502-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:18:9-21:69
+503            android:name="com.stripe.android.paymentsheet.addresselement.AddressElementActivity"
+503-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:19:13-97
+504            android:exported="false"
+504-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:20:13-37
+505            android:theme="@style/StripePaymentSheetDefaultTheme" />
+505-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:21:13-66
+506        <activity
+506-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:22:9-25:69
+507            android:name="com.stripe.android.paymentsheet.paymentdatacollection.polling.PollingActivity"
+507-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:23:13-105
+508            android:exported="false"
+508-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:24:13-37
+509            android:theme="@style/StripePaymentSheetDefaultTheme" />
+509-->[com.stripe:paymentsheet:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5825e072fddcb3088189243836766f36/jetified-paymentsheet-20.16.1/AndroidManifest.xml:25:13-66
+510        <activity
+510-->[com.stripe:link:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/d2d972a9332b7c2962c24f178e19b569/jetified-link-20.16.1/AndroidManifest.xml:10:9-15:58
+511            android:name="com.stripe.android.link.LinkActivity"
+511-->[com.stripe:link:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/d2d972a9332b7c2962c24f178e19b569/jetified-link-20.16.1/AndroidManifest.xml:11:13-64
+512            android:exported="false"
+512-->[com.stripe:link:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/d2d972a9332b7c2962c24f178e19b569/jetified-link-20.16.1/AndroidManifest.xml:12:13-37
+513            android:label="@string/link"
+513-->[com.stripe:link:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/d2d972a9332b7c2962c24f178e19b569/jetified-link-20.16.1/AndroidManifest.xml:13:13-41
+514            android:theme="@style/LinkBaseTheme"
+514-->[com.stripe:link:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/d2d972a9332b7c2962c24f178e19b569/jetified-link-20.16.1/AndroidManifest.xml:14:13-49
+515            android:windowSoftInputMode="adjustResize" />
+515-->[com.stripe:link:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/d2d972a9332b7c2962c24f178e19b569/jetified-link-20.16.1/AndroidManifest.xml:15:13-55
+516        <activity
+516-->[com.stripe:payments-ui-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/77cc7a53a3ec212af14d27ef851cbde6/jetified-payments-ui-core-20.16.1/AndroidManifest.xml:10:9-13:69
+517            android:name="com.stripe.android.ui.core.cardscan.CardScanActivity"
+517-->[com.stripe:payments-ui-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/77cc7a53a3ec212af14d27ef851cbde6/jetified-payments-ui-core-20.16.1/AndroidManifest.xml:11:13-80
+518            android:exported="false"
+518-->[com.stripe:payments-ui-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/77cc7a53a3ec212af14d27ef851cbde6/jetified-payments-ui-core-20.16.1/AndroidManifest.xml:12:13-37
+519            android:theme="@style/StripePaymentSheetDefaultTheme" />
+519-->[com.stripe:payments-ui-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/77cc7a53a3ec212af14d27ef851cbde6/jetified-payments-ui-core-20.16.1/AndroidManifest.xml:13:13-66
+520        <activity
+520-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:17:9-20:57
+521            android:name="com.stripe.android.view.AddPaymentMethodActivity"
+521-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:18:13-76
+522            android:exported="false"
+522-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:19:13-37
+523            android:theme="@style/StripeDefaultTheme" />
+523-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:20:13-54
+524        <activity
+524-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:21:9-24:57
+525            android:name="com.stripe.android.view.PaymentMethodsActivity"
+525-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:22:13-74
+526            android:exported="false"
+526-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:23:13-37
+527            android:theme="@style/StripeDefaultTheme" />
+527-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:24:13-54
+528        <activity
+528-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:25:9-28:57
+529            android:name="com.stripe.android.view.PaymentFlowActivity"
+529-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:26:13-71
+530            android:exported="false"
+530-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:27:13-37
+531            android:theme="@style/StripeDefaultTheme" />
+531-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:28:13-54
+532        <activity
+532-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:29:9-33:58
+533            android:name="com.stripe.android.view.PaymentAuthWebViewActivity"
+533-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:30:13-78
+534            android:exported="false"
+534-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:31:13-37
+535            android:theme="@style/StripeDefaultTheme"
+535-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:32:13-54
+536            android:windowSoftInputMode="adjustResize" />
+536-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:33:13-55
+537        <activity
+537-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:34:9-37:61
+538            android:name="com.stripe.android.view.PaymentRelayActivity"
+538-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:35:13-72
+539            android:exported="false"
+539-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:36:13-37
+540            android:theme="@style/StripeTransparentTheme" />
+540-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:37:13-58
+541        <!--
+542        Set android:launchMode="singleTop" so that the StripeBrowserLauncherActivity instance that
+543        launched the browser Activity will also handle the return URL deep link.
+544        -->
+545        <activity
+545-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:43:9-47:61
+546            android:name="com.stripe.android.payments.StripeBrowserLauncherActivity"
+546-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:44:13-85
+547            android:exported="false"
+547-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:45:13-37
+548            android:launchMode="singleTask"
+548-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:46:13-44
+549            android:theme="@style/StripeTransparentTheme" />
+549-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:47:13-58
+550        <activity
+550-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:48:9-65:20
+551            android:name="com.stripe.android.payments.StripeBrowserProxyReturnActivity"
+551-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:49:13-88
+552            android:exported="true"
+552-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:50:13-36
+553            android:launchMode="singleTask"
+553-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:51:13-44
+554            android:theme="@style/StripeTransparentTheme" >
+554-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:52:13-58
+555            <intent-filter>
+555-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:53:13-64:29
+556                <action android:name="android.intent.action.VIEW" />
+556-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:54:17-69
+556-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:54:25-66
+557
+558                <category android:name="android.intent.category.DEFAULT" />
+558-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:397:17-76
+558-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:397:27-73
+559                <category android:name="android.intent.category.BROWSABLE" />
+559-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:57:17-78
+559-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:57:27-75
+560
+561                <!-- Must match `DefaultReturnUrl#value`. -->
+562                <data
+562-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:60:17-63:50
+563                    android:host="payment_return_url"
+563-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:61:21-54
+564                    android:path="/com.algebratech.pulse_wellness"
+564-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:62:21-53
+565                    android:scheme="stripesdk" />
+565-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:63:21-47
+566            </intent-filter>
+567        </activity>
+568        <activity
+568-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:66:9-69:57
+569            android:name="com.stripe.android.payments.core.authentication.threeds2.Stripe3ds2TransactionActivity"
+569-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:67:13-114
+570            android:exported="false"
+570-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:68:13-37
+571            android:theme="@style/StripeDefaultTheme" />
+571-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:69:13-54
+572        <activity
+572-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:70:9-73:66
+573            android:name="com.stripe.android.googlepaylauncher.StripeGooglePayActivity"
+573-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:71:13-88
+574            android:exported="false"
+574-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:72:13-37
+575            android:theme="@style/StripeGooglePayDefaultTheme" />
+575-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:73:13-63
+576        <activity
+576-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:74:9-77:66
+577            android:name="com.stripe.android.googlepaylauncher.GooglePayLauncherActivity"
+577-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:75:13-90
+578            android:exported="false"
+578-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:76:13-37
+579            android:theme="@style/StripeGooglePayDefaultTheme" />
+579-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:77:13-63
+580        <activity
+580-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:78:9-81:66
+581            android:name="com.stripe.android.googlepaylauncher.GooglePayPaymentMethodLauncherActivity"
+581-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:79:13-103
+582            android:exported="false"
+582-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:80:13-37
+583            android:theme="@style/StripeGooglePayDefaultTheme" />
+583-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:81:13-63
+584        <activity
+584-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:82:9-85:62
+585            android:name="com.stripe.android.payments.paymentlauncher.PaymentLauncherConfirmationActivity"
+585-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:83:13-107
+586            android:exported="false"
+586-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:84:13-37
+587            android:theme="@style/PayLauncherDefaultTheme" />
+587-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:85:13-59
+588        <activity
+588-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:86:9-89:61
+589            android:name="com.stripe.android.payments.bankaccount.ui.CollectBankAccountActivity"
+589-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:87:13-97
+590            android:exported="false"
+590-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:88:13-37
+591            android:theme="@style/StripeTransparentTheme" />
+591-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:89:13-58
+592        <activity
+592-->[com.stripe:stripe-3ds2-android:6.1.5] /home/lee/.gradle/caches/transforms-2/files-2.1/14bf425124a49a7358a0001d0b9050da/jetified-stripe-3ds2-android-6.1.5/AndroidManifest.xml:10:9-13:54
+593            android:name="com.stripe.android.stripe3ds2.views.ChallengeActivity"
+593-->[com.stripe:stripe-3ds2-android:6.1.5] /home/lee/.gradle/caches/transforms-2/files-2.1/14bf425124a49a7358a0001d0b9050da/jetified-stripe-3ds2-android-6.1.5/AndroidManifest.xml:11:13-81
+594            android:exported="false"
+594-->[com.stripe:stripe-3ds2-android:6.1.5] /home/lee/.gradle/caches/transforms-2/files-2.1/14bf425124a49a7358a0001d0b9050da/jetified-stripe-3ds2-android-6.1.5/AndroidManifest.xml:12:13-37
+595            android:theme="@style/Stripe3DS2Theme" />
+595-->[com.stripe:stripe-3ds2-android:6.1.5] /home/lee/.gradle/caches/transforms-2/files-2.1/14bf425124a49a7358a0001d0b9050da/jetified-stripe-3ds2-android-6.1.5/AndroidManifest.xml:13:13-51
+596        <activity
+596-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:23:9-42:20
+597            android:name="com.stripe.android.financialconnections.FinancialConnectionsSheetRedirectActivity"
+597-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:24:13-109
+598            android:exported="true" >
+598-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:25:13-36
+599            <intent-filter>
+599-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:26:13-41:29
+600                <action android:name="android.intent.action.VIEW" />
+600-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:54:17-69
+600-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:54:25-66
+601
+602                <category android:name="android.intent.category.DEFAULT" />
+602-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:397:17-76
+602-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:397:27-73
+603                <category android:name="android.intent.category.BROWSABLE" />
+603-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:57:17-78
+603-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:57:27-75
+604
+605                <!-- Accepts success and cancel URIs that begin with "stripe-auth://link-accounts” -->
+606                <data
+606-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:60:17-63:50
+607                    android:host="link-accounts"
+607-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:61:21-54
+608                    android:path="/com.algebratech.pulse_wellness/success"
+608-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:62:21-53
+609                    android:scheme="stripe-auth" />
+609-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:63:21-47
+610                <data
+610-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:60:17-63:50
+611                    android:host="link-accounts"
+611-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:61:21-54
+612                    android:path="/com.algebratech.pulse_wellness/cancel"
+612-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:62:21-53
+613                    android:scheme="stripe-auth" />
+613-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:63:21-47
+614            </intent-filter>
+615        </activity>
+616        <activity
+616-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:43:9-46:57
+617            android:name="com.stripe.android.financialconnections.FinancialConnectionsSheetActivity"
+617-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:44:13-101
+618            android:exported="false"
+618-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:45:13-37
+619            android:theme="@style/StripeDefaultTheme" />
+619-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:46:13-54
+620
+621        <provider
+621-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:48:9-52:43
+622            android:name="com.stripe.android.financialconnections.appinitializer.FinancialConnectionsInitializer"
+622-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:49:13-114
+623            android:authorities="com.algebratech.pulse_wellness.financialconnections-init"
+623-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:50:13-77
+624            android:exported="false"
+624-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:51:13-37
+625            android:multiprocess="true" />
+625-->[com.stripe:financial-connections:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f053883558f75cec98bb20d613549f3b/jetified-financial-connections-20.16.1/AndroidManifest.xml:52:13-40
+626
+627        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
+627-->[com.zhihu.android:matisse:0.5.3-beta3] /home/lee/.gradle/caches/transforms-2/files-2.1/a51e0b96ab05fa2c4dad1322fe7ad58f/jetified-matisse-0.5.3-beta3/AndroidManifest.xml:28:9-73
+627-->[com.zhihu.android:matisse:0.5.3-beta3] /home/lee/.gradle/caches/transforms-2/files-2.1/a51e0b96ab05fa2c4dad1322fe7ad58f/jetified-matisse-0.5.3-beta3/AndroidManifest.xml:28:19-70
+628        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
+628-->[com.zhihu.android:matisse:0.5.3-beta3] /home/lee/.gradle/caches/transforms-2/files-2.1/a51e0b96ab05fa2c4dad1322fe7ad58f/jetified-matisse-0.5.3-beta3/AndroidManifest.xml:29:9-87
+628-->[com.zhihu.android:matisse:0.5.3-beta3] /home/lee/.gradle/caches/transforms-2/files-2.1/a51e0b96ab05fa2c4dad1322fe7ad58f/jetified-matisse-0.5.3-beta3/AndroidManifest.xml:29:19-84
+629        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" />
+629-->[com.zhihu.android:matisse:0.5.3-beta3] /home/lee/.gradle/caches/transforms-2/files-2.1/a51e0b96ab05fa2c4dad1322fe7ad58f/jetified-matisse-0.5.3-beta3/AndroidManifest.xml:30:9-90
+629-->[com.zhihu.android:matisse:0.5.3-beta3] /home/lee/.gradle/caches/transforms-2/files-2.1/a51e0b96ab05fa2c4dad1322fe7ad58f/jetified-matisse-0.5.3-beta3/AndroidManifest.xml:30:19-87
+630        <activity
+630-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:27:9-44:20
+631            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+631-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:28:13-80
+632            android:excludeFromRecents="true"
+632-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:29:13-46
+633            android:exported="true"
+633-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:30:13-36
+634            android:launchMode="singleTask"
+634-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:31:13-44
+635            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+635-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:32:13-72
+636            <intent-filter>
+636-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:33:13-43:29
+637                <action android:name="android.intent.action.VIEW" />
+637-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:54:17-69
+637-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:54:25-66
+638
+639                <category android:name="android.intent.category.DEFAULT" />
+639-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:397:17-76
+639-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:397:27-73
+640                <category android:name="android.intent.category.BROWSABLE" />
+640-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:57:17-78
+640-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:57:27-75
+641
+642                <data
+642-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:60:17-63:50
+643                    android:host="firebase.auth"
+643-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:61:21-54
+644                    android:path="/"
+644-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:62:21-53
+645                    android:scheme="genericidp" />
+645-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:63:21-47
+646            </intent-filter>
+647        </activity>
+648        <activity
+648-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:45:9-62:20
+649            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+649-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:46:13-79
+650            android:excludeFromRecents="true"
+650-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:47:13-46
+651            android:exported="true"
+651-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:48:13-36
+652            android:launchMode="singleTask"
+652-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:49:13-44
+653            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+653-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:50:13-72
+654            <intent-filter>
+654-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:51:13-61:29
+655                <action android:name="android.intent.action.VIEW" />
+655-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:54:17-69
+655-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:54:25-66
+656
+657                <category android:name="android.intent.category.DEFAULT" />
+657-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:397:17-76
+657-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:397:27-73
+658                <category android:name="android.intent.category.BROWSABLE" />
+658-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:57:17-78
+658-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:57:27-75
+659
+660                <data
+660-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:60:17-63:50
+661                    android:host="firebase.auth"
+661-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:61:21-54
+662                    android:path="/"
+662-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:62:21-53
+663                    android:scheme="recaptcha" />
+663-->[com.stripe:payments-core:20.16.1] /home/lee/.gradle/caches/transforms-2/files-2.1/f73f9798cd81f718a737b5e8b5ed3b7f/jetified-payments-core-20.16.1/AndroidManifest.xml:63:21-47
+664            </intent-filter>
+665        </activity>
+666
+667        <service
+667-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:64:9-70:19
+668            android:name="com.google.firebase.components.ComponentDiscoveryService"
+668-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:65:13-84
+669            android:directBootAware="true"
+669-->[com.google.firebase:firebase-common:20.1.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5b437ec6f87f6cceee4d858dfbe02d03/jetified-firebase-common-20.1.1/AndroidManifest.xml:35:13-43
+670            android:exported="false" >
+670-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:66:13-37
+671            <meta-data
+671-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:67:13-69:85
+672                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+672-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:68:17-109
+673                android:value="com.google.firebase.components.ComponentRegistrar" />
+673-->[com.google.firebase:firebase-auth:21.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/7027c7e5f090a67e1790ebd904eec15b/jetified-firebase-auth-21.0.6/AndroidManifest.xml:69:17-82
+674            <meta-data
+674-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:56:13-58:85
+675                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+675-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:57:17-119
+676                android:value="com.google.firebase.components.ComponentRegistrar" />
+676-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:58:17-82
+677            <meta-data
+677-->[com.google.firebase:firebase-crashlytics:18.2.11] /home/lee/.gradle/caches/transforms-2/files-2.1/2da41f2457022307af362ad1ac474791/jetified-firebase-crashlytics-18.2.11/AndroidManifest.xml:18:13-20:85
+678                android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
+678-->[com.google.firebase:firebase-crashlytics:18.2.11] /home/lee/.gradle/caches/transforms-2/files-2.1/2da41f2457022307af362ad1ac474791/jetified-firebase-crashlytics-18.2.11/AndroidManifest.xml:19:17-115
+679                android:value="com.google.firebase.components.ComponentRegistrar" />
+679-->[com.google.firebase:firebase-crashlytics:18.2.11] /home/lee/.gradle/caches/transforms-2/files-2.1/2da41f2457022307af362ad1ac474791/jetified-firebase-crashlytics-18.2.11/AndroidManifest.xml:20:17-82
+680            <meta-data
+680-->[com.google.android.gms:play-services-measurement-api:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/13e98fb91281027cb273575ad16b25ee/jetified-play-services-measurement-api-21.1.0/AndroidManifest.xml:31:13-33:85
+681                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+681-->[com.google.android.gms:play-services-measurement-api:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/13e98fb91281027cb273575ad16b25ee/jetified-play-services-measurement-api-21.1.0/AndroidManifest.xml:32:17-139
+682                android:value="com.google.firebase.components.ComponentRegistrar" />
+682-->[com.google.android.gms:play-services-measurement-api:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/13e98fb91281027cb273575ad16b25ee/jetified-play-services-measurement-api-21.1.0/AndroidManifest.xml:33:17-82
+683            <meta-data
+683-->[com.google.firebase:firebase-installations:17.0.1] /home/lee/.gradle/caches/transforms-2/files-2.1/dfbfde6b6fb5b2643f03316bae18be66/jetified-firebase-installations-17.0.1/AndroidManifest.xml:18:13-20:85
+684                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+684-->[com.google.firebase:firebase-installations:17.0.1] /home/lee/.gradle/caches/transforms-2/files-2.1/dfbfde6b6fb5b2643f03316bae18be66/jetified-firebase-installations-17.0.1/AndroidManifest.xml:19:17-127
+685                android:value="com.google.firebase.components.ComponentRegistrar" />
+685-->[com.google.firebase:firebase-installations:17.0.1] /home/lee/.gradle/caches/transforms-2/files-2.1/dfbfde6b6fb5b2643f03316bae18be66/jetified-firebase-installations-17.0.1/AndroidManifest.xml:20:17-82
+686            <meta-data
+686-->[com.google.firebase:firebase-datatransport:18.1.5] /home/lee/.gradle/caches/transforms-2/files-2.1/b1baa517fd51e386053bfae8adc5bb1e/jetified-firebase-datatransport-18.1.5/AndroidManifest.xml:28:13-30:85
+687                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+687-->[com.google.firebase:firebase-datatransport:18.1.5] /home/lee/.gradle/caches/transforms-2/files-2.1/b1baa517fd51e386053bfae8adc5bb1e/jetified-firebase-datatransport-18.1.5/AndroidManifest.xml:29:17-115
+688                android:value="com.google.firebase.components.ComponentRegistrar" />
+688-->[com.google.firebase:firebase-datatransport:18.1.5] /home/lee/.gradle/caches/transforms-2/files-2.1/b1baa517fd51e386053bfae8adc5bb1e/jetified-firebase-datatransport-18.1.5/AndroidManifest.xml:30:17-82
+689        </service>
+690
+691        <receiver
+691-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:32:9-39:20
+692            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+692-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:33:13-78
+693            android:exported="true"
+693-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:34:13-36
+694            android:permission="com.google.android.c2dm.permission.SEND" >
+694-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:35:13-73
+695            <intent-filter>
+695-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:36:13-38:29
+696                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+696-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:37:17-81
+696-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:37:25-78
+697            </intent-filter>
+698        </receiver>
+699        <!--
+700             FirebaseMessagingService performs security checks at runtime,
+701             but set to not exported to explicitly avoid allowing another app to call it.
+702        -->
+703        <service
+703-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:45:9-52:19
+704            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+704-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:46:13-82
+705            android:directBootAware="true"
+705-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:47:13-43
+706            android:exported="false" >
+706-->[com.google.firebase:firebase-messaging:23.0.6] /home/lee/.gradle/caches/transforms-2/files-2.1/41eda1096664962d752d1cd2d43a2d7b/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:48:13-37
+707            <intent-filter android:priority="-500" >
+707-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:158:13-162:29
+708                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+708-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:159:17-78
+708-->/home/lee/Documents/P/Pulse/Pulse-Health-App/app/src/main/AndroidManifest.xml:159:25-75
+709            </intent-filter>
+710        </service>
+711
+712        <provider
+712-->[com.google.firebase:firebase-common:20.1.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5b437ec6f87f6cceee4d858dfbe02d03/jetified-firebase-common-20.1.1/AndroidManifest.xml:26:9-31:39
+713            android:name="com.google.firebase.provider.FirebaseInitProvider"
+713-->[com.google.firebase:firebase-common:20.1.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5b437ec6f87f6cceee4d858dfbe02d03/jetified-firebase-common-20.1.1/AndroidManifest.xml:27:13-77
+714            android:authorities="com.algebratech.pulse_wellness.firebaseinitprovider"
+714-->[com.google.firebase:firebase-common:20.1.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5b437ec6f87f6cceee4d858dfbe02d03/jetified-firebase-common-20.1.1/AndroidManifest.xml:28:13-72
+715            android:directBootAware="true"
+715-->[com.google.firebase:firebase-common:20.1.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5b437ec6f87f6cceee4d858dfbe02d03/jetified-firebase-common-20.1.1/AndroidManifest.xml:29:13-43
+716            android:exported="false"
+716-->[com.google.firebase:firebase-common:20.1.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5b437ec6f87f6cceee4d858dfbe02d03/jetified-firebase-common-20.1.1/AndroidManifest.xml:30:13-37
+717            android:initOrder="100" />
+717-->[com.google.firebase:firebase-common:20.1.1] /home/lee/.gradle/caches/transforms-2/files-2.1/5b437ec6f87f6cceee4d858dfbe02d03/jetified-firebase-common-20.1.1/AndroidManifest.xml:31:13-36
+718
+719        <activity
+719-->[com.google.android.gms:play-services-base:18.0.1] /home/lee/.gradle/caches/transforms-2/files-2.1/b5dea2ded0b3e841448fa49f3ca8c104/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+720            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+720-->[com.google.android.gms:play-services-base:18.0.1] /home/lee/.gradle/caches/transforms-2/files-2.1/b5dea2ded0b3e841448fa49f3ca8c104/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+721            android:exported="false"
+721-->[com.google.android.gms:play-services-base:18.0.1] /home/lee/.gradle/caches/transforms-2/files-2.1/b5dea2ded0b3e841448fa49f3ca8c104/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+722            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+722-->[com.google.android.gms:play-services-base:18.0.1] /home/lee/.gradle/caches/transforms-2/files-2.1/b5dea2ded0b3e841448fa49f3ca8c104/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+723
+724        <receiver
+724-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:29:9-33:20
+725            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+725-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:30:13-85
+726            android:enabled="true"
+726-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:31:13-35
+727            android:exported="false" >
+727-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:32:13-37
+728        </receiver>
+729
+730        <service
+730-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:35:9-38:40
+731            android:name="com.google.android.gms.measurement.AppMeasurementService"
+731-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:36:13-84
+732            android:enabled="true"
+732-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:37:13-35
+733            android:exported="false" />
+733-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:38:13-37
+734        <service
+734-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:39:9-43:72
+735            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+735-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:40:13-87
+736            android:enabled="true"
+736-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:41:13-35
+737            android:exported="false"
+737-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:42:13-37
+738            android:permission="android.permission.BIND_JOB_SERVICE" />
+738-->[com.google.android.gms:play-services-measurement:21.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/1a79deeea30a04d8bc9a2fc838d476ff/jetified-play-services-measurement-21.1.0/AndroidManifest.xml:43:13-69
+739
+740        <meta-data
+740-->[com.google.android.gms:play-services-basement:18.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/cd823e7d4f101de88ba10f5da6b87752/jetified-play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+741            android:name="com.google.android.gms.version"
+741-->[com.google.android.gms:play-services-basement:18.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/cd823e7d4f101de88ba10f5da6b87752/jetified-play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+742            android:value="@integer/google_play_services_version" />
+742-->[com.google.android.gms:play-services-basement:18.0.0] /home/lee/.gradle/caches/transforms-2/files-2.1/cd823e7d4f101de88ba10f5da6b87752/jetified-play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+743
+744        <provider
+744-->[androidx.emoji2:emoji2:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/d1ef54514b4de60717544034a9bb4758/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+745            android:name="androidx.startup.InitializationProvider"
+745-->[androidx.emoji2:emoji2:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/d1ef54514b4de60717544034a9bb4758/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+746            android:authorities="com.algebratech.pulse_wellness.androidx-startup"
+746-->[androidx.emoji2:emoji2:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/d1ef54514b4de60717544034a9bb4758/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+747            android:exported="false" >
+747-->[androidx.emoji2:emoji2:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/d1ef54514b4de60717544034a9bb4758/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+748            <meta-data
+748-->[androidx.emoji2:emoji2:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/d1ef54514b4de60717544034a9bb4758/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+749                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+749-->[androidx.emoji2:emoji2:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/d1ef54514b4de60717544034a9bb4758/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+750                android:value="androidx.startup" />
+750-->[androidx.emoji2:emoji2:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/d1ef54514b4de60717544034a9bb4758/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+751            <meta-data
+751-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/lee/.gradle/caches/transforms-2/files-2.1/7f5c326360d1ec3a7aa5d159920e6341/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+752                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+752-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/lee/.gradle/caches/transforms-2/files-2.1/7f5c326360d1ec3a7aa5d159920e6341/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+753                android:value="androidx.startup" />
+753-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/lee/.gradle/caches/transforms-2/files-2.1/7f5c326360d1ec3a7aa5d159920e6341/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+754            <meta-data
+754-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:30:13-32:52
+755                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+755-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:31:17-85
+756                android:value="androidx.startup" />
+756-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:32:17-49
+757        </provider>
+758
+759        <service
+759-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/5e0d5dae97baa8343b00b9bcdf7c15a3/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:29:9-35:19
+760            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+760-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/5e0d5dae97baa8343b00b9bcdf7c15a3/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:30:13-103
+761            android:exported="false" >
+761-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/5e0d5dae97baa8343b00b9bcdf7c15a3/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:31:13-37
+762            <meta-data
+762-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/5e0d5dae97baa8343b00b9bcdf7c15a3/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:32:13-34:39
+763                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+763-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/5e0d5dae97baa8343b00b9bcdf7c15a3/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:33:17-94
+764                android:value="cct" />
+764-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/5e0d5dae97baa8343b00b9bcdf7c15a3/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:34:17-36
+765        </service>
+766        <service
+766-->[com.google.android.datatransport:transport-runtime:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/e88f04e6131c3ea0da50aa1d44ee9479/jetified-transport-runtime-3.1.6/AndroidManifest.xml:26:9-30:19
+767            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+767-->[com.google.android.datatransport:transport-runtime:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/e88f04e6131c3ea0da50aa1d44ee9479/jetified-transport-runtime-3.1.6/AndroidManifest.xml:27:13-117
+768            android:exported="false"
+768-->[com.google.android.datatransport:transport-runtime:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/e88f04e6131c3ea0da50aa1d44ee9479/jetified-transport-runtime-3.1.6/AndroidManifest.xml:28:13-37
+769            android:permission="android.permission.BIND_JOB_SERVICE" >
+769-->[com.google.android.datatransport:transport-runtime:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/e88f04e6131c3ea0da50aa1d44ee9479/jetified-transport-runtime-3.1.6/AndroidManifest.xml:29:13-69
+770        </service>
+771
+772        <receiver
+772-->[com.google.android.datatransport:transport-runtime:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/e88f04e6131c3ea0da50aa1d44ee9479/jetified-transport-runtime-3.1.6/AndroidManifest.xml:32:9-34:40
+773            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+773-->[com.google.android.datatransport:transport-runtime:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/e88f04e6131c3ea0da50aa1d44ee9479/jetified-transport-runtime-3.1.6/AndroidManifest.xml:33:13-132
+774            android:exported="false" />
+774-->[com.google.android.datatransport:transport-runtime:3.1.6] /home/lee/.gradle/caches/transforms-2/files-2.1/e88f04e6131c3ea0da50aa1d44ee9479/jetified-transport-runtime-3.1.6/AndroidManifest.xml:34:13-37
+775        <receiver
+775-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:35:9-47:20
+776            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+776-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:36:13-76
+777            android:directBootAware="false"
+777-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:37:13-44
+778            android:enabled="true"
+778-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:38:13-35
+779            android:exported="true"
+779-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:39:13-36
+780            android:permission="android.permission.DUMP" >
+780-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:40:13-57
+781            <intent-filter>
+781-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:41:13-43:29
+782                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+782-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:42:17-91
+782-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:42:25-88
+783            </intent-filter>
+784            <intent-filter>
+784-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:44:13-46:29
+785                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+785-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:45:17-85
+785-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/lee/.gradle/caches/transforms-2/files-2.1/9ebd1df4586ffe03eb44686bb72c2693/jetified-profileinstaller-1.2.0/AndroidManifest.xml:45:25-82
+786            </intent-filter>
+787        </receiver> <!-- The activities will be merged into the manifest of the hosting app. -->
+788        <activity
+788-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:12:5-271
+789            android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity"
+789-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:12:15-102
+790            android:enabled="false"
+790-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:12:103-126
+791            android:exported="false"
+791-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:12:127-151
+792            android:launchMode="singleInstance"
+792-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:12:204-239
+793            android:process=":playcore_missing_splits_activity"
+793-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:12:152-203
+794            android:stateNotNeeded="true" />
+794-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:12:240-269
+795        <activity
+795-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:13:5-226
+796            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+796-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:13:15-95
+797            android:enabled="false"
+797-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:13:96-119
+798            android:exported="false"
+798-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:13:120-144
+799            android:stateNotNeeded="true"
+799-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:13:145-174
+800            android:theme="@style/Theme.PlayCore.Transparent" /> <!-- The service will be merged into the manifest of the hosting app. -->
+800-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:13:175-224
+801        <service
+801-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:16:5-145
+802            android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"
+802-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:16:14-95
+803            android:enabled="false"
+803-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:16:96-119
+804            android:exported="true" />
+804-->[com.google.android.play:core:1.7.3] /home/lee/.gradle/caches/transforms-2/files-2.1/95575cff19f9c6c848d38a2c1ce5834e/jetified-core-1.7.3/AndroidManifest.xml:16:120-143
+805
+806        <meta-data
+806-->[com.google.android.instantapps:instantapps:1.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/b5c3230176f2004b8047ef8045d726f2/jetified-instantapps-1.1.0/AndroidManifest.xml:10:9-12:33
+807            android:name="aia-compat-api-min-version"
+807-->[com.google.android.instantapps:instantapps:1.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/b5c3230176f2004b8047ef8045d726f2/jetified-instantapps-1.1.0/AndroidManifest.xml:11:13-54
+808            android:value="1" />
+808-->[com.google.android.instantapps:instantapps:1.1.0] /home/lee/.gradle/caches/transforms-2/files-2.1/b5c3230176f2004b8047ef8045d726f2/jetified-instantapps-1.1.0/AndroidManifest.xml:12:13-30
+809    </application>
+810
+811</manifest>
