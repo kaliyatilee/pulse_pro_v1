@@ -26,7 +26,7 @@ import java.util.List;
 
 public class SleepActivity extends AppCompatActivity {
     ProgressBar progressBar;
-    TextView tvTotalDuration,tvDate;
+    TextView tvTotalDuration,tvDate,deep,light,stayUp;
     Button showData;
     private String tag = "SyncDataActivity";
 
@@ -38,6 +38,9 @@ public class SleepActivity extends AppCompatActivity {
         tvTotalDuration = findViewById(R.id.tvTotalDuration);
         showData = findViewById(R.id.showData);
         tvDate = findViewById(R.id.tvDate);
+        deep = findViewById(R.id.deep);
+        light = findViewById(R.id.light);
+        stayUp = findViewById(R.id.stayUp);
         progressBar.setMax(1440);
 //        progressBar.setProgress(30);
         initData();
@@ -58,17 +61,37 @@ public class SleepActivity extends AppCompatActivity {
         int month = calendar.get(Calendar.MONTH) + 1;
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         tvDate.setText(year +"-"+month+"-"+day);
+
         List<SleepData> sleeps = GlobalGreenDAO.getInstance().loadSleepDataByDate(year, month, day);
         int munites = 0;
+        int ndeep = 0;
+        int nlight = 0;
+        int nuplate = 0;
         if (null != sleeps) {
             for (SleepData item : sleeps) {
                 munites = munites + item.getMinutes();
+               if(item.getMode() == 1){
+                   nlight = nlight + item.getMinutes();
+
+               }
+                if(item.getMode() == 2){
+                    ndeep = ndeep + item.getMinutes();
+                }
+                if(item.getMode() == 3){
+                    nuplate = nuplate + item.getMinutes();
+                }
             }
         }
 
         long seconds = munites * 60;
+        long nlightseconds = nlight * 60;
+        long ndeepseconds = ndeep * 60;
+        long nuplateseconds = nuplate * 60;
         int percentage = munites / 1440;
         progressBar.setProgress(munites);
         tvTotalDuration.setText(StaticMethods.calculateTime(seconds));
+        deep.setText(StaticMethods.calculateTime(ndeepseconds));
+        light.setText(StaticMethods.calculateTime(nlightseconds));
+        stayUp.setText(StaticMethods.calculateTime(nuplateseconds));
     }
 }

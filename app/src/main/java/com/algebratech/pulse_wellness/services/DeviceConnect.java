@@ -262,7 +262,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
 //        CallListener listener = new CallListener();
 //        telephony.listen(listener, PhoneStateListener.LISTEN_CALL_STATE);
 
-        mVpoperateManager.readSportModelState(DeviceConnect.this, iSportModelStateListener);
+       // mVpoperateManager.readSportModelState(DeviceConnect.this, iSportModelStateListener);
 
     }
 
@@ -311,6 +311,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     }
 
     private void searchDevice() {
+        System.out.println("++++++++++++Search Device");
         WristbandManager.getInstance(this).startScan(true, new WristbandScanCallback() {
             @Override
             public void onWristbandDeviceFind(BluetoothDevice device, int rssi, ScanRecord scanRecord) {
@@ -527,6 +528,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     };
 
     private void connectDevice(final String mac, final String deviceName) {
+        System.out.println("++++++++++++Connect Device");
         BluetoothManager btManager = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -570,17 +572,16 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
                 public void onConnectionStateChange(boolean status) {
                     super.onConnectionStateChange(status);
                     if(status){
-                        Toast.makeText(mContext, "Running is Status", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent();
-                        intent.putExtra("mac", mac);
-                        intent.putExtra("macaddress", mac);
-                        intent.putExtra("connect", "connected");
-                        sendBroadcast(intent);
+
+//                        Intent intent = new Intent();
+//                        intent.putExtra("mac", mac);
+//                        intent.putExtra("macaddress", mac);
+//                        intent.putExtra("connect", "connected");
+//                        sendBroadcast(intent);
                        // setResult(0x02, intent);
                         syncData();
 
                     }else {
-                        Toast.makeText(mContext, "Running is Else Status", Toast.LENGTH_SHORT).show();
                         disConnect();
                     }
                 }
@@ -599,6 +600,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
         WristbandManager.getInstance(this).close();
     }
     private void syncData() {
+        System.out.println("++++++++++++Sync Device Data");
         WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback() {
 
             @Override
@@ -611,6 +613,10 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
             }
             });
         WristbandManager.getInstance(this).startLoginProcess("01234567890");
+        if (WristbandManager.getInstance(mContext).isConnect()){
+            intent.putExtra("connect", "connected");
+            sendBroadcast(intent);
+        }
         afterconnection();
     }
 
@@ -618,10 +624,6 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
         Log.e(TAG, "After Connection");
         MediaPlayer mediaPlayer = MediaPlayer.create(mContext, R.raw.beep);
         mediaPlayer.start();
-
-//        intent.putExtra("steps", "");
-//        intent.putExtra("distances", "");
-//        intent.putExtra("kcals", "");
         intent.putExtra("connect", "connected");
         sendBroadcast(intent);
 
@@ -655,275 +657,105 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
 
         IsWearableConnected = true;
 
-        new Timer().scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-
-                WristbandManager.getInstance(mContext).registerCallback(new WristbandManagerCallback() {
-                    @Override
-                    public void onSyncDataBegin(ApplicationLayerBeginPacket packet) {
-                        super.onSyncDataBegin(packet);
-                        Log.i(tag, "sync begin");
-                    }
-
-                    @Override
-                    public void onStepDataReceiveIndication(ApplicationLayerStepPacket packet) {
-                        super.onStepDataReceiveIndication(packet);
-                        for (ApplicationLayerStepItemPacket item : packet.getStepsItems()) {
-
-                            Log.i(tag, item.toString());
-                        }
-                        Log.i(tag, "size = " + packet.getStepsItems().size());
-                    }
-
-                    @Override
-                    public void onSleepDataReceiveIndication(ApplicationLayerSleepPacket packet) {
-                        super.onSleepDataReceiveIndication(packet);
-                        for (ApplicationLayerSleepItemPacket item : packet.getSleepItems()) {
-                            Log.i(tag, item.toString());
-                        }
-                        Log.i(tag, "size = " + packet.getSleepItems().size());
-                    }
-
-                    @Override
-                    public void onHrpDataReceiveIndication(ApplicationLayerHrpPacket packet) {
-                        super.onHrpDataReceiveIndication(packet);
-                        for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
-                            Log.i(tag, item.toString());
-                        }
-                        Log.i(tag, "size = " + packet.getHrpItems().size());
-                    }
-
-                    @Override
-                    public void onRateList(ApplicationLayerRateListPacket packet) {
-                        super.onRateList(packet);
-                        for (ApplicationLayerRateItemPacket item : packet.getRateList()) {
-                            Log.i(tag, item.toString());
-                        }
-                        Log.i(tag, "size = " + packet.getRateList().size());
-                    }
-
-                    @Override
-                    public void onSportDataReceiveIndication(ApplicationLayerSportPacket packet) {
-                        super.onSportDataReceiveIndication(packet);
-                        for (ApplicationLayerSportItemPacket item : packet.getSportItems()) {
-                            System.out.println("onSportDataReceiveIndication"+item.getDistance()+""+item.getCalories()+""+item.getMinutes()+""+item.getRateAvg());
-                            Log.i(tag, item.toString());
-                        }
-                        Log.i(tag, "size = " + packet.getSportItems().size());
-                    }
-
-
-
-
-
-                    /**
-                     * 血压自动检测回调
-                     *
-                     * bp auto measure callback
-                     *
-                     * @param packet
-                     */
-                    @Override
-                    public void onBpList(ApplicationLayerBpListPacket packet) {
-                        super.onBpList(packet);
-
-                        for (ApplicationLayerBpListItemPacket item : packet.getBpListItemPackets()) {
-                            Log.i(tag, "bpItem = " + item.toString());
-                        }
-                        Log.i(tag, "bp size = " + packet.getBpListItemPackets().size());
-                    }
-                    @Override
-                    public void onSyncDataEnd(ApplicationLayerTodaySumSportPacket packet) {
-                        super.onSyncDataEnd(packet);
-                        Log.i(tag, "sync end");
-                    }
-                });
-
-
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH) + 1;
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                int stepcount = 0;
-                int calories = 0;
-                int distance  = 0;
-                List<SportData> steps = GlobalGreenDAO.getInstance().loadSportDataByDate(year,month,day);
-                if (null != steps) {
-                    for (SportData item : steps) {
-                        distance = distance + item.getDistance();
-                        calories = calories + item.getCalory();
-                        stepcount = stepcount + item.getStepCount();
-                        Log.i(tag, "item = " + item.toString());
-                    }
-                }
-
-                //List<SleepData> sleepData = GlobalGreenDAO.getInstance().loadAllSleepData();
-
-                Thread thread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (WristbandManager.getInstance(mContext).sendDataRequest()) {
-                            System.out.println("++++++++++++++++++++Send data request successfull");
-                        } else {
-                            System.out.println("++++++++++++++++++++Send data request error");
-                        }
-                    }
-                });
-                thread.start();
-
-                 List<HrpData> hrpData = GlobalGreenDAO.getInstance().loadAllHrpData();
-                int total = 0 ;
-                int size = 0;
-                int average = 0;
-                int mValue = 0;
-                if (null != hrpData) {
-                    size = hrpData.size();
-                    for (HrpData item : hrpData) {
-                        total = total + item.getValue();
-                    }
-                }
-                if (size != 0){
-                    average = total / size;
-                }
-
-                System.out.println("+++++++++++++++++++++++++steps3"+steps);
-
-
-
-
-
-               ApplicationLayerPrivateBpPacket packet = WristbandManager.getInstance(mContext).readPrivateBp();
-
-                int final_distance = loadCalculate(distance);
-                int final_calorie = loadCalculate(calories);
-
-                intent.putExtra("bp_high_value",String.valueOf(packet.getHighValue()));
-                intent.putExtra("bp_low_value", String.valueOf(packet.getLowValue()));
-                intent.putExtra("kcals", String.valueOf(final_calorie));
-                intent.putExtra("distance",String.valueOf(final_distance));
-                intent.putExtra("steps",String.valueOf(stepcount));
-                intent.putExtra("hr",String.valueOf(average));
-                intent.putExtra("connect", "connected");
-                sendBroadcast(intent);
-                System.out.println("+++++++++++++++++++++++++steps4"+steps);
-                noSoundNotification("Wearable Connected", "Steps : " + stepcount + " \n Distance : " + String.valueOf(final_distance) + " \n Kcals : " + String.valueOf(final_calorie));
-                System.out.println("+++++++++++++++++++++++++steps5"+steps);
-                try {
-                  pointsmanipulation(stepcount,String.valueOf(final_distance),String.valueOf(final_calorie));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                System.out.println("+++++++++++++++++++++++++steps6"+steps);
-
-            }
-        }, 0, 120000);
-
-
-    }
-
-    private int loadCalculate(int value) {
-        return value/1000;
     }
 
 
-    private void pointsmanipulation(int step, String distances, String kcals) {
-
-        int totalpoints = Integer.parseInt(db.getTotal(user_id));
-
-        if (totalpoints < com.algebratech.pulse_wellness.utils.Constants.maxMonPoints) {
-
-            //  if (step < com.algebratech.pulse_wellness.utils.Constants.maxDaySteps) {
-
-            double coin = StaticMethods.calPulseCoins(step);
-
-            String points = String.valueOf(coin);
-
-            Date date = Calendar.getInstance().getTime();
-            SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
-            String today = df.format(date);
-            db.addORupdate(today, points, step, distances, kcals);
-        }
-
-        List<DailyReads> dailyReads = db.dailyReads();
-        Log.e("POINTSS",dailyReads.get(dailyReads.size() - 1).getPoints());
-        dailyReadSync(dailyReads.get(dailyReads.size() - 1).getPoints(), dailyReads.get(dailyReads.size() - 1).getSteps(), dailyReads.get(dailyReads.size() - 1).getKcals(), dailyReads.get(dailyReads.size() - 1).getDistance(), dailyReads.get(dailyReads.size() - 1).getDate());
-        /*
-         * Commented by - Deep Amin
-         * Date Time - 21-07-2022
-         **/
-
-//        ArrayList<ActivityListModel> activityListModels = db.toSync();
-
-
-//        for (int trt = 0; trt < activityListModels.size(); trt++) {
+//    private void pointsmanipulation(int step, String distances, String kcals) {
 //
-//            //Toast.makeText(mContext, "Points : "+activityListModels.get(trt).getActivity_type(), Toast.LENGTH_LONG).show();
-//            try {
-//                //activitiesSync(activityListModels.get(trt).getActivity_type(), activityListModels.get(trt).getDuration(), String.valueOf(activityListModels.get(trt).getSteps()), activityListModels.get(trt).getKcals(), activityListModels.get(trt).getDistance(), activityListModels.get(trt).getDate(), activityListModels.get(trt).getMap_path(), activityListModels.get(trt).getMap_image(), activityListModels.get(trt).getCamera_image(), activityListModels.get(trt).getAverage_pace());
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+//        int totalpoints = Integer.parseInt(db.getTotal(user_id));
 //
+//        if (totalpoints < com.algebratech.pulse_wellness.utils.Constants.maxMonPoints) {
 //
+//            //  if (step < com.algebratech.pulse_wellness.utils.Constants.maxDaySteps) {
+//
+//            double coin = StaticMethods.calPulseCoins(step);
+//
+//            String points = String.valueOf(coin);
+//
+//            Date date = Calendar.getInstance().getTime();
+//            SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+//            String today = df.format(date);
+//            db.addORupdate(today, points, step, distances, kcals);
 //        }
 //
-
-    }
-
-    private void dailyReadSync(String points, String steps, String kcals, String distance, String date) {
-
-        JSONObject object = new JSONObject();
-        try {
-            //input your API parameters
-            object.put("user_id", user_id);
-            object.put("date", date);
-            object.put("distance", distance);
-            object.put("steps", steps);
-            object.put("kcal", kcals);
-            object.put("points", points);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Api.dailysync, object,
-                new Response.Listener<JSONObject>() {
-                    @RequiresApi(api = Build.VERSION_CODES.M)
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            if (response.getString("status").equals("true")) {
-                            } else {
-                                //Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.e("Error", "Error: " + error.toString());
-                try {
-                    if (error.getMessage().contains(Api.baseurl)) {
-                        // Toast.makeText(getApplicationContext(), "No internet connection available!!!.", Toast.LENGTH_SHORT).show();
-                    } else {
-                        //  Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                    }
-
-                } catch (Exception e) {
-                    Log.e(com.algebratech.pulse_wellness.utils.Constants.TAG, e.getMessage());
-                }
-            }
-        }
-        );
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(jsonObjectRequest);
-
-
-    }
+//        List<DailyReads> dailyReads = db.dailyReads();
+//        Log.e("POINTSS",dailyReads.get(dailyReads.size() - 1).getPoints());
+//        dailyReadSync(dailyReads.get(dailyReads.size() - 1).getPoints(), dailyReads.get(dailyReads.size() - 1).getSteps(), dailyReads.get(dailyReads.size() - 1).getKcals(), dailyReads.get(dailyReads.size() - 1).getDistance(), dailyReads.get(dailyReads.size() - 1).getDate());
+//        /*
+//         * Commented by - Deep Amin
+//         * Date Time - 21-07-2022
+//         **/
+//
+////        ArrayList<ActivityListModel> activityListModels = db.toSync();
+//
+//
+////        for (int trt = 0; trt < activityListModels.size(); trt++) {
+////
+////            //Toast.makeText(mContext, "Points : "+activityListModels.get(trt).getActivity_type(), Toast.LENGTH_LONG).show();
+////            try {
+////                //activitiesSync(activityListModels.get(trt).getActivity_type(), activityListModels.get(trt).getDuration(), String.valueOf(activityListModels.get(trt).getSteps()), activityListModels.get(trt).getKcals(), activityListModels.get(trt).getDistance(), activityListModels.get(trt).getDate(), activityListModels.get(trt).getMap_path(), activityListModels.get(trt).getMap_image(), activityListModels.get(trt).getCamera_image(), activityListModels.get(trt).getAverage_pace());
+////            } catch (Exception e) {
+////                e.printStackTrace();
+////            }
+////
+////
+////        }
+////
+//
+//    }
+//
+//    private void dailyReadSync(String points, String steps, String kcals, String distance, String date) {
+//
+//        JSONObject object = new JSONObject();
+//        try {
+//            //input your API parameters
+//            object.put("user_id", user_id);
+//            object.put("date", date);
+//            object.put("distance", distance);
+//            object.put("steps", steps);
+//            object.put("kcal", kcals);
+//            object.put("points", points);
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Api.dailysync, object,
+//                new Response.Listener<JSONObject>() {
+//                    @RequiresApi(api = Build.VERSION_CODES.M)
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        try {
+//                            if (response.getString("status").equals("true")) {
+//                            } else {
+//                                //Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
+//                            }
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                VolleyLog.e("Error", "Error: " + error.toString());
+//                try {
+//                    if (error.getMessage().contains(Api.baseurl)) {
+//                        // Toast.makeText(getApplicationContext(), "No internet connection available!!!.", Toast.LENGTH_SHORT).show();
+//                    } else {
+//                        //  Toast.makeText(getApplicationContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                } catch (Exception e) {
+//                    Log.e(com.algebratech.pulse_wellness.utils.Constants.TAG, e.getMessage());
+//                }
+//            }
+//        }
+//        );
+//
+//        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+//        requestQueue.add(jsonObjectRequest);
+//
+//
+//    }
 
 
     @SuppressLint({"LongLogTag", "NewApi"})

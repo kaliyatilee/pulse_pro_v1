@@ -42,32 +42,42 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/avatr"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_wellness_orange"
-                    sweet:tint="@color/yellow_900" />
-
                 <TextView
-                    android:textAlignment="center"
-                    android:id="@+id/bmi"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_5dp"
-                    android:fontFamily="@font/muli_semibold"
-                    android:text="N/A"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_14" />
-
+                    android:textSize="@dimen/margin_40dp"
+                    android:text="0.0"
+                    android:textColor="@color/green"
+                    android:id="@+id/tmpSteps"/>
                 <TextView
-                    android:id="@+id/bmi_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/muli_semibold"
-                    android:text=""
-                    android:textColor="@color/exo_black_opacity_60"
-                    android:textSize="@dimen/text_10" />
+                    android:text="Steps"
+                    android:textColor="@color/gray"/>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/margin_24dp"
+                    android:text="0.0"
+                    android:textColor="@color/orange"
+                    android:id="@+id/tmpCals"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray"
+                    android:text="KCals"/>
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/avatr"-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:src="@drawable/ic_wellness_orange"-->
+<!--                    sweet:tint="@color/yellow_900" />-->
+
+
             </LinearLayout>
 
 
@@ -140,9 +150,6 @@
 
             </androidx.cardview.widget.CardView>
 
-
-
-
             <androidx.cardview.widget.CardView
                 android:visibility="gone"
                 android:layout_width="@dimen/margin_0dp"
@@ -180,7 +187,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:fontFamily="@font/muli_semibold"
-                            android:text="0"
+                            android:text=""
                             android:textColor="@color/black"
                             android:textSize="@dimen/text_14" />
 
@@ -202,6 +209,55 @@
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
+       <androidx.cardview.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_margin="@dimen/margin_5dp">
+           <LinearLayout
+               android:orientation="vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:layout_margin="@dimen/margin_5dp"
+                   android:textAlignment="center"
+                   android:layout_weight="1"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/muli_semibold"
+                   android:text="BMI Status"
+                   android:textColor="@color/exo_black_opacity_60"
+                   android:textSize="@dimen/text_16" />
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="@dimen/margin_5dp"
+                   android:orientation="horizontal">
+                   <TextView
+                       android:layout_weight="1"
+                       android:layout_margin="@dimen/margin_5dp"
+                       android:textAlignment="center"
+                       android:id="@+id/bmi"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="@dimen/margin_5dp"
+                       android:fontFamily="@font/muli_semibold"
+                       android:text="N/A"
+                       android:textColor="@color/black"
+                       android:textSize="@dimen/text_16" />
+                   <TextView
+                       android:layout_margin="@dimen/margin_5dp"
+                       android:textAlignment="center"
+                       android:layout_weight="1"
+                       android:id="@+id/bmi_text"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="@font/muli_semibold"
+                       android:text=""
+                       android:textColor="@color/exo_black_opacity_60"
+                       android:textSize="@dimen/text_16" />
+               </LinearLayout>
+           </LinearLayout>
+       </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/stepsCard"
             android:layout_margin="@dimen/margin_5dp"
@@ -243,12 +299,12 @@
                         android:textSize="@dimen/text_16"
                         android:text="Steps"/>
                     <TextView
-                        android:id="@+id/tmpCals"
+                        android:id="@+id/tmpDistance"
                         android:textColor="@color/grey_60"
                         android:textSize="@dimen/text_14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Calories Reading"/>
+                        android:text="0 km"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -263,7 +319,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tmpSteps"
+                        android:id="@+id/progresPer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/muli_semibold"
@@ -272,12 +328,86 @@
                         android:textSize="@dimen/text_16" />
 
                     <TextView
-                        android:id="@+id/tmpDistance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="---"
+                        android:text="Archivement "
                         android:textColor="@color/grey_60"
                         android:textSize="@dimen/text_14" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardHeart"
+            android:layout_margin="@dimen/margin_5dp"
+            android:elevation="@dimen/margin_10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/margin_5dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_100dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_100dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/heartIcon"
+                    android:layout_width="@dimen/margin_60dp"
+                    android:layout_height="@dimen/margin_60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_5dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/margin_5dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:src="@drawable/pulseheart"
+                    app:civ_border_color="@color/primary"
+                    app:civ_border_width="1dp" />
+
+
+                <LinearLayout
+                    android:layout_toRightOf="@+id/heartIcon"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/muli_semibold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        android:text="Heart Rate"/>
+                    <TextView
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Latest HR"
+                        android:id="@+id/latestHeart1"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/muli_semibold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"
+                        android:text="Heart State"/>
+                    <TextView
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10 BP /sec"
+                        android:id="@+id/avarageHeart"/>
                 </LinearLayout>
             </RelativeLayout>
 
@@ -485,7 +615,6 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true">
                     <TextView
-                        android:id="@+id/bpReading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/muli_semibold"
@@ -499,81 +628,6 @@
                         android:layout_height="wrap_content"
                         android:text="Quality"
                         android:id="@+id/sleepStatus"/>
-                </LinearLayout>
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardHeart"
-            android:layout_margin="@dimen/margin_5dp"
-            android:elevation="@dimen/margin_10dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/margin_5dp"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/margin_100dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin_100dp">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/heartIcon"
-                    android:layout_width="@dimen/margin_60dp"
-                    android:layout_height="@dimen/margin_60dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/margin_5dp"
-                    android:layout_marginTop="@dimen/margin_5dp"
-                    android:layout_marginEnd="@dimen/margin_5dp"
-                    android:layout_marginBottom="@dimen/margin_5dp"
-                    android:src="@drawable/pulseheart"
-                    app:civ_border_color="@color/primary"
-                    app:civ_border_width="1dp" />
-
-
-                <LinearLayout
-                    android:layout_toRightOf="@+id/heartIcon"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/margin_10dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/muli_semibold"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_16"
-                        android:text="Heart Rate"/>
-                    <TextView
-                        android:textColor="@color/grey_60"
-                        android:textSize="@dimen/text_14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Latest HR"
-                        android:id="@+id/latestHeart1"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/margin_10dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/muli_semibold"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_16"
-                        android:text="Heart State"/>
-                    <TextView
-                        android:textColor="@color/grey_60"
-                        android:textSize="@dimen/text_14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10 BP /sec"
-                        android:id="@+id/avarageHeart"/>
                 </LinearLayout>
             </RelativeLayout>
 
@@ -658,8 +712,6 @@
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
-
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -60,6 +60,7 @@ import com.algebratech.pulse_wellness.models.SlidingModel;
 import com.algebratech.pulse_wellness.models.TodaysActivityModel;
 import com.algebratech.pulse_wellness.models.WellnessPlanModel;
 import com.algebratech.pulse_wellness.services.DeviceConnect;
+import com.algebratech.pulse_wellness.services.DeviceSyncService;
 import com.algebratech.pulse_wellness.utils.CM;
 import com.algebratech.pulse_wellness.utils.Constants;
 import com.android.volley.DefaultRetryPolicy;
@@ -98,7 +99,7 @@ public class HomeFragment extends Fragment {
     private String tag = "SyncDataActivity";
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private Intent intent;
+    private Intent intent,intent2;
     private int[] myImageList = new int[]{R.drawable.banner_1, R.drawable.banner_calculator, R.drawable.banner_3};
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
@@ -111,14 +112,8 @@ public class HomeFragment extends Fragment {
     private final int REQUEST_CODE = 1;
     VPOperateManager mVpoperateManager;
     private int deviceNumber = -1;
-    private String deviceVersion;
-    private String deviceTestVersion;
-    int watchDataDay = 3;
-    int contactMsgLength = 0;
-    int allMsgLenght = 4;
-    boolean isNewSportCalc = false;
-    boolean isSleepPrecision = false;
     Boolean isdeviceConnected = false;
+    ProgressBar progress_bar;
     //database helper object
     private DBHelper db;
     private Cursor c;
@@ -130,7 +125,7 @@ public class HomeFragment extends Fragment {
     Button addGoals;
     TextView total_lose_weight, total_running, total_calories, total_steps , bpReading;
     LinearLayout userGoals;
-    TextView currentSteps, currentKcal, currentRunning,tmpCals,tmpSteps,tmpDistance;
+    TextView currentSteps, currentKcal, currentRunning,tmpCals,tmpSteps,tmpDistance,progresPer;
     String steps, distances, kcals, hasMac;
     String sum_of_calories_for_day = "0";
     String sum_of_steps_for_day = "0";
@@ -157,10 +152,10 @@ public class HomeFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                initData();
                 init();
                 onFragment = true;
                 DashBoardAPI();
+              //  initData();
             }
         }, 500);
 
@@ -222,6 +217,7 @@ public class HomeFragment extends Fragment {
             isdeviceConnected = false;
             mContext = getContext();
             intent = new Intent(mContext, DeviceConnect.class);
+            intent2 = new Intent(mContext, DeviceSyncService.class);
             progressBar = root.findViewById(R.id.progressBar);
             runningProgress = root.findViewById(R.id.runningProgress);
             addGoals = root.findViewById(R.id.addGoals);
@@ -229,6 +225,7 @@ public class HomeFragment extends Fragment {
             cardWeight = root.findViewById(R.id.cardWeight);
             stepsCard = root.findViewById(R.id.stepsCard);
             check_tmp = root.findViewById(R.id.check_tmp);
+            progress_bar = root.findViewById(R.id.progress_bar);
 
             distance = root.findViewById(R.id.distance);
 
@@ -281,23 +278,37 @@ public class HomeFragment extends Fragment {
             seeAll = root.findViewById(R.id.seeAll);
             avarageHeart = root.findViewById(R.id.avarageHeart);
             latestHeart = root.findViewById(R.id.latestHeart);
+            progresPer = root.findViewById(R.id.progresPer);
+
+
             //sete the heart rate from local storage
              BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
                 @Override
                 public void onReceive(Context context, Intent intent) {
-                    String bp_high_value = intent.getStringExtra("bp_high_value");
-                    String bp_low_value = intent.getStringExtra("bp_low_value");
                      today_kcals = intent.getStringExtra("kcals");
                      today_distance = intent.getStringExtra("distance");
                      today_steps = intent.getStringExtra("steps");
-                    String hrate = intent.getStringExtra("hr");
-                    currentSteps.setText(steps);
-                    currentKcal.setText(kcals);
-                    avarageHeart.setText(hrate+" BPS");
-                    tmpSteps.setText(today_steps+" Steps");
-                    tmpCals.setText(today_kcals+" kCals Burnt");
+//                    currentSteps.setText(today_steps);
+//                    currentKcal.setText(kcals);
+//                    avarageHeart.setText(hrate+" BPS");
+                    tmpSteps.setText(today_steps);
+                    tmpCals.setText(today_kcals);
                     tmpDistance.setText(today_distance+" KM");
-                    bpReading.setText(bp_high_value +"/" + bp_low_value);
+//                    bpReading.setText(bp_high_value +"/" + bp_low_value);
+
+                    System.out.println("++++++++++++today_steps "+today_steps);
+                    System.out.println("++++++++++++++today_distance "+today_distance);
+//               try {
+//                        Double stepsPerc = Double.valueOf(today_steps);
+//                        stepsPerc = stepsPerc / 10000;
+//                        stepsPerc = stepsPerc * 100;
+//
+//                        progress_bar.setProgress((int) Math.round(stepsPerc));
+//                        progresPer.setText(Math.round(stepsPerc) + "%");
+//                  }catch (Exception e){
+//                   }
+
+
 
                 }
             };
@@ -305,7 +316,7 @@ public class HomeFragment extends Fragment {
 
 
             DashBoardAPI();
-            initTempreture();
+         //   initTempreture();
 
 
             myEdit = sharedPreferences.edit();
@@ -395,7 +406,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void initTempreture() {
-        System.out.println("+++++++++++++Running Init Temp");
             WristbandManager.getInstance(mContext).registerCallback(new WristbandManagerCallback() {
                 //此方法需要读取设备支持功能后才会回调
                 @Override
@@ -481,88 +491,6 @@ public class HomeFragment extends Fragment {
         }
     }
 
-
-//not usefull for now
-//    private void activityOptions() {
-//        final AlertDialog.Builder mBuilder = new AlertDialog.Builder(mContext);
-//        View mView = getLayoutInflater().inflate(R.layout.activity_active, null);
-//        mBuilder.setIcon(R.drawable.logo_now);
-//        mBuilder.setView(mView);
-//        mBuilder.setTitle("Select Activity");
-//
-//        CardView card1 = mView.findViewById(R.id.outdoorRunning);
-//        CardView card2 = mView.findViewById(R.id.card2);
-//        CardView card3 = mView.findViewById(R.id.card3);
-//        CardView card4 = mView.findViewById(R.id.card4);
-//        final AlertDialog dialog = mBuilder.create();
-//
-//        card1.setOnClickListener(new View.OnClickListener() {
-//            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-//            @Override
-//            public void onClick(View view) {
-//                dialog.dismiss();
-//
-//                boolean isOn = checkBLE();
-//                if (isOn) {
-//                    Intent intent = new Intent(mContext, OutdoorRunActivity.class);
-//                    startActivity(intent);
-//                } else {
-//                    StaticMethods.showNotification(view, "Wearable not paired");
-//                }
-//
-//
-//            }
-//        });
-//
-//        card3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialog.dismiss();
-//                boolean isOn = checkBLE();
-//                if (isOn) {
-//                    Intent intent = new Intent(mContext, OutdoorCyclingActivity.class);
-//                    startActivity(intent);
-//                } else {
-//                    StaticMethods.showNotification(view, "Wearable not paired");
-//                }
-//
-//            }
-//        });
-//
-//        card2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialog.dismiss();
-//                boolean isOn = checkBLE();
-//                if (isOn) {
-//                    Intent intent = new Intent(mContext, TreadmillActivity.class);
-//                    startActivity(intent);
-//                } else {
-//                    StaticMethods.showNotification(view, "Wearable not paired");
-//                }
-//            }
-//        });
-//
-//        card4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialog.dismiss();
-//                boolean isOn = checkBLE();
-//                if (isOn) {
-//                    Intent intent = new Intent(mContext, OutdoorWalkingActivity.class);
-//                    startActivity(intent);
-//                } else {
-//                    StaticMethods.showNotification(view, "Wearable not paired");
-//                }
-//
-//
-//            }
-//        });
-//
-//        dialog.show();
-//
-//    }
-
     private ArrayList<SlidingModel> populateList() {
         ArrayList<SlidingModel> list = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
@@ -599,87 +527,12 @@ public class HomeFragment extends Fragment {
     }
 
 
-//    private void getWellnessPlan() {
-//
-//        JSONObject object = new JSONObject();
-//        try {
-//            object.put("user_id", userId);
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Api.getMyWellnessPlan, object,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        Log.d(Constants.TAG, String.valueOf(response));
-//
-//                        try {
-//                            if (response.getString("status").equals("true")) {
-//                                JSONArray array = new JSONArray(response.getString("data"));
-//                                for (int i = 0; i < array.length(); i++) {
-//
-//                                    JSONObject object = array.getJSONObject(i);
-//                                    String plan_name = object.getString("plan_name");
-//                                    String steps = object.getString("steps");
-//                                    String daily_distance = object.getString("daily_distance");
-//                                    String calories_burnt = object.getString("calories_burnt");
-//                                    String frequency_of_activity = object.getString("frequency_of_activity");
-//                                    String daily_calorie_intake = object.getString("daily_calorie_intake");
-//                                    String daily_reminder = object.getString("daily_reminder");
-//                                    String duration_of_exercise = object.getString("duration_of_exercise");
-//                                    String recommended_calorie_deficit = object.getString("recommended_calorie_deficit");
-//                                    Log.e("User Deatils", plan_name + steps + daily_distance + calories_burnt + frequency_of_activity + daily_calorie_intake + daily_reminder + duration_of_exercise + recommended_calorie_deficit);
-//                                    WellnessPlanModel wellnessPlanModel = new WellnessPlanModel(plan_name, steps, daily_distance, calories_burnt, frequency_of_activity, daily_calorie_intake, daily_reminder, duration_of_exercise, duration_of_exercise, recommended_calorie_deficit);
-//                                    wellnessPlanModels.add(wellnessPlanModel);
-//                                }
-//
-////                                stepss.setText(wellnessPlanModels.get(0).getSteps());
-////                                distances.setText(wellnessPlanModels.get(0).getDaily_distance());
-////                                calories_burnt.setText(wellnessPlanModels.get(0).getCalories_burnt());
-////                                frequency_of_activity.setText(wellnessPlanModels.get(0).getFrequency_of_activity());
-////                                daily_calorie_intake.setText(wellnessPlanModels.get(0).getDaily_calorie_intake());
-////                                daily_reminder.setText(wellnessPlanModels.get(0).getDaily_reminder());
-////
-////                                Log.e("Daily Reminder", wellnessPlanModels.get(0).getParticipation_in_rigorous_school_sport());
-////                                if (wellnessPlanModels.get(0).getParticipation_in_rigorous_school_sport() != null &&
-////                                        wellnessPlanModels.get(0).getParticipation_in_rigorous_school_sport() != "null") {
-////                                    participation_in_rigorous_school_sport.setText(wellnessPlanModels.get(0).getParticipation_in_rigorous_school_sport());
-////                                }
-////                                if (wellnessPlanModels.get(0).getRecommended_calorie_deficit() != null &&
-////                                        wellnessPlanModels.get(0).getRecommended_calorie_deficit() != "null") {
-////                                    recommended_calorie_deficit.setText(wellnessPlanModels.get(0).getRecommended_calorie_deficit());
-////                                }
-////                                if (wellnessPlanModels.get(0).getDuration_of_exercise() != null &&
-////                                        wellnessPlanModels.get(0).getDuration_of_exercise() != "null") {
-////                                    duration_of_exercise.setText(wellnessPlanModels.get(0).getDuration_of_exercise());
-////                                }
-//
-//                            }
-//
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//
-//                        if (wellnessPlanModels.size() == 0) {
-//                            //  no_plan.setVisibility(View.VISIBLE);
-//                        }
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                VolleyLog.d("Error", "Error: " + error.getMessage());
-//                if (error.getMessage().contains(Api.baseurl)) {
-//                    Toast.makeText(getContext(), "No internet connection available!!!.", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-//        requestQueue.add(jsonObjectRequest);
-//
-//    }
-
     private void DashBoardAPI() {
+       if(WristbandManager.getInstance(mContext).isConnect()){
+
+       }else{
+
+       }
 
         if (CM.isConnected(getActivity())) {
             CM.showProgressLoader(getActivity());
@@ -724,15 +577,18 @@ public class HomeFragment extends Fragment {
                                         for (int i = 0; i < array.length(); i++) {
                                             JSONObject objectArray = array.getJSONObject(i);
 
+                                            System.out.println("+++++++++++++++++++++++++"+objectArray.getString("sum_of_steps_for_day"));
+
                                             String wellness_plan_distance = objectArray.getString("wellness_plan_distance");
                                             String wellness_plan_steps = objectArray.getString("wellness_plan_steps");
                                             String wellness_plan_calories = objectArray.getString("wellness_plan_calories");
                                             String calories_burnt_calculation = objectArray.getString("calories_burnt_calculation");
                                             String sum_of_distance_for_day = objectArray.getString("sum_of_distance_for_day");
+
                                             sum_of_steps_for_day = objectArray.getString("sum_of_steps_for_day");
-                                            currentSteps.setText(sum_of_steps_for_day);
+
                                             sum_of_calories_for_day = objectArray.getString("sum_of_calories_for_day");
-                                            currentKcal.setText(sum_of_calories_for_day);
+
                                             String sum_of_distance_for_week = objectArray.getString("sum_of_distance_for_week");
                                             String sum_of_steps_for_week = objectArray.getString("sum_of_steps_for_week");
                                             String sum_of_calories_for_week = objectArray.getString("sum_of_calories_for_week");
@@ -740,6 +596,11 @@ public class HomeFragment extends Fragment {
                                             myPLanCurrentKcal.setText(sum_of_calories_for_week);
                                             myPlanKm.setText(wellness_plan_distance);
                                             weeklyKm.setText(sum_of_distance_for_week);
+
+                                            Double dayCal = Double.parseDouble(sum_of_steps_for_day) * 100 /10000;
+                                            int dayCalt = (int) Math.round(dayCal);
+                                            progress_bar.setProgress(dayCalt);
+                                            progresPer.setText(dayCalt + " %");
 
                                             Double weekKCal = Double.parseDouble(sum_of_calories_for_week) * 100 / Double.parseDouble(calories_burnt_calculation);
                                             int tempweekKCal = (int) Math.round(weekKCal);
@@ -1021,6 +882,9 @@ public class HomeFragment extends Fragment {
             if (!isMyServiceRunning(DeviceConnect.class)) {
                 getActivity().startService(intent);
             }
+            if (!isMyServiceRunning(DeviceSyncService.class)) {
+                getActivity().startService(intent2);
+            }
             registerReceiver(broadcastReceiver, new IntentFilter(DeviceConnect.BROADCAST_ACTION));
         } catch (Exception e) {
 
@@ -1046,6 +910,9 @@ public class HomeFragment extends Fragment {
             isdeviceConnected = false;
             if (!isMyServiceRunning(DeviceConnect.class)) {
                 getActivity().startService(intent);
+            }
+            if (!isMyServiceRunning(DeviceSyncService.class)) {
+                getActivity().startService(intent2);
             }
             registerReceiver(broadcastReceiver, new IntentFilter(DeviceConnect.BROADCAST_ACTION));
         } catch (Exception e) {

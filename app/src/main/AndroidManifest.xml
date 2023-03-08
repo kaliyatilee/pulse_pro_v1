@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
@@ -42,9 +43,11 @@
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:replace="android:supportsRtl,android:theme">
+
         <service
-            android:name=".DeviceSyncService"
-            android:exported="false"></service>
+            android:name=".services.DeviceSyncService"
+            android:enabled="true"
+            android:exported="true"></service>
 
         <activity
             android:name=".dashboardReports.HeartRateActivity"

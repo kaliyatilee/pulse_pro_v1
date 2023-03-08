@@ -35,6 +35,10 @@ public class StaticMethods {
         return date;
     }
 
+    public static int loadCalculate(int value) {
+        return value/1000;
+    }
+
     public static String calculateTime(long seconds) {
         int day = (int)TimeUnit.SECONDS.toDays(seconds);
         long hours = TimeUnit.SECONDS.toHours(seconds) - (day *24);

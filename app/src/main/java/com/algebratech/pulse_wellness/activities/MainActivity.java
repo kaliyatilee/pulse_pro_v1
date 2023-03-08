@@ -4,6 +4,7 @@ import static android.bluetooth.BluetoothProfile.GATT;
 import static com.algebratech.pulse_wellness.services.DeviceConnect.BROADCAST_ACTION;
 import static com.inuker.bluetooth.library.BluetoothService.getContext;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
@@ -18,6 +19,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -41,6 +43,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
@@ -56,6 +59,7 @@ import com.algebratech.pulse_wellness.fragments.CommunityFragment;
 import com.algebratech.pulse_wellness.fragments.RewardsFragment;
 import com.algebratech.pulse_wellness.models.gridActivityModel;
 import com.algebratech.pulse_wellness.services.DeviceConnect;
+import com.algebratech.pulse_wellness.services.DeviceSyncService;
 import com.algebratech.pulse_wellness.services.MyFirebaseInstanceIDService;
 import com.algebratech.pulse_wellness.services.NotificationService;
 import com.algebratech.pulse_wellness.utils.Constants;
@@ -159,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         fab = findViewById(R.id.fab);
-        startService(new Intent(this, MyFirebaseInstanceIDService.class));
+        //startService(new Intent(this, MyFirebaseInstanceIDService.class));
 //        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
         notifications = findViewById(R.id.notifications);
         search = findViewById(R.id.search);
@@ -436,13 +440,25 @@ public class MainActivity extends AppCompatActivity {
 
         syncProfile();
 
-        if (hasMac != null && !hasMac.equals("0")) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            this.startForegroundService ( serviceIntent );
+//        } else {
 
-            if (!DeviceConnect.IsRunning) {
-                Intent serviceIntent = new Intent(this, DeviceConnect.class);
-                ContextCompat.startForegroundService(MainActivity.this, serviceIntent);
-            }
-        }
+//        }
+//        Intent deviceConnect = new Intent(this, DeviceSyncService.class);
+//        startService(deviceConnect);
+        //  ContextCompat.startForegroundService(MainActivity.this,deviceConnect);
+
+         if (hasMac != null && !hasMac.equals("0")) {
+                  if (DeviceSyncService.IsRunning){
+                      stopService( new Intent(this, DeviceSyncService.class));
+                  }
+
+                  Intent serviceIntent1 = new Intent(this, DeviceSyncService.class);
+                  this.startService(serviceIntent1);
+
+          }
+
 
         watch_icon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -650,16 +666,10 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void updateSmartWatchServeUI(Intent intent) {
-        Log.e("IDIGIT_21_07_RECEIVE_UI", intent.getStringExtra("connect"));
         String steps = intent.getStringExtra("steps");
         String distances = intent.getStringExtra("distances");
         String kcals = intent.getStringExtra("kcals");
         String connect = intent.getStringExtra("connect");
-
-        myEdit.putString("Steps", steps);
-        myEdit.putString("Kcals", kcals);
-        myEdit.putString("Distance", distances);
-        myEdit.apply();
 
 
         if (connect.contains("connected")) {

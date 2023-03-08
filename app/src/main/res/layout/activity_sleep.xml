@@ -170,16 +170,16 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/numSteps"
+                    android:id="@+id/deep"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="0h 0m"
-                    android:textSize="24dp" />
+                    android:text="0h 0m" />
 
 
 
                 <TextView
+                    android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -194,15 +194,15 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/numDistance"
+                    android:id="@+id/light"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="0h 0m"
-                    android:textSize="24dp" />
+                    android:text="0h 0m" />
 
 
                 <TextView
+                    android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -217,18 +217,18 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/numKcals"
+                    android:id="@+id/stayUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="0h 0m"
-                    android:textSize="24dp" />
+                    android:text="0h 0m" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Stay up late"
+                    android:textStyle="bold"
                     android:textColor="@color/grey" />
             </LinearLayout>
         </LinearLayout>

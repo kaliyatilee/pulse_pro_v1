@@ -185,6 +185,11 @@ public class StaticMethods {
         alertDialog.show();
     }
 
+    public static float loadCalculate(float distance) {
+
+        return distance/1000;
+    }
+
     public static interface DialogSingleButtonListener {
         public abstract void onButtonClicked(DialogInterface dialog);
     }
