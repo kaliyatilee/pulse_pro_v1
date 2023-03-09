@@ -281,7 +281,6 @@ public class HomeFragment extends Fragment {
             progresPer = root.findViewById(R.id.progresPer);
 
 
-            //sete the heart rate from local storage
              BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
                 @Override
                 public void onReceive(Context context, Intent intent) {

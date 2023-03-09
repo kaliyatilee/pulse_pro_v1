@@ -148,6 +148,12 @@ public class DeviceSyncService extends Service {
                             }
                             Log.i(tag, "bp size = " + packet.getBpListItemPackets().size());
                         }
+
+                        @Override
+                        public void onSyncDataEnd(ApplicationLayerTodaySumSportPacket packet) {
+                            super.onSyncDataEnd(packet);
+                            Log.i(tag, "sync end");
+                        }
                     });
                     WristbandManager.getInstance(context).sendDataRequest();
 
@@ -184,7 +190,6 @@ public class DeviceSyncService extends Service {
 
                 }
                 else{
-                    System.out.println("++++++++++++++++++Device Sync Wearable not connected++++++++");
                     if (deviceMac.equals("0") || deviceMac.isEmpty()) {
                         intent.putExtra("connect", "dis");
                         sendBroadcast(intent);
