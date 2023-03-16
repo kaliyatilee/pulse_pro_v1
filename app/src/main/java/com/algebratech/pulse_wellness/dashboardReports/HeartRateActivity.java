@@ -2,6 +2,7 @@ package com.algebratech.pulse_wellness.dashboardReports;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.CalendarContract;
@@ -34,12 +35,17 @@ public class HeartRateActivity extends AppCompatActivity {
     LineGraphSeries<DataPoint> series;
     private String tag = "HrActivity";
     List<Integer> hr;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor myEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heart_rate);
         CM.showProgressLoader(HeartRateActivity.this);
+
+        sharedPreferences = getSharedPreferences(com.algebratech.pulse_wellness.utils.Constants.PREF_NAME, MODE_PRIVATE);
+        myEdit = sharedPreferences.edit();
 
         reading = findViewById(R.id.reading);
         tvDate = findViewById(R.id.tvDate);
@@ -89,6 +95,9 @@ public class HeartRateActivity extends AppCompatActivity {
                     }
                 }
                 average = total / hr.size();
+
+                myEdit.putString("latestHr",String.valueOf(average));
+                myEdit.apply();
 
                 highestValue.setText(String.valueOf(highest));
                 lowestValue.setText(String.valueOf(lowest));

@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat;
 import androidx.multidex.MultiDex;
 
 import com.algebratech.pulse_wellness.activities.MainActivity;
+//import com.algebratech.pulse_wellness.services.DeviceConnect;
 import com.algebratech.pulse_wellness.services.DeviceConnect;
 import com.algebratech.pulse_wellness.utils.Constants;
 

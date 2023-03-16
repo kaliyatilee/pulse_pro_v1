@@ -81,6 +81,7 @@ public class DeviceSyncService extends Service {
     private String user_id;
     public Handler handler = null;
     public static Runnable runnable = null;
+    boolean isSyncRunning = false;
     Intent intent;
     private DBHelper db;
     @Nullable
@@ -92,7 +93,7 @@ public class DeviceSyncService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-       /// context.startForegroundService();
+        /// context.startForegroundService();
         sharedPreferences = getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
         myEdit = sharedPreferences.edit();
         deviceMac = sharedPreferences.getString("macAddress", null);
@@ -102,60 +103,64 @@ public class DeviceSyncService extends Service {
         db = new DBHelper(getApplicationContext());
 
         Toast.makeText(this, "Service created!", Toast.LENGTH_LONG).show();
+        WristbandManager.getInstance(context).registerCallback(new WristbandManagerCallback() {
+            @Override
+            public void onSyncDataBegin(ApplicationLayerBeginPacket packet) {
+                super.onSyncDataBegin(packet);
+                Log.i(tag, "sync begin");
+                isSyncRunning = true;
+            }
+
+            @Override
+            public void onStepDataReceiveIndication(ApplicationLayerStepPacket packet) {
+                super.onStepDataReceiveIndication(packet);
+                int steps = 0;
+                for (ApplicationLayerStepItemPacket item : packet.getStepsItems()) {
+                    steps = steps + item.getStepCount();
+                    System.out.println("+++++steps+++++++"+steps);
+                    Log.i(tag, item.toString());
+
+
+                }
+//                            Log.i(tag, "size = " + packet.getStepsItems().size());
+            }
+
+            @Override
+            public void onSyncDataEnd(ApplicationLayerTodaySumSportPacket packet) {
+                super.onSyncDataEnd(packet);
+                System.out.println("+++++++++"+packet.getTotalDistance());
+                System.out.println("++++++++++onSyncDataEnd+++"+packet.getTotalStep());
+                intent.putExtra("onSyncDataEndDistance",packet.getTotalDistance());
+                intent.putExtra("onSyncDataEndCalo",packet.getTotalCalory());
+                sendBroadcast(intent);
+                Log.i(tag, "sync end");
+                System.out.println("++++++++++++++++++++onSyncDataEnd");
+                isSyncRunning = false;
+            }
+        });
 
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
+                System.out.println("++++++++++++++++Running Timer");
                 boolean isConnected = WristbandManager.getInstance(context).isConnect();
                 if(isConnected == true) {
+                    System.out.println("++++++++++++++++isSyncRunning "+isSyncRunning);
+                    if (isSyncRunning == false) {
+                        Thread thread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
 
-                    WristbandManager.getInstance(context).registerCallback(new WristbandManagerCallback() {
-                        @Override
-                        public void onSyncDataBegin(ApplicationLayerBeginPacket packet) {
-                            super.onSyncDataBegin(packet);
-                            Log.i(tag, "sync begin");
-                        }
-
-                        @Override
-                        public void onStepDataReceiveIndication(ApplicationLayerStepPacket packet) {
-                            super.onStepDataReceiveIndication(packet);
-                            int steps = 0;
-                            for (ApplicationLayerStepItemPacket item : packet.getStepsItems()) {
-                                steps = steps + item.getStepCount();
-                                System.out.println("+++++steps+++++++"+steps);
-                                Log.i(tag, item.toString());
+                                if (WristbandManager.getInstance(context).sendDataRequest()) {
+                                    System.out.println("++++++++++++++Sync Data Success");
+                                } else {
+                                    System.out.println("++++++++++++++Sync Data Error");
+                                }
                             }
-                            Log.i(tag, "size = " + packet.getStepsItems().size());
-                        }
+                        });
+                        thread.start();
 
-
-                        @Override
-                        public void onHrpDataReceiveIndication(ApplicationLayerHrpPacket packet) {
-                            super.onHrpDataReceiveIndication(packet);
-                            for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
-                                System.out.println("++++++++++++++++onHrpDataReceiveIndication++++++" + item);
-                                Log.i(tag, item.toString());
-                            }
-                            Log.i(tag, "size = " + packet.getHrpItems().size());
-                        }
-
-                        @Override
-                        public void onBpList(ApplicationLayerBpListPacket packet) {
-                            super.onBpList(packet);
-
-                            for (ApplicationLayerBpListItemPacket item : packet.getBpListItemPackets()) {
-                                Log.i(tag, "bpItem = " + item.toString());
-                            }
-                            Log.i(tag, "bp size = " + packet.getBpListItemPackets().size());
-                        }
-
-                        @Override
-                        public void onSyncDataEnd(ApplicationLayerTodaySumSportPacket packet) {
-                            super.onSyncDataEnd(packet);
-                            Log.i(tag, "sync end");
-                        }
-                    });
-                    WristbandManager.getInstance(context).sendDataRequest();
+                    }
 
                     Calendar calendar = Calendar.getInstance();
                     int year = calendar.get(Calendar.YEAR);
@@ -165,15 +170,16 @@ public class DeviceSyncService extends Service {
                     int stepcount = 0;
                     int calories = 0;
                     int distance = 0;
-                    List<SportData> steps = GlobalGreenDAO.getInstance().loadSportDataByDate(year,month,day);
-                  //  List<SportData> steps = GlobalGreenDAO.getInstance().loadAllSportData();
+                    //List<SportData> steps = GlobalGreenDAO.getInstance().loadSportDataByDate(year,month,day);
+                     List<SportData> steps = GlobalGreenDAO.getInstance().loadAllSportData();
+                    System.out.println("+++++++++++++Steps "+steps );
                     if (null != steps) {
                         for (SportData item : steps) {
-                           if (item.getMonth() == month && item.getYear() == year && item.getDay() == day) {
+                            if (item.getMonth() == month && item.getYear() == year && item.getDay() == day) {
                                 distance = distance + item.getDistance();
                                 calories = calories + item.getCalory();
                                 stepcount = stepcount + item.getStepCount();
-                           }
+                            }
                         }
                     }
                     float final_distance = StaticMethods.loadCalculate(distance);

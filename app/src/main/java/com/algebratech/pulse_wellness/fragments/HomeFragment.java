@@ -73,9 +73,7 @@ import com.android.volley.toolbox.Volley;
 import com.inuker.bluetooth.library.utils.BluetoothUtils;
 import com.veepoo.protocol.VPOperateManager;
 import com.wosmart.ukprotocollibary.WristbandManager;
-import com.wosmart.ukprotocollibary.WristbandManagerCallback;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpItemPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpPacket;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerPrivateBpPacket;
 import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerTemperatureControlPacket;
 import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
 import com.wosmart.ukprotocollibary.model.sport.SportData;
@@ -161,44 +159,6 @@ public class HomeFragment extends Fragment {
 
 
     }
-
-    private void initData() {
-            WristbandManager.getInstance(mContext).registerCallback(new WristbandManagerCallback() {
-
-                //此方法需要读取设备支持功能后才会回调
-                @Override
-                public void onTemperatureData(ApplicationLayerHrpPacket packet) {
-                    super.onTemperatureData(packet);
-                    for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
-                        Log.i(tag, "temp origin value :" + item.getTempOriginValue() + " temperature adjust value : " + item.getTemperature() + " is wear :" + item.isWearStatus() + " is adjust : " + item.isAdjustStatus() + "is animation :" + item.isAnimationStatus());
-                    }
-                }
-
-                @Override
-                public void onTemperatureMeasureSetting(ApplicationLayerTemperatureControlPacket packet) {
-                    super.onTemperatureMeasureSetting(packet);
-                    Log.i(tag, "temp setting : show = " + packet.isShow() + " adjust = " + packet.isAdjust() + " celsius unit = " + packet.isCelsiusUnit());
-                }
-
-                @Override
-                public void onTemperatureMeasureStatus(int status) {
-                    super.onTemperatureMeasureStatus(status);
-                    Log.i(tag, "temp status :" + status);
-                }
-            });
-
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                if (WristbandManager.getInstance(mContext).setTemperatureStatus(true)) {
-                    WristbandManager.getInstance(mContext).setTemperatureStatus(false);
-                } else {
-                   // handler.sendEmptyMessage(0x02);
-                }
-            }
-        });
-        thread.start();
-        }
 
 
     @Override
@@ -287,13 +247,20 @@ public class HomeFragment extends Fragment {
                      today_kcals = intent.getStringExtra("kcals");
                      today_distance = intent.getStringExtra("distance");
                      today_steps = intent.getStringExtra("steps");
+
+                     today_steps = intent.getStringExtra("steps");
+                     today_steps = intent.getStringExtra("steps");
+
+                    Toast.makeText(context, ""+intent.getStringExtra("onSyncDataEndDistance"), Toast.LENGTH_SHORT).show();
 //                    currentSteps.setText(today_steps);
 //                    currentKcal.setText(kcals);
-//                    avarageHeart.setText(hrate+" BPS");
+
+                    avarageHeart.setText(sharedPreferences.getString("latestHr","--")+" BPS");
                     tmpSteps.setText(today_steps);
                     tmpCals.setText(today_kcals);
                     tmpDistance.setText(today_distance+" KM");
-//                    bpReading.setText(bp_high_value +"/" + bp_low_value);
+                  //  bpReading.setText(bp_high_value +"/" + bp_low_value);
+
 
                     System.out.println("++++++++++++today_steps "+today_steps);
                     System.out.println("++++++++++++++today_distance "+today_distance);
@@ -404,30 +371,6 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private void initTempreture() {
-            WristbandManager.getInstance(mContext).registerCallback(new WristbandManagerCallback() {
-                //此方法需要读取设备支持功能后才会回调
-                @Override
-                public void onTemperatureData(ApplicationLayerHrpPacket packet) {
-                    super.onTemperatureData(packet);
-                    for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
-                        Log.i(tag, "temp origin value :" + item.getTempOriginValue() + " temperature adjust value : " + item.getTemperature() + " is wear :" + item.isWearStatus() + " is adjust : " + item.isAdjustStatus() + "is animation :" + item.isAnimationStatus());
-                    }
-                }
-
-                @Override
-                public void onTemperatureMeasureSetting(ApplicationLayerTemperatureControlPacket packet) {
-                    super.onTemperatureMeasureSetting(packet);
-                    Log.i(tag, "temp setting : show = " + packet.isShow() + " adjust = " + packet.isAdjust() + " celsius unit = " + packet.isCelsiusUnit());
-                }
-
-                @Override
-                public void onTemperatureMeasureStatus(int status) {
-                    super.onTemperatureMeasureStatus(status);
-                    Log.i(tag, "temp status :" + status);
-                }
-            });
-        }
 
     private void startMeasure() {
         CM.showProgressLoader(getActivity());
@@ -528,6 +471,16 @@ public class HomeFragment extends Fragment {
 
     private void DashBoardAPI() {
        if(WristbandManager.getInstance(mContext).isConnect()){
+           try {
+//               WristbandManager.getInstance(mContext).readBpValue();
+//               ApplicationLayerPrivateBpPacket packet = WristbandManager.getInstance(mContext).readPrivateBp();
+//               Log.i(tag, "private bp = " + packet.toString());
+//               bpReading.setText(packet.getHighValue() +"/" +packet.getLowValue());
+           }
+           catch (Exception e){
+
+           }
+
 
        }else{
 
@@ -576,7 +529,6 @@ public class HomeFragment extends Fragment {
                                         for (int i = 0; i < array.length(); i++) {
                                             JSONObject objectArray = array.getJSONObject(i);
 
-                                            System.out.println("+++++++++++++++++++++++++"+objectArray.getString("sum_of_steps_for_day"));
 
                                             String wellness_plan_distance = objectArray.getString("wellness_plan_distance");
                                             String wellness_plan_steps = objectArray.getString("wellness_plan_steps");

@@ -322,7 +322,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
                     mListAddress.add(device.getAddress());
                     if (result.getAddress().equals(deviceMac)) {
                         WristbandManager.getInstance(DeviceConnect.this).stopScan();
-                        connectDevice(result.getAddress(), result.getName());
+                      //  connectDevice(result.getAddress(), result.getName());
                     }
                 }
 
