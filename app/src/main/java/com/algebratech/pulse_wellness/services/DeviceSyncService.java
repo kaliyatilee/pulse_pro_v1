@@ -67,8 +67,6 @@ import java.util.TimerTask;
 
 public class DeviceSyncService extends Service {
     public static boolean IsRunning = false;
-    public static boolean IsWearableConnected = false;
-    private static final String TAG = "CONNECT SERVICE===>";
     public static final String BROADCAST_ACTION = "com.algebratech.pulse_wellness.DeviceConnectData";
     Context context = DeviceSyncService.this;
     private String tag = "SyncDataActivity";
@@ -93,7 +91,6 @@ public class DeviceSyncService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        /// context.startForegroundService();
         sharedPreferences = getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
         myEdit = sharedPreferences.edit();
         deviceMac = sharedPreferences.getString("macAddress", null);
