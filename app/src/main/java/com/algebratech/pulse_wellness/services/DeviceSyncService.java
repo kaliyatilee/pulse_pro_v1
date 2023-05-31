@@ -1,5 +1,7 @@
 package com.algebratech.pulse_wellness.services;
 
+import static com.wosmart.ukprotocollibary.db.dao.SportInfoDao.Properties.steps;
+
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -53,6 +55,8 @@ import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerTodaySumSpo
 import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
 import com.wosmart.ukprotocollibary.model.hrp.HrpData;
 import com.wosmart.ukprotocollibary.model.sport.SportData;
+import com.wosmart.ukprotocollibary.model.sport.SportSubData;
+import com.wosmart.ukprotocollibary.util.WristbandCalculator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -99,117 +103,70 @@ public class DeviceSyncService extends Service {
         intent = new Intent(BROADCAST_ACTION);
         db = new DBHelper(getApplicationContext());
 
-        Toast.makeText(this, "Service created!", Toast.LENGTH_LONG).show();
-        WristbandManager.getInstance(context).registerCallback(new WristbandManagerCallback() {
-            @Override
-            public void onSyncDataBegin(ApplicationLayerBeginPacket packet) {
-                super.onSyncDataBegin(packet);
-                Log.i(tag, "sync begin");
-                isSyncRunning = true;
-            }
-
-            @Override
-            public void onStepDataReceiveIndication(ApplicationLayerStepPacket packet) {
-                super.onStepDataReceiveIndication(packet);
-                int steps = 0;
-                for (ApplicationLayerStepItemPacket item : packet.getStepsItems()) {
-                    steps = steps + item.getStepCount();
-                    System.out.println("+++++steps+++++++"+steps);
-                    Log.i(tag, item.toString());
-
-
-                }
-//                            Log.i(tag, "size = " + packet.getStepsItems().size());
-            }
-
-            @Override
-            public void onSyncDataEnd(ApplicationLayerTodaySumSportPacket packet) {
-                super.onSyncDataEnd(packet);
-                System.out.println("+++++++++"+packet.getTotalDistance());
-                System.out.println("++++++++++onSyncDataEnd+++"+packet.getTotalStep());
-                intent.putExtra("onSyncDataEndDistance",packet.getTotalDistance());
-                intent.putExtra("onSyncDataEndCalo",packet.getTotalCalory());
-                sendBroadcast(intent);
-                Log.i(tag, "sync end");
-                System.out.println("++++++++++++++++++++onSyncDataEnd");
-                isSyncRunning = false;
-            }
-        });
 
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                System.out.println("++++++++++++++++Running Timer");
                 boolean isConnected = WristbandManager.getInstance(context).isConnect();
-                if(isConnected == true) {
-                    System.out.println("++++++++++++++++isSyncRunning "+isSyncRunning);
-                    if (isSyncRunning == false) {
-                        Thread thread = new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-
-                                if (WristbandManager.getInstance(context).sendDataRequest()) {
-                                    System.out.println("++++++++++++++Sync Data Success");
-                                } else {
-                                    System.out.println("++++++++++++++Sync Data Error");
-                                }
-                            }
-                        });
-                        thread.start();
-
-                    }
-
-                    Calendar calendar = Calendar.getInstance();
-                    int year = calendar.get(Calendar.YEAR);
-                    int month = calendar.get(Calendar.MONTH) + 1;
-                    int day = calendar.get(Calendar.DAY_OF_MONTH);
+//                if(isConnected == true) {
+//                    Calendar calendar = Calendar.getInstance();
+//                    int year = calendar.get(Calendar.YEAR);
+//                    int month = calendar.get(Calendar.MONTH) + 1;
+//                    int day = calendar.get(Calendar.DAY_OF_MONTH);
+//                    List<SportData> steps = GlobalGreenDAO.getInstance().loadSportDataByDate(year, month, day);
+//                    SportSubData subData = WristbandCalculator.sumOfSportDataByDate(year, month, day, steps);
+//                    Toast.makeText(context, subData.toString(), Toast.LENGTH_SHORT).show();
 
                     int stepcount = 0;
                     int calories = 0;
                     int distance = 0;
-                    //List<SportData> steps = GlobalGreenDAO.getInstance().loadSportDataByDate(year,month,day);
-                     List<SportData> steps = GlobalGreenDAO.getInstance().loadAllSportData();
-                    System.out.println("+++++++++++++Steps "+steps );
-                    if (null != steps) {
-                        for (SportData item : steps) {
-                            if (item.getMonth() == month && item.getYear() == year && item.getDay() == day) {
-                                distance = distance + item.getDistance();
-                                calories = calories + item.getCalory();
-                                stepcount = stepcount + item.getStepCount();
-                            }
-                        }
-                    }
-                    float final_distance = StaticMethods.loadCalculate(distance);
-                    float final_calorie = StaticMethods.loadCalculate(calories);
+//                    //List<SportData> steps = GlobalGreenDAO.getInstance().loadSportDataByDate(year,month,day);
+//                     List<SportData> steps = GlobalGreenDAO.getInstance().loadAllSportData();
+//                    System.out.println("+++++++++++++Steps "+steps );
+//                    if (null != steps) {
+//                        for (SportData item : steps) {
+//                            if (item.getMonth() == month && item.getYear() == year && item.getDay() == day) {
+//                                distance = distance + item.getDistance();
+//                                calories = calories + item.getCalory();
+//                                stepcount = stepcount + item.getStepCount();
+//                            }
+//                        }
+//                    }
+//                    float final_distance = StaticMethods.loadCalculate(distance);
+                  // float final_calorie = StaticMethods.loadCalculate(calories);
+//
+//                    intent.putExtra("kcals", String.valueOf(final_calorie));
+//                    intent.putExtra("distance",String.valueOf(final_distance));
+//                    intent.putExtra("steps", String.valueOf(stepcount));
+//                    intent.putExtra("connect", "connected");
+//                    sendBroadcast(intent);
+//
+               //   noSoundNotification("Wearable Connected", "Steps : " + stepcount + " \n Distance : " + String.valueOf(final_distance) + " \n Kcals : " + String.valueOf(final_calorie));
+//                    pointsmanipulation(stepcount, String.valueOf(final_distance), String.valueOf(final_calorie));
 
-                    intent.putExtra("kcals", String.valueOf(final_calorie));
-                    intent.putExtra("distance",String.valueOf(final_distance));
-                    intent.putExtra("steps", String.valueOf(stepcount));
-                    intent.putExtra("connect", "connected");
-                    sendBroadcast(intent);
 
-                    noSoundNotification("Wearable Connected", "Steps : " + stepcount + " \n Distance : " + String.valueOf(final_distance) + " \n Kcals : " + String.valueOf(final_calorie));
-                    pointsmanipulation(stepcount, String.valueOf(final_distance), String.valueOf(final_calorie));
 
-                }
-                else{
-                    if (deviceMac.equals("0") || deviceMac.isEmpty()) {
-                        intent.putExtra("connect", "dis");
-                        sendBroadcast(intent);
-                    }
-                    else{
-                        intent.putExtra("connect", "connecting");
-                        sendBroadcast(intent);
-                        WristbandManager.getInstance(context).connect(deviceMac);
-                    }
-
-                }
 
 
 
 
             }
         }, 0, 60000);
+    }
+
+    private void stopMeasure() {
+//        CM.HideProgressLoader();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (WristbandManager.getInstance(context).setTemperatureStatus(false)) {
+                    WristbandManager.getInstance(context).readBpValue();
+                } else {
+                    System.out.println("+++++++++++++++++++Stop Measure failed");
+                }
+            }
+        });
+        thread.start();
     }
 
 

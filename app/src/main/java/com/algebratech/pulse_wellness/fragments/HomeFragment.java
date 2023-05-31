@@ -36,6 +36,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -58,11 +59,13 @@ import com.algebratech.pulse_wellness.db.DBHelper;
 import com.algebratech.pulse_wellness.interfaces.DialogClickListener;
 import com.algebratech.pulse_wellness.models.SlidingModel;
 import com.algebratech.pulse_wellness.models.TodaysActivityModel;
+import com.algebratech.pulse_wellness.models.WeightMonitoringModel;
 import com.algebratech.pulse_wellness.models.WellnessPlanModel;
 import com.algebratech.pulse_wellness.services.DeviceConnect;
 import com.algebratech.pulse_wellness.services.DeviceSyncService;
 import com.algebratech.pulse_wellness.utils.CM;
 import com.algebratech.pulse_wellness.utils.Constants;
+import com.algebratech.pulse_wellness.utils.StaticMethods;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -70,13 +73,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.github.mikephil.charting.data.BarEntry;
 import com.inuker.bluetooth.library.utils.BluetoothUtils;
 import com.veepoo.protocol.VPOperateManager;
 import com.wosmart.ukprotocollibary.WristbandManager;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpItemPacket;
 import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerPrivateBpPacket;
 import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerTemperatureControlPacket;
 import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
 import com.wosmart.ukprotocollibary.model.sport.SportData;
+
 
 import net.sqlcipher.database.SQLiteDatabase;
 
@@ -94,7 +100,7 @@ import java.util.Locale;
 public class HomeFragment extends Fragment {
 
     private ArrayList<SlidingModel> imageModelArrayList;
-    private String tag = "SyncDataActivity";
+    private static final String TAG = "AlgosecServiceLog";
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
     private Intent intent,intent2;
@@ -113,7 +119,7 @@ public class HomeFragment extends Fragment {
     Boolean isdeviceConnected = false;
     ProgressBar progress_bar;
     //database helper object
-    private DBHelper db;
+    private DBHelper dbHelper;
     private Cursor c;
     View root;
     private String amount, today;
@@ -121,9 +127,10 @@ public class HomeFragment extends Fragment {
     private List<WellnessPlanModel> wellnessPlanModels = new ArrayList<>();
     String userId;
     Button addGoals;
-    TextView total_lose_weight, total_running, total_calories, total_steps , bpReading;
+    TextView total_lose_weight, total_running, total_calories, total_steps ;
+   // TextView bpReading;
     LinearLayout userGoals;
-    TextView currentSteps, currentKcal, currentRunning,tmpCals,tmpSteps,tmpDistance,progresPer;
+    TextView currentSteps, currentKcal, currentRunning,tmpCals,tmpSteps,tmpDistance,tvDeepSleep,progresPer;
     String steps, distances, kcals, hasMac;
     String sum_of_calories_for_day = "0";
     String sum_of_steps_for_day = "0";
@@ -131,22 +138,28 @@ public class HomeFragment extends Fragment {
     RecyclerView activitiesSummary;
     private ActivitiesSummaryAdapter activitiesSummaryAdapter;
     private RecyclerView.Adapter mAdapter;
-    TextView seeAll,currentWeight;
+    TextView seeAll,currentWeight,tmpReading,weightDate,weightMessage;
     CardView cardWeight,stepsCard,cardSleep,cardHeart;
     List<TodaysActivityModel> todaysActivityModels = new ArrayList<>();
     Intent intent1;
-    String today_kcals,today_distance,today_steps;
-    Button check_tmp;
+    String today_kcals,today_distance,today_steps,deepSleep,tmp_original,sync_status;
 
 
     TextView myPLanKcal, bmi, bmi_text, myPLanCurrentKcal, myPlanKm, weeklyKm, addGoalText, goalWeight, goalKcal, goalSteps, myPlanKcalProText, myPlanKMProText, weightProText, runningProgressText, stepsProText, kcalProText, noActvity;
-    TextView txtPlanStatus,txtDistancePlanStatus;
+    TextView txtPlanStatus,txtDistancePlanStatus,syncStatus;
     boolean onFragment = false;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        dbHelper = new DBHelper(getActivity());
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Log.e("IDIGIT_21_07_View", "HOME CLASS CALLED");
         super.onViewCreated(view, savedInstanceState);
+       // db = new DBHelper(getContext());
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -168,6 +181,7 @@ public class HomeFragment extends Fragment {
     }
 
     void init() {
+
         //readStepLocal();
         if (root != null && getActivity() != null) {
             sharedPreferences = getActivity().getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
@@ -184,10 +198,11 @@ public class HomeFragment extends Fragment {
             noActvity = root.findViewById(R.id.noActvity);
             cardWeight = root.findViewById(R.id.cardWeight);
             stepsCard = root.findViewById(R.id.stepsCard);
-            check_tmp = root.findViewById(R.id.check_tmp);
             progress_bar = root.findViewById(R.id.progress_bar);
+            syncStatus = root.findViewById(R.id.syncStatus);
 
             distance = root.findViewById(R.id.distance);
+            tmpReading = root.findViewById(R.id.tmpReading);
 
             mVpoperateManager = mVpoperateManager.getMangerInstance(mContext.getApplicationContext());
             imageModelArrayList = new ArrayList<>();
@@ -199,7 +214,7 @@ public class HomeFragment extends Fragment {
             currentRunning = root.findViewById(R.id.currentRunning);
             total_lose_weight = root.findViewById(R.id.total_lose_weight);
             total_running = root.findViewById(R.id.total_running);
-            bpReading = root.findViewById(R.id.bpReading);
+          //  bpReading = root.findViewById(R.id.bpReading);
             cardSleep = root.findViewById(R.id.cardSleep);
             cardHeart = root.findViewById(R.id.cardHeart);
             currentWeight = root.findViewById(R.id.currentWeight);
@@ -232,13 +247,16 @@ public class HomeFragment extends Fragment {
             tmpSteps = root.findViewById(R.id.tmpSteps);
             tmpCals = root.findViewById(R.id.tmpCals);
             tmpDistance = root.findViewById(R.id.tmpDistance);
+            tvDeepSleep = root.findViewById(R.id.tvDeepSleep);
 
             userGoals = root.findViewById(R.id.userGoals);
             activitiesSummary = root.findViewById(R.id.activitiesSummary);
             seeAll = root.findViewById(R.id.seeAll);
             avarageHeart = root.findViewById(R.id.avarageHeart);
-            latestHeart = root.findViewById(R.id.latestHeart);
+            weightDate = root.findViewById(R.id.weightDate);
             progresPer = root.findViewById(R.id.progresPer);
+            weightMessage = root.findViewById(R.id.weightMessage);
+            weightMessage.setVisibility(View.GONE);
 
 
              BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -246,33 +264,37 @@ public class HomeFragment extends Fragment {
                 public void onReceive(Context context, Intent intent) {
                      today_kcals = intent.getStringExtra("kcals");
                      today_distance = intent.getStringExtra("distance");
-                     today_steps = intent.getStringExtra("steps");
+                     sync_status = intent.getStringExtra("sync_status");
+
+
+                     try {
+                         deepSleep = intent.getStringExtra("deepSleep");
+                         tvDeepSleep.setText("Deep Sleep :"+deepSleep +" Hrs");
+                     }
+                     catch (Exception e){
+
+                     }
 
                      today_steps = intent.getStringExtra("steps");
-                     today_steps = intent.getStringExtra("steps");
-
-                    Toast.makeText(context, ""+intent.getStringExtra("onSyncDataEndDistance"), Toast.LENGTH_SHORT).show();
-//                    currentSteps.setText(today_steps);
-//                    currentKcal.setText(kcals);
+                     tmp_original = intent.getStringExtra("tempreture");
 
                     avarageHeart.setText(sharedPreferences.getString("latestHr","--")+" BPS");
                     tmpSteps.setText(today_steps);
                     tmpCals.setText(today_kcals);
                     tmpDistance.setText(today_distance+" KM");
-                  //  bpReading.setText(bp_high_value +"/" + bp_low_value);
+                    tmpReading.setText(tmp_original);
+                    syncStatus.setText(sync_status);
 
 
-                    System.out.println("++++++++++++today_steps "+today_steps);
-                    System.out.println("++++++++++++++today_distance "+today_distance);
-//               try {
-//                        Double stepsPerc = Double.valueOf(today_steps);
-//                        stepsPerc = stepsPerc / 10000;
-//                        stepsPerc = stepsPerc * 100;
-//
-//                        progress_bar.setProgress((int) Math.round(stepsPerc));
-//                        progresPer.setText(Math.round(stepsPerc) + "%");
-//                  }catch (Exception e){
-//                   }
+               try {
+                        Double stepsPerc = Double.valueOf(today_steps);
+                        stepsPerc = stepsPerc / 10000;
+                        stepsPerc = stepsPerc * 100;
+
+                        progress_bar.setProgress((int) Math.round(stepsPerc));
+                        progresPer.setText(Math.round(stepsPerc) + "%");
+                  }catch (Exception e){
+                   }
 
 
 
@@ -282,32 +304,32 @@ public class HomeFragment extends Fragment {
 
 
             DashBoardAPI();
-         //   initTempreture();
-
 
             myEdit = sharedPreferences.edit();
             SQLiteDatabase.loadLibs(getContext());
-            db = new DBHelper(getContext());
+
+            WeightMonitoringModel weightMonitoringModel = dbHelper.getLatestWeightReading();
+            try {
+                weightDate.setText("Recorded :"+StaticMethods.TimestampTodate(weightMonitoringModel.getDateRecorded()));
+                currentWeight.setText(weightMonitoringModel.getWeight()+" kg");
+                Long days = StaticMethods.calculateDaysBetweenTimeStamps(weightMonitoringModel.getDateRecorded(),StaticMethods.getCurrentTimeStamp());
+                if (days >= 30){
+                    cardWeight.setCardBackgroundColor(ContextCompat.getColor(getContext(), R.color.red));
+                    weightMessage.setVisibility(View.VISIBLE);
+                }
+            } catch (NullPointerException e) {
+                weightDate.setText("---");
+                currentWeight.setText("--");
+                // Handle null data case here
+            }
+
+
+
+
 
             Date c = Calendar.getInstance().getTime();
             SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
             today = df.format(c);
-
-//            try {
-//                Log.d(Constants.TAG + "DatabaseRes", db.getTotal(sharedPreferences.getString("userID", "")));
-//                Log.d(Constants.TAG + "DatabaseRes", String.valueOf(db.checkToday(sharedPreferences.getString("userID", ""))));
-//            } catch (Exception e) {
-//                Log.d(Constants.TAG + "DatabaseRes", e.getMessage());
-//            }
-            // final DatabaseHelper db = new DatabaseHelper(getContext());
-            // getting initial points from firebase
-
-            check_tmp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startMeasure();
-                }
-            });
 
             stepsCard.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -320,8 +342,6 @@ public class HomeFragment extends Fragment {
                     startActivity(intent1);
                 }
             });
-
-
             addGoals.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -329,7 +349,6 @@ public class HomeFragment extends Fragment {
                     startActivityForResult(intent, 2);
                 }
             });
-
             cardWeight.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -338,9 +357,6 @@ public class HomeFragment extends Fragment {
 
                 }
             });
-
-
-
             cardSleep.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -357,8 +373,6 @@ public class HomeFragment extends Fragment {
 
                 }
             });
-
-
             seeAll.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -367,48 +381,13 @@ public class HomeFragment extends Fragment {
                 }
             });
 
+
             initBLE();
         }
     }
 
 
-    private void startMeasure() {
-        CM.showProgressLoader(getActivity());
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                if (WristbandManager.getInstance(mContext).readHrpValue()) {
-                    new java.util.Timer().schedule(
-                            new java.util.TimerTask() {
-                                @Override
-                                public void run() {
-                                    stopMeasure();
-                                }
-                            },
-                            20000
-                    );
-                } else {
-                    System.out.println("+++++++++++++++++++Start Measure failed");
-                }
-            }
-        });
-        thread.start();
-    }
 
-    private void stopMeasure() {
-        CM.HideProgressLoader();
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                if (WristbandManager.getInstance(mContext).stopReadHrpValue()) {
-                    System.out.println("+++++++++++++++++++Stop Measure sucess");
-                } else {
-                    System.out.println("+++++++++++++++++++Stop Measure failed");
-                }
-            }
-        });
-        thread.start();
-    }
 
     void setdataAdapter() {
         Log.e("adapter1", "adapter1");
@@ -470,22 +449,6 @@ public class HomeFragment extends Fragment {
 
 
     private void DashBoardAPI() {
-       if(WristbandManager.getInstance(mContext).isConnect()){
-           try {
-//               WristbandManager.getInstance(mContext).readBpValue();
-//               ApplicationLayerPrivateBpPacket packet = WristbandManager.getInstance(mContext).readPrivateBp();
-//               Log.i(tag, "private bp = " + packet.toString());
-//               bpReading.setText(packet.getHighValue() +"/" +packet.getLowValue());
-           }
-           catch (Exception e){
-
-           }
-
-
-       }else{
-
-       }
-
         if (CM.isConnected(getActivity())) {
             CM.showProgressLoader(getActivity());
             JSONObject object = new JSONObject();
@@ -528,8 +491,6 @@ public class HomeFragment extends Fragment {
                                     } else {
                                         for (int i = 0; i < array.length(); i++) {
                                             JSONObject objectArray = array.getJSONObject(i);
-
-
                                             String wellness_plan_distance = objectArray.getString("wellness_plan_distance");
                                             String wellness_plan_steps = objectArray.getString("wellness_plan_steps");
                                             String wellness_plan_calories = objectArray.getString("wellness_plan_calories");
@@ -612,6 +573,8 @@ public class HomeFragment extends Fragment {
 
                                         for (int i = 0; i < array.length(); i++) {
                                             JSONObject objectArray = goalArray.getJSONObject(i);
+
+
                                             String setgoal_weight = objectArray.getString("setgoal_weight");
                                             String setgoal_steps = objectArray.getString("setgoal_steps");
                                             String setgoal_calories = objectArray.getString("setgoal_calories");
@@ -626,7 +589,6 @@ public class HomeFragment extends Fragment {
                                             total_calories.setText(setgoal_calories);
                                             total_steps.setText(setgoal_steps);
                                             goalWeight.setText(sum_of_weight_for_day);
-                                            currentWeight.setText(sharedPreferences.getString("weight",""));
                                             currentRunning.setText(sum_of_distance_for_day);
                                             goalKcal.setText(sum_of_calories_for_day);
                                             goalSteps.setText(sum_of_steps_for_day);

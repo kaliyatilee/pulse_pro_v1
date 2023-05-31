@@ -1,5 +1,7 @@
 package com.algebratech.pulse_wellness;
 
+import static com.algebratech.pulse_wellness.utils.Constants.CHANNEL_ID;
+
 import android.app.Activity;
 import android.app.Application;
 import android.app.NotificationChannel;
@@ -20,8 +22,14 @@ import androidx.multidex.MultiDex;
 
 import com.algebratech.pulse_wellness.activities.MainActivity;
 //import com.algebratech.pulse_wellness.services.DeviceConnect;
+import com.algebratech.pulse_wellness.activities.ScanActivity;
 import com.algebratech.pulse_wellness.services.DeviceConnect;
+import com.algebratech.pulse_wellness.services.SyncWearableService;
 import com.algebratech.pulse_wellness.utils.Constants;
+import com.algebratech.pulse_wellness.utils.SharedPreferenceUtil;
+import com.realsil.sdk.core.RtkConfigure;
+import com.realsil.sdk.core.RtkCore;
+import com.realsil.sdk.dfu.RtkDfu;
 
 import org.json.JSONObject;
 
@@ -34,28 +42,12 @@ public class App extends Application  {
     private static boolean phoneCallActivityVisible;
     private static boolean baseActivityVisible;
     private static boolean isCallActive = false;
-
-
-
     private boolean hasMovedToForeground = false;
-
-
     private int activityReferences = 0;
     private boolean isActivityChangingConfigurations = false;
-
-
-
-
-
-
-
-
-
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
-
     public int fnoti = 1;
-
 
     @Override
     public void onCreate() {
@@ -69,63 +61,75 @@ public class App extends Application  {
         myEdit.putInt("friendreq_not",1);
         myEdit.apply();
 
-        if (!DeviceConnect.IsRunning) {
-            Intent intentService = new Intent(App.this, DeviceConnect.class);
-            //context.startService(intentService);
-            ContextCompat.startForegroundService(App.this, intentService);
+
+        RtkConfigure configure = new RtkConfigure.Builder()
+                .debugEnabled(true)
+                .printLog(true)
+                .logTag("OTA")
+                .globalLogLevel(1)
+                .build();
+        RtkCore.initialize(this, configure);
+        RtkDfu.initialize(this, true);
+
+        SharedPreferenceUtil sharedPreferenceUtil = new SharedPreferenceUtil(this);
+        if (sharedPreferenceUtil.getStringPreference(Constants.DEVICE_MAC,null) != null) {
+            Intent serviceIntent = new Intent(getApplicationContext(), SyncWearableService.class);
+            serviceIntent.putExtra(Constants.START_SERVICE, true);
+
+            if(!SyncWearableService.IsRunning) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    ContextCompat.startForegroundService(this, serviceIntent);
+                } else {
+                    getApplicationContext().startService(serviceIntent);
+                }
+
+            }
+
+
         }
-
-
-//        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
-//
-//        // OneSignal Initialization
-//        OneSignal.startInit(this)
-//                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-//                .setNotificationOpenedHandler(new NotificationOpenedHandler())
-//                .setNotificationReceivedHandler(new NotificationReceivedHandler())
-//                .unsubscribeWhenNotificationsAreDisabled(false)
-//                .init();
-
-//        OneSignal.initWithContext(this);
-//        OneSignal.setAppId(one_sign_id);
-
-        //FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true);
-        //FirebaseCrashlytics.getInstance().sendUnsentReports();
-
         createNotificationChannel();
-
-
 
         mApp = this;
 
     }
 
     private void createNotificationChannel() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel serviceChannelNoSound = new NotificationChannel(
-                    Constants.CHANNEL_ID_NO_SOUND,
-                    "Pulse No Sound",
-                    NotificationManager.IMPORTANCE_NONE
-            );
-            serviceChannelNoSound.setSound(null, null);
-            serviceChannelNoSound.setShowBadge(false);
-
-            NotificationChannel serviceChannelSound = new NotificationChannel(
-                    Constants.CHANNEL_ID_SOUND,
-                    "Pulse Sound",
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel serviceChannel = new NotificationChannel(
+                    CHANNEL_ID,
+                    getString(R.string.app_name)+" Service Channel",
                     NotificationManager.IMPORTANCE_DEFAULT
             );
-            serviceChannelSound.setShowBadge(false);
-
-
+            serviceChannel.setSound(null, null);
+            serviceChannel.setShowBadge(false);
             NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(serviceChannelNoSound);
-            NotificationManager managerSound = getSystemService(NotificationManager.class);
-            managerSound.createNotificationChannel(serviceChannelSound);
+            manager.createNotificationChannel(serviceChannel);
         }
 
-    }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+//            NotificationChannel serviceChannelNoSound = new NotificationChannel(
+//                    Constants.CHANNEL_ID_NO_SOUND,
+//                    "Pulse No Sound",
+//                    NotificationManager.IMPORTANCE_NONE
+//            );
+//            serviceChannelNoSound.setSound(null, null);
+//            serviceChannelNoSound.setShowBadge(false);
+//
+//            NotificationChannel serviceChannelSound = new NotificationChannel(
+//                    Constants.CHANNEL_ID_SOUND,
+//                    "Pulse Sound",
+//                    NotificationManager.IMPORTANCE_DEFAULT
+//            );
+//            serviceChannelSound.setShowBadge(false);
+//
+//
+//            NotificationManager manager = getSystemService(NotificationManager.class);
+//            manager.createNotificationChannel(serviceChannelNoSound);
+//            NotificationManager managerSound = getSystemService(NotificationManager.class);
+//            managerSound.createNotificationChannel(serviceChannelSound);
+       }
+
+
 
 //    public class NotificationOpenedHandler implements OneSignal.NotificationOpenedHandler
 //    {

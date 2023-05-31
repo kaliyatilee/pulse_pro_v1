@@ -90,4 +90,8 @@ public class StaticMethods {
       return  min;
     }
 
+    public static Long getCurrentTimeStamp(){
+        return  System.currentTimeMillis()/1000;
+    }
+
 }

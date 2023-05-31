@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.algebratech.pulse_wellness.models.ActivityListModel;
 import com.algebratech.pulse_wellness.models.DailyReads;
+import com.algebratech.pulse_wellness.models.WeightMonitoringModel;
 import com.algebratech.pulse_wellness.utils.Constants;
 
 
@@ -35,36 +36,29 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "pulse.db";
     public static final String TABLE_ACTIVTIES = "activities";
     public static final String TABLE_DAILY_READ = "dailyreads";
+    public static final String TABLE_WEIGHT_MONITOR = "weightmonitoring";
+    public static final String TABLE_TARGET_WEIGHT = "targetweight";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_USER = "user";
     public static final String COLUMN_POINT = "points";
     public static final String COLUMN_DATE = "date";
     public static final String COLUMN_STATUS = "sync";
     public static final String COLUMN_ACTIVITY_TYPE = "activity_type";
+    public static final String COLUMN_WEIGHT = "weight";
+    public static final String COLUMN_DATE_RECORDED = "recorded_on";
+    public static final String COLUMN_IS_SYNCED = "sync";
 
     //database version
-    private static final int DB_VERSION = 2;
-    private static final String CCOLUMN_POINT = "points" ;
+    private static final int DB_VERSION = 5;
+    private static final String CCOLUMN_POINT = "points";
     SharedPreferences sharedPreferences;
 
 
     //Constructor
     public DBHelper(Context context) {
         //super(context, DB_NAME, null, DB_VERSION);
-        super(context,   DB_NAME, null, DB_VERSION);
+        super(context, DB_NAME, null, DB_VERSION);
         sharedPreferences = context.getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
-
-//        String outputSource = Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+Constants.PREF_NAME+"/" + ".Database/";
-//        Log.d(Constants.TAG+"Folder",outputSource);
-//        File dir = new File(outputSource);
-//        if (!dir.exists()){
-//            dir.mkdirs();
-//            Log.d(Constants.TAG+"@Database","Success");
-//            Log.d(Constants.TAG+"Folder","Ndagadzira");
-//        }else{
-//            Log.d(Constants.TAG+"Folder","Ndiripo");
-//        }
-
     }
 
     //creating the database
@@ -73,21 +67,23 @@ public class DBHelper extends SQLiteOpenHelper {
         String sql = "CREATE TABLE " + TABLE_DAILY_READ
                 + "(" + COLUMN_ID +
                 " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_USER +
-                " VARCHAR, "+ COLUMN_POINT + " VARCHAR, steps TEXT, distance TEXT, kcals TEXT, "+ COLUMN_DATE + " VARCHAR, "+ COLUMN_STATUS +
+                " VARCHAR, " + COLUMN_POINT + " VARCHAR, steps TEXT, distance TEXT, kcals TEXT, " + COLUMN_DATE + " VARCHAR, " + COLUMN_STATUS +
                 " BOOLEAN);";
 
-        db.execSQL( "CREATE TABLE " + TABLE_ACTIVTIES + "(id INTEGER primary key autoincrement NOT NULL, activity_type TEXT, " +
+        db.execSQL("CREATE TABLE " + TABLE_ACTIVTIES + "(id INTEGER primary key autoincrement NOT NULL, activity_type TEXT, " +
                 "user TEXT,duration TEXT, steps INTEGER, distance TEXT, average_pace TEXT, average_heartrate TEXT, kcals TEXT, date TEXT,map_path TEXT, map_image TEXT, camera_image TEXT ,sync BOOLEAN)");
 
+        db.execSQL("CREATE TABLE " + TABLE_WEIGHT_MONITOR + "(id INTEGER primary key autoincrement NOT NULL, recorded_on LONG,weight FLOAT ,sync BOOLEAN)");
+        db.execSQL("CREATE TABLE " + TABLE_TARGET_WEIGHT + "(id INTEGER primary key autoincrement NOT NULL, recorded_on LONG,weight FLOAT ,sync BOOLEAN)");
 
         db.execSQL(sql);
-        Log.d(Constants.TAG+"@Database","Create Tables Success");
+        Log.d(Constants.TAG + "@Database", "Create Tables Success");
     }
 
     //Insert Activities
 
-    public void insertActivities(String activity_type,String user, String duration, int steps,String distance,String avg_pace , String avg_heart_rate,
-                                 String kCals, String date,String map_path, String map_image,String camera_image,Boolean sync) {
+    public void insertActivities(String activity_type, String user, String duration, int steps, String distance, String avg_pace, String avg_heart_rate,
+                                 String kCals, String date, String map_path, String map_image, String camera_image, Boolean sync) {
         SQLiteDatabase db = this.getWritableDatabase(Constants.KEY);
         ContentValues contentValues = new ContentValues();
         contentValues.put("activity_type", activity_type);
@@ -106,26 +102,18 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
         long result = db.insert(TABLE_ACTIVTIES, null, contentValues);
-        Log.e("dd",getTableAsString(db,TABLE_ACTIVTIES));
+        Log.e("dd", getTableAsString(db, TABLE_ACTIVTIES));
         db.close(); // Close database connection
-//        if(result == -1)
-//            return  false;
-//
-//        else
-//            return true;
-       // db.execSQL("SELECT * FROM TABLE_ACTIVITY");
-
-
     }
 
     public String getTableAsString(SQLiteDatabase db, String tableName) {
         Log.d("getTableAsString", "getTableAsString called");
         String tableString = String.format("Table %s:\n", tableName);
-        Cursor allRows  = db.rawQuery("SELECT * FROM " + tableName, null);
-        if (allRows.moveToFirst() ){
+        Cursor allRows = db.rawQuery("SELECT * FROM " + tableName, null);
+        if (allRows.moveToFirst()) {
             String[] columnNames = allRows.getColumnNames();
             do {
-                for (String name: columnNames) {
+                for (String name : columnNames) {
                     tableString += String.format("%s: %s\n", name,
                             allRows.getString(allRows.getColumnIndex(name)));
                 }
@@ -141,13 +129,17 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion != newVersion) {
-            Log.d(Constants.TAG+ "@Database :", " Old is"+oldVersion+" not equals to New :"+newVersion);
+            Log.d(Constants.TAG + "@Database :", " Old is" + oldVersion + " not equals to New :" + newVersion);
             String sql = "DROP TABLE IF EXISTS activities";
             String sql2 = "DROP TABLE IF EXISTS dailyreads";
+            String sql3 = "DROP TABLE IF EXISTS weightmonitoring";
+            String sql4 = "DROP TABLE IF EXISTS targetweight";
             db.execSQL(sql);
             db.execSQL(sql2);
+            db.execSQL(sql3);
+            db.execSQL(sql4);
         }
-        Log.d(Constants.TAG+ "@Database :", " Old is"+oldVersion+" equals to New :"+newVersion);
+        Log.d(Constants.TAG + "@Database :", " Old is" + oldVersion + " equals to New :" + newVersion);
         onCreate(db);
     }
 
@@ -158,7 +150,7 @@ public class DBHelper extends SQLiteOpenHelper {
      * 0 means the name is synced with the server
      * 1 means the name is not synced with the server
      * */
-    public boolean addName(String user ,String date,String points, int status) {
+    public boolean addName(String user, String date, String points, int status) {
         SQLiteDatabase db = this.getWritableDatabase(Constants.KEY);
         ContentValues contentValues = new ContentValues();
 
@@ -170,7 +162,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.insert(TABLE_DAILY_READ, null, contentValues);
         db.close();
-        Log.d(Constants.TAG+"@Database","Insert Data Success");
+        Log.d(Constants.TAG + "@Database", "Insert Data Success");
         return true;
     }
 
@@ -201,7 +193,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     // select sum(amount) from transaction_table where category = 'Salary';
 
-    public Cursor getUserTotalPoints(String user){
+    public Cursor getUserTotalPoints(String user) {
         SQLiteDatabase db = this.getReadableDatabase(Constants.KEY);
         String sql = "SELECT * FROM " + TABLE_DAILY_READ + " WHERE =" + user + " ;";
         Cursor c = db.rawQuery(sql, null);
@@ -209,14 +201,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public Cursor getActivityData(String date){
+    public Cursor getActivityData(String date) {
         SQLiteDatabase db = this.getReadableDatabase(Constants.KEY);
-        Cursor cursor = db.query(TABLE_ACTIVTIES, new String[]{"map_image","activity_type"},
-            "date" + " LIKE ?" ,
-            new String[] {"%" + date + "%"},
-            null,
-            null,
-            null
+        Cursor cursor = db.query(TABLE_ACTIVTIES, new String[]{"map_image", "activity_type"},
+                "date" + " LIKE ?",
+                new String[]{"%" + date + "%"},
+                null,
+                null,
+                null
         );
         if (cursor != null) {
             cursor.moveToFirst();
@@ -226,20 +218,20 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public String getTotal(String user){
+    public String getTotal(String user) {
 
         SQLiteDatabase db = this.getReadableDatabase(Constants.KEY);
         int total = 0;
 
-        Cursor c = db.rawQuery("SELECT SUM(" + (CCOLUMN_POINT) + ") FROM " + TABLE_DAILY_READ+ " WHERE user = "+user, null);
-        if(c.moveToFirst()){
+        Cursor c = db.rawQuery("SELECT SUM(" + (CCOLUMN_POINT) + ") FROM " + TABLE_DAILY_READ + " WHERE user = " + user, null);
+        if (c.moveToFirst()) {
             total = c.getInt(0);
         }
         return String.valueOf(total);
     }
 
 
-    public boolean checkToday(String user){
+    public boolean checkToday(String user) {
         Date c = Calendar.getInstance().getTime();
         System.out.println("Current time => " + c);
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
@@ -249,35 +241,35 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //Cursor cursor = db.rawQuery("SELECT * FROM ? where date = ?", new String[] {TABLE_NAME, today});
 
-        Cursor cursor = db.query(TABLE_DAILY_READ, new String[] { COLUMN_USER, COLUMN_DATE, COLUMN_POINT },
+        Cursor cursor = db.query(TABLE_DAILY_READ, new String[]{COLUMN_USER, COLUMN_DATE, COLUMN_POINT},
                 COLUMN_DATE + " LIKE ? AND " + COLUMN_USER + " LIKE ?",
-                new String[] {"%" + today + "%", "%" + user + "%"},
+                new String[]{"%" + today + "%", "%" + user + "%"},
                 null, null, null, null);
 
-        if(cursor!=null && cursor.getCount() >0){
+        if (cursor != null && cursor.getCount() > 0) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
-    public void addORupdate(String date, String points, int step, String distances, String kcals){
+    public void addORupdate(String date, String points, int step, String distances, String kcals) {
         SQLiteDatabase db = this.getWritableDatabase(Constants.KEY);
-        String user = sharedPreferences.getString("userID","");
+        String user = sharedPreferences.getString("userID", "");
 
 
         if (checkToday(user)) {
 
-            if (!points.equals("0")){
+            if (!points.equals("0")) {
 
                 ContentValues contentValues = new ContentValues();
                 contentValues.put(COLUMN_POINT, points);
                 contentValues.put("steps", String.valueOf(step));
                 contentValues.put("distance", distances);
                 contentValues.put("kcals", kcals);
-                db.update(TABLE_DAILY_READ, contentValues, "user='"+user+"' and date='"+date+"'" , null);
+                db.update(TABLE_DAILY_READ, contentValues, "user='" + user + "' and date='" + date + "'", null);
                 db.close();
-                Log.d(Constants.TAG + "@Database", "Update Data Success:"+points);
+                Log.d(Constants.TAG + "@Database", "Update Data Success:" + points);
 
             }
 
@@ -294,12 +286,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
             db.insert(TABLE_DAILY_READ, null, contentValues);
             db.close();
-            Log.d(Constants.TAG + "@Database", "Insert Data Success:"+points);
+            Log.d(Constants.TAG + "@Database", "Insert Data Success:" + points);
 
         }
 
     }
-
 
 
     /*
@@ -316,11 +307,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     ////////// added sync methods data to be used //////////
 
-    public ArrayList<ActivityListModel> toSync(){
+    public ArrayList<ActivityListModel> toSync() {
         ArrayList<ActivityListModel> activityListModels = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase(Constants.KEY);
         String sql = "SELECT * FROM " + TABLE_ACTIVTIES + " WHERE sync = 0;";
-        Cursor c =  db.rawQuery(sql,null);
+        Cursor c = db.rawQuery(sql, null);
 
         // moving our cursor to first position.
         if (c.moveToFirst()) {
@@ -343,7 +334,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
                 ));
 
-                Log.d(Constants.TAG+"DailyCursor",c.getString(1));
+                Log.d(Constants.TAG + "DailyCursor", c.getString(1));
 
             } while (c.moveToNext());
             // moving our cursor to next.
@@ -351,17 +342,17 @@ public class DBHelper extends SQLiteOpenHelper {
         // at last closing our cursor
         // and returning our array list.
         c.close();
-        Log.d(Constants.TAG+"DailyCursor", Arrays.toString(activityListModels.toArray()));
+        Log.d(Constants.TAG + "DailyCursor", Arrays.toString(activityListModels.toArray()));
 
         // list of rows which are not synced
         return activityListModels;
     }
 
-    public List<DailyReads> dailyReads(){
+    public List<DailyReads> dailyReads() {
         List<DailyReads> dailyReadsData = new ArrayList<DailyReads>();
         SQLiteDatabase db = this.getReadableDatabase(Constants.KEY);
-        String sql = "SELECT * FROM " + TABLE_DAILY_READ + " WHERE " +COLUMN_STATUS+" = 0;";
-        Cursor c =  db.rawQuery(sql,null);
+        String sql = "SELECT * FROM " + TABLE_DAILY_READ + " WHERE " + COLUMN_STATUS + " = 0;";
+        Cursor c = db.rawQuery(sql, null);
 
         // looping through the cursor data
 
@@ -377,7 +368,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 daily.setDate(c.getString(6));
                 daily.setSync(false);
 
-                Log.d(Constants.TAG+"DailyCursor",c.getString(1));
+                Log.d(Constants.TAG + "DailyCursor", c.getString(1));
 
                 // adding data to array list
                 dailyReadsData.add(daily);
@@ -388,11 +379,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return dailyReadsData;
     }
 
-    public ArrayList<ActivityListModel> getAllActivities(String type){
+    public ArrayList<ActivityListModel> getAllActivities(String type) {
         ArrayList<ActivityListModel> activityListModels = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase(Constants.KEY);
-        String sql = "SELECT * FROM " + TABLE_ACTIVTIES + " WHERE "+ COLUMN_ACTIVITY_TYPE+ " = '"+type+"';";
-        Cursor c =  db.rawQuery(sql,null);
+        String sql = "SELECT * FROM " + TABLE_ACTIVTIES + " WHERE " + COLUMN_ACTIVITY_TYPE + " = '" + type + "';";
+        Cursor c = db.rawQuery(sql, null);
 
         // moving our cursor to first position.
         if (c.moveToFirst()) {
@@ -415,7 +406,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
                 ));
 
-                Log.d(Constants.TAG+"DailyCursor",c.getString(1));
+                Log.d(Constants.TAG + "DailyCursor", c.getString(1));
 
             } while (c.moveToNext());
             // moving our cursor to next.
@@ -423,7 +414,7 @@ public class DBHelper extends SQLiteOpenHelper {
         // at last closing our cursor
         // and returning our array list.
         c.close();
-        Log.d(Constants.TAG+"DailyCursor", Arrays.toString(activityListModels.toArray()));
+        Log.d(Constants.TAG + "DailyCursor", Arrays.toString(activityListModels.toArray()));
 
         // list of rows which are not synced
         return activityListModels;
@@ -434,25 +425,19 @@ public class DBHelper extends SQLiteOpenHelper {
     public void addORupdateTwo(String date, int step, String distances, String kcals) {
 
         SQLiteDatabase db = this.getWritableDatabase(Constants.KEY);
-        String user = sharedPreferences.getString("userID","");
-
-
+        String user = sharedPreferences.getString("userID", "");
         if (checkToday(user)) {
-
-
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("steps", String.valueOf(step));
-                contentValues.put("distance", distances);
-                contentValues.put("kcals", kcals);
-                contentValues.put(COLUMN_STATUS, false);
-                db.update(TABLE_DAILY_READ, contentValues, "user='"+user+"' and date='"+date+"'" , null);
-                db.close();
-                Log.d(Constants.TAG + "@Database", "Update Data Success:"+step);
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("steps", String.valueOf(step));
+            contentValues.put("distance", distances);
+            contentValues.put("kcals", kcals);
+            contentValues.put(COLUMN_STATUS, false);
+            db.update(TABLE_DAILY_READ, contentValues, "user='" + user + "' and date='" + date + "'", null);
+            db.close();
+            Log.d(Constants.TAG + "@Database", "Update Data Success:" + step);
 
 
         } else {
-
-
             ContentValues contentValues = new ContentValues();
             contentValues.put(COLUMN_USER, user);
             contentValues.put("steps", String.valueOf(step));
@@ -463,12 +448,107 @@ public class DBHelper extends SQLiteOpenHelper {
 
             db.insert(TABLE_DAILY_READ, null, contentValues);
             db.close();
-            Log.d(Constants.TAG + "@Database", "Insert Data Success:"+step);
+            Log.d(Constants.TAG + "@Database", "Insert Data Success:" + step);
 
         }
 
     }
 
+    public boolean recordWeight(Long date_recorded, Float weight, Boolean sync) {
+        SQLiteDatabase db = this.getWritableDatabase(Constants.KEY);
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COLUMN_DATE_RECORDED, date_recorded);
+        contentValues.put(COLUMN_WEIGHT, weight);
+        contentValues.put(COLUMN_IS_SYNCED, sync);
+
+        db.insert(TABLE_WEIGHT_MONITOR, null, contentValues);
+        db.close();
+        Log.d(Constants.TAG + "@Database", "Insert Data Success");
+        return true;
+    }
+
+    public boolean setOrUpdateTargetWeight(Long date_recorded, Float weight, Boolean sync) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_DATE_RECORDED, date_recorded);
+        contentValues.put(COLUMN_WEIGHT, weight);
+        contentValues.put(COLUMN_IS_SYNCED, sync);
+
+        SQLiteDatabase db = this.getWritableDatabase(Constants.KEY);
+        String query = "SELECT * FROM " + TABLE_TARGET_WEIGHT + " ORDER BY id DESC LIMIT 1";
+        Cursor c = db.rawQuery(query, null);
+
+        if (c != null && c.moveToFirst()) {
+            System.out.println("++++++++++++++New Exist");
+        db.insert(TABLE_TARGET_WEIGHT, null, contentValues);
+        db.close();
+        Log.d(Constants.TAG + "@Database", "Insert Data Success");
+        return true;
+        }
+        else{
+            db.update(TABLE_TARGET_WEIGHT, contentValues, "id=1",null);
+            System.out.println("++++++++++++++Exist");
+            db.close();
+            return  false;
+        }
+
+    }
+
+    public WeightMonitoringModel getTargetWeight(){
+        SQLiteDatabase db = this.getReadableDatabase(Constants.KEY);
+        String query = "SELECT * FROM " + TABLE_TARGET_WEIGHT + " ORDER BY id DESC LIMIT 1";
+        Cursor c = db.rawQuery(query, null);
+        WeightMonitoringModel weightMonitoringModel = null; // Initialize to null
+
+        if (c != null && c.moveToFirst()) { // Check if Cursor is not null and has data
+            weightMonitoringModel = new WeightMonitoringModel();
+            weightMonitoringModel.setDateRecorded(c.getLong(1));
+            weightMonitoringModel.setWeight(c.getFloat(2));
+            c.close();
+        }
 
 
+        return weightMonitoringModel;
+
+    }
+
+    public ArrayList<WeightMonitoringModel> getWeightMonitoringRecord() {
+        ArrayList<WeightMonitoringModel> weightMonitoringModel = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase(Constants.KEY);
+        String sql = "SELECT * FROM " + TABLE_WEIGHT_MONITOR + ";";
+        Cursor c = db.rawQuery(sql, null);
+
+        // moving our cursor to first position.
+        if (c.moveToFirst()) {
+            do {
+                // on below line we are adding the data from cursor to our array list.
+                weightMonitoringModel.add(new WeightMonitoringModel(
+                        c.getLong(1),
+                        c.getFloat(2)
+                ));
+                Log.d(Constants.TAG + "WeightCursor", "" + c.getLong(1));
+                Log.d(Constants.TAG + "WeightCursor", "" + c.getFloat(2));
+
+            } while (c.moveToNext());
+        }
+        c.close();
+
+        return weightMonitoringModel;
+    }
+
+    public WeightMonitoringModel getLatestWeightReading() {
+        SQLiteDatabase db = this.getReadableDatabase(Constants.KEY);
+        String query = "SELECT * FROM " + TABLE_WEIGHT_MONITOR + " ORDER BY id DESC LIMIT 1";
+        Cursor c = db.rawQuery(query, null);
+        WeightMonitoringModel weightMonitoringModel = null; // Initialize to null
+
+        if (c != null && c.moveToFirst()) { // Check if Cursor is not null and has data
+            weightMonitoringModel = new WeightMonitoringModel();
+            weightMonitoringModel.setDateRecorded(c.getLong(1));
+            weightMonitoringModel.setWeight(c.getFloat(2));
+            c.close();
+        }
+
+        return weightMonitoringModel;
+    }
 }

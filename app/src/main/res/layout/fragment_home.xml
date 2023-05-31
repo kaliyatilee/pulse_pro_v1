@@ -82,6 +82,16 @@
 
 
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/syncStatus"
+                android:text="Wearable Sync In Progress .."
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -477,88 +487,84 @@
                         android:layout_height="wrap_content"
                         android:text="Normal"
                         android:id="@+id/tmpStatus"/>
-                    <Button
-                        android:id="@+id/check_tmp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Check"/>
+
                 </LinearLayout>
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_margin="@dimen/margin_5dp"
-            android:elevation="@dimen/margin_5dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/margin_5dp"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/margin_100dp">
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_margin="@dimen/margin_5dp"-->
+<!--            android:elevation="@dimen/margin_5dp"-->
+<!--            app:cardBackgroundColor="@color/white"-->
+<!--            app:cardCornerRadius="@dimen/margin_5dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/margin_100dp">-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin_100dp">
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/margin_100dp">-->
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/bpIcon"
-                    android:layout_width="@dimen/margin_60dp"
-                    android:layout_height="@dimen/margin_60dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/margin_5dp"
-                    android:layout_marginTop="@dimen/margin_5dp"
-                    android:layout_marginEnd="@dimen/margin_5dp"
-                    android:layout_marginBottom="@dimen/margin_5dp"
-                    android:src="@drawable/bp"
-                    app:civ_border_color="@color/purple_200"
-                    app:civ_border_width="1dp" />
+<!--                <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                    android:id="@+id/bpIcon"-->
+<!--                    android:layout_width="@dimen/margin_60dp"-->
+<!--                    android:layout_height="@dimen/margin_60dp"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_marginStart="@dimen/margin_5dp"-->
+<!--                    android:layout_marginTop="@dimen/margin_5dp"-->
+<!--                    android:layout_marginEnd="@dimen/margin_5dp"-->
+<!--                    android:layout_marginBottom="@dimen/margin_5dp"-->
+<!--                    android:src="@drawable/bp"-->
+<!--                    app:civ_border_color="@color/purple_200"-->
+<!--                    app:civ_border_width="1dp" />-->
 
-                <LinearLayout
-                    android:layout_toRightOf="@+id/bpIcon"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/margin_10dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/muli_semibold"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_16"
-                        android:text="Blood Pressure"/>
-                    <TextView
-                        android:textColor="@color/grey_60"
-                        android:textSize="@dimen/text_14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Latest Reading"/>
-                </LinearLayout>
+<!--                <LinearLayout-->
+<!--                    android:layout_toRightOf="@+id/bpIcon"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_margin="@dimen/margin_10dp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/muli_semibold"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/text_16"-->
+<!--                        android:text="Blood Pressure"/>-->
+<!--                    <TextView-->
+<!--                        android:textColor="@color/grey_60"-->
+<!--                        android:textSize="@dimen/text_14"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Latest Reading"/>-->
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/margin_10dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true">
-                    <TextView
-                        android:id="@+id/bpReading"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/muli_semibold"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_16"
-                        android:text="--/--"/>
-                    <TextView
-                        android:textColor="@color/grey_60"
-                        android:textSize="@dimen/text_14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Normal"
-                        android:id="@+id/bpStatus"/>
-                </LinearLayout>
-            </RelativeLayout>
+<!--                <LinearLayout-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_margin="@dimen/margin_10dp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentRight="true">-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/bpReading"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/muli_semibold"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/text_16"-->
+<!--                        android:text="&#45;&#45;/&#45;&#45;"/>-->
+<!--                    <TextView-->
+<!--                        android:textColor="@color/grey_60"-->
+<!--                        android:textSize="@dimen/text_14"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Normal"-->
+<!--                        android:id="@+id/bpStatus"/>-->
+<!--                </LinearLayout>-->
+<!--            </RelativeLayout>-->
 
-        </androidx.cardview.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardSleep"
             android:layout_margin="@dimen/margin_5dp"
@@ -600,6 +606,7 @@
                         android:textSize="@dimen/text_16"
                         android:text="Sleep"/>
                     <TextView
+                        android:id="@+id/tvDeepSleep"
                         android:textColor="@color/grey_60"
                         android:textSize="@dimen/text_14"
                         android:layout_width="wrap_content"
@@ -639,11 +646,13 @@
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="@dimen/margin_5dp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/margin_100dp">
+            android:layout_height="@dimen/margin_102dp">
 
             <RelativeLayout
+                android:layout_margin="@dimen/margin_2dp"
+                android:background="@color/white"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/margin_100dp">
+                android:layout_height="@dimen/margin_98dp">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/weightIcon"
                     android:layout_width="@dimen/margin_60dp"
@@ -652,7 +661,7 @@
                     android:layout_marginStart="@dimen/margin_5dp"
                     android:layout_marginTop="@dimen/margin_5dp"
                     android:layout_marginEnd="@dimen/margin_5dp"
-                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:layout_marginBottom="@dimen/margin_3dp"
                     android:src="@drawable/nweight"
                     app:civ_border_color="@color/red_50"
                     app:civ_border_width="1dp" />
@@ -674,7 +683,7 @@
                         android:textSize="@dimen/text_16" />
 
                     <TextView
-                        android:id="@+id/latestHeart"
+                        android:id="@+id/weightDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Record Date"
@@ -709,6 +718,11 @@
                         android:textColor="@color/grey_60"
                         android:textSize="@dimen/text_14" />
                 </LinearLayout>
+                <TextView
+                    android:id="@+id/weightMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Please update latest Weight"/>
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>

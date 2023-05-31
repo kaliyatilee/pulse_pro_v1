@@ -1,6 +1,5 @@
 package com.algebratech.pulse_wellness.activities;
 
-import static com.veepoo.protocol.model.enums.EFunctionStatus.SUPPORT;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -40,14 +39,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.algebratech.pulse_wellness.DeviceCompare;
-import com.algebratech.pulse_wellness.FunctionsActivity;
 import com.algebratech.pulse_wellness.R;
 import com.algebratech.pulse_wellness.adapters.BleScanViewAdapter;
 import com.algebratech.pulse_wellness.api.Api;
 import com.algebratech.pulse_wellness.interfaces.OnRecycleViewClickCallback;
 import com.algebratech.pulse_wellness.models.EnableNotificationModel;
 import com.algebratech.pulse_wellness.services.DeviceConnect;
+import com.algebratech.pulse_wellness.services.SyncWearableService;
 import com.algebratech.pulse_wellness.utils.CM;
+import com.algebratech.pulse_wellness.utils.Constants;
+import com.algebratech.pulse_wellness.utils.SharedPreferenceUtil;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -56,13 +57,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.inuker.bluetooth.library.Code;
-import com.inuker.bluetooth.library.Constants;
-import com.inuker.bluetooth.library.model.BleGattProfile;
 import com.inuker.bluetooth.library.search.SearchResult;
 import com.inuker.bluetooth.library.search.response.SearchResponse;
 import com.inuker.bluetooth.library.utils.BluetoothUtils;
-import com.veepoo.protocol.VPOperateManager;
 import com.veepoo.protocol.listener.base.IABleConnectStatusListener;
 import com.veepoo.protocol.listener.base.IABluetoothStateListener;
 import com.veepoo.protocol.listener.base.IBleWriteResponse;
@@ -74,7 +71,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
@@ -95,21 +91,12 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
     private BluetoothLeScanner mBScanner;
     final static int MY_PERMISSIONS_REQUEST_BLUETOOTH = 0x55;
     RecyclerView mRecyclerView;
-    TextView mTitleTextView, devicename, macaddress;
-    VPOperateManager mVpoperateManager;
-    private boolean mIsOadModel;
+    TextView devicename, macaddress;
 
-    boolean is24Hourmodel = false;
-    int watchDataDay = 3;
-    int contactMsgLength = 0;
-    int allMsgLenght = 4;
-    private int deviceNumber = -1;
-    private String deviceVersion;
-    private String deviceTestVersion;
-    boolean isNewSportCalc = false;
-    boolean isSleepPrecision = false;
+
     SharedPreferences.Editor myEdit;
     SharedPreferences sharedPreferences;
+    private SharedPreferenceUtil sharedPreferenceUtil;
     String userId, old_deviceMac, device_type;
     private Intent intent;
     private CardView mydevice;
@@ -150,6 +137,7 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
         setContentView(R.layout.activity_scan);
         Log.d(TAG, "onSearchStarted");
         String tag = "Device Login";
+        sharedPreferenceUtil = new SharedPreferenceUtil(this);
 
         deviceTypeList.add("V19");
         deviceTypeList.add("GT2");
@@ -170,7 +158,6 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
         });
 
 
-        mVpoperateManager = mVpoperateManager.getMangerInstance(mContext.getApplicationContext());
         sharedPreferences = getSharedPreferences(com.algebratech.pulse_wellness.utils.Constants.PREF_NAME, MODE_PRIVATE);
         myEdit = sharedPreferences.edit();
         iniVar();
@@ -446,7 +433,7 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
     }
 
     private void initRecyleView() {
-        mSwipeRefreshLayout = (SwipeRefreshLayout) super.findViewById(R.id.mian_swipeRefreshLayout);
+        mSwipeRefreshLayout = findViewById(R.id.mian_swipeRefreshLayout);
         mRecyclerView = (RecyclerView) super.findViewById(R.id.main_recylerlist);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         bleConnectAdatpter = new BleScanViewAdapter(this, mListData);
@@ -455,6 +442,7 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
     }
+
     private void checkPermission() {
         Log.d(TAG, "Build.VERSION.SDK_INT =" + Build.VERSION.SDK_INT);
         if (Build.VERSION.SDK_INT <= 22) {
@@ -539,19 +527,20 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
                 super.onWristbandDeviceFind(device, rssi, scanRecord);
                 SearchResult result = new SearchResult(device, rssi, null);
                 Log.d("DeviceResults 2", result.getName());
-             if (!mListAddress.contains(device.getAddress())) {
+                if (!mListAddress.contains(device.getAddress())) {
                     mListData.add(result);
                     mListAddress.add(device.getAddress());
-                 // Collections.sort(devices, new RssiComparable());
-                 bleConnectAdatpter.notifyDataSetChanged();
-              }
+                    // Collections.sort(devices, new RssiComparable());
+                    bleConnectAdatpter.notifyDataSetChanged();
+                }
 
             }
+
             @Override
             public void onLeScanEnable(boolean enable) {
                 super.onLeScanEnable(enable);
                 if (!enable) {
-//                    srl_search.setRefreshing(false);
+                    mSwipeRefreshLayout.setRefreshing(false);
                 }
             }
 
@@ -578,59 +567,57 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         return false;
     }
-    private void stopScan(){
+
+    private void stopScan() {
         WristbandManager.getInstance(this).stopScan();
     }
-    private void connect(final String mac, final String name){
+
+    private void connect(final String mac, final String name) {
         Toast.makeText(mContext, "Connecting Wearable", Toast.LENGTH_SHORT).show();
-        WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback(){
+        WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback() {
             @Override
             public void onConnectionStateChange(boolean status) {
                 super.onConnectionStateChange(status);
-                if(status){
+                if (status) {
+
+                    sharedPreferenceUtil.setStringPreference(Constants.DEVICE_MAC,mac);
+                    Intent serviceIntent = new Intent(ScanActivity.this, SyncWearableService.class);
+                    serviceIntent.putExtra(Constants.START_SERVICE,true);
+                    ContextCompat.startForegroundService(ScanActivity.this, serviceIntent);
+
+
                     Intent intent = new Intent();
                     intent.putExtra("mac", mac);
                     intent.putExtra("name", name);
                     intent.putExtra("macaddress", mac);
-                    intent.putExtra("userID","01234567890");
+                    intent.putExtra("userID", "01234567890");
                     setResult(0x02, intent);
-                    syncData();
                     Intent intent1 = new Intent(ScanActivity.this, MainActivity.class);
                     startActivity(intent1);
-            }else{
+                } else {
                     disConnect();
                 }
-        }
-        @Override
-            public void onError(int error){
+            }
+
+            @Override
+            public void onError(int error) {
                 super.onError(error);
-        }
-            });
-              WristbandManager.getInstance(this).connect(mac);
+            }
+        });
+        WristbandManager.getInstance(this).connect(mac);
     }
 
     private void disConnect() {
         WristbandManager.getInstance(this).close();
     }
 
-    private void syncData() {
-        WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback() {
-            @Override
-            public void onLoginStateChange(int state) {
-                super.onLoginStateChange(state);
-                if (state == WristbandManager.STATE_WRIST_LOGIN) {
-                    Log.d("Lee", "Device Login Success");
-                }
-            }
-        });
-        WristbandManager.getInstance(this).startLoginProcess("01234567890");
-    }
+
 
     /**
      * bluetoothOnOrOff
      */
     private void registerBluetoothStateListener() {
-        mVpoperateManager.registerBluetoothStateListener(mBluetoothStateListener);
+        //mVpoperateManager.registerBluetoothStateListener(mBluetoothStateListener);
     }
 
 
@@ -641,11 +628,11 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         @Override
         public void onConnectStatusChanged(String mac, int status) {
-            if (status == Constants.STATUS_CONNECTED) {
-                Log.d(TAG, "STATUS_CONNECTED");
-            } else if (status == Constants.STATUS_DISCONNECTED) {
-                Log.d(TAG, "STATUS_DISCONNECTED");
-            }
+//            if (status == Constants.STATUS_CONNECTED) {
+//                Log.d(TAG, "STATUS_CONNECTED");
+//            } else if (status == Constants.STATUS_DISCONNECTED) {
+//                Log.d(TAG, "STATUS_DISCONNECTED");
+//            }
         }
     };
 
@@ -677,9 +664,9 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if(device.getName()!=null &&
-                        !device.getName().isEmpty() &&
-                        deviceTypeList.contains(device.getName())) {
+                    if (device.getName() != null &&
+                            !device.getName().isEmpty() &&
+                            deviceTypeList.contains(device.getName())) {
                         if (!mListAddress.contains(device.getAddress())) {
                             mListData.add(device);
                             mListAddress.add(device.getAddress());
@@ -800,9 +787,7 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
         });
 
         final SearchResult searchResult = mListData.get(position);
-        if (old_deviceMac != null) {
-            mVpoperateManager.disconnectWatch(writeResponse);
-        }
+
 
         saveMacOnline(searchResult.getAddress());
 

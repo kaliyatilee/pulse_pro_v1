@@ -7,6 +7,7 @@ import android.content.Intent;
 import androidx.core.content.ContextCompat;
 
 import com.algebratech.pulse_wellness.services.DeviceConnect;
+import com.algebratech.pulse_wellness.services.SyncWearableService;
 
 public class OnBootReciever extends BroadcastReceiver {
 
@@ -14,9 +15,8 @@ public class OnBootReciever extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
             if (!DeviceConnect.IsRunning) {
-                Intent intentService = new Intent(context, DeviceConnect.class);
-                //context.startService(intentService);
-                ContextCompat.startForegroundService(context, intentService);
+                Intent serviceIntent = new Intent(context, SyncWearableService.class);
+                ContextCompat.startForegroundService(context, serviceIntent);
             }
 
     }

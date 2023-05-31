@@ -1,5 +1,6 @@
 package com.algebratech.pulse_wellness.interfaces;
 
+import static com.algebratech.pulse_wellness.utils.Constants.TAG;
 import static com.inuker.bluetooth.library.BluetoothService.getContext;
 
 import android.app.Activity;
@@ -29,6 +30,7 @@ public class addActivityApi {
 
 
     public void endActivityApi(String userId, String timeTaken, String distance, String kcals, String avarageHeartRate, String steps, String avgPace, String camera_file, String act_id, String activityName, Activity context, ActivityCallback activityCallback) {
+        Log.d(TAG,"avarageHeartRate"+avarageHeartRate);
         if (CM.isConnected(context)) {
             JSONObject object = new JSONObject();
             try {
@@ -43,7 +45,7 @@ public class addActivityApi {
                 object.put("activity", activityName);
                 object.put("camera_file", camera_file);
 
-                Log.e("End activity", object.toString());
+                Log.e(TAG,"End activity"+ object.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -53,15 +55,19 @@ public class addActivityApi {
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                //sucess
+                                Log.d(TAG,response.toString());
                                 if (response.getString("status").equals("success")) {
+                                    Log.d(TAG,"activityCallback Success");
                                     activityCallback.success();
+                                    Log.d(TAG,"activityCallback Success");
                                 } else {
+                                    Log.d(TAG,"activityCallback Failure");
                                     activityCallback.failure();
                                 }
 
 
                             } catch (Exception e) {
+                                Log.d(TAG,"activityCallback Exception Failure");
                                 activityCallback.failure();
                             }
                         }
@@ -73,7 +79,7 @@ public class addActivityApi {
                 }
             });
 
-            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+            RequestQueue requestQueue = Volley.newRequestQueue(context);
             jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(
                     0,
                     DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
@@ -81,8 +87,6 @@ public class addActivityApi {
             requestQueue.add(jsonObjectRequest);
         } else
             Toast.makeText(context, R.string.noInternet, Toast.LENGTH_SHORT).show();
-
-
     }
 
 }

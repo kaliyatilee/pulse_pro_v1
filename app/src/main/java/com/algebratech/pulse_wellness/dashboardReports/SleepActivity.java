@@ -19,7 +19,10 @@ import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSleepItemPa
 import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSleepPacket;
 import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
 import com.wosmart.ukprotocollibary.model.sleep.SleepData;
+import com.wosmart.ukprotocollibary.model.sleep.SleepSubData;
+import com.wosmart.ukprotocollibary.model.sleep.filter.SleepFilterData;
 import com.wosmart.ukprotocollibary.model.sport.SportData;
+import com.wosmart.ukprotocollibary.util.WristbandCalculator;
 
 import java.util.Calendar;
 import java.util.List;
@@ -45,6 +48,7 @@ public class SleepActivity extends AppCompatActivity {
 //        progressBar.setProgress(30);
         initData();
 
+        showData.setVisibility(View.GONE);
         showData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,38 +64,25 @@ public class SleepActivity extends AppCompatActivity {
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH) + 1;
         int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        day = 9;
         tvDate.setText(year +"-"+month+"-"+day);
 
-        List<SleepData> sleeps = GlobalGreenDAO.getInstance().loadSleepDataByDate(year, month, day);
-        int munites = 0;
-        int ndeep = 0;
-        int nlight = 0;
-        int nuplate = 0;
-        if (null != sleeps) {
-            for (SleepData item : sleeps) {
-                munites = munites + item.getMinutes();
-               if(item.getMode() == 1){
-                   nlight = nlight + item.getMinutes();
+       // List<SleepData> sleepData = GlobalGreenDAO.getInstance().loadAllSleepData();
 
-               }
-                if(item.getMode() == 2){
-                    ndeep = ndeep + item.getMinutes();
-                }
-                if(item.getMode() == 3){
-                    nuplate = nuplate + item.getMinutes();
-                }
-            }
+        List<SleepData> sleepData = GlobalGreenDAO.getInstance().loadSleepDataByDate(year,month,day);
+        System.out.println("+++++sleepData+++++++++++++"+sleepData.toString());
+        SleepSubData sleepSubData = WristbandCalculator.sumOfSleepDataByDate(year,month,day,sleepData);
+        System.out.println("+++++sleepSubData++++++++++"+sleepSubData);
+
+        try {
+            progressBar.setProgress(sleepSubData.getTotalSleepTime());
+            tvTotalDuration.setText(""+sleepSubData.getTotalSleepTime());
+            deep.setText(""+sleepSubData.getDeepSleepTime());
+            light.setText(""+sleepSubData.getLightSleepTime());
+            stayUp.setText(""+sleepSubData.getAwakeTimes());
+        }catch (Exception e){
+            System.out.println("++++++++++Exception"+e);
         }
-
-        long seconds = munites * 60;
-        long nlightseconds = nlight * 60;
-        long ndeepseconds = ndeep * 60;
-        long nuplateseconds = nuplate * 60;
-        int percentage = munites / 1440;
-        progressBar.setProgress(munites);
-        tvTotalDuration.setText(StaticMethods.calculateTime(seconds));
-        deep.setText(StaticMethods.calculateTime(ndeepseconds));
-        light.setText(StaticMethods.calculateTime(nlightseconds));
-        stayUp.setText(StaticMethods.calculateTime(nuplateseconds));
     }
 }

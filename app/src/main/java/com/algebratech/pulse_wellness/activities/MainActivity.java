@@ -2,6 +2,7 @@ package com.algebratech.pulse_wellness.activities;
 
 import static android.bluetooth.BluetoothProfile.GATT;
 import static com.algebratech.pulse_wellness.services.DeviceConnect.BROADCAST_ACTION;
+import static com.algebratech.pulse_wellness.utils.Constants.TAG;
 import static com.inuker.bluetooth.library.BluetoothService.getContext;
 
 import android.Manifest;
@@ -54,14 +55,17 @@ import com.algebratech.pulse_wellness.FragmentTabLeaderboardFriendlist;
 import com.algebratech.pulse_wellness.R;
 import com.algebratech.pulse_wellness.adapters.gridActivityAdapter;
 import com.algebratech.pulse_wellness.api.Api;
+import com.algebratech.pulse_wellness.db.DBHelper;
 import com.algebratech.pulse_wellness.fragment_tab_newsfeed_dashboard;
 import com.algebratech.pulse_wellness.fragments.CommunityFragment;
 import com.algebratech.pulse_wellness.fragments.RewardsFragment;
+import com.algebratech.pulse_wellness.models.WeightMonitoringModel;
 import com.algebratech.pulse_wellness.models.gridActivityModel;
 import com.algebratech.pulse_wellness.services.DeviceConnect;
 import com.algebratech.pulse_wellness.services.DeviceSyncService;
 import com.algebratech.pulse_wellness.services.MyFirebaseInstanceIDService;
 import com.algebratech.pulse_wellness.services.NotificationService;
+import com.algebratech.pulse_wellness.utils.CM;
 import com.algebratech.pulse_wellness.utils.Constants;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -148,6 +152,10 @@ public class MainActivity extends AppCompatActivity {
     private ImageView notifications, search;
     LinearLayout bottomSheetParent;
     BottomSheetBehavior mBottomSheetBehaviour;
+    boolean isActivityReady = false;
+    boolean isActivityClicked = false;
+    String clickedActivity,clickedActivityCode;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -161,10 +169,9 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
+
         setContentView(R.layout.activity_main);
         fab = findViewById(R.id.fab);
-        //startService(new Intent(this, MyFirebaseInstanceIDService.class));
-//        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
         notifications = findViewById(R.id.notifications);
         search = findViewById(R.id.search);
         bottomSheetParent = findViewById(R.id.bottom_sheet_parent);
@@ -215,6 +222,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
+                if(!WristbandManager.getInstance(MainActivity.this).isConnect()){
+                    Toast.makeText(MainActivity.this, "Please connect your wearable device", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if (!isConnected) {
                     Toast.makeText(MainActivity.this, "Please connect your wearable device", Toast.LENGTH_SHORT).show();
@@ -224,85 +235,189 @@ public class MainActivity extends AppCompatActivity {
                 if (i == 0) {
                     //here
                     mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
-//                    Intent intent = new Intent(MainActivity.this, OutdoorRunActivity.class);
-//                    startActivity(intent);
-                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                    intent.putExtra("activity", "Outdoor Run");
-                    intent.putExtra("activityCode", "1");
-                    startActivity(intent);
+                    if(isActivityReady) {
+                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                        intent.putExtra("activity", "Outdoor Run");
+                        intent.putExtra("activityCode", "1");
+                        startActivity(intent);
+                    }
+                    else{
+                        CM.showProgressLoader(MainActivity.this);
+                        isActivityClicked = true;
+                        clickedActivity = "Outdoor Run";
+                        clickedActivityCode = "1";
+                    }
+
+
+
                 } else if (i == 1) {
                     mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
-//                    Intent intent = new Intent(MainActivity.this, OutdoorWalkingActivity.class);
-//                    startActivity(intent);
-                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                    intent.putExtra("activity", "Outdoor Walk");
-                    intent.putExtra("activityCode", "2");
-                    startActivity(intent);
+                    if(isActivityReady) {
+                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                        intent.putExtra("activity", "Outdoor Walk");
+                        intent.putExtra("activityCode", "2");
+                        startActivity(intent);
+                    }
+                    else{
+                        CM.showProgressLoader(MainActivity.this);
+                        isActivityClicked = true;
+                        clickedActivity = "Outdoor Walk";
+                        clickedActivityCode = "2";
+                    }
                 } else if (i == 2) {
                     mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, IndoorRunActivity.class);
 //                    startActivity(intent);
-                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                    intent.putExtra("activity", "Indoor Run");
-                    intent.putExtra("activityCode", "3");
-                    startActivity(intent);
+                    if(isActivityReady) {
+                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                        intent.putExtra("activity", "Indoor Run");
+                        intent.putExtra("activityCode", "3");
+                        startActivity(intent);
+                    }
+                    else{
+                        CM.showProgressLoader(MainActivity.this);
+                        isActivityClicked = true;
+                        clickedActivity = "Indoor Run";
+                        clickedActivityCode = "3";
+                    }
+
 
                 } else if (i == 3) {
                     mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, IndoorWalkActivity.class);
 //                    startActivity(intent);
-                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                    intent.putExtra("activity", "Indoor Walk");
-                    intent.putExtra("activityCode", "4");
-                    startActivity(intent);
+                    if(isActivityReady) {
+                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                        intent.putExtra("activity", "Indoor Walk");
+                        intent.putExtra("activityCode", "4");
+                        startActivity(intent);
+                    }
+                    else{
+                        CM.showProgressLoader(MainActivity.this);
+                        isActivityClicked = true;
+                        clickedActivity = "Indoor Walk";
+                        clickedActivityCode = "4";
+                    }
                 } else if (i == 4) {
                     mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, HikingActivity.class);
 //                    startActivity(intent);
-                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                    intent.putExtra("activity", "Hiking");
-                    intent.putExtra("activityCode", "5");
-                    startActivity(intent);
+                    if(isActivityReady) {
+                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                        intent.putExtra("activity", "Hiking");
+                        intent.putExtra("activityCode", "5");
+                        startActivity(intent);
+                    }
+                    else{
+                        CM.showProgressLoader(MainActivity.this);
+                        isActivityClicked = true;
+                        clickedActivity = "Hiking";
+                        clickedActivityCode = "5";
+                    }
+//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+//                    intent.putExtra("activity", "Hiking");
+//                    intent.putExtra("activityCode", "5");
+//                    startActivity(intent);
                 } else if (i == 5) {
-                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, StairStepperActivity.class);
 //                    startActivity(intent);
-                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                    intent.putExtra("activity", "Stair Stepper");
-                    intent.putExtra("activityCode", "6");
-                    startActivity(intent);
+                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    if(isActivityReady) {
+                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                        intent.putExtra("activity", "Stair Stepper");
+                        intent.putExtra("activityCode", "6");
+                        startActivity(intent);
+                    }
+                    else{
+                        CM.showProgressLoader(MainActivity.this);
+                        isActivityClicked = true;
+                        clickedActivity = "Stair Stepper";
+                        clickedActivityCode = "6";
+                    }
+//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+//                    intent.putExtra("activity", "Stair Stepper");
+//                    intent.putExtra("activityCode", "6");
+//                    startActivity(intent);
                 } else if (i == 6) {
                     mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, OutdoorCyclingActivity.class);
 //                    startActivity(intent);
-                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                    intent.putExtra("activity", "Outdoor Cycle");
-                    intent.putExtra("activityCode", "7");
-                    startActivity(intent);
+//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+//                    intent.putExtra("activity", "Outdoor Cycle");
+//                    intent.putExtra("activityCode", "7");
+//                    startActivity(intent);
+                    if(isActivityReady) {
+                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                        intent.putExtra("activity", "Outdoor Cycle");
+                        intent.putExtra("activityCode", "7");
+                        startActivity(intent);
+                    }
+                    else{
+                        CM.showProgressLoader(MainActivity.this);
+                        isActivityClicked = true;
+                        clickedActivity = "Outdoor Cycle";
+                        clickedActivityCode = "7";
+                    }
                 } else if (i == 7) {
                     mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, StationaryBikeActivity.class);
 //                    startActivity(intent);
-                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                    intent.putExtra("activity", "Stationary Bike");
-                    intent.putExtra("activityCode", "8");
-                    startActivity(intent);
+                    if(isActivityReady) {
+                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                        intent.putExtra("activity", "Stationary Bike");
+                        intent.putExtra("activityCode", "8");
+                        startActivity(intent);
+                    }
+                    else{
+                        CM.showProgressLoader(MainActivity.this);
+                        isActivityClicked = true;
+                        clickedActivity = "Stationary Bike";
+                        clickedActivityCode = "8";
+                    }
+//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+//                    intent.putExtra("activity", "Stationary Bike");
+//                    intent.putExtra("activityCode", "8");
+//                    startActivity(intent);
                 } else if (i == 8) {
                     mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, TreadmillActivity.class);
 //                    startActivity(intent);
-                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                    intent.putExtra("activity", "Treadmill");
-                    intent.putExtra("activityCode", "9");
-                    startActivity(intent);
+                    if(isActivityReady) {
+                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                        intent.putExtra("activity", "Treadmill");
+                        intent.putExtra("activityCode", "9");
+                        startActivity(intent);
+                    }
+                    else{
+                        CM.showProgressLoader(MainActivity.this);
+                        isActivityClicked = true;
+                        clickedActivity = "Treadmill";
+                        clickedActivityCode = "9";
+                    }
+//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+//                    intent.putExtra("activity", "Treadmill");
+//                    intent.putExtra("activityCode", "9");
+//                    startActivity(intent);
                 } else if (i == 9) {
                     mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, RowingMachineActivity.class);
 //                    startActivity(intent);
-                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                    intent.putExtra("activity", "Rowing Machine");
-                    intent.putExtra("activityCode", "10");
-                    startActivity(intent);
+                    if(isActivityReady) {
+                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                        intent.putExtra("activity", "Rowing Machine");
+                        intent.putExtra("activityCode", "10");
+                        startActivity(intent);
+                    }
+                    else{
+                        CM.showProgressLoader(MainActivity.this);
+                        isActivityClicked = true;
+                        clickedActivity = "Rowing Machine";
+                        clickedActivityCode = "1o";
+                    }
+//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+//                    intent.putExtra("activity", "Rowing Machine");
+//                    intent.putExtra("activityCode", "10");
+//                    startActivity(intent);
                 }
             }
         });
@@ -415,10 +530,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (isBluetoothEnabled()) {
-            Log.d(Constants.TAG + "Bluetooth", "Bluetooth on...");
+            Log.d(TAG + "Bluetooth", "Bluetooth on...");
             dialog.dismiss();
         } else {
-            Log.d(Constants.TAG + "Bluetooth", "Bluetooth off...");
+            Log.d(TAG + "Bluetooth", "Bluetooth off...");
             dialog.show();
         }
 
@@ -433,7 +548,6 @@ public class MainActivity extends AppCompatActivity {
         userId = sharedPreferences.getString("userID", null);
 
         hasMac = sharedPreferences.getString("macAddress", null);
-
 
         bottomNavigationView.getMenu().findItem(R.id.newsFeed).setChecked(true);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListerner);
@@ -450,10 +564,6 @@ public class MainActivity extends AppCompatActivity {
         //  ContextCompat.startForegroundService(MainActivity.this,deviceConnect);
 
          if (hasMac != null && !hasMac.equals("0")) {
-                  if (DeviceSyncService.IsRunning){
-                      stopService( new Intent(this, DeviceSyncService.class));
-                  }
-
                   Intent serviceIntent1 = new Intent(this, DeviceSyncService.class);
                   this.startService(serviceIntent1);
 
@@ -463,7 +573,8 @@ public class MainActivity extends AppCompatActivity {
         watch_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ScanActivity.class);
+//                Intent intent = new Intent(MainActivity.this, ScanActivity.class);
+                Intent intent = new Intent(MainActivity.this, ScanWearableActivity.class);
                 startActivity(intent);
             }
         });
@@ -502,7 +613,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d(Constants.TAG, String.valueOf(response));
+                        Log.d(TAG, String.valueOf(response));
 
                         try {
 
@@ -667,10 +778,33 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateSmartWatchServeUI(Intent intent) {
         String steps = intent.getStringExtra("steps");
-        String distances = intent.getStringExtra("distances");
+        String distances = intent.getStringExtra("distance");
         String kcals = intent.getStringExtra("kcals");
         String connect = intent.getStringExtra("connect");
 
+
+        Log.d(TAG,"MainActivities STEPS"+steps);
+        Log.d(TAG,"MainActivities distances"+distances);
+        if (!(distances == null)){
+            isActivityReady = true;
+        }
+        else{
+            isActivityReady = false;
+        }
+
+        if (isActivityReady){
+            if (isActivityClicked) {
+                CM.HideProgressLoader();
+                Intent intent1 = new Intent(MainActivity.this, WatchActivities.class);
+                intent1.putExtra("activity", clickedActivity);
+                intent1.putExtra("activityCode", clickedActivityCode);
+                startActivity(intent);
+            }
+
+        }
+
+
+        Log.d(TAG,connect);
 
         if (connect.contains("connected")) {
             Log.e("IDIGIT_21_07_CONNECTED", "DEVICE IS CONNECTED");
@@ -713,21 +847,21 @@ public class MainActivity extends AppCompatActivity {
                             BluetoothAdapter.ERROR);
                     switch (state) {
                         case BluetoothAdapter.STATE_OFF:
-                            Log.d(Constants.TAG + "Bluetooth", "Bluetooth off...");
+                            Log.d(TAG + "Bluetooth", "Bluetooth off...");
                             dialog.show();
                             //setButtonText("Bluetooth off");
                             break;
                         case BluetoothAdapter.STATE_TURNING_OFF:
-                            Log.d(Constants.TAG + "Bluetooth", "Turning Bluetooth off...");
+                            Log.d(TAG + "Bluetooth", "Turning Bluetooth off...");
                             //setButtonText("Turning Bluetooth off...");
                             break;
                         case BluetoothAdapter.STATE_ON:
-                            Log.d(Constants.TAG + "Bluetooth", "Bluetooth on...");
+                            Log.d(TAG + "Bluetooth", "Bluetooth on...");
                             dialog.dismiss();
                             //setButtonText("Bluetooth on");
                             break;
                         case BluetoothAdapter.STATE_TURNING_ON:
-                            Log.d(Constants.TAG + "Bluetooth", "Turning Bluetooth on...");
+                            Log.d(TAG + "Bluetooth", "Turning Bluetooth on...");
                             //setButtonText("Turning Bluetooth on...");
                             break;
                     }
@@ -1030,180 +1164,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    private void iniData() {
-//        // handler = new MyHandler();
-//        WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback() {
 //
-//            @Override
-//            public void onSyncDataBegin(ApplicationLayerBeginPacket packet) {
-//                super.onSyncDataBegin(packet);
-//                Log.i(tag, "sync begin");
-//            }
-//
-//            @Override
-//            public void onStepDataReceiveIndication(ApplicationLayerStepPacket packet) {
-//                super.onStepDataReceiveIndication(packet);
-//                for (ApplicationLayerStepItemPacket item : packet.getStepsItems()) {
-//
-//                    Log.i(tag, item.toString());
-//                }
-//                Log.i(tag, "size = " + packet.getStepsItems().size());
-//            }
-//
-//            @Override
-//            public void onSleepDataReceiveIndication(ApplicationLayerSleepPacket packet) {
-//                super.onSleepDataReceiveIndication(packet);
-//                for (ApplicationLayerSleepItemPacket item : packet.getSleepItems()) {
-//                    Log.i(tag, item.toString());
-//                }
-//                Log.i(tag, "size = " + packet.getSleepItems().size());
-//            }
-//
-//            @Override
-//            public void onHrpDataReceiveIndication(ApplicationLayerHrpPacket packet) {
-//                super.onHrpDataReceiveIndication(packet);
-//                for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
-//                    Log.i(tag, item.toString());
-//                }
-//                Log.i(tag, "size = " + packet.getHrpItems().size());
-//            }
-//
-//            @Override
-//            public void onRateList(ApplicationLayerRateListPacket packet) {
-//                super.onRateList(packet);
-//                for (ApplicationLayerRateItemPacket item : packet.getRateList()) {
-//                    Log.i(tag, item.toString());
-//                }
-//                Log.i(tag, "size = " + packet.getRateList().size());
-//            }
-//
-//            @Override
-//            public void onSportDataReceiveIndication(ApplicationLayerSportPacket packet) {
-//                super.onSportDataReceiveIndication(packet);
-//                for (ApplicationLayerSportItemPacket item : packet.getSportItems()) {
-//                    System.out.println("onSportDataReceiveIndication"+item.getDistance()+""+item.getCalories()+""+item.getMinutes()+""+item.getRateAvg());
-//                    Log.i(tag, item.toString());
-//                }
-//                Log.i(tag, "size = " + packet.getSportItems().size());
-//            }
-//
-//            //温度检测回调
-//            // temperature measure data call back
-//            @Override
-//            public void onTemperatureData(ApplicationLayerHrpPacket packet) {
-//                super.onTemperatureData(packet);
-//
-//                for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
-//                    System.out.println("++++++++Tempreture"+ item.getTemperature());
-//                    Log.i(tag, "temperature = " + item.toString());
-//                }
-//                Log.i(tag, "temperature size = " + packet.getHrpItems().size());
-//            }
-//
-//            //温度历史数据回调
-//            // temperature history data call back
-//            @Override
-//            public void onTemperatureList(ApplicationLayerRateListPacket packet) {
-//                super.onTemperatureList(packet);
-//                for (ApplicationLayerRateItemPacket item : packet.getRateList()) {
-//                    System.out.println("++++++++++++++Tempreture"+item.toString());
-//                    Log.i(tag, "temperature = " + item.toString());
-//                }
-//                Log.i(tag, "temperature size = " + packet.getRateList().size());
-//            }
-//
-//
-//
-//            /**
-//             * 血压自动检测回调
-//             *
-//             * bp auto measure callback
-//             *
-//             * @param packet
-//             */
-//            @Override
-//            public void onBpList(ApplicationLayerBpListPacket packet) {
-//                super.onBpList(packet);
-//
-//                for (ApplicationLayerBpListItemPacket item : packet.getBpListItemPackets()) {
-//                    Log.i(tag, "bpItem = " + item.toString());
-//                }
-//                Log.i(tag, "bp size = " + packet.getBpListItemPackets().size());
-//            }
-//            @Override
-//            public void onSyncDataEnd(ApplicationLayerTodaySumSportPacket packet) {
-//                super.onSyncDataEnd(packet);
-//                Log.i(tag, "sync end");
-//            }
-//        });
-//
-//        Calendar calendar = Calendar.getInstance();
-//        int year = calendar.get(Calendar.YEAR);
-//        int month = calendar.get(Calendar.MONTH) + 1;
-//        int day = calendar.get(Calendar.DAY_OF_MONTH);
-//
-//        int stepcount = 0;
-//        int calories = 0;
-//        int distance  = 0;
-//        List<SportData> steps = GlobalGreenDAO.getInstance().loadSportDataByDate(year,month,day);
-//        if (null != steps) {
-//            for (SportData item : steps) {
-//                distance = distance + item.getDistance();
-//                calories = calories + item.getCalory();
-//                stepcount = stepcount + item.getStepCount();
-//                Log.i(tag, "item = " + item.toString());
-//            }
-//        }
-//
-//       List<SleepData> sleepData = GlobalGreenDAO.getInstance().loadAllSleepData();
-//        System.out.println("+++++++++++++++++SleepData"+sleepData);
-//        List<HrpData> hrpData = GlobalGreenDAO.getInstance().loadAllHrpData();
-//        int total = 0 ;
-//        int size = 0;
-//        int average = 0;
-//        int mValue = 0;
-//        if (null != hrpData) {
-//            size = hrpData.size();
-//            for (HrpData item : hrpData) {
-//                total = total + item.getValue();
-//            }
-//        }
-//        if (size != 0){
-//            average = total / size;
-//        }
-//
-//
-//
-//        ApplicationLayerPrivateBpPacket packet = WristbandManager.getInstance(MainActivity.this).readPrivateBp();
-//
-//        int final_distance = loadCalculate(distance);
-//        int final_calorie = loadCalculate(calories);
-//
-//        Thread thread = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                if (WristbandManager.getInstance(MainActivity.this).setTemperatureStatus(true)) {
-//                    System.out.println("++++++++++++++++++++Start tempreture true");
-//                } else {
-//                    System.out.println("++++++++++++++++++++Start tempreture False");
-//                }
-//            }
-//        });
-//        thread.start();
-//
-//
-//        intent1.putExtra("bp_high_value",String.valueOf(packet.getHighValue()));
-//        intent1.putExtra("bp_low_value", String.valueOf(packet.getLowValue()));
-//        intent1.putExtra("kcals", String.valueOf(final_calorie));
-//        intent1.putExtra("distance",String.valueOf(final_distance));
-//        intent1.putExtra("steps",String.valueOf(stepcount));
-//        intent1.putExtra("hr",String.valueOf(average));
-//        intent1.putExtra("connect", "dis");
-//        sendBroadcast(intent1);
-//    }
-//
-//    private int loadCalculate(int value) {
-//        return value/1000;
-//    }
-
 }

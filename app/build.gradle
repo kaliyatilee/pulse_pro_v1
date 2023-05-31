@@ -83,10 +83,19 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'androidx.annotation:annotation:1.5.0'
 //    implementation files('libs/gson-2.2.4.jar')
+    //confirm if we still need these two
     implementation files('libs\\vpbluetooth_1.0.3.jar')
     implementation files('libs\\vpprotocol_2.1.27.15.jar')
-    implementation files('libs/UkProtocolLibary-release-1.2.8.aar')
+//    implementation files('libs/UkProtocolLibary-release-1.2.8.aar')
+//    implementation files('libs/RealtekSDK-1.0.1-release.aar')
+
+
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation files('libs/UkProtocolLibary-release-1.2.11.aar')
     implementation files('libs/RealtekSDK-1.0.1-release.aar')
+    implementation files('libs/rtk-core-1.2.4.jar')
+    implementation files('libs/rtk-dfu-3.3.11.jar')
+    implementation files('libs/rtk-bbpro-core-1.6.6.jar')
 
     //Test & Debug
   //  implementation 'com.bugsnag:bugsnag-android:4.2.2'

@@ -43,11 +43,32 @@
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:replace="android:supportsRtl,android:theme">
-
+        <activity
+            android:name=".activities.BaseActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.ScanWearableActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity> <!-- <service -->
+        <!-- android:name=".services.DeviceSyncService" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true"></service> -->
         <service
-            android:name=".services.DeviceSyncService"
-            android:enabled="true"
-            android:exported="true"></service>
+            android:name=".services.SyncWearableService"
+            android:foregroundServiceType="dataSync"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+                <action android:name="android.bluetooth.adapter.action.DISCOVERY_STARTED" />
+            </intent-filter>
+        </service>
 
         <activity
             android:name=".dashboardReports.HeartRateActivity"

@@ -192,7 +192,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
 
         intent = new Intent(BROADCAST_ACTION);
         mVpoperateManager = mVpoperateManager.getMangerInstance(mContext.getApplicationContext());
-        getNotification();
+        //getNotification();
         //registerBluetoothStateListener();
         //circleImageView.setBorderColor(ResourcesCompat.getColor(mContext.getResources(), R.color.orange, null));
         //initBLE();
@@ -204,7 +204,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.e("DEVICE_CONNECT_CLASS", "ON_START_CONNECT");
-        noSoundNotification("", "");
+//        noSoundNotification("", "");
         registerBluetoothStateListener();
         //circleImageView.setBorderColor(ResourcesCompat.getColor(mContext.getResources(), R.color.orange, null));
         initBLE();
@@ -213,44 +213,44 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     }
 
     @SuppressLint("WrongConstant")
-    private void noSoundNotification(String contentTitle, String contentText) {
-        Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            pendingIntent = PendingIntent.getActivity(this,
-                    0, notificationIntent,
-                    0 | PendingIntent.FLAG_MUTABLE);
-        } else {
-            pendingIntent = PendingIntent.getActivity(this,
-                    0, notificationIntent, 0);
-        }
-
-        Notification notification = new NotificationCompat.Builder(this, com.algebratech.pulse_wellness.utils.Constants.CHANNEL_ID_NO_SOUND)
-                .setContentTitle(contentTitle)
-                .setContentText(contentText)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setSound(null)
-                .setSilent(true)
-                .setContentIntent(pendingIntent)
-                .build();
-
-        startForeground(1, notification);
-    }
-
-    private void soundNotification(String contentText) {
-        Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,
-                0, notificationIntent, 0);
-
-        Notification notification = new NotificationCompat.Builder(this, com.algebratech.pulse_wellness.utils.Constants.CHANNEL_ID_SOUND)
-                .setContentTitle("Example Service")
-                .setContentText(contentText)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentIntent(pendingIntent)
-                .build();
-
-        startForeground(1, notification);
-    }
+//    private void noSoundNotification(String contentTitle, String contentText) {
+//        Intent notificationIntent = new Intent(this, MainActivity.class);
+//        PendingIntent pendingIntent;
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+//            pendingIntent = PendingIntent.getActivity(this,
+//                    0, notificationIntent,
+//                    0 | PendingIntent.FLAG_MUTABLE);
+//        } else {
+//            pendingIntent = PendingIntent.getActivity(this,
+//                    0, notificationIntent, 0);
+//        }
+//
+//        Notification notification = new NotificationCompat.Builder(this, com.algebratech.pulse_wellness.utils.Constants.CHANNEL_ID_NO_SOUND)
+//                .setContentTitle(contentTitle)
+//                .setContentText(contentText)
+//                .setSmallIcon(R.mipmap.ic_launcher)
+//                .setSound(null)
+//                .setSilent(true)
+//                .setContentIntent(pendingIntent)
+//                .build();
+//
+//        startForeground(1, notification);
+//    }
+//
+//    private void soundNotification(String contentText) {
+//        Intent notificationIntent = new Intent(this, MainActivity.class);
+//        PendingIntent pendingIntent = PendingIntent.getActivity(this,
+//                0, notificationIntent, 0);
+//
+//        Notification notification = new NotificationCompat.Builder(this, com.algebratech.pulse_wellness.utils.Constants.CHANNEL_ID_SOUND)
+//                .setContentTitle("Example Service")
+//                .setContentText(contentText)
+//                .setSmallIcon(R.mipmap.ic_launcher)
+//                .setContentIntent(pendingIntent)
+//                .build();
+//
+//        startForeground(1, notification);
+//    }
 
     @Override
     public void onStart(Intent intent, int startId) {
@@ -305,7 +305,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
             return true;
         }
 
-        searchDevice();
+//        searchDevice();
 
         return false;
     }
@@ -321,7 +321,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
                 if (!mListAddress.contains(device.getAddress())) {
                     mListAddress.add(device.getAddress());
                     if (result.getAddress().equals(deviceMac)) {
-                        WristbandManager.getInstance(DeviceConnect.this).stopScan();
+//                        WristbandManager.getInstance(DeviceConnect.this).stopScan();
                       //  connectDevice(result.getAddress(), result.getName());
                     }
                 }
@@ -393,22 +393,22 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     }
 
     private void createNotificationChannel() {
-        CharSequence channelName = CHANNEL_ID;
-        String channelDesc = "channelDesc";
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, channelName, importance);
-            channel.setDescription(channelDesc);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            assert notificationManager != null;
-            NotificationChannel currChannel = notificationManager.getNotificationChannel(CHANNEL_ID);
-            if (currChannel == null)
-                notificationManager.createNotificationChannel(channel);
-        }
+//        CharSequence channelName = CHANNEL_ID;
+//        String channelDesc = "channelDesc";
+//        // Create the NotificationChannel, but only on API 26+ because
+//        // the NotificationChannel class is new and not in the support library
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+//            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, channelName, importance);
+//            channel.setDescription(channelDesc);
+//            // Register the channel with the system; you can't change the importance
+//            // or other notification behaviors after this
+//            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+//            assert notificationManager != null;
+//            NotificationChannel currChannel = notificationManager.getNotificationChannel(CHANNEL_ID);
+//            if (currChannel == null)
+//                notificationManager.createNotificationChannel(channel);
+//        }
     }
 
     public void createNotification(String message) {
@@ -450,7 +450,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
                 intent.putExtra("kcals", "");
                 intent.putExtra("connect", "dis");
                 sendBroadcast(intent);
-                noSoundNotification("Wearable Disonnected", "Please enable Bluetooth & Location services");
+//                noSoundNotification("Wearable Disonnected", "Please enable Bluetooth & Location services");
                 /// circleImageView.setBorderColor(ResourcesCompat.getColor(mContext.getResources(), R.color.red, null));
                 //qr_scan.setVisibility(View.VISIBLE);
 
@@ -496,7 +496,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
                     intent.putExtra("kcals", "");
                     intent.putExtra("connect", "connecting");
                     sendBroadcast(intent);
-                    noSoundNotification("Wearable Reconnecting", "");
+//                    noSoundNotification("Wearable Reconnecting", "");
                     if (deviceMac.contains(":")) {
                         Log.e("IDIGIT_21_07_CONNECTION", deviceMac);
                         if (!mIsOadModel) {
@@ -579,7 +579,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
 //                        intent.putExtra("connect", "connected");
 //                        sendBroadcast(intent);
                        // setResult(0x02, intent);
-                        syncData();
+//                        syncData();
 
                     }else {
                         disConnect();
@@ -599,26 +599,6 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     private void disConnect() {
         WristbandManager.getInstance(this).close();
     }
-    private void syncData() {
-        System.out.println("++++++++++++Sync Device Data");
-        WristbandManager.getInstance(this).registerCallback(new WristbandManagerCallback() {
-
-            @Override
-            public void onLoginStateChange(int state) {
-                super.onLoginStateChange(state);
-                if (state == WristbandManager.STATE_WRIST_LOGIN) {
-                    Log.d("Lee", "Device Login Success");
-
-                }
-            }
-            });
-        WristbandManager.getInstance(this).startLoginProcess("01234567890");
-        if (WristbandManager.getInstance(mContext).isConnect()){
-            intent.putExtra("connect", "connected");
-            sendBroadcast(intent);
-        }
-        afterconnection();
-    }
 
     private void afterconnection() {
         Log.e(TAG, "After Connection");
@@ -627,7 +607,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
         intent.putExtra("connect", "connected");
         sendBroadcast(intent);
 
-        noSoundNotification("Wearable Connected", "");
+//        noSoundNotification("Wearable Connected", "");
         try {
 
             int height = Integer.parseInt(sharedPreferences.getString("height", "0"));
@@ -778,7 +758,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
                 case Constants.BLUETOOTH_DISABLED:
                     initBLE();
                     scanDevice();
-                    noSoundNotification("Enable Your Bluetooth & Location", "");
+//                    noSoundNotification("Enable Your Bluetooth & Location", "");
                     IsWearableConnected = false;
                     break;
                 case Constants.BLE_NOT_SUPPORTED:

@@ -5,6 +5,12 @@ import android.util.Base64;
 
 public class Constants {
 
+    public static final String CHANNEL_ID = "com.trysoft.pulseapp.ServiceChannel";
+    public static final String START_SERVICE = "com.trysoft.pulseapp.START_SYNC_SERVICE";
+    public static final String STOP_SERVICE = "com.trysoft.pulseapp.STOP_SYNC_SERVICE";
+
+    public static final String DEVICE_MAC = "DEVICE_MAC";
+
     public static final String CHANNEL_ID_NO_SOUND = "wearableServiceChannelNoSound";
     public static final String CHANNEL_ID_SOUND = "wearableServiceChannelSound";
     public static final String NOTIFY = "PulseHealthNotify";
@@ -12,7 +18,7 @@ public class Constants {
     public static final Integer maxMonPoints = 301;
     public static final Double POINTSRATE = 0.001;
     public static long timeStamp = System.currentTimeMillis()/1000;
-    public static final String TAG = "TrynosLog:=>";
+    public static final String TAG = "Algosec";
     public static final String PREF_NAME = "PulseHealth";
     public static final String DEBUG_EMAIL = "";
     public static final String DEBUG_PASS = "";

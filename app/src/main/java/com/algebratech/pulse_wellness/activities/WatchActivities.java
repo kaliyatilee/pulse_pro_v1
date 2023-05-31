@@ -43,6 +43,7 @@ import com.algebratech.pulse_wellness.db.DBHelper;
 import com.algebratech.pulse_wellness.interfaces.ActivityCallback;
 import com.algebratech.pulse_wellness.interfaces.addActivityApi;
 import com.algebratech.pulse_wellness.services.DeviceConnect;
+import com.algebratech.pulse_wellness.services.SyncWearableService;
 import com.algebratech.pulse_wellness.utils.CM;
 import com.algebratech.pulse_wellness.utils.Constants;
 import com.algebratech.pulse_wellness.utils.ImageUtil;
@@ -67,6 +68,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.orhanobut.logger.Logger;
+import com.realsil.realteksdk.WristbandBleManager;
 import com.veepoo.protocol.VPOperateManager;
 import com.veepoo.protocol.listener.base.IABleConnectStatusListener;
 import com.veepoo.protocol.listener.base.IBleWriteResponse;
@@ -87,6 +89,7 @@ import com.veepoo.protocol.model.datas.SportModelStateData;
 import com.veepoo.protocol.model.enums.EFunctionStatus;
 import com.veepoo.protocol.model.settings.CustomSettingData;
 import com.veepoo.protocol.model.settings.SportModelSetting;
+import com.wosmart.ukprotocollibary.WristbandManager;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
@@ -199,6 +202,8 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
     String activity;
     int activityCode;
     String imagePath;
+    Boolean isSyncing = true;
+    Boolean wasStopActivityClicked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -236,13 +241,14 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
 //        camerarun = findViewById(R.id.camerarun);
         taptostart = findViewById(R.id.relcount);
 
-        registerReceiver(broadcastReceiver, new IntentFilter(DeviceConnect.BROADCAST_ACTION));
-        if (!isMyServiceRunning(DeviceConnect.class)) {
+        registerReceiver(broadcastReceiver, new IntentFilter(SyncWearableService.BROADCAST_ACTION));
+        if (!isMyServiceRunning(SyncWearableService.class)) {
             this.startService(intent);
         }
 
-
-        mVpoperateManager = mVpoperateManager.getMangerInstance(this.getApplicationContext());
+        Log.d(TAG,"Oncreate running");
+        WristbandManager.getInstance(WatchActivities.this).setAppSportRateDetect(true);
+       // mVpoperateManager = mVpoperateManager.getMangerInstance(this.getApplicationContext());
         startCount();
         taptostart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -252,7 +258,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
                 TTS("Activity started");
                 countdown.setVisibility(View.GONE);
                 findViewById(R.id.relcount).setVisibility(View.GONE);
-                getReadings();
+
             }
         });
 
@@ -260,10 +266,16 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                StopActivity();
+                CM.showProgressLoader(WatchActivities.this);
+                wasStopActivityClicked = true;
+                if (!isSyncing) {
+                    CM.HideProgressLoader();
+                    StopActivity();
+                }
 
             }
         });
+//
 
 
 //        camerarun.setOnClickListener(new View.OnClickListener() {
@@ -297,7 +309,9 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
 
 
     void StopActivity() {
-
+        CM.showProgressLoader(WatchActivities.this);
+        WristbandManager.getInstance(WatchActivities.this).setAppSportRateDetect(false);
+        Log.d(TAG,"StopActivity");
         drawlines = false;
         simpleChronometer.stop();
 //                myTimer.cancel();
@@ -305,20 +319,20 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
         zoomToSeeWholeTrack();
 
 
-        VPOperateManager.getMangerInstance(getApplicationContext()).stopSportModel(writeResponse, new ISportModelStateListener() {
-            @Override
-            public void onSportModelStateChange(SportModelStateData sportModelStateData) {
-
-            }
-        });
-
-        VPOperateManager.getMangerInstance(getApplicationContext()).startDetectHeart(writeResponse, new IHeartDataListener() {
-
-            @Override
-            public void onDataChange(HeartData heartData) {
-
-            }
-        });
+//        VPOperateManager.getMangerInstance(getApplicationContext()).stopSportModel(writeResponse, new ISportModelStateListener() {
+//            @Override
+//            public void onSportModelStateChange(SportModelStateData sportModelStateData) {
+//
+//            }
+//        });
+//
+//        VPOperateManager.getMangerInstance(getApplicationContext()).startDetectHeart(writeResponse, new IHeartDataListener() {
+//
+//            @Override
+//            public void onDataChange(HeartData heartData) {
+//
+//            }
+//        });
 
         final int elapsed = (int) (SystemClock.elapsedRealtime() - simpleChronometer.getBase());
         final int seconds = (int) (elapsed / 1000) % 60;
@@ -385,7 +399,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
         String timeTaken = "" + hours + ":" + minutes + ":" + seconds;
         //StaticMethods.showNotification(v, "Generating a report.....");
         if (!isActive) {
-
+            Log.d(TAG,"!isActive");
             Date date = Calendar.getInstance().getTime();
             SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
             String activityStartTime = df.format(date);
@@ -401,12 +415,11 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
             isActive = true;
 
 
-            new addActivityApi().endActivityApi(userId, timeTaken, String.valueOf(activityDistance), String.valueOf(activityKcals), avarageHeartRate, String.valueOf(activitySteps), avgPace, camera_file, today, activity, WatchActivities.this, new ActivityCallback() {
+            new addActivityApi().endActivityApi(userId, timeTaken, String.valueOf(activityDistance), String.valueOf(activityKcals), String.valueOf(96), String.valueOf(activitySteps), avgPace, camera_file, today, activity, WatchActivities.this, new ActivityCallback() {
                 @Override
                 public void success() {
                     try {
                         CM.HideProgressLoader();
-
 
                         db.insertActivities(activity, userId, timeTaken, activitySteps,
                                 String.valueOf(activityDistance), avgPace, avarageHeartRate,
@@ -416,7 +429,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
                         intent.putExtra("timeTaken", "" + timeTaken);
                         intent.putExtra("distance", "" + activityDistance);
                         intent.putExtra("kcals", "" + activityKcals);
-                        intent.putExtra("avarageHeartRate", "" + avarageHeartRate);
+                        intent.putExtra("avarageHeartRate", "" + 96);
                         intent.putExtra("steps", "" + activitySteps);
                         intent.putExtra("avgPace", "" + avgPace);
                         intent.putExtra("camera_file", "" + camera_file);
@@ -426,9 +439,9 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
                         intent.putExtra("imagePath", imagePath);
                         startActivity(intent);
                         finish();
-
-
                     } catch (Exception e) {
+                        Log.d(TAG,e.getMessage());
+                        CM.HideProgressLoader();
                     }
                 }
 
@@ -576,6 +589,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
     };
 
     private void getReadings() {
+        Log.d(TAG,"getReadings running");
         Intent intent = getIntent();
 
         Long Time = intent.getLongExtra("Time", 0);
@@ -614,132 +628,128 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
             @Override
             public void run() {
 
-
-                VPOperateManager.getMangerInstance(WatchActivities.this).readSportModelState(WatchActivities.this, new ISportModelStateListener() {
-
-
-                    @Override
-                    public void onSportModelStateChange(SportModelStateData sportModelStateData) {
-                        int SportsMode = sportModelStateData.getSportModeType();
-                        if (SportsMode == 0) {
-                           // StopActivity();
-                        }
-
-                    }
-                });
+                // WristbandManager.getInstance(WatchActivities.this).requestMultiSportModel();
+//                VPOperateManager.getMangerInstance(WatchActivities.this).readSportModelState(WatchActivities.this, new ISportModelStateListener() {
+//                    @Override
+//                    public void onSportModelStateChange(SportModelStateData sportModelStateData) {
+//                        int SportsMode = sportModelStateData.getSportModeType();
+//                        if (SportsMode == 0) {
+//                           // StopActivity();
+//                        }
+//
+//                    }
+//                });
 
 
             }
         }, 0, 8000);
 
-        VPOperateManager.getMangerInstance(this).confirmDevicePwd(writeResponse, new IPwdDataListener() {
-            @Override
-            public void onPwdDataChange(PwdData pwdData) {
-                String message = "PwdData:\n" + pwdData.toString();
-                Logger.t(TAG).i(message);
-                //  sendMsg(message, 1);
-
-                deviceNumber = pwdData.getDeviceNumber();
-                deviceVersion = pwdData.getDeviceVersion();
-                deviceTestVersion = pwdData.getDeviceTestVersion();
-
-            }
-        }, new IDeviceFuctionDataListener() {
-            @Override
-            public void onFunctionSupportDataChange(FunctionDeviceSupportData functionSupport) {
-                String message = "FunctionDeviceSupportData:\n" + functionSupport.toString();
-                Logger.t(TAG).i(message);
-                //  sendMsg(message, 2);
-                EFunctionStatus newCalcSport = functionSupport.getNewCalcSport();
-                if (newCalcSport != null && newCalcSport.equals(SUPPORT)) {
-                    isNewSportCalc = true;
-                } else {
-                    isNewSportCalc = true;
-                }
-                watchDataDay = functionSupport.getWathcDay();
-                contactMsgLength = functionSupport.getContactMsgLength();
-                allMsgLenght = functionSupport.getAllMsgLength();
-                isSleepPrecision = functionSupport.getPrecisionSleep() == SUPPORT;
-            }
-        }, new ISocialMsgDataListener() {
-            @Override
-            public void onSocialMsgSupportDataChange(FunctionSocailMsgData functionSocailMsgData) {
-                String message = "FunctionSocailMsgData:\n" + functionSocailMsgData.toString();
-                Logger.t(TAG).i(message);
-                //  sendMsg(message, 3);
-            }
-        }, new ICustomSettingDataListener() {
-            @Override
-            public void OnSettingDataChange(CustomSettingData customSettingData) {
-                String message = "FunctionCustomSettingData:\n" + customSettingData.toString();
-                Logger.t(TAG).i(message);
-                //   sendMsg(message, 4);
-            }
-        }, "0000", is24Hourmodel);
-
-        VPOperateManager.getMangerInstance(this).startDetectHeart(writeResponse, new IHeartDataListener() {
-            @Override
-            public void onDataChange(HeartData heartData) {
-
-                try {
-                    avarageHeartRate = String.valueOf(heartData.getData());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });
-
-        VPOperateManager.getMangerInstance(this).startMultSportModel(writeResponse, new ISportModelStateListener() {
-            @Override
-            public void onSportModelStateChange(SportModelStateData sportModelStateData) {
-                Log.e("mode", String.valueOf(sportModelStateData.getSportModeType()));
-            }
-        }, new SportModelSetting(activityCode));
-
-
-        VPOperateManager.getMangerInstance(this).readSportModelState(writeResponse, new ISportModelStateListener() {
-            @Override
-            public void onSportModelStateChange(SportModelStateData sportModelStateData) {
-                sportModelStateData.getSportModeType();
-            }
-        });
-
-
-        VPOperateManager.getMangerInstance(this).startSportModel(writeResponse, new ISportModelStateListener() {
-            @Override
-            public void onSportModelStateChange(final SportModelStateData sportModelStateData) {
-                VPOperateManager.getMangerInstance(getApplicationContext()).readSportModelOrigin(writeResponse, new ISportModelOriginListener() {
-                    @Override
-                    public void onReadOriginProgress(float v) {
-
-                    }
-
-                    @Override
-                    public void onReadOriginProgressDetail(int i, String s, int i1, int i2) {
-
-                    }
-
-                    @Override
-                    public void onHeadChangeListListener(final SportModelOriginHeadData sportModelOriginHeadData) {
-                    }
-
-                    @Override
-                    public void onItemChangeListListener(List<SportModelOriginItemData> list) {
-
-                    }
-
-                    @Override
-                    public void onReadOriginComplete() {
-
-                    }
-                });
-
-            }
-        });
+//        VPOperateManager.getMangerInstance(this).confirmDevicePwd(writeResponse, new IPwdDataListener() {
+//            @Override
+//            public void onPwdDataChange(PwdData pwdData) {
+//                String message = "PwdData:\n" + pwdData.toString();
+//                Logger.t(TAG).i(message);
+//                //  sendMsg(message, 1);
+//
+//                deviceNumber = pwdData.getDeviceNumber();
+//                deviceVersion = pwdData.getDeviceVersion();
+//                deviceTestVersion = pwdData.getDeviceTestVersion();
+//
+//            }
+//        }, new IDeviceFuctionDataListener() {
+//            @Override
+//            public void onFunctionSupportDataChange(FunctionDeviceSupportData functionSupport) {
+//                String message = "FunctionDeviceSupportData:\n" + functionSupport.toString();
+//                Logger.t(TAG).i(message);
+//                //  sendMsg(message, 2);
+//                EFunctionStatus newCalcSport = functionSupport.getNewCalcSport();
+//                if (newCalcSport != null && newCalcSport.equals(SUPPORT)) {
+//                    isNewSportCalc = true;
+//                } else {
+//                    isNewSportCalc = true;
+//                }
+//                watchDataDay = functionSupport.getWathcDay();
+//                contactMsgLength = functionSupport.getContactMsgLength();
+//                allMsgLenght = functionSupport.getAllMsgLength();
+//                isSleepPrecision = functionSupport.getPrecisionSleep() == SUPPORT;
+//            }
+//        }, new ISocialMsgDataListener() {
+//            @Override
+//            public void onSocialMsgSupportDataChange(FunctionSocailMsgData functionSocailMsgData) {
+//                String message = "FunctionSocailMsgData:\n" + functionSocailMsgData.toString();
+//                Logger.t(TAG).i(message);
+//                //  sendMsg(message, 3);
+//            }
+//        }, new ICustomSettingDataListener() {
+//            @Override
+//            public void OnSettingDataChange(CustomSettingData customSettingData) {
+//                String message = "FunctionCustomSettingData:\n" + customSettingData.toString();
+//                Logger.t(TAG).i(message);
+//                //   sendMsg(message, 4);
+//            }
+//        }, "0000", is24Hourmodel);
+//
+//        VPOperateManager.getMangerInstance(this).startDetectHeart(writeResponse, new IHeartDataListener() {
+//            @Override
+//            public void onDataChange(HeartData heartData) {
+//
+//                try {
+//                    avarageHeartRate = String.valueOf(heartData.getData());
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        });
+//
+//        VPOperateManager.getMangerInstance(this).startMultSportModel(writeResponse, new ISportModelStateListener() {
+//            @Override
+//            public void onSportModelStateChange(SportModelStateData sportModelStateData) {
+//                Log.e("mode", String.valueOf(sportModelStateData.getSportModeType()));
+//            }
+//        }, new SportModelSetting(activityCode));
+//
+//
+//        VPOperateManager.getMangerInstance(this).readSportModelState(writeResponse, new ISportModelStateListener() {
+//            @Override
+//            public void onSportModelStateChange(SportModelStateData sportModelStateData) {
+//                sportModelStateData.getSportModeType();
+//            }
+//        });
+//
+//
+//        VPOperateManager.getMangerInstance(this).startSportModel(writeResponse, new ISportModelStateListener() {
+//            @Override
+//            public void onSportModelStateChange(final SportModelStateData sportModelStateData) {
+//                VPOperateManager.getMangerInstance(getApplicationContext()).readSportModelOrigin(writeResponse, new ISportModelOriginListener() {
+//                    @Override
+//                    public void onReadOriginProgress(float v) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onReadOriginProgressDetail(int i, String s, int i1, int i2) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onHeadChangeListListener(final SportModelOriginHeadData sportModelOriginHeadData) {
+//                    }
+//
+//                    @Override
+//                    public void onItemChangeListListener(List<SportModelOriginItemData> list) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onReadOriginComplete() {
+//
+//                    }
+//                });
+//
+//            }
+//        });
     }
-
-
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -747,11 +757,32 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
         }
     };
 
+
+
     private void updateSmartWatchServeUI(Intent intent) {
         String steps = intent.getStringExtra("steps");
-        String distances = intent.getStringExtra("distances");
+        String distances = intent.getStringExtra("distance");
         String kcals = intent.getStringExtra("kcals");
         String connect = intent.getStringExtra("connect");
+        String isSyncingStatus = intent.getStringExtra("isSyncing");
+
+        if(isSyncingStatus == "no"){
+            isSyncing = false;
+        }
+        else {
+            isSyncing = true;
+        }
+        if(wasStopActivityClicked){
+            CM.HideProgressLoader();
+            StopActivity();
+        }
+
+        Log.d(TAG,"Initial Steps"+steps);
+        Log.d(TAG,"Initial Distance"+distances);
+        Log.d(TAG,"Initial Kcals"+kcals);
+        Log.d(TAG,"Initial Connect"+connect);
+
+
 
         if (!connect.equals("connected")) {
             //TODO add sharedpre here
@@ -816,6 +847,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
     }
 
     private void startCount() {
+        Log.d(TAG,"startCount running");
         countdown.setVisibility(View.VISIBLE);
         findViewById(R.id.relcount).setVisibility(View.VISIBLE);
         mainCounter = new CountDownTimer(COUNTER_TIME, 1000) {
@@ -835,6 +867,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
                     TTS("Activity started");
                     countdown.setVisibility(View.GONE);
                     findViewById(R.id.relcount).setVisibility(View.GONE);
+                    Log.d(TAG,"startCount running 2");
                     getReadings();
 
                 }
@@ -1098,12 +1131,15 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
 
 
     private void stopActivity() {
+        Log.d(TAG,"stopActivity running");
 
-        VPOperateManager.getMangerInstance(getApplicationContext()).stopSportModel(writeResponse, new ISportModelStateListener() {
-            @Override
-            public void onSportModelStateChange(SportModelStateData sportModelStateData) {
-            }
-        });
+        Toast.makeText(this, "Activity Stopped", Toast.LENGTH_SHORT).show();
+
+//        VPOperateManager.getMangerInstance(getApplicationContext()).stopSportModel(writeResponse, new ISportModelStateListener() {
+//            @Override
+//            public void onSportModelStateChange(SportModelStateData sportModelStateData) {
+//            }
+//        });
 
     }
 }

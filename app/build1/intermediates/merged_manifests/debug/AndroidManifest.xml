@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.algebratech.pulse_wellness"
+    android:versionCode="148"
+    android:versionName="7.0.8" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="31" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" /> <!-- See https://developer.android.com/training/package-visibility/declaring for more details. -->
+    <queries>
+
+        <!-- Added to check if Chrome is installed for browser-based payment authentication (e.g. 3DS1). -->
+        <package android:name="com.android.chrome" />
+    </queries> <!-- See https://developer.android.com/training/package-visibility/declaring for more details. -->
+    <queries>
+
+        <!-- Added to check the default browser that will host the AuthFlow. -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="http" />
+        </intent>
+    </queries>
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <queries>
+
+        <!-- Needs to be explicitly declared on Android R+ -->
+        <package android:name="com.google.android.apps.maps" />
+    </queries>
+
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+
+    <permission
+        android:name="com.algebratech.pulse_wellness.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.algebratech.pulse_wellness.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+
+    <application
+        android:name="com.algebratech.pulse_wellness.App"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:usesCleartextTraffic="true" >
+
+        <!-- <service -->
+        <!-- android:name=".services.DeviceSyncService" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true"></service> -->
+
+        <service
+            android:name="com.algebratech.pulse_wellness.services.SyncWearableService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+                <action android:name="android.bluetooth.adapter.action.DISCOVERY_STARTED" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.algebratech.pulse_wellness.dashboardReports.HeartRateActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.algebratech.pulse_wellness.dashboardReports.SleepActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.algebratech.pulse_wellness.dashboardReports.StepsActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.WearableLogin"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.SyncDataActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity android:name="com.algebratech.pulse_wellness.FunctionsActivity" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.DailyWalkReport"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.WeightMonitoring"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.WatchActivities"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.DetailActivitySummary"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.RowingMachineActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.StationaryBikeActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.StairStepperActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.IndoorWalkActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.IndoorRunActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.HikingActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.fragments.ShowDataFragment"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.gridDemo"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.MySubscriptionplan"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.AddUserGoals"
+            android:exported="true" /> <!-- <activity -->
+        <!-- android:name=".fragments.LeaderboardFragment" -->
+        <!-- android:exported="true" /> -->
+        <!-- <activity -->
+        <!-- android:name=".FragmentTabLeaderboardFriendlist" -->
+        <!-- android:exported="true" /> -->
+        <!-- <activity -->
+        <!-- android:name=".activities.SettingFragment" -->
+        <!-- android:exported="true" /> -->
+        <!-- <activity -->
+        <!-- android:name=".fragment_tab_newsfeed_dashboard" -->
+        <!-- android:exported="true" /> -->
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.AddCardActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.generatingWellnessPlan"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.AddFriendScreen"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.FriendProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.DetailActivityScreen"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.fragments.ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.AllTransaction"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.MyWellnesPlanScreen"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.NotificationActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.ProfileCreatedView"
+            android:exported="true" />
+
+        <service
+            android:name="com.algebratech.pulse_wellness.services.MyFirebaseMessagingService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <!-- <action android:name="com.google.android.c2dm.intent.RECEIVE" /> -->
+                <!-- <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/> -->
+            </intent-filter>
+        </service> <!-- <service -->
+        <!-- android:name=".services.MyFirebaseInstanceIDService" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.INSTANCE_ID_EVENT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.MyNewsFeedActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.SelectDisease"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.Comment_activity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.NewsLikeActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.SubscriptionPlansListingScreen"
+            android:exported="true" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.ForgetPasswordSelectionActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.ForgetPasswordActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.ForgetPasswordEmailActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.VerityOtpActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.ChangePasswordDoneActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.NewPassword"
+            android:exported="true"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.RegisterActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.CreateProfileActivity"
+            android:exported="true"
+            android:label="Edit Profile"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.CreateProfileOneActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.CreateProfileTwoActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.CreateProfileThreeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeMain" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.ScanActivity"
+            android:exported="true"
+            android:label="Wearable Settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.AddFriendActivity"
+            android:exported="true"
+            android:label="Add New Friend"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.RewardsPreview"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.RewardsPreviewTest"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.OutdoorRunActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.OutdoorWalkingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.OutdoorCyclingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.TreadmillActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.RunResultsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.Camera2Activity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.NewsFeedDetailActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.ProfileActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.ShowRecordsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.GiveFeedBackActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.fragments.ActivitySummaryFragment"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.algebratech.pulse_wellness.activities.FriendDetailScreen"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name="com.inuker.bluetooth.library.BluetoothService"
+            android:exported="true" />
+        <service
+            android:name="com.algebratech.pulse_wellness.services.DeviceConnect"
+            android:enabled="true"
+            android:exported="true" /> <!-- <service android:name=".utils.NotifyListener" android:enabled="true"> -->
+        <!-- <intent-filter > -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- <action android:name="android.accessibilityservice.AccessibilityService"/> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <!-- <receiver android:name=".recievers.PhoneStateReceiver"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.PHONE_STATE" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <!--  -->
+        <service
+            android:name="com.algebratech.pulse_wellness.services.NotificationService"
+            android:enabled="true"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.algebratech.pulse_wellness.recievers.IncomingSmsReciever"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.algebratech.pulse_wellness.recievers.IncomingCallReciever"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+        <!--
+ <receiver
+            android:name=".recievers.OnBootReciever"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        -->
+        <receiver
+            android:name="com.algebratech.pulse_wellness.recievers.OnBootReciever"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+
+            <!-- 2147483647 -->
+            <intent-filter android:priority="999" >
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.REBOOT" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+            </intent-filter>
+        </receiver> <!--  -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_like_btn" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="com.algebratech.pulse_wellness" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.algebratech.pulse_wellness.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path" />
+        </provider>
+
+        <activity
+            android:name="com.fxn.pix.Pix"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.stripe.android.paymentsheet.PaymentSheetActivity"
+            android:exported="false"
+            android:theme="@style/StripePaymentSheetDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.paymentsheet.PaymentOptionsActivity"
+            android:exported="false"
+            android:theme="@style/StripePaymentSheetDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.paymentsheet.addresselement.AddressElementActivity"
+            android:exported="false"
+            android:theme="@style/StripePaymentSheetDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.paymentsheet.paymentdatacollection.polling.PollingActivity"
+            android:exported="false"
+            android:theme="@style/StripePaymentSheetDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.link.LinkActivity"
+            android:exported="false"
+            android:label="@string/link"
+            android:theme="@style/LinkBaseTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.stripe.android.ui.core.cardscan.CardScanActivity"
+            android:exported="false"
+            android:theme="@style/StripePaymentSheetDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.view.AddPaymentMethodActivity"
+            android:exported="false"
+            android:theme="@style/StripeDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.view.PaymentMethodsActivity"
+            android:exported="false"
+            android:theme="@style/StripeDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.view.PaymentFlowActivity"
+            android:exported="false"
+            android:theme="@style/StripeDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.view.PaymentAuthWebViewActivity"
+            android:exported="false"
+            android:theme="@style/StripeDefaultTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.stripe.android.view.PaymentRelayActivity"
+            android:exported="false"
+            android:theme="@style/StripeTransparentTheme" />
+        <!--
+        Set android:launchMode="singleTop" so that the StripeBrowserLauncherActivity instance that
+        launched the browser Activity will also handle the return URL deep link.
+        -->
+        <activity
+            android:name="com.stripe.android.payments.StripeBrowserLauncherActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/StripeTransparentTheme" />
+        <activity
+            android:name="com.stripe.android.payments.StripeBrowserProxyReturnActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@style/StripeTransparentTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Must match `DefaultReturnUrl#value`. -->
+                <data
+                    android:host="payment_return_url"
+                    android:path="/com.algebratech.pulse_wellness"
+                    android:scheme="stripesdk" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.stripe.android.payments.core.authentication.threeds2.Stripe3ds2TransactionActivity"
+            android:exported="false"
+            android:theme="@style/StripeDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.googlepaylauncher.StripeGooglePayActivity"
+            android:exported="false"
+            android:theme="@style/StripeGooglePayDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.googlepaylauncher.GooglePayLauncherActivity"
+            android:exported="false"
+            android:theme="@style/StripeGooglePayDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.googlepaylauncher.GooglePayPaymentMethodLauncherActivity"
+            android:exported="false"
+            android:theme="@style/StripeGooglePayDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.payments.paymentlauncher.PaymentLauncherConfirmationActivity"
+            android:exported="false"
+            android:theme="@style/PayLauncherDefaultTheme" />
+        <activity
+            android:name="com.stripe.android.payments.bankaccount.ui.CollectBankAccountActivity"
+            android:exported="false"
+            android:theme="@style/StripeTransparentTheme" />
+        <activity
+            android:name="com.stripe.android.stripe3ds2.views.ChallengeActivity"
+            android:exported="false"
+            android:theme="@style/Stripe3DS2Theme" />
+        <activity
+            android:name="com.stripe.android.financialconnections.FinancialConnectionsSheetRedirectActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Accepts success and cancel URIs that begin with "stripe-auth://link-accounts” -->
+                <data
+                    android:host="link-accounts"
+                    android:path="/com.algebratech.pulse_wellness/success"
+                    android:scheme="stripe-auth" />
+                <data
+                    android:host="link-accounts"
+                    android:path="/com.algebratech.pulse_wellness/cancel"
+                    android:scheme="stripe-auth" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.stripe.android.financialconnections.FinancialConnectionsSheetActivity"
+            android:exported="false"
+            android:theme="@style/StripeDefaultTheme" />
+
+        <provider
+            android:name="com.stripe.android.financialconnections.appinitializer.FinancialConnectionsInitializer"
+            android:authorities="com.algebratech.pulse_wellness.financialconnections-init"
+            android:exported="false"
+            android:multiprocess="true" />
+
+        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
+        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
+        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" />
+        <activity
+            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="firebase.auth"
+                    android:path="/"
+                    android:scheme="genericidp" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="firebase.auth"
+                    android:path="/"
+                    android:scheme="recaptcha" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:directBootAware="true"
+            android:exported="false" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
+        <!--
+             FirebaseMessagingService performs security checks at runtime,
+             but set to not exported to explicitly avoid allowing another app to call it.
+        -->
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:directBootAware="true"
+            android:exported="false" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.algebratech.pulse_wellness.firebaseinitprovider"
+            android:directBootAware="true"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.algebratech.pulse_wellness.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+        <service
+            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+            android:exported="false" >
+            <meta-data
+                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+                android:value="cct" />
+        </service>
+        <service
+            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" >
+        </service>
+
+        <receiver
+            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+            android:exported="false" />
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.DUMP" >
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+            </intent-filter>
+        </receiver> <!-- The activities will be merged into the manifest of the hosting app. -->
+        <activity
+            android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity"
+            android:enabled="false"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:process=":playcore_missing_splits_activity"
+            android:stateNotNeeded="true" />
+        <activity
+            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+            android:enabled="false"
+            android:exported="false"
+            android:stateNotNeeded="true"
+            android:theme="@style/Theme.PlayCore.Transparent" /> <!-- The service will be merged into the manifest of the hosting app. -->
+        <service
+            android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"
+            android:enabled="false"
+            android:exported="true" />
+
+        <meta-data
+            android:name="aia-compat-api-min-version"
+            android:value="1" />
+    </application>
+
+</manifest>

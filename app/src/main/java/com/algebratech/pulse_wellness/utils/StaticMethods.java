@@ -30,10 +30,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 
 public class StaticMethods {
     Context context;
+
+    public static Long getCurrentTimeStamp(){
+        return  System.currentTimeMillis()/1000;
+    }
 
     public static Double StepsToCurrency(double steps, double pointValue) {
         double pulsePoints = steps * pointValue;
@@ -289,6 +294,14 @@ public class StaticMethods {
             result = true;
         }
         return  result;
+    }
+
+    public static Long calculateDaysBetweenTimeStamps(Long fromdate , Long todate){
+        int days = 0;
+        long diffInMillies = Math.abs(todate - fromdate);
+        long diffInDays = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+
+        return diffInDays;
     }
 }
 
