@@ -342,7 +342,7 @@ public class SubscriptionPlansListingScreen extends AppCompatActivity implements
             subscriptionPlanModelsList.get(0).setSelected(true);
             plan_id = subscriptionPlanModelsList.get(0).getId();
 
-            webView = (WebView) findViewById(R.id.simpleWebView);
+            webView = findViewById(R.id.simpleWebView);
             webView.getSettings().setJavaScriptEnabled(true);
             WebSettings webSettings = webView.getSettings();
             webSettings.setDefaultFixedFontSize(18);

@@ -287,8 +287,7 @@ public class NewsFeedFragment extends Fragment implements RecyclerView.OnScrollC
     private boolean isLastItemDisplaying(RecyclerView recyclerView) {
         if (recyclerView.getAdapter().getItemCount() != 0) {
             int lastVisibleItemPosition = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
-            if (lastVisibleItemPosition != RecyclerView.NO_POSITION && lastVisibleItemPosition == recyclerView.getAdapter().getItemCount() - 1)
-                return true;
+            return lastVisibleItemPosition != RecyclerView.NO_POSITION && lastVisibleItemPosition == recyclerView.getAdapter().getItemCount() - 1;
         }
         return false;
     }
@@ -597,7 +596,7 @@ public class NewsFeedFragment extends Fragment implements RecyclerView.OnScrollC
 
                         Uri uri = Uri.fromFile(new File(post_data));
 
-                        String displayName = String.valueOf(Calendar.getInstance().getTimeInMillis() + "." + extension);
+                        String displayName = Calendar.getInstance().getTimeInMillis() + "." + extension;
 
                         uploadPost(displayName, uri);
 
@@ -665,7 +664,7 @@ public class NewsFeedFragment extends Fragment implements RecyclerView.OnScrollC
                         if (error.getMessage().contains(Api.baseurl)) {
                             Toast.makeText(getContext(), "No internet connection available!!!.", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(getContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
 
                     } catch (Exception e) {
@@ -725,7 +724,7 @@ public class NewsFeedFragment extends Fragment implements RecyclerView.OnScrollC
                                     if (error.getMessage().contains(Api.baseurl)) {
                                         Toast.makeText(getContext(), "No internet connection available!!!.", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Toast.makeText(getContext(), error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
 
                                 } catch (Exception e) {
@@ -816,7 +815,7 @@ public class NewsFeedFragment extends Fragment implements RecyclerView.OnScrollC
                 if (!returnValue.isEmpty()) {
 
                     if (!StaticMethods.sizeLimitUpload(returnValue.get(0))) {
-                        Log.d(Constants.TAG + "PATH", returnValue.get(0).toString());
+                        Log.d(Constants.TAG + "PATH", returnValue.get(0));
                         Log.d(Constants.TAG + "DATA", Uri.fromFile(new File(returnValue.get(0))).toString());
 
                         File f = new File(returnValue.get(0));
@@ -832,7 +831,7 @@ public class NewsFeedFragment extends Fragment implements RecyclerView.OnScrollC
 
                             video = true;
                             image = false;
-                            Log.d(Constants.TAG + "File", f.getAbsolutePath().toString() + video);
+                            Log.d(Constants.TAG + "File", f.getAbsolutePath() + video);
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                                 bitmap = ThumbnailUtils.createVideoThumbnail(f, new Size(500, 500), null);
                             } else {
@@ -862,7 +861,7 @@ public class NewsFeedFragment extends Fragment implements RecyclerView.OnScrollC
 
                             image = true;
                             video = false;
-                            Log.d(Constants.TAG + "File", f.getAbsolutePath().toString());
+                            Log.d(Constants.TAG + "File", f.getAbsolutePath());
                             bitmap = BitmapFactory.decodeFile(f.getAbsolutePath());
                             Log.d(Constants.TAG + "Bitmap", BitmapUtils.decodeImage(bitmap));
                             //Glide.with(context).load(StaticMethods.RotateBitmap(bitmap,-90)).into(imgPreview);

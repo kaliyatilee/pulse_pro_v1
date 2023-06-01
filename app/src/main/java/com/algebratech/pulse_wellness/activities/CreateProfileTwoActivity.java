@@ -250,7 +250,7 @@ public class CreateProfileTwoActivity extends AppCompatActivity {
         }
     }
 
-    private TextWatcher textWatcher = new TextWatcher() {
+    private final TextWatcher textWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 

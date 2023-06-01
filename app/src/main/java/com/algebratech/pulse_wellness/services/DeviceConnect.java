@@ -161,7 +161,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     int watchDataDay = 3;
     int contactMsgLength = 0;
     int allMsgLenght = 4;
-    private int deviceNumber = -1;
+    private final int deviceNumber = -1;
     private String deviceVersion;
     private String deviceTestVersion;
     boolean isNewSportCalc = false;
@@ -173,7 +173,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
     private String CHANNEL_ID;
     private DBHelper db;
     private String user_id;
-    private String tag = "SyncDataActivity";
+    private final String tag = "SyncDataActivity";
     int STEPS = 0;
     double KCAL = 0;
     double DISS = 0;
@@ -191,7 +191,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
 
 
         intent = new Intent(BROADCAST_ACTION);
-        mVpoperateManager = mVpoperateManager.getMangerInstance(mContext.getApplicationContext());
+        mVpoperateManager = VPOperateManager.getMangerInstance(mContext.getApplicationContext());
         //getNotification();
         //registerBluetoothStateListener();
         //circleImageView.setBorderColor(ResourcesCompat.getColor(mContext.getResources(), R.color.orange, null));
@@ -301,13 +301,9 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
             bleConnectAdatpter.notifyDataSetChanged();
         }
 
-        if (!BluetoothUtils.isBluetoothEnabled()) {
-            return true;
-        }
+        return !BluetoothUtils.isBluetoothEnabled();
 
 //        searchDevice();
-
-        return false;
     }
 
     private void searchDevice() {
@@ -745,7 +741,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
         myEdit = sharedPreferences.edit();
         deviceMac = sharedPreferences.getString("macAddress", "0");
 
-        Log.e("Trynos write cmd status: ", deviceMac + "__" + String.valueOf(code));
+        Log.e("Trynos write cmd status: ", deviceMac + "__" + code);
 
         if (deviceMac.equals("0") || deviceMac.isEmpty()) {
 
@@ -806,7 +802,7 @@ public class DeviceConnect extends Service implements IBleWriteResponse, ISportM
 
     void checkForResumeActivity() {
         String activityStatus = sharedPreferences.getString("Activity Status", "");
-        Log.e(activityStatus.toString(), activityStatus.toString());
+        Log.e(activityStatus, activityStatus);
         if (activityStatus == "Started") {
             Log.e("Started and dis", "Started and disconnected");
             String activityTime = sharedPreferences.getString("Activity Time", "");

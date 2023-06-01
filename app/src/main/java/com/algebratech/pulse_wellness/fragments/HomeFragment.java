@@ -101,10 +101,10 @@ public class HomeFragment extends Fragment {
 
     private ArrayList<SlidingModel> imageModelArrayList;
     private static final String TAG = "AlgosecServiceLog";
-    private static int currentPage = 0;
+    private static final int currentPage = 0;
     private static int NUM_PAGES = 0;
     private Intent intent,intent2;
-    private int[] myImageList = new int[]{R.drawable.banner_1, R.drawable.banner_calculator, R.drawable.banner_3};
+    private final int[] myImageList = new int[]{R.drawable.banner_1, R.drawable.banner_calculator, R.drawable.banner_3};
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
     Context mContext;
@@ -115,7 +115,7 @@ public class HomeFragment extends Fragment {
     ProgressBar progressBar, runningProgress, myPlanKcalPro, myPlanKMPro, weightPro, kcalPro, stepsPro;
     private final int REQUEST_CODE = 1;
     VPOperateManager mVpoperateManager;
-    private int deviceNumber = -1;
+    private final int deviceNumber = -1;
     Boolean isdeviceConnected = false;
     ProgressBar progress_bar;
     //database helper object
@@ -124,7 +124,7 @@ public class HomeFragment extends Fragment {
     View root;
     private String amount, today;
     int progress = 30;
-    private List<WellnessPlanModel> wellnessPlanModels = new ArrayList<>();
+    private final List<WellnessPlanModel> wellnessPlanModels = new ArrayList<>();
     String userId;
     Button addGoals;
     TextView total_lose_weight, total_running, total_calories, total_steps ;
@@ -204,7 +204,7 @@ public class HomeFragment extends Fragment {
             distance = root.findViewById(R.id.distance);
             tmpReading = root.findViewById(R.id.tmpReading);
 
-            mVpoperateManager = mVpoperateManager.getMangerInstance(mContext.getApplicationContext());
+            mVpoperateManager = VPOperateManager.getMangerInstance(mContext.getApplicationContext());
             imageModelArrayList = new ArrayList<>();
             imageModelArrayList = populateList();
             NUM_PAGES = imageModelArrayList.size();
@@ -516,7 +516,7 @@ public class HomeFragment extends Fragment {
 
                                             Double weekKCal = Double.parseDouble(sum_of_calories_for_week) * 100 / Double.parseDouble(calories_burnt_calculation);
                                             int tempweekKCal = (int) Math.round(weekKCal);
-                                            myPlanKcalProText.setText(String.valueOf(tempweekKCal) + "%");
+                                            myPlanKcalProText.setText(tempweekKCal + "%");
                                             myPlanKcalPro.setProgress(tempweekKCal);
 
                                             if(tempweekKCal >= 100) {
@@ -528,7 +528,7 @@ public class HomeFragment extends Fragment {
 
                                             Double weekKM = Double.parseDouble(sum_of_distance_for_week) * 100 / Double.parseDouble(wellness_plan_distance);
                                             int tempweekKM = (int) Math.round(weekKM);
-                                            myPlanKMProText.setText(String.valueOf(tempweekKM) + "%");
+                                            myPlanKMProText.setText(tempweekKM + "%");
                                             myPlanKMPro.setProgress(tempweekKCal);
 
                                             if(tempweekKM >= 100) {
@@ -596,25 +596,25 @@ public class HomeFragment extends Fragment {
 
                                             Double weightLoose = Double.parseDouble(sum_of_weight_for_day) * 100 / Double.parseDouble(setgoal_weight);
                                             int tempWeightLoose = (int) Math.round(weightLoose);
-                                            weightProText.setText(String.valueOf(tempWeightLoose) + "%");
+                                            weightProText.setText(tempWeightLoose + "%");
                                             weightPro.setProgress(tempWeightLoose);
 
 
                                             Double runningPro = Double.parseDouble(sum_of_distance_for_day) * 100 / Double.parseDouble(setgoal_running_distance);
                                             int temprunningPro = (int) Math.round(runningPro);
-                                            runningProgressText.setText(String.valueOf(temprunningPro) + "%");
+                                            runningProgressText.setText(temprunningPro + "%");
                                             runningProgress.setProgress(temprunningPro);
 
 
                                             Double KcalPro = Double.parseDouble(sum_of_calories_for_day) * 100 / Double.parseDouble(setgoal_calories);
                                             int tempKcalPro = (int) Math.round(KcalPro);
-                                            runningProgressText.setText(String.valueOf(tempKcalPro) + "%");
+                                            runningProgressText.setText(tempKcalPro + "%");
                                             runningProgress.setProgress(tempKcalPro);
 
 
                                             Double stepsProo = Double.parseDouble(sum_of_steps_for_day) * 100 / Double.parseDouble(setgoal_steps);
                                             int tempstepsPro = (int) Math.round(stepsProo);
-                                            stepsProText.setText(String.valueOf(tempstepsPro) + "%");
+                                            stepsProText.setText(tempstepsPro + "%");
                                             stepsPro.setProgress(tempstepsPro);
                                         }
                                     } else {
@@ -737,7 +737,7 @@ public class HomeFragment extends Fragment {
     }
 
 
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.e("LOGG", "BROADCASTRECEIVER");

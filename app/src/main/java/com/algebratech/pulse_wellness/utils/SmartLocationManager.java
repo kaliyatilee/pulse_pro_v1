@@ -50,15 +50,15 @@ public class SmartLocationManager implements
     private Location networkLocation;
     private Location gpsLocation;
 
-    private int mLocationPiority;
-    private long mLocationFetchInterval;
-    private long mFastestLocationFetchInterval;
+    private final int mLocationPiority;
+    private final long mLocationFetchInterval;
+    private final long mFastestLocationFetchInterval;
 
-    private Context mContext;                                                                       // application context
-    private Activity mActivity;                                                                     // activity context
+    private final Context mContext;                                                                       // application context
+    private final Activity mActivity;                                                                     // activity context
     private LocationRequest mLocationRequest;
     private GoogleApiClient mGoogleApiClient;
-    private LocationManagerInterface mLocationManagerInterface;
+    private final LocationManagerInterface mLocationManagerInterface;
 
     private LocationManager locationManager;
     private android.location.LocationListener locationListener;
@@ -66,7 +66,7 @@ public class SmartLocationManager implements
     boolean isGPSEnabled;
     boolean isNetworkEnabled;
 
-    private int mProviderType;
+    private final int mProviderType;
     public static final int NETWORK_PROVIDER = 1;
     public static final int ALL_PROVIDERS = 0;
     public static final int GPS_PROVIDER = 2;
@@ -402,11 +402,7 @@ public class SmartLocationManager implements
     public boolean isGooglePlayServicesAvailable() {
         int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(mContext);
 
-        if (status == ConnectionResult.SUCCESS) {
-            return true;
-        } else {
-            return false;
-        }
+        return status == ConnectionResult.SUCCESS;
     }
 
     /**
@@ -469,11 +465,7 @@ public class SmartLocationManager implements
     }
 
     public boolean isLocationAccurate(Location location) {
-        if (location.hasAccuracy()) {
-            return true;
-        } else {
-            return false;
-        }
+        return location.hasAccuracy();
     }
 
     public Location getStaleLocation() {

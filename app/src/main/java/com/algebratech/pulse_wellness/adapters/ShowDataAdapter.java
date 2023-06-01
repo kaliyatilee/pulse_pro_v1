@@ -28,8 +28,8 @@ import java.util.Date;
 public class ShowDataAdapter extends RecyclerView.Adapter<ShowDataAdapter.MyViewHolder> {
 
 
-    private Context mContext;
-    private ArrayList<ActivityListModel> products;
+    private final Context mContext;
+    private final ArrayList<ActivityListModel> products;
 
     public ShowDataAdapter(Context context, ArrayList<ActivityListModel> showact) {
         this.mContext = context;
@@ -72,8 +72,11 @@ public class ShowDataAdapter extends RecyclerView.Adapter<ShowDataAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView dateTime, kal, step, distance;
-        private ImageView more;
+        private final TextView dateTime;
+        private final TextView kal;
+        private final TextView step;
+        private final TextView distance;
+        private final ImageView more;
 
 
         public MyViewHolder(View view) {

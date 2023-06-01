@@ -19,8 +19,8 @@ import java.util.List;
 
 public class ScanWearableAdapter extends RecyclerView.Adapter {
 
-    private Context context;
-    private List<SearchResult> devices;
+    private final Context context;
+    private final List<SearchResult> devices;
     private onItemClickListener listener;
 
     public ScanWearableAdapter(Context context, List<SearchResult> devices) {
@@ -60,10 +60,10 @@ public class ScanWearableAdapter extends RecyclerView.Adapter {
     }
 
     private class DeviceHolder extends RecyclerView.ViewHolder {
-        private RelativeLayout rl_device;
-        private TextView tv_name;
-        private TextView tv_mac;
-        private TextView tv_rrsi;
+        private final RelativeLayout rl_device;
+        private final TextView tv_name;
+        private final TextView tv_mac;
+        private final TextView tv_rrsi;
 
         public DeviceHolder(@NonNull View itemView) {
             super(itemView);

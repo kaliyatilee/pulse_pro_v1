@@ -167,7 +167,7 @@ public class SyncWearableService  extends Service {
             List<SleepData> sleepData = GlobalGreenDAO.getInstance().loadSleepDataByDate(year,month,day);
             SleepSubData sleepSubData = WristbandCalculator.sumOfSleepDataByDate(year,month,day,sleepData);
 
-            Log.d(Constants.TAG,"Sleep data"+sleepData.toString());
+            Log.d(Constants.TAG,"Sleep data"+ sleepData);
 
             try {
                 intent.putExtra("deepSleep",""+sleepSubData.getDeepSleepTime());
@@ -190,10 +190,10 @@ public class SyncWearableService  extends Service {
             intent.putExtra("sync_status", "Syncing ..");
             intent.putExtra("isSyncing","no");
             sendBroadcast(intent);
-            noSoundNotification("Wearable Connected", "Steps : " + mSteps + " \n Distance : " + String.valueOf(distance) + " \n Kcals : " + kcals);
+            noSoundNotification("Wearable Connected", "Steps : " + mSteps + " \n Distance : " + distance + " \n Kcals : " + kcals);
 
             if (isWebSyncing == false){
-                pointsmanipulation(subData.getStepCount(), String.valueOf(distance), String.valueOf(kcals));
+                pointsmanipulation(subData.getStepCount(), String.valueOf(distance), kcals);
             }
 
             WristbandManager.getInstance(getApplicationContext()).sendDataRequest();
@@ -283,7 +283,7 @@ public class SyncWearableService  extends Service {
         public void onSleepDataReceiveIndication(ApplicationLayerSleepPacket packet) {
             super.onSleepDataReceiveIndication(packet);
             sharedPreferenceUtil.setSleepData(packet.getSleepItems());
-            Log.d(TAG, "onSleepDataReceiveIndication: "+packet.toString());
+            Log.d(TAG, "onSleepDataReceiveIndication: "+ packet);
         }
 
         @Override

@@ -56,13 +56,13 @@ public enum CreditCardType {
     public static final int DEFAULT_MAX_LENGTH = 4 * 5 ;
 
     private String[] prefixs;
-    private int[] blockLengths;
-    private String name;
+    private final int[] blockLengths;
+    private final String name;
     // Name of Image in "drawable" folder.
-    private String imageResourceName;
+    private final String imageResourceName;
 
-    private int minLength;
-    private int maxLength;
+    private final int minLength;
+    private final int maxLength;
 
     CreditCardType(String name, String imageResourceName,
                    int minLength, int maxLength,

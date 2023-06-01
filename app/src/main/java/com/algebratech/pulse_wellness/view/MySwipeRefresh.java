@@ -13,8 +13,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import java.lang.reflect.Field;
 
 public class MySwipeRefresh extends SwipeRefreshLayout implements ViewTreeObserver.OnGlobalLayoutListener {
-    private static float MAX_SWIPE_DISTANCE_FACTOR = 0.6f;
-    private static int DEFAULT_REFRESH_TRIGGER_DISTANCE = 200;
+    private static final float MAX_SWIPE_DISTANCE_FACTOR = 0.6f;
+    private static final int DEFAULT_REFRESH_TRIGGER_DISTANCE = 200;
 
     private int refreshTriggerDistance = DEFAULT_REFRESH_TRIGGER_DISTANCE;
 

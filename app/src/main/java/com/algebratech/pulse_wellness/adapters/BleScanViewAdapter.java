@@ -90,9 +90,9 @@ public class BleScanViewAdapter extends RecyclerView.Adapter<BleScanViewAdapter.
 
         NormalTextViewHolder(View view) {
             super(view);
-            mBleRssi = (TextView) view.findViewById(R.id.tv);
-            device = (TextView) view.findViewById(R.id.device);
-            deviceImg = (ImageView) view.findViewById(R.id.watch);
+            mBleRssi = view.findViewById(R.id.tv);
+            device = view.findViewById(R.id.device);
+            deviceImg = view.findViewById(R.id.watch);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

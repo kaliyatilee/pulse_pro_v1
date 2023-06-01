@@ -31,7 +31,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class RewardsAdapter  extends RecyclerView.Adapter<RewardsAdapter.MyViewHolder> {
 
-    private Context mContext;
+    private final Context mContext;
     private List<RewardsModel> products = new ArrayList<>();
     private DBHelper db;
     private SharedPreferences sharedPreferences;
@@ -45,10 +45,13 @@ public class RewardsAdapter  extends RecyclerView.Adapter<RewardsAdapter.MyViewH
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvHeadline, tvDesc,tvPrice,tvMerchant;
-        private ImageView imageView;
-        private CardView mContainer;
-        private YouTubePlayerView youtube_vid;
+        private final TextView tvHeadline;
+        private final TextView tvDesc;
+        private final TextView tvPrice;
+        private final TextView tvMerchant;
+        private final ImageView imageView;
+        private final CardView mContainer;
+        private final YouTubePlayerView youtube_vid;
 
 
         public MyViewHolder (View view){

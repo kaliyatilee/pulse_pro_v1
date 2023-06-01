@@ -48,7 +48,7 @@ public class FriendProfileActivity extends AppCompatActivity {
                         new allActivityModel("1-2 pm", "20", "1000", "100", "Walking"),
                 };
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_activity_data);
+        RecyclerView recyclerView = findViewById(R.id.recycle_activity_data);
 
         allActivityAdapter adapter = new allActivityAdapter(allActivityModels);
         recyclerView.setHasFixedSize(true);

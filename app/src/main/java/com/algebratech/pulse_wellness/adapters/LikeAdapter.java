@@ -2,6 +2,7 @@ package com.algebratech.pulse_wellness.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,7 @@ public class LikeAdapter extends RecyclerView.Adapter<LikeAdapter.ViewHolder> {
             android.text.format.DateFormat df = new android.text.format.DateFormat();
         try {
             Date d = sdf.parse(listdata.get(position).getLikeTime());
-            holder.likeTime.setText(df.format("dd MMM h:mm a", d));
+            holder.likeTime.setText(DateFormat.format("dd MMM h:mm a", d));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -94,9 +95,9 @@ public class LikeAdapter extends RecyclerView.Adapter<LikeAdapter.ViewHolder> {
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.userProfile = (ImageView) itemView.findViewById(R.id.userProfile);
-            this.username = (TextView) itemView.findViewById(R.id.userName);
-            this.likeTime = (TextView) itemView.findViewById(R.id.likeTime);
+            this.userProfile = itemView.findViewById(R.id.userProfile);
+            this.username = itemView.findViewById(R.id.userName);
+            this.likeTime = itemView.findViewById(R.id.likeTime);
 
         }
     }

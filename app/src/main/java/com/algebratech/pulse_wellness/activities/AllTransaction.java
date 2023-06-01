@@ -81,7 +81,7 @@ public class AllTransaction extends AppCompatActivity implements NewsFeedListner
         sharedPreferences = getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
         userId = sharedPreferences.getString("userID", null);
         no_transaction = findViewById(R.id.no_transaction);
-        recyclerView = (RecyclerView) findViewById(R.id.recycle_token);
+        recyclerView = findViewById(R.id.recycle_token);
         getAllTransactions(requestCountmain);
 
     }

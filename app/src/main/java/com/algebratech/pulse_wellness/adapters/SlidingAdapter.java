@@ -18,9 +18,9 @@ import java.util.ArrayList;
 
 public class SlidingAdapter extends PagerAdapter {
 
-    private ArrayList<SlidingModel> imageModelArrayList;
-    private LayoutInflater inflater;
-    private Context context;
+    private final ArrayList<SlidingModel> imageModelArrayList;
+    private final LayoutInflater inflater;
+    private final Context context;
 
     public SlidingAdapter(Context context, ArrayList<SlidingModel> imageModelArrayList) {
         this.context = context;

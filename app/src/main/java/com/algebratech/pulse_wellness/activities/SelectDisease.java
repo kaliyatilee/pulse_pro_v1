@@ -61,7 +61,7 @@ public class SelectDisease extends AppCompatActivity implements NewsFeedListner 
     private DiseaseAdapter diseaseAdapter;
     private RecyclerView.Adapter mAdapter;
     private TextView diseaseButton;
-    private List<String> array = new ArrayList<>();
+    private final List<String> array = new ArrayList<>();
     private RequestQueue requestQueue;
     String event;
 
@@ -211,7 +211,7 @@ public class SelectDisease extends AppCompatActivity implements NewsFeedListner 
     }
 
     void setDataAdapter() {
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_diseases);
+        RecyclerView recyclerView = findViewById(R.id.recycle_diseases);
         diseaseAdapter = new DiseaseAdapter(diseaseModels, this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(SelectDisease.this));

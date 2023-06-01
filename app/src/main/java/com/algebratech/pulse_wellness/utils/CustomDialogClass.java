@@ -33,7 +33,7 @@ public class CustomDialogClass extends Dialog
         View v = getWindow().getDecorView();
         v.setBackgroundResource(android.R.color.transparent);
 
-        loader = (AVLoadingIndicatorView) findViewById(R.id.indicator);
+        loader = findViewById(R.id.indicator);
         loader.show();
     }
 

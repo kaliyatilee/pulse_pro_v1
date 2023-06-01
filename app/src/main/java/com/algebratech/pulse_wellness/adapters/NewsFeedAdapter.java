@@ -5,6 +5,7 @@ import static android.content.Context.MODE_PRIVATE;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,8 +40,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyViewHolder> {
 
-    private Context mContext;
-    private NewsFeedListner newsFeedListner;
+    private final Context mContext;
+    private final NewsFeedListner newsFeedListner;
     private List<NewsFeedModel> products = new ArrayList<>();
     SharedPreferences sharedPreferences;
     private FragmentManager FM;
@@ -93,7 +94,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyView
             android.text.format.DateFormat df = new android.text.format.DateFormat();
             Date d = sdf.parse(product.getCreatedAt());
 
-            holder.tv_time.setText(df.format("dd MMM yyyy h:mm a", d));
+            holder.tv_time.setText(DateFormat.format("dd MMM yyyy h:mm a", d));
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -291,13 +292,26 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView userName, tv_time, tv_status, headline, LikeCount, likeText, CommentCount, points;
-        private ImageView imageView, likeImg, delete;
-        private CircleImageView userProfile;
-        private LinearLayout vdimg, share, linearComments, data;
+        private final TextView userName;
+        private final TextView tv_time;
+        private final TextView tv_status;
+        private final TextView headline;
+        private final TextView LikeCount;
+        private final TextView likeText;
+        private final TextView CommentCount;
+        private final TextView points;
+        private final ImageView imageView;
+        private final ImageView likeImg;
+        private final ImageView delete;
+        private final CircleImageView userProfile;
+        private final LinearLayout vdimg;
+        private final LinearLayout share;
+        private final LinearLayout linearComments;
+        private final LinearLayout data;
         private YouTubePlayerView youTubePlayerView;
         private AndExoPlayerView videoView;
-        private RelativeLayout relativeLayoutLikes, relativeLayoutClick;
+        private final RelativeLayout relativeLayoutLikes;
+        private final RelativeLayout relativeLayoutClick;
         //      private CardView mContainer;
 
 

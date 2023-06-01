@@ -14,7 +14,7 @@ public class CreditCardNumberTextWatcher implements TextWatcher {
     private static final String LOG_TAG = "AndroidExample";
     public static final char SEPARATOR = '-';
 
-    private EditText editText;
+    private final EditText editText;
 
     private int after;
     private String beforeString;

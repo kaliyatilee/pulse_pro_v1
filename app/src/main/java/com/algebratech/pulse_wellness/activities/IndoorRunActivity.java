@@ -166,7 +166,8 @@ public class IndoorRunActivity extends AppCompatActivity implements OnMapReadyCa
     Location mLastLocation;
     Marker mCurrLocationMarker;
     Dialog mLocationDialog;
-    private String lati, longi = "";
+    private String lati;
+    private final String longi = "";
     double latitud;
     double longitud;
     double Current_latitud = 0.0;
@@ -227,7 +228,7 @@ public class IndoorRunActivity extends AppCompatActivity implements OnMapReadyCa
         }
 
 
-        mVpoperateManager = mVpoperateManager.getMangerInstance(this.getApplicationContext());
+        mVpoperateManager = VPOperateManager.getMangerInstance(this.getApplicationContext());
         stepss = findViewById(R.id.steps);
         caloriess = findViewById(R.id.calories);
         distancee = findViewById(R.id.distance);
@@ -524,7 +525,7 @@ public class IndoorRunActivity extends AppCompatActivity implements OnMapReadyCa
     }
 
 
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             updateSmartWatchServeUI(intent);
@@ -732,7 +733,7 @@ public class IndoorRunActivity extends AppCompatActivity implements OnMapReadyCa
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_LOCATION: {
                 // If request is cancelled, the result arrays are empty.
@@ -830,7 +831,7 @@ public class IndoorRunActivity extends AppCompatActivity implements OnMapReadyCa
 
             if (!returnValue.isEmpty()) {
 
-                Log.e(Constants.TAG + "PATH", returnValue.get(0).toString());
+                Log.e(Constants.TAG + "PATH", returnValue.get(0));
 
                 File f = new File(returnValue.get(0));
                 int len = f.getAbsolutePath().length();
@@ -917,9 +918,9 @@ public class IndoorRunActivity extends AppCompatActivity implements OnMapReadyCa
         });
 
         final int elapsed = (int) (SystemClock.elapsedRealtime() - simpleChronometer.getBase());
-        final int seconds = (int) (elapsed / 1000) % 60;
-        final int minutes = (int) ((elapsed / (1000 * 60)) % 60);
-        final int hours = (int) ((elapsed / (1000 * 60 * 60)) % 24);
+        final int seconds = (elapsed / 1000) % 60;
+        final int minutes = (elapsed / (1000 * 60)) % 60;
+        final int hours = (elapsed / (1000 * 60 * 60)) % 24;
 
         final double Timeinseconds = StaticMethods.hoursToseconds(hours) + StaticMethods.munitesToseconds(minutes) + seconds;
         final double avaragePace = StaticMethods.roundTwoDecimals(StaticMethods.avaragePace(activityDistance, Timeinseconds));

@@ -62,7 +62,7 @@ public class LeaderboardFragment extends Fragment implements NewsFeedListner {
     View root;
     private Context mContext;
     private RecyclerView leaderBoardRecycle;
-    private List<LeaderBoardModel> leaderBoardModels = new ArrayList<>();
+    private final List<LeaderBoardModel> leaderBoardModels = new ArrayList<>();
     private RecyclerView.Adapter leaderAdapter;
     private LinearLayout cardView;
     private String userId;

@@ -190,7 +190,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     if (error.getMessage().contains(Api.baseurl)) {
                         Toast.makeText(RegisterActivity.this, "No internet connection available!!!.", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(RegisterActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (Exception e) {
@@ -261,7 +261,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    private TextWatcher textWatcher = new TextWatcher() {
+    private final TextWatcher textWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 

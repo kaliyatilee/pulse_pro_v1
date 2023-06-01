@@ -20,7 +20,7 @@ import com.algebratech.pulse_wellness.models.LikeModel;
 import com.algebratech.pulse_wellness.models.addFriendModel;
 
 public class addFriendAdapter extends RecyclerView.Adapter<addFriendAdapter.ViewHolder> {
-    private addFriendModel[] addFriendModels;
+    private final addFriendModel[] addFriendModels;
     Context context;
     public addFriendAdapter(addFriendModel[] addFriendModels, Context context) {
         this.addFriendModels = addFriendModels;
@@ -69,10 +69,10 @@ public class addFriendAdapter extends RecyclerView.Adapter<addFriendAdapter.View
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.imageView = (ImageView) itemView.findViewById(R.id.imgView);
-            this.textView = (TextView) itemView.findViewById(R.id.tvFullname);
-            this.button = (Button) itemView.findViewById(R.id.addMember);
-            this.friendcard = (CardView) itemView.findViewById(R.id.friendcard);
+            this.imageView = itemView.findViewById(R.id.imgView);
+            this.textView = itemView.findViewById(R.id.tvFullname);
+            this.button = itemView.findViewById(R.id.addMember);
+            this.friendcard = itemView.findViewById(R.id.friendcard);
         }
     }
 }

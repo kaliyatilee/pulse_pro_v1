@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 public class allActivityAdapter extends RecyclerView.Adapter<allActivityAdapter.ViewHolder>{
 
-    private allActivityModel[] allActivityModels;
+    private final allActivityModel[] allActivityModels;
 
     public allActivityAdapter(allActivityModel[] allActivityModels) {
         this.allActivityModels = allActivityModels;
@@ -59,12 +59,12 @@ public class allActivityAdapter extends RecyclerView.Adapter<allActivityAdapter.
         public TextView activtyName;
         public ViewHolder(View itemView) {
             super(itemView);
-            this.time = (TextView) itemView.findViewById(R.id.time);
-            this.calories = (TextView) itemView.findViewById(R.id.calories);
-            this.steps = (TextView) itemView.findViewById(R.id.steps);
-            this.points = (TextView) itemView.findViewById(R.id.points);
-            this.cardView = (LinearLayout) itemView.findViewById(R.id.card_layout);
-            this.activtyName = (TextView) itemView.findViewById(R.id.activity_name);
+            this.time = itemView.findViewById(R.id.time);
+            this.calories = itemView.findViewById(R.id.calories);
+            this.steps = itemView.findViewById(R.id.steps);
+            this.points = itemView.findViewById(R.id.points);
+            this.cardView = itemView.findViewById(R.id.card_layout);
+            this.activtyName = itemView.findViewById(R.id.activity_name);
         }
     }
 

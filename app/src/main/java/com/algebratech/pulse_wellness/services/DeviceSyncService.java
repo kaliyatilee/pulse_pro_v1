@@ -73,7 +73,7 @@ public class DeviceSyncService extends Service {
     public static boolean IsRunning = false;
     public static final String BROADCAST_ACTION = "com.algebratech.pulse_wellness.DeviceConnectData";
     Context context = DeviceSyncService.this;
-    private String tag = "SyncDataActivity";
+    private final String tag = "SyncDataActivity";
     String deviceMac;
     SharedPreferences.Editor myEdit;
     SharedPreferences sharedPreferences;

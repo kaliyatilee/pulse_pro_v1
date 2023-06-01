@@ -666,7 +666,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navListerner =
+    private final BottomNavigationView.OnNavigationItemSelectedListener navListerner =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @RequiresApi(api = Build.VERSION_CODES.M)
                 @Override
@@ -768,7 +768,7 @@ public class MainActivity extends AppCompatActivity {
         }, 2000);
     }
 
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.e("IDIGIT_21_07_RECEIVE", "Main Activity");
@@ -785,12 +785,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(TAG,"MainActivities STEPS"+steps);
         Log.d(TAG,"MainActivities distances"+distances);
-        if (!(distances == null)){
-            isActivityReady = true;
-        }
-        else{
-            isActivityReady = false;
-        }
+        isActivityReady = !(distances == null);
 
         if (isActivityReady){
             if (isActivityClicked) {
@@ -980,7 +975,7 @@ public class MainActivity extends AppCompatActivity {
     void checkForResumeActivity() {
         Log.e("Started and dis", "Started and disconnected");
         String activityStatus = sharedPreferences.getString("Activity Status", "");
-        Log.e(activityStatus.toString(), activityStatus.toString());
+        Log.e(activityStatus, activityStatus);
         if (activityStatus.equals("Started")) {
             Log.e("Started and dis", "Started and disconnected");
             String activityTime = sharedPreferences.getString("Activity Time", "");

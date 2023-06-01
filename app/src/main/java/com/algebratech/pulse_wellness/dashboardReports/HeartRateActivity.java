@@ -33,7 +33,7 @@ public class HeartRateActivity extends AppCompatActivity {
     TextView reading,averageValue,lowestValue,highestValue,tvDate;
     GraphView graph;
     LineGraphSeries<DataPoint> series;
-    private String tag = "HrActivity";
+    private final String tag = "HrActivity";
     List<Integer> hr;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
@@ -102,7 +102,7 @@ public class HeartRateActivity extends AppCompatActivity {
                 highestValue.setText(String.valueOf(highest));
                 lowestValue.setText(String.valueOf(lowest));
                 averageValue.setText(String.valueOf(average));
-                reading.setText(String.valueOf(average)+" BPS");
+                reading.setText(average +" BPS");
             }
         });
 

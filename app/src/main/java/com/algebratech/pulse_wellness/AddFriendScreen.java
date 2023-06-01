@@ -65,7 +65,7 @@ public class AddFriendScreen extends AppCompatActivity {
                         new addFriendModel("Vandan Raval", R.drawable.placeholder),
                 };
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_friend);
+        RecyclerView recyclerView = findViewById(R.id.recycle_friend);
         addFriendAdapter adapter = new addFriendAdapter(addFriendModels,this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

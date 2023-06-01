@@ -2,6 +2,7 @@ package com.algebratech.pulse_wellness.adapters;
 
 
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,8 +43,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdapter.MyViewHolder> {
 
-    private Context mContext;
-    private NewsFeedListner newsFeedListner;
+    private final Context mContext;
+    private final NewsFeedListner newsFeedListner;
     private List<FriendsModel> products = new ArrayList<>();
 
     public FriendRequestAdapter(Context context, List<FriendsModel> products, NewsFeedListner newsFeedListner) {
@@ -99,7 +100,7 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
             android.text.format.DateFormat df = new android.text.format.DateFormat();
             Date d = sdf.parse(product.getTimeAgo());
 
-            holder.timeAgo.setText(df.format("dd MMM h:mm a", d));
+            holder.timeAgo.setText(DateFormat.format("dd MMM h:mm a", d));
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -110,9 +111,11 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView userName, timeAgo;
-        private CircleImageView userProfile;
-        private ImageButton accept, reject;
+        private final TextView userName;
+        private final TextView timeAgo;
+        private final CircleImageView userProfile;
+        private final ImageButton accept;
+        private final ImageButton reject;
 
         public MyViewHolder(View view) {
             super(view);

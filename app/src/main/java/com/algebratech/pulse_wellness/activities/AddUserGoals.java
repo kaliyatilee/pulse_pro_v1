@@ -42,7 +42,7 @@ public class AddUserGoals extends AppCompatActivity {
     int i = 0;
     private SharedPreferences sharedPreferences;
     private String userId;
-    private int requestCountmain = 1;
+    private final int requestCountmain = 1;
     private RequestQueue requestQueue;
     String gender = "";
     ImageView userIcon;
@@ -88,7 +88,7 @@ public class AddUserGoals extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
                 float decimalProgress = (float) i / 10;
-                lose_weight.setText(String.valueOf(decimalProgress) + " gm");
+                lose_weight.setText(decimalProgress + " gm");
                 loseWeight = decimalProgress;
             }
 
@@ -110,7 +110,7 @@ public class AddUserGoals extends AppCompatActivity {
         seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                running_distance.setText(String.valueOf(i) + " km");
+                running_distance.setText(i + " km");
                 runningDistance = i;
             }
 
@@ -132,7 +132,7 @@ public class AddUserGoals extends AppCompatActivity {
         seekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                calories_burn.setText(String.valueOf(i) + " kcal");
+                calories_burn.setText(i + " kcal");
                 caloriesBurn = i;
             }
 
@@ -154,7 +154,7 @@ public class AddUserGoals extends AppCompatActivity {
         seekBar4.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                steps.setText(String.valueOf(i) + " steps");
+                steps.setText(i + " steps");
                 stepss = i;
             }
 

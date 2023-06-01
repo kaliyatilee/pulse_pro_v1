@@ -95,10 +95,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 if (pair.getKey().equals("body")) {
                     mNotificationMessage = pair.getValue().toString();
 
-                    if (mNotificationMessage.toUpperCase().contains("EVENT:"))
-                        mIsEvent = true;
-                    else
-                        mIsEvent = false;
+                    mIsEvent = mNotificationMessage.toUpperCase().contains("EVENT:");
                 }
             }
 
@@ -127,14 +124,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 if (pair.getKey().equals("body")) {
                     mNotificationMessage = pair.getValue().toString();
 
-                    if (mNotificationMessage.toUpperCase().contains("EVENT:"))
-                        mIsEvent = true;
-                    else
-                        mIsEvent = false;
+                    mIsEvent = mNotificationMessage.toUpperCase().contains("EVENT:");
                 }
             }
 
-            sendNotification(mTitle, remoteMessage.getNotification().getBody().toString(), mIsEvent);
+            sendNotification(mTitle, remoteMessage.getNotification().getBody(), mIsEvent);
         }
 
         // Also if you intend on generating your own notifications as a result of a received FCM

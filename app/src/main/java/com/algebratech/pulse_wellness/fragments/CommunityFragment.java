@@ -70,7 +70,7 @@ public class CommunityFragment extends Fragment implements NewsFeedListner {
     private String userId;
     private Context mContext;
     private RecyclerView.Adapter friendsAdapter;
-    private List<FriendsModel> friendsModelList = new ArrayList<>();
+    private final List<FriendsModel> friendsModelList = new ArrayList<>();
     List<FriendsModel> tempModelList = new ArrayList<>();
     private RequestQueue requestQueue;
     EditText search_friend;

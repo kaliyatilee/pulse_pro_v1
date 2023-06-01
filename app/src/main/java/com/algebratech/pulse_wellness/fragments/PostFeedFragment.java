@@ -178,7 +178,7 @@ public class PostFeedFragment extends Fragment {
 
                     Uri uri = Uri.fromFile(new File(post_data));
 
-                    String displayName = String.valueOf(Calendar.getInstance().getTimeInMillis() + "." + extension);
+                    String displayName = Calendar.getInstance().getTimeInMillis() + "." + extension;
                     Log.d("ooooooo", displayName);
                     uploadPost(displayName, uri);
 
@@ -250,7 +250,7 @@ public class PostFeedFragment extends Fragment {
                         if (error.getMessage().contains(Api.baseurl)) {
                             Toast.makeText(context, "No internet connection available!!!.", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(context, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
 
                     } catch (Exception e) {
@@ -288,7 +288,7 @@ public class PostFeedFragment extends Fragment {
             if (!returnValue.isEmpty()) {
 
                 if (!StaticMethods.sizeLimitUpload(returnValue.get(0))) {
-                    Log.d(Constants.TAG + "PATH", returnValue.get(0).toString());
+                    Log.d(Constants.TAG + "PATH", returnValue.get(0));
                     Log.d(Constants.TAG + "DATA", Uri.fromFile(new File(returnValue.get(0))).toString());
 
                     File f = new File(returnValue.get(0));
@@ -304,7 +304,7 @@ public class PostFeedFragment extends Fragment {
 
                         video = true;
                         image = false;
-                        Log.d(Constants.TAG + "File", f.getAbsolutePath().toString() + video);
+                        Log.d(Constants.TAG + "File", f.getAbsolutePath() + video);
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                             bitmap = ThumbnailUtils.createVideoThumbnail(f, new Size(500, 500), null);
                         } else {
@@ -334,7 +334,7 @@ public class PostFeedFragment extends Fragment {
 
                         image = true;
                         video = false;
-                        Log.d(Constants.TAG + "File", f.getAbsolutePath().toString());
+                        Log.d(Constants.TAG + "File", f.getAbsolutePath());
                         bitmap = BitmapFactory.decodeFile(f.getAbsolutePath());
                         Log.d(Constants.TAG + "Bitmap", BitmapUtils.decodeImage(bitmap));
                         //Glide.with(context).load(StaticMethods.RotateBitmap(bitmap,-90)).into(imgPreview);
@@ -453,7 +453,7 @@ public class PostFeedFragment extends Fragment {
                                     if (error.getMessage().contains(Api.baseurl)) {
                                         Toast.makeText(context, "No internet connection available!!!.", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Toast.makeText(context, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
 
                                 } catch (Exception e) {

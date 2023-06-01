@@ -165,7 +165,8 @@ public class StairStepperActivity extends AppCompatActivity implements OnMapRead
     Location mLastLocation;
     Marker mCurrLocationMarker;
     Dialog mLocationDialog;
-    private String lati, longi = "";
+    private String lati;
+    private final String longi = "";
     double latitud;
     double longitud;
     double Current_latitud = 0.0;
@@ -228,7 +229,7 @@ public class StairStepperActivity extends AppCompatActivity implements OnMapRead
         }
 
 
-        mVpoperateManager = mVpoperateManager.getMangerInstance(this.getApplicationContext());
+        mVpoperateManager = VPOperateManager.getMangerInstance(this.getApplicationContext());
 
 
         startCount();
@@ -296,9 +297,9 @@ public class StairStepperActivity extends AppCompatActivity implements OnMapRead
         });
 
         final int elapsed = (int) (SystemClock.elapsedRealtime() - simpleChronometer.getBase());
-        final int seconds = (int) (elapsed / 1000) % 60;
-        final int minutes = (int) ((elapsed / (1000 * 60)) % 60);
-        final int hours = (int) ((elapsed / (1000 * 60 * 60)) % 24);
+        final int seconds = (elapsed / 1000) % 60;
+        final int minutes = (elapsed / (1000 * 60)) % 60;
+        final int hours = (elapsed / (1000 * 60 * 60)) % 24;
 
         final double Timeinseconds = StaticMethods.hoursToseconds(hours) + StaticMethods.munitesToseconds(minutes) + seconds;
         final double avaragePace = StaticMethods.roundTwoDecimals(StaticMethods.avaragePace(activityDistance, Timeinseconds));
@@ -643,7 +644,7 @@ public class StairStepperActivity extends AppCompatActivity implements OnMapRead
     }
 
 
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             updateSmartWatchServeUI(intent);
@@ -852,7 +853,7 @@ public class StairStepperActivity extends AppCompatActivity implements OnMapRead
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_LOCATION: {
@@ -951,7 +952,7 @@ public class StairStepperActivity extends AppCompatActivity implements OnMapRead
 
             if (!returnValue.isEmpty()) {
 
-                Log.e(Constants.TAG + "PATH", returnValue.get(0).toString());
+                Log.e(Constants.TAG + "PATH", returnValue.get(0));
 
                 File f = new File(returnValue.get(0));
                 int len = f.getAbsolutePath().length();

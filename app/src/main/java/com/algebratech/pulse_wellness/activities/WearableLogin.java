@@ -13,7 +13,7 @@ import com.wosmart.ukprotocollibary.WristbandManager;
 import com.wosmart.ukprotocollibary.WristbandManagerCallback;
 
 public class WearableLogin extends AppCompatActivity {
-    private String tag = "LoginActivity";
+    private final String tag = "LoginActivity";
     Button btn_login;
 
     @SuppressLint("MissingInflatedId")

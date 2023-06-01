@@ -31,7 +31,7 @@ public class SleepActivity extends AppCompatActivity {
     ProgressBar progressBar;
     TextView tvTotalDuration,tvDate,deep,light,stayUp;
     Button showData;
-    private String tag = "SyncDataActivity";
+    private final String tag = "SyncDataActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

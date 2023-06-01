@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 public class MyRecyclerView extends RecyclerView {
-    private Context context;
+    private final Context context;
     private View emptyView;
     private ImageView emptyImage;
     private TextView emptyText;

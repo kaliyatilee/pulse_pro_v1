@@ -111,7 +111,7 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
             "None", "Callisto", "Ganymede", "Luna"
     };
 
-    private boolean[] clicked_colors = new boolean[COLORS.length];
+    private final boolean[] clicked_colors = new boolean[COLORS.length];
     private static final String[] COLORS = new String[]{
             "Calls", "Sms", "Whatsapp", "Facebook", "Instagram", "Twitter", "Email", "Others"
     };
@@ -434,7 +434,7 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     private void initRecyleView() {
         mSwipeRefreshLayout = findViewById(R.id.mian_swipeRefreshLayout);
-        mRecyclerView = (RecyclerView) super.findViewById(R.id.main_recylerlist);
+        mRecyclerView = super.findViewById(R.id.main_recylerlist);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         bleConnectAdatpter = new BleScanViewAdapter(this, mListData);
         mRecyclerView.setAdapter(bleConnectAdatpter);
@@ -482,7 +482,7 @@ public class ScanActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_BLUETOOTH: {

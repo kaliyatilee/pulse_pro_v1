@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ActivitiesSummaryAdapter extends RecyclerView.Adapter<ActivitiesSummaryAdapter.MyViewHolder> {
-    private Context mContext;
+    private final Context mContext;
     private List<TodaysActivityModel> activitiesSummaryModels = new ArrayList<>();
 
     public ActivitiesSummaryAdapter(Context mContext, List<TodaysActivityModel> activitiesSummaryModels) {
@@ -51,8 +51,10 @@ public class ActivitiesSummaryAdapter extends RecyclerView.Adapter<ActivitiesSum
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView activityTitle, activityTime, activityData;
-        private ImageView activityImage;
+        private final TextView activityTitle;
+        private final TextView activityTime;
+        private final TextView activityData;
+        private final ImageView activityImage;
 
         public MyViewHolder(View view) {
             super(view);

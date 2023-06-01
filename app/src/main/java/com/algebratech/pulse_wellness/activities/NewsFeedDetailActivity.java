@@ -1,6 +1,7 @@
 package com.algebratech.pulse_wellness.activities;
 
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -38,7 +39,7 @@ public class NewsFeedDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_news_feed_details);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -76,7 +77,7 @@ public class NewsFeedDetailActivity extends AppCompatActivity {
         if (!data.isEmpty())
             Glide.with(getApplicationContext()).load(data).into(image);
         post.setText(postdata);
-        date.setText((df.format("dd MMM yyyy h:mm a", d)));
+        date.setText((DateFormat.format("dd MMM yyyy h:mm a", d)));
 
 
         mBottomSheetLayout = findViewById(R.id.bottom_sheet_layout);

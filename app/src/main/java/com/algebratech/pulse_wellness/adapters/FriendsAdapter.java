@@ -51,11 +51,11 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.MyViewHolder> {
 
-    private Context mContext;
+    private final Context mContext;
     private List<FriendsModel> products = new ArrayList<>();
     private SharedPreferences sharedPreferences;
     private String userId;
-    private NewsFeedListner newsFeedListner;
+    private final NewsFeedListner newsFeedListner;
 
     public FriendsAdapter(Context context, List<FriendsModel> products, NewsFeedListner newsFeedListner) {
         this.mContext = context;
@@ -127,10 +127,10 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView userName;
-        private CircleImageView userProfile;
-        private RelativeLayout friendcard;
-        private ImageButton addMember;
+        private final TextView userName;
+        private final CircleImageView userProfile;
+        private final RelativeLayout friendcard;
+        private final ImageButton addMember;
 
 
         public MyViewHolder(View view) {

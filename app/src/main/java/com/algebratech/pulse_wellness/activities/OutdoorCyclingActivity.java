@@ -166,7 +166,8 @@ public class OutdoorCyclingActivity extends AppCompatActivity implements OnMapRe
     Location mLastLocation;
     Marker mCurrLocationMarker;
     Dialog mLocationDialog;
-    private String lati, longi = "";
+    private String lati;
+    private final String longi = "";
     double latitud;
     double longitud;
     double Current_latitud = 0.0;
@@ -235,7 +236,7 @@ public class OutdoorCyclingActivity extends AppCompatActivity implements OnMapRe
         }
 
 
-        mVpoperateManager = mVpoperateManager.getMangerInstance(this.getApplicationContext());
+        mVpoperateManager = VPOperateManager.getMangerInstance(this.getApplicationContext());
 
 
         startCount();
@@ -314,9 +315,9 @@ public class OutdoorCyclingActivity extends AppCompatActivity implements OnMapRe
         });
 
         final int elapsed = (int) (SystemClock.elapsedRealtime() - simpleChronometer.getBase());
-        final int seconds = (int) (elapsed / 1000) % 60;
-        final int minutes = (int) ((elapsed / (1000 * 60)) % 60);
-        final int hours = (int) ((elapsed / (1000 * 60 * 60)) % 24);
+        final int seconds = (elapsed / 1000) % 60;
+        final int minutes = (elapsed / (1000 * 60)) % 60;
+        final int hours = (elapsed / (1000 * 60 * 60)) % 24;
 
         final double Timeinseconds = StaticMethods.hoursToseconds(hours) + StaticMethods.munitesToseconds(minutes) + seconds;
         final double avaragePace = StaticMethods.roundTwoDecimals(StaticMethods.avaragePace(activityDistance, Timeinseconds));
@@ -663,7 +664,7 @@ public class OutdoorCyclingActivity extends AppCompatActivity implements OnMapRe
     }
 
 
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             updateSmartWatchServeUI(intent);
@@ -871,7 +872,7 @@ public class OutdoorCyclingActivity extends AppCompatActivity implements OnMapRe
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_LOCATION: {
                 // If request is cancelled, the result arrays are empty.
@@ -969,7 +970,7 @@ public class OutdoorCyclingActivity extends AppCompatActivity implements OnMapRe
 
             if (!returnValue.isEmpty()) {
 
-                Log.d(Constants.TAG + "PATH", returnValue.get(0).toString());
+                Log.d(Constants.TAG + "PATH", returnValue.get(0));
 
                 File f = new File(returnValue.get(0));
                 int len = f.getAbsolutePath().length();

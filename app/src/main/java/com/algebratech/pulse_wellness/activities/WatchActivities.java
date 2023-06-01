@@ -130,7 +130,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
     boolean isActive = false;
 
 
-    private int deviceNumber = -1;
+    private final int deviceNumber = -1;
     private String deviceVersion;
     private String deviceTestVersion;
     VPOperateManager mVpoperateManager;
@@ -172,7 +172,8 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
     Location mLastLocation;
     Marker mCurrLocationMarker;
     Dialog mLocationDialog;
-    private String lati, longi = "";
+    private String lati;
+    private final String longi = "";
     double latitud;
     double longitud;
     double Current_latitud = 0.0;
@@ -335,9 +336,9 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
 //        });
 
         final int elapsed = (int) (SystemClock.elapsedRealtime() - simpleChronometer.getBase());
-        final int seconds = (int) (elapsed / 1000) % 60;
-        final int minutes = (int) ((elapsed / (1000 * 60)) % 60);
-        final int hours = (int) ((elapsed / (1000 * 60 * 60)) % 24);
+        final int seconds = (elapsed / 1000) % 60;
+        final int minutes = (elapsed / (1000 * 60)) % 60;
+        final int hours = (elapsed / (1000 * 60 * 60)) % 24;
 
         final double Timeinseconds = StaticMethods.hoursToseconds(hours) + StaticMethods.munitesToseconds(minutes) + seconds;
         final double avaragePace = StaticMethods.roundTwoDecimals(StaticMethods.avaragePace(activityDistance, Timeinseconds));
@@ -750,7 +751,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
 //            }
 //        });
     }
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             updateSmartWatchServeUI(intent);
@@ -766,12 +767,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
         String connect = intent.getStringExtra("connect");
         String isSyncingStatus = intent.getStringExtra("isSyncing");
 
-        if(isSyncingStatus == "no"){
-            isSyncing = false;
-        }
-        else {
-            isSyncing = true;
-        }
+        isSyncing = isSyncingStatus != "no";
         if(wasStopActivityClicked){
             CM.HideProgressLoader();
             StopActivity();
@@ -979,7 +975,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_LOCATION: {
@@ -1078,7 +1074,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
 
             if (!returnValue.isEmpty()) {
 
-                Log.e(Constants.TAG + "PATH", returnValue.get(0).toString());
+                Log.e(Constants.TAG + "PATH", returnValue.get(0));
 
                 File f = new File(returnValue.get(0));
                 int len = f.getAbsolutePath().length();

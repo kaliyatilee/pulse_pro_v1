@@ -85,10 +85,10 @@ public class subscriptionAdapter extends RecyclerView.Adapter<subscriptionAdapte
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.plan_name = (TextView) itemView.findViewById(R.id.plan_name);
-            this.pulse = (TextView) itemView.findViewById(R.id.pulse);
-            this.plan_price = (TextView) itemView.findViewById(R.id.plan_price);
-            this.subscription_card = (CardView) itemView.findViewById(R.id.subscription_card);
+            this.plan_name = itemView.findViewById(R.id.plan_name);
+            this.pulse = itemView.findViewById(R.id.pulse);
+            this.plan_price = itemView.findViewById(R.id.plan_price);
+            this.subscription_card = itemView.findViewById(R.id.subscription_card);
         }
     }
 

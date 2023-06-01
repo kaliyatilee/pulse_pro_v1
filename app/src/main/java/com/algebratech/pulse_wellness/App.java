@@ -37,14 +37,14 @@ public class App extends Application  {
 
    // private static String one_sign_id = "6765391d-f6bf-4ac3-8385-f831fe5b8fba";
     private static App mApp = null;
-    private static String currentChatId = "";
+    private static final String currentChatId = "";
     private static boolean chatActivityVisible;
     private static boolean phoneCallActivityVisible;
     private static boolean baseActivityVisible;
-    private static boolean isCallActive = false;
-    private boolean hasMovedToForeground = false;
-    private int activityReferences = 0;
-    private boolean isActivityChangingConfigurations = false;
+    private static final boolean isCallActive = false;
+    private final boolean hasMovedToForeground = false;
+    private final int activityReferences = 0;
+    private final boolean isActivityChangingConfigurations = false;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
     public int fnoti = 1;

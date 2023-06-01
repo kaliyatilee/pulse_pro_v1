@@ -81,7 +81,7 @@ public class RewardsPreviewTest extends AppCompatActivity {
     }
 
     private void initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarpolicy);
+        Toolbar toolbar = findViewById(R.id.toolbarpolicy);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Rewards");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -106,7 +106,7 @@ public class RewardsPreviewTest extends AppCompatActivity {
 
         // Glide.with(getApplicationContext()).load(getIntent().getStringExtra("image")).into((ImageView) findViewById(R.id.image));
 
-        ((AppCompatButton) findViewById(R.id.bt_add_to_cart)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bt_add_to_cart).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 RedeemProduct();

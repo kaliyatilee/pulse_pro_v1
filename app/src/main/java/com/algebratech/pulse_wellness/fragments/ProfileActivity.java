@@ -281,7 +281,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             if (!returnValue.isEmpty()) {
 
-                Log.d(Constants.TAG + "PATH", returnValue.get(0).toString());
+                Log.d(Constants.TAG + "PATH", returnValue.get(0));
 
                 File f = new File(returnValue.get(0));
                 int len = f.getAbsolutePath().length();
@@ -304,12 +304,12 @@ public class ProfileActivity extends AppCompatActivity {
                 }
 
                 if (extension.equals("jpg") | extension.equals("png") | extension.equals("peg")) {
-                    Log.d(Constants.TAG + "File", f.getAbsolutePath().toString());
+                    Log.d(Constants.TAG + "File", f.getAbsolutePath());
                     bitmap = BitmapFactory.decodeFile(f.getAbsolutePath());
                     Log.d(Constants.TAG + "Bitmap", BitmapUtils.decodeImage(bitmap));
                     Picasso.with(this).load("file:" + f.getAbsolutePath()).error(R.drawable.placeholder).into(profilePic);
                     Uri uri = Uri.fromFile(new File(f.getAbsolutePath()));
-                    String displayName = String.valueOf(Calendar.getInstance().getTimeInMillis() + "." + extension);
+                    String displayName = Calendar.getInstance().getTimeInMillis() + "." + extension;
 
                     if (CM.isConnected(ProfileActivity.this)) {
                         uploadProfilePic(displayName, uri);

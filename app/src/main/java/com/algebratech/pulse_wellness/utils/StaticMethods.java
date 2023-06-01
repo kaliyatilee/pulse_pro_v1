@@ -195,8 +195,8 @@ public class StaticMethods {
         return distance/1000;
     }
 
-    public static interface DialogSingleButtonListener {
-        public abstract void onButtonClicked(DialogInterface dialog);
+    public interface DialogSingleButtonListener {
+        void onButtonClicked(DialogInterface dialog);
     }
 
     public static LinearLayoutManager initializeSingleRecyclerviewLayouts(RecyclerView recyclerViews, int layout, Context mContext) {
@@ -243,11 +243,7 @@ public class StaticMethods {
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         if (activeNetwork != null) {
             //if connected to wifi or mobile data plan
-            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI || activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
-                isAvailable = true;
-            } else {
-                isAvailable = false;
-            }
+            isAvailable = activeNetwork.getType() == ConnectivityManager.TYPE_WIFI || activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE;
         } else {
 
             isAvailable = false;
@@ -276,7 +272,7 @@ public class StaticMethods {
         if (imgFile.exists() && imgFile.length() > 0) {
             ByteArrayOutputStream bOut = new ByteArrayOutputStream();
             result = Base64.encodeToString(bOut.toByteArray(), Base64.DEFAULT);
-            Log.d(Constants.TAG+"FileSize", String.valueOf(imgFile.length() / 1024000) + "MB");
+            Log.d(Constants.TAG+"FileSize", imgFile.length() / 1024000 + "MB");
         }else {
             result = "none";
         }
@@ -287,12 +283,7 @@ public class StaticMethods {
     public static boolean sizeLimitUpload(String filePath){
         boolean result ;
         File imgFile = new File(filePath);
-        if (imgFile.exists() && imgFile.length()/1024000 < 150) {
-
-            result = false;
-        }else {
-            result = true;
-        }
+        result = !imgFile.exists() || imgFile.length() / 1024000 >= 150;
         return  result;
     }
 

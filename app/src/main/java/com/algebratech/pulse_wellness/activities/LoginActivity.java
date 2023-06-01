@@ -257,7 +257,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if (error.getMessage().contains(Api.baseurl)) {
                         Toast.makeText(LoginActivity.this, "No internet connection available!!!.", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(LoginActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (Exception e) {

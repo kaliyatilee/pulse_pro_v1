@@ -45,7 +45,7 @@ public class addActivityApi {
                 object.put("activity", activityName);
                 object.put("camera_file", camera_file);
 
-                Log.e(TAG,"End activity"+ object.toString());
+                Log.e(TAG,"End activity"+ object);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

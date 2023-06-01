@@ -17,7 +17,7 @@ import com.algebratech.pulse_wellness.models.GreetingsNotificationModel;
 import com.algebratech.pulse_wellness.models.LikeModel;
 
 public class GreetingNotificationAdapter extends RecyclerView.Adapter<GreetingNotificationAdapter.ViewHolder> {
-    private GreetingsNotificationModel[] greetingsNotificationModels;
+    private final GreetingsNotificationModel[] greetingsNotificationModels;
 
     public GreetingNotificationAdapter(GreetingsNotificationModel[] greetingsNotificationModels) {
         this.greetingsNotificationModels = greetingsNotificationModels;
@@ -52,9 +52,9 @@ public class GreetingNotificationAdapter extends RecyclerView.Adapter<GreetingNo
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.greeting_icon = (ImageView) itemView.findViewById(R.id.greeting_icon);
-            this.greeting_text = (TextView) itemView.findViewById(R.id.greeting_text);
-            this.card = (CardView) itemView.findViewById(R.id.card);
+            this.greeting_icon = itemView.findViewById(R.id.greeting_icon);
+            this.greeting_text = itemView.findViewById(R.id.greeting_text);
+            this.card = itemView.findViewById(R.id.card);
         }
     }
 

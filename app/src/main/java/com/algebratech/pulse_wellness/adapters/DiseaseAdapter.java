@@ -21,7 +21,7 @@ import java.util.List;
 
 public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseAdapter.ViewHolder> {
     private List<DiseaseModel> diseaseModels = new ArrayList<>();
-    private NewsFeedListner newsFeedListner;
+    private final NewsFeedListner newsFeedListner;
 
     public DiseaseAdapter(List<DiseaseModel> diseaseModels, NewsFeedListner newsFeedListner) {
         this.diseaseModels = diseaseModels;

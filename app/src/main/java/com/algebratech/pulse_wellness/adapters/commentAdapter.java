@@ -29,9 +29,9 @@ import java.util.concurrent.TimeUnit;
 public class commentAdapter extends RecyclerView.Adapter<commentAdapter.ViewHolder> {
     private List<commentModel> commentModel = new ArrayList<>();
     Context context;
-    private FeedCommentListner feedCommentListner;
+    private final FeedCommentListner feedCommentListner;
     private RecyclerView.Adapter mAdapter;
-    private boolean isSubArray;
+    private final boolean isSubArray;
     int parentPosition;
 
     public commentAdapter(List<commentModel> commentModel,
@@ -179,13 +179,13 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.ViewHold
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.userProfile = (ImageView) itemView.findViewById(R.id.userProfile);
-            this.like_button = (ImageView) itemView.findViewById(R.id.like_button);
-            this.userName = (TextView) itemView.findViewById(R.id.userName);
-            this.reply = (TextView) itemView.findViewById(R.id.reply);
-            this.userComment = (TextView) itemView.findViewById(R.id.userComment);
-            this.userCommentTime = (TextView) itemView.findViewById(R.id.userCommentTime);
-            this.likenum = (TextView) itemView.findViewById(R.id.likenum);
+            this.userProfile = itemView.findViewById(R.id.userProfile);
+            this.like_button = itemView.findViewById(R.id.like_button);
+            this.userName = itemView.findViewById(R.id.userName);
+            this.reply = itemView.findViewById(R.id.reply);
+            this.userComment = itemView.findViewById(R.id.userComment);
+            this.userCommentTime = itemView.findViewById(R.id.userCommentTime);
+            this.likenum = itemView.findViewById(R.id.likenum);
             this.nestedComment = itemView.findViewById(R.id.nestedComment);
         }
     }

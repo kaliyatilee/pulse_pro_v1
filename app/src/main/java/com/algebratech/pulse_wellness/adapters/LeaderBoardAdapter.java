@@ -24,9 +24,9 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LeaderBoardAdapter extends RecyclerView.Adapter<LeaderBoardAdapter.MyViewHolder> {
-    private Context mContext;
+    private final Context mContext;
     private List<LeaderBoardModel> leaderBoardModels = new ArrayList<>();
-    private NewsFeedListner newsFeedListner;
+    private final NewsFeedListner newsFeedListner;
 
     public LeaderBoardAdapter(Context mContext, List<LeaderBoardModel> leaderBoardModels, NewsFeedListner newsFeedListner) {
         this.mContext = mContext;
@@ -67,9 +67,11 @@ public class LeaderBoardAdapter extends RecyclerView.Adapter<LeaderBoardAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView userName, points, count;
-        private CircleImageView profilePic;
-        private LinearLayout card;
+        private final TextView userName;
+        private final TextView points;
+        private final TextView count;
+        private final CircleImageView profilePic;
+        private final LinearLayout card;
 
         public MyViewHolder(View view) {
             super(view);

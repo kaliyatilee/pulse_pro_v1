@@ -21,7 +21,7 @@ public class AddCardActivity extends AppCompatActivity {
         expiry = findViewById(R.id.expiry);
         cvv = findViewById(R.id.cvv);
 
-        this.editTextCreditCardNumber = (EditText) this.findViewById(R.id.card_number);
+        this.editTextCreditCardNumber = this.findViewById(R.id.card_number);
 
         TextWatcher textWatcher = new CreditCardNumberTextWatcher(this.editTextCreditCardNumber);
         this.editTextCreditCardNumber.addTextChangedListener(textWatcher);

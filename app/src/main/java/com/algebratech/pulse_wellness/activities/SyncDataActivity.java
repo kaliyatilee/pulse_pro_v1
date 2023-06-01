@@ -28,7 +28,7 @@ import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerStepPacket;
 import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerTodaySumSportPacket;
 
 public class SyncDataActivity extends AppCompatActivity {
-    private String tag = "SyncDataActivity";
+    private final String tag = "SyncDataActivity";
     private Button btn_sync_data;
 
     @SuppressLint("MissingInflatedId")

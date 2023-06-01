@@ -45,10 +45,10 @@ import java.util.TimerTask;
 public class MyWellnesPlanScreen extends AppCompatActivity {
     private Toolbar toolbarPolicy;
     private Button fab;
-    private int[] myImageList = new int[]{R.drawable.banner_1, R.drawable.banner_calculator, R.drawable.banner_3};
+    private final int[] myImageList = new int[]{R.drawable.banner_1, R.drawable.banner_calculator, R.drawable.banner_3};
     SharedPreferences sharedPreferences;
     String userId;
-    private List<WellnessPlanModel> wellnessPlanModels = new ArrayList<>();
+    private final List<WellnessPlanModel> wellnessPlanModels = new ArrayList<>();
     TextView steps, distances, calories_burnt, frequency_of_activity, daily_calorie_intake, daily_reminder, participation_in_rigorous_school_sport, recommended_calorie_deficit, duration_of_exercise;
     private TextView no_plan, title;
     private RelativeLayout relativeLayout;

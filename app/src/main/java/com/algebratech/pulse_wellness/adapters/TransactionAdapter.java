@@ -2,6 +2,7 @@ package com.algebratech.pulse_wellness.adapters;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,9 +29,9 @@ import java.util.Date;
 import java.util.List;
 
 public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
-    private List<TransactionModel> transactionModels;
+    private final List<TransactionModel> transactionModels;
     Context context;
-    private NewsFeedListner newsFeedListner;
+    private final NewsFeedListner newsFeedListner;
     public TransactionAdapter(List<TransactionModel> transactionModels, Context context,NewsFeedListner newsFeedListner) {
         this.transactionModels = transactionModels;
         this.context = context;
@@ -73,7 +74,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             android.text.format.DateFormat df = new android.text.format.DateFormat();
             Date d = sdf.parse(transactionModels.get(position).getCreated_at());
 
-            holder.date.setText(df.format("dd MMM yyyy", d));
+            holder.date.setText(DateFormat.format("dd MMM yyyy", d));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -105,14 +106,14 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.imageView = (ImageView) itemView.findViewById(R.id.image);
-            this.name = (TextView) itemView.findViewById(R.id.name);
-            this.coins = (TextView) itemView.findViewById(R.id.coins);
-            this.date = (TextView) itemView.findViewById(R.id.date);
-            this.isExpired = (TextView) itemView.findViewById(R.id.isExpired);
-            this.isCollected = (TextView) itemView.findViewById(R.id.isCollected);
-            this.cardView = (CardView) itemView.findViewById(R.id.card_layout);
-            this.showCode = (Button) itemView.findViewById(R.id.showCode);
+            this.imageView = itemView.findViewById(R.id.image);
+            this.name = itemView.findViewById(R.id.name);
+            this.coins = itemView.findViewById(R.id.coins);
+            this.date = itemView.findViewById(R.id.date);
+            this.isExpired = itemView.findViewById(R.id.isExpired);
+            this.isCollected = itemView.findViewById(R.id.isCollected);
+            this.cardView = itemView.findViewById(R.id.card_layout);
+            this.showCode = itemView.findViewById(R.id.showCode);
         }
     }
 

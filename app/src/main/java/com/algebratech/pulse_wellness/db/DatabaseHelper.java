@@ -221,11 +221,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[] {"%" + today + "%", "%" + user + "%"},
                 null, null, null, null);
 
-        if(cursor!=null && cursor.getCount() >0){
-            return true;
-        }else {
-            return false;
-        }
+        return cursor != null && cursor.getCount() > 0;
     }
 
     public void addORupdate(String date, String points, int step, String distances, String kcals){

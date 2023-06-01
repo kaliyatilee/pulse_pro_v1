@@ -89,7 +89,7 @@ public class WeightMonitoring extends AppCompatActivity {
                 dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 dialog.setCancelable(true);
 
-                EditText etWeight = (EditText) dialog.findViewById(R.id.etWeight);
+                EditText etWeight = dialog.findViewById(R.id.etWeight);
                 Button saveButton = dialog.findViewById(R.id.saveButton);
                 saveButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -119,7 +119,7 @@ public class WeightMonitoring extends AppCompatActivity {
                 dialog.setContentView(R.layout.number_picker_dialog);
                 dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 dialog.setCancelable(true);
-                EditText etWeight = (EditText) dialog.findViewById(R.id.etWeight);
+                EditText etWeight = dialog.findViewById(R.id.etWeight);
                 Button saveButton = dialog.findViewById(R.id.saveButton);
 
                 saveButton.setOnClickListener(new View.OnClickListener() {

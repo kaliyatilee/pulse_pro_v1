@@ -41,7 +41,7 @@ public class NewsLikeActivity extends AppCompatActivity {
     private Toolbar toolbarPolicy;
     private TextView like_count;
     private String feedId;
-    private List<LikeModel> likeModelList = new ArrayList<>();
+    private final List<LikeModel> likeModelList = new ArrayList<>();
     private LikeAdapter likeAdapter;
     private RecyclerView.Adapter mAdapter;
     private RequestQueue requestQueue;
@@ -148,7 +148,7 @@ public class NewsLikeActivity extends AppCompatActivity {
 
     void setDataAdapter() {
         like_count.setText(likeCount + " Pulse");
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle_likes);
+        RecyclerView recyclerView = findViewById(R.id.recycle_likes);
         likeAdapter = new LikeAdapter(likeModelList, getContext());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

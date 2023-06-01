@@ -21,9 +21,9 @@ import java.util.List;
 public class ShowDataDailyAdapter extends RecyclerView.Adapter<ShowDataDailyAdapter.MyViewHolder> {
 
 
-    private Context mContext;
-    private List<DailyReads> products;
-    private int user_id;
+    private final Context mContext;
+    private final List<DailyReads> products;
+    private final int user_id;
 
     public ShowDataDailyAdapter(Context context, List<DailyReads> showact, int user_id) {
         this.mContext = context;
@@ -63,7 +63,10 @@ public class ShowDataDailyAdapter extends RecyclerView.Adapter<ShowDataDailyAdap
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView dateTime, kal, step, distance;
+        private final TextView dateTime;
+        private final TextView kal;
+        private final TextView step;
+        private final TextView distance;
 
 
         public MyViewHolder(View view) {

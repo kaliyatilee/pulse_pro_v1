@@ -53,7 +53,7 @@ public class NotificationActivity extends AppCompatActivity implements NewsFeedL
     private TextView no_req;
     private Context mContext;
     private RecyclerView.Adapter friendReqAdapter;
-    private List<FriendsModel> friendsReqModelList = new ArrayList<>();
+    private final List<FriendsModel> friendsReqModelList = new ArrayList<>();
     private RecyclerView friendrequestsRecycle;
     private RequestQueue requestQueue;
     private SharedPreferences sharedPreferences;

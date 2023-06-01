@@ -30,12 +30,12 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class FriendsCommunityAdapter extends RecyclerView.Adapter<FriendsCommunityAdapter.MyViewHolder> {
 
-    private Context mContext;
-    private Fragment fragment;
+    private final Context mContext;
+    private final Fragment fragment;
     private List<FriendsModel> products = new ArrayList<>();
     private SharedPreferences sharedPreferences;
     private String userId;
-    private NewsFeedListner newsFeedListner;
+    private final NewsFeedListner newsFeedListner;
     FragmentManager FM;
     FragmentTransaction FT;
 
@@ -94,10 +94,11 @@ public class FriendsCommunityAdapter extends RecyclerView.Adapter<FriendsCommuni
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView userName, points;
-        private CircleImageView userProfile;
-        private RelativeLayout friendcard;
-        private ImageView unfriend;
+        private final TextView userName;
+        private final TextView points;
+        private final CircleImageView userProfile;
+        private final RelativeLayout friendcard;
+        private final ImageView unfriend;
 
 
         public MyViewHolder(View view) {
