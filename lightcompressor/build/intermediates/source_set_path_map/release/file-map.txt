@@ -1,0 +1,10 @@
+com.abedelazizshe.lightcompressorlibrary.lightcompressor-core-1.5.0-0 C:\Users\ChangaLesa\.gradle\caches\transforms-3\12fa22aa35b53a8d31beed233cdb21b6\transformed\core-1.5.0\res
+com.abedelazizshe.lightcompressorlibrary.lightcompressor-jetified-core-ktx-1.5.0-1 C:\Users\ChangaLesa\.gradle\caches\transforms-3\4af2d0734120e8721e0ce450ef904049\transformed\jetified-core-ktx-1.5.0\res
+com.abedelazizshe.lightcompressorlibrary.lightcompressor-pngs-2 C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\build\generated\res\pngs\release
+com.abedelazizshe.lightcompressorlibrary.lightcompressor-resValues-3 C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\build\generated\res\resValues\release
+com.abedelazizshe.lightcompressorlibrary.lightcompressor-rs-4 C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\build\generated\res\rs\release
+com.abedelazizshe.lightcompressorlibrary.lightcompressor-mergeReleaseResources-5 C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.abedelazizshe.lightcompressorlibrary.lightcompressor-mergeReleaseResources-6 C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.abedelazizshe.lightcompressorlibrary.lightcompressor-merged_res-7 C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\build\intermediates\merged_res\release
+com.abedelazizshe.lightcompressorlibrary.lightcompressor-main-8 C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\src\main\res
+com.abedelazizshe.lightcompressorlibrary.lightcompressor-release-9 C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\src\release\res

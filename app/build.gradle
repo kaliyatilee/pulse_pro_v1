@@ -16,12 +16,12 @@ android {
 //            keyPassword 'admin#2020'
 //        }
 //    }
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.algebratech.pulse_wellness"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 148
         versionName "7.0.8"
         multiDexEnabled true
