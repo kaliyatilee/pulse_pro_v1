@@ -433,15 +433,19 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_100dp">
+
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_margin="@dimen/margin_5dp"
-                    app:civ_border_width="1dp"
-                    app:civ_border_color="@color/red"
+                    android:id="@+id/tmpIcon"
                     android:layout_width="@dimen/margin_60dp"
                     android:layout_height="@dimen/margin_60dp"
-                    android:id="@+id/tmpIcon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_5dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/margin_5dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
                     android:src="@drawable/tmp"
-                    android:layout_centerVertical="true"/>
+                    app:civ_border_color="@color/red"
+                    app:civ_border_width="1dp" />
 
                 <LinearLayout
                     android:layout_toRightOf="@+id/tmpIcon"
@@ -731,27 +735,23 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_10dp"
             android:fontFamily="@font/muli_semibold"
-            android:text="My Weekly Plan"
+            android:text="My Daily Plan"
             android:textColor="@color/black"
             android:textSize="@dimen/margin_18dp"
             android:textStyle="bold" />
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_5dp"
-            android:layout_marginTop="@dimen/margin_10dp"
-            android:layout_marginEnd="@dimen/margin_5dp"
-            android:orientation="horizontal"
-            android:padding="@dimen/margin_5dp"
-            android:weightSum="2">
+            android:orientation="vertical"
+            android:padding="@dimen/margin_5dp">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="@dimen/margin_100dp"
-                android:layout_marginEnd="@dimen/margin_5dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_margin="@dimen/margin_5dp"
                 android:elevation="@dimen/margin_5dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/margin_20dp">
@@ -761,7 +761,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="@dimen/margin_10dp">
-
 
                     <LinearLayout
                         android:id="@+id/layout1"
@@ -847,16 +846,16 @@
                         android:textColor="@color/grey_60"
                         android:textSize="@dimen/text_10" />
 
-
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="@dimen/margin_100dp"
-                android:layout_marginStart="@dimen/margin_5dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginStart="@dimen/margin_5dp"
+                android:layout_marginEnd="@dimen/margin_5dp"
                 android:elevation="@dimen/margin_5dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/margin_20dp">
@@ -866,7 +865,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="@dimen/margin_10dp">
-
 
                     <LinearLayout
                         android:id="@+id/layout3"
@@ -948,15 +946,15 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/layout3"
                         android:layout_marginTop="@dimen/margin_10dp"
-                        android:text="Greate! You just near to you goal"
+                        android:text="Great! You're just near to your goal."
                         android:textColor="@color/grey_60"
                         android:textSize="@dimen/text_10" />
-
 
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
         </LinearLayout>
+
 
 
         <RelativeLayout
@@ -974,7 +972,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/margin_10dp"
                 android:fontFamily="@font/muli_semibold"
-                android:text="My Weekly Goals"
+                android:text="My Goals"
                 android:textColor="@color/black"
                 android:textSize="@dimen/margin_18dp"
                 android:textStyle="bold" />
