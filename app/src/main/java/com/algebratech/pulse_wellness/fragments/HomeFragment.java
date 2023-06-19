@@ -82,6 +82,7 @@ import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerPrivateBpPa
 import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerTemperatureControlPacket;
 import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
 import com.wosmart.ukprotocollibary.model.sport.SportData;
+import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerNotifyPacket;
 
 
 import net.sqlcipher.database.SQLiteDatabase;
@@ -96,6 +97,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import com.algebratech.pulse_wellness.services.NotificationService;
 
 public class HomeFragment extends Fragment {
 
@@ -104,6 +106,10 @@ public class HomeFragment extends Fragment {
     private static final int currentPage = 0;
     private static int NUM_PAGES = 0;
     private Intent intent,intent2;
+
+    private NotificationService notif;
+
+    
     private final int[] myImageList = new int[]{R.drawable.banner_1, R.drawable.banner_calculator, R.drawable.banner_3};
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
@@ -196,7 +202,7 @@ public class HomeFragment extends Fragment {
             runningProgress = root.findViewById(R.id.runningProgress);
             addGoals = root.findViewById(R.id.addGoals);
             noActvity = root.findViewById(R.id.noActvity);
-            cardWeight = root.findViewById(R.id.cardWeight);
+//            cardWeight = root.findViewById(R.id.cardWeight);
             stepsCard = root.findViewById(R.id.stepsCard);
             progress_bar = root.findViewById(R.id.progress_bar);
             syncStatus = root.findViewById(R.id.syncStatus);
@@ -217,7 +223,7 @@ public class HomeFragment extends Fragment {
           //  bpReading = root.findViewById(R.id.bpReading);
             cardSleep = root.findViewById(R.id.cardSleep);
             cardHeart = root.findViewById(R.id.cardHeart);
-            currentWeight = root.findViewById(R.id.currentWeight);
+//            currentWeight = root.findViewById(R.id.currentWeight);
             total_calories = root.findViewById(R.id.total_calories);
             total_steps = root.findViewById(R.id.total_steps);
             bmi = root.findViewById(R.id.bmi);
@@ -253,10 +259,10 @@ public class HomeFragment extends Fragment {
             activitiesSummary = root.findViewById(R.id.activitiesSummary);
             seeAll = root.findViewById(R.id.seeAll);
             avarageHeart = root.findViewById(R.id.avarageHeart);
-            weightDate = root.findViewById(R.id.weightDate);
+//            weightDate = root.findViewById(R.id.weightDate);
             progresPer = root.findViewById(R.id.progresPer);
-            weightMessage = root.findViewById(R.id.weightMessage);
-            weightMessage.setVisibility(View.GONE);
+//            weightMessage = root.findViewById(R.id.weightMessage);
+//            weightMessage.setVisibility(View.GONE);
 
 
              BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -308,20 +314,20 @@ public class HomeFragment extends Fragment {
             myEdit = sharedPreferences.edit();
             SQLiteDatabase.loadLibs(getContext());
 
-            WeightMonitoringModel weightMonitoringModel = dbHelper.getLatestWeightReading();
-            try {
-                weightDate.setText("Recorded :"+StaticMethods.TimestampTodate(weightMonitoringModel.getDateRecorded()));
-                currentWeight.setText(weightMonitoringModel.getWeight()+" kg");
-                Long days = StaticMethods.calculateDaysBetweenTimeStamps(weightMonitoringModel.getDateRecorded(),StaticMethods.getCurrentTimeStamp());
-                if (days >= 30){
-                    cardWeight.setCardBackgroundColor(ContextCompat.getColor(getContext(), R.color.red));
-                    weightMessage.setVisibility(View.VISIBLE);
-                }
-            } catch (NullPointerException e) {
-                weightDate.setText("---");
-                currentWeight.setText("--");
-                // Handle null data case here
-            }
+//            WeightMonitoringModel weightMonitoringModel = dbHelper.getLatestWeightReading();
+//            try {
+//                weightDate.setText("Recorded :"+StaticMethods.TimestampTodate(weightMonitoringModel.getDateRecorded()));
+//                currentWeight.setText(weightMonitoringModel.getWeight()+" kg");
+//                Long days = StaticMethods.calculateDaysBetweenTimeStamps(weightMonitoringModel.getDateRecorded(),StaticMethods.getCurrentTimeStamp());
+//                if (days >= 30){
+//                    cardWeight.setCardBackgroundColor(ContextCompat.getColor(getContext(), R.color.red));
+//                    weightMessage.setVisibility(View.VISIBLE);
+//                }
+//            } catch (NullPointerException e) {
+//                weightDate.setText("---");
+//                currentWeight.setText("--");
+//                // Handle null data case here
+//            }
 
 
 
@@ -349,14 +355,14 @@ public class HomeFragment extends Fragment {
                     startActivityForResult(intent, 2);
                 }
             });
-            cardWeight.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent1 = new Intent(mContext, WeightMonitoring.class);
-                    startActivity(intent1);
-
-                }
-            });
+//            cardWeight.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent1 = new Intent(mContext, WeightMonitoring.class);
+//                    startActivity(intent1);
+//
+//                }
+//            });
             cardSleep.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -493,7 +499,10 @@ public class HomeFragment extends Fragment {
                                             JSONObject objectArray = array.getJSONObject(i);
                                             String wellness_plan_distance = objectArray.getString("wellness_plan_distance");
                                             String wellness_plan_steps = objectArray.getString("wellness_plan_steps");
-                                            String wellness_plan_calories = objectArray.getString("wellness_plan_calories");
+                                            String first_wellness_plan_calories = objectArray.getString("wellness_plan_calories");
+
+                                            String[] parts = first_wellness_plan_calories.split("-");
+                                            String wellness_plan_calories = parts[0];
                                             String calories_burnt_calculation = objectArray.getString("calories_burnt_calculation");
                                             String sum_of_distance_for_day = objectArray.getString("sum_of_distance_for_day");
 
@@ -505,16 +514,18 @@ public class HomeFragment extends Fragment {
                                             String sum_of_steps_for_week = objectArray.getString("sum_of_steps_for_week");
                                             String sum_of_calories_for_week = objectArray.getString("sum_of_calories_for_week");
                                             myPLanKcal.setText(wellness_plan_calories);
-                                            myPLanCurrentKcal.setText(sum_of_calories_for_week);
+                                            int int_sum_of_calories_for_week = (int) Math.round(Double.parseDouble(sum_of_calories_for_week));
+
+                                            myPLanCurrentKcal.setText(String.valueOf(int_sum_of_calories_for_week));
                                             myPlanKm.setText(wellness_plan_distance);
                                             weeklyKm.setText(sum_of_distance_for_week);
 
-                                            Double dayCal = Double.parseDouble(sum_of_steps_for_day) * 100 /10000;
+                                            int dayCal = Integer.parseInt(sum_of_steps_for_day) * 100 /10000;
                                             int dayCalt = (int) Math.round(dayCal);
                                             progress_bar.setProgress(dayCalt);
                                             progresPer.setText(dayCalt + " %");
 
-                                            Double weekKCal = Double.parseDouble(sum_of_calories_for_week) * 100 / Double.parseDouble(calories_burnt_calculation);
+                                            double weekKCal = Double.parseDouble(sum_of_calories_for_week) * 100 / Double.parseDouble(calories_burnt_calculation);
                                             int tempweekKCal = (int) Math.round(weekKCal);
                                             myPlanKcalProText.setText(tempweekKCal + "%");
                                             myPlanKcalPro.setProgress(tempweekKCal);
@@ -522,8 +533,12 @@ public class HomeFragment extends Fragment {
                                             if(tempweekKCal >= 100) {
                                                 myPlanKcalProText.setText("100 %");
                                                 txtPlanStatus.setText("Well done, You have achieved your Weekly Goals.");
-                                            } else {
+                                            } else if(tempweekKCal >= 50 && tempweekKCal < 100) {
+                                                notif = new NotificationService();
+
                                                 txtPlanStatus.setText("Great! You are almost there.");
+                                            } else if(tempweekKCal < 50) {
+                                                txtPlanStatus.setText("Eye on the prize!!!.");
                                             }
 
                                             Double weekKM = Double.parseDouble(sum_of_distance_for_week) * 100 / Double.parseDouble(wellness_plan_distance);
@@ -534,8 +549,10 @@ public class HomeFragment extends Fragment {
                                             if(tempweekKM >= 100) {
                                                 myPlanKMProText.setText("100 %");
                                                 txtDistancePlanStatus.setText("Well done, You have achieved your Weekly Goals.");
-                                            } else {
+                                            } else if(tempweekKM >= 50 && tempweekKM < 100) {
                                                 txtDistancePlanStatus.setText("Great! You are almost there.");
+                                            } else if(tempweekKM < 50) {
+                                                txtPlanStatus.setText("Eye on the prize!!!.");
                                             }
 
 

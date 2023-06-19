@@ -211,26 +211,26 @@ public class MainActivity extends AppCompatActivity {
 
 
                 BluetoothManager btManager = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
-                List<BluetoothDevice> connectedDevices = btManager.getConnectedDevices(GATT);
-                boolean isConnected = false;
-                if (connectedDevices != null) {
-                    for (int j = 0; j < connectedDevices.size(); j++) {
-                        if (connectedDevices.get(j).getAddress().equalsIgnoreCase(hasMac)) {
-                            isConnected = true;
-                            break;
-                        }
-                    }
-                }
+//                List<BluetoothDevice> connectedDevices = btManager.getConnectedDevices(GATT);
+//                boolean isConnected = false;
+//                if (connectedDevices != null) {
+//                    for (int j = 0; j < connectedDevices.size(); j++) {
+//                        if (connectedDevices.get(j).getAddress().equalsIgnoreCase(hasMac)) {
+//                            isConnected = true;
+//                            break;
+//                        }
+//                    }
+//                }
 
                 if(!WristbandManager.getInstance(MainActivity.this).isConnect()){
                     Toast.makeText(MainActivity.this, "Please connect your wearable device", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (!isConnected) {
-                    Toast.makeText(MainActivity.this, "Please connect your wearable device", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                if (!isConnected) {
+//                    Toast.makeText(MainActivity.this, "Please connect your wearable device", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
 
                 if (i == 0) {
                     //here
@@ -522,7 +522,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+//                startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
                 turnGPSOn();
 
             }

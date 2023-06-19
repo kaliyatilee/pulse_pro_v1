@@ -89,6 +89,8 @@ public class App extends Application  {
         }
         createNotificationChannel();
 
+//        public boolean setContinueHrp(boolean enable, int interval)
+
         mApp = this;
 
     }
