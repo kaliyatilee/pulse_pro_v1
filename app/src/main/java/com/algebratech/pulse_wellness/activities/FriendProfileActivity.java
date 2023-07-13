@@ -51,7 +51,7 @@ public class FriendProfileActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycle_activity_data);
 
         allActivityAdapter adapter = new allActivityAdapter(allActivityModels);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 

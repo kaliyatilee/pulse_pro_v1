@@ -1,0 +1,6 @@
+C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\src\main\java\com\abedelazizshe\lightcompressorlibrary\Sample.kt
+C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\src\main\java\com\abedelazizshe\lightcompressorlibrary\CompressionInterface.kt
+C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\src\main\java\com\abedelazizshe\lightcompressorlibrary\config\Configuration.kt
+C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\src\main\java\com\abedelazizshe\lightcompressorlibrary\Result.kt
+C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\src\main\java\com\abedelazizshe\lightcompressorlibrary\VideoCompressor.kt
+C:\Users\ChangaLesa\Documents\projects\changa\pulse_pro_v1\lightcompressor\src\main\java\com\abedelazizshe\lightcompressorlibrary\Compressor.kt

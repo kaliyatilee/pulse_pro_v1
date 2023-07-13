@@ -6,35 +6,110 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".dashboardReports.SleepActivity">
-    <TextView
-        android:id="@+id/tv3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sleep Record"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:textAlignment="center"
-        android:textSize="@dimen/text_20"/>
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card1"
-        android:layout_below="@+id/tv3"
+
         android:layout_width="match_parent"
-        android:layout_height="@dimen/margin_200dp">
+        android:layout_height="@dimen/margin_300dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:textAlignment="center"
-                android:layout_centerVertical="true"
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sleep Data Not found"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/daySleep"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/daySleep"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:elevation="@dimen/margin_0dp"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardCornerRadius="10dp">
+
+                        <TextView
+                            android:id="@+id/daySleepText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="D"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_14" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/weekSleep"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:elevation="@dimen/margin_0dp"
+                        app:cardBackgroundColor="@color/grey_40"
+                        app:cardCornerRadius="10dp">
+
+                        <TextView
+                            android:id="@+id/weekSleepText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="W"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_14" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/monthSleep"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:elevation="@dimen/margin_0dp"
+                        app:cardBackgroundColor="@color/grey_40"
+                        app:cardCornerRadius="10dp">
+
+                        <TextView
+                            android:id="@+id/monthSleepText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="M"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_14" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <com.jjoe64.graphview.GraphView
+                    android:id="@+id/graphSleepView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_200dp" />
+                <!--                android:layout_marginTop="@dimen/margin_10dp"-->
+
+
+                <!--                <com.github.mikephil.charting.charts.LineChart-->
+                <!--                    android:layout_marginTop="@dimen/margin_10dp"-->
+                <!--                    android:id="@+id/chart1"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="@dimen/margin_200dp" />-->
+            </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
 
     <RelativeLayout
         android:id="@+id/rele1"
@@ -42,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/card1"
         android:layout_marginStart="@dimen/margin_10dp"
-        android:layout_marginTop="@dimen/margin_10dp"
+        android:layout_marginTop="49dp"
         android:layout_marginEnd="@dimen/margin_10dp"
         android:layout_marginBottom="@dimen/margin_10dp">
 
@@ -67,13 +142,108 @@
             android:text="Date Recorded" />
     </RelativeLayout>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rele2"
+        android:layout_marginTop="10dp">
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card3"
+        android:layout_marginStart="@dimen/text_10"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="@dimen/text_10"
+        android:layout_marginBottom="@dimen/text_10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/deep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="0h 0m" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Deep"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="0h 0m" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Light"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/stayUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="0h 0m" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Stay up late"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <RelativeLayout
         android:id="@+id/rele2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rele1"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp">
 
@@ -107,138 +277,53 @@
 
     </RelativeLayout>
 
-
-   <androidx.cardview.widget.CardView
-       android:id="@+id/card3"
-       android:layout_below="@+id/rele2"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
-          <RelativeLayout
-              android:layout_marginLeft="20dp"
-              android:layout_marginRight="20dp"
-              android:id="@+id/rela1"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
-              <TextView
-                  android:textColor="@color/primary"
-                  android:textStyle="bold"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="0 hrs"
-                  android:layout_alignParentLeft="true"/>
-              <TextView
-                  android:textColor="@color/primary"
-                  android:textStyle="bold"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="24 hrs"
-                  android:layout_alignParentRight="true"/>
-          </RelativeLayout>
-          <RelativeLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginLeft="20dp"
-              android:layout_marginRight="20dp">
-
-              <ProgressBar
-                  android:indeterminateDrawable="@drawable/ic_running"
-                  android:id="@+id/progressBar"
-                  style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                  android:layout_width="match_parent"
-                  android:layout_height="20dp"
-                  android:backgroundTint="@color/primary"
-                  android:progress="0" />
-
-          </RelativeLayout>
-      </LinearLayout>
-   </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_margin="@dimen/text_10"
-        android:layout_below="@+id/card3"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rela1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_10dp"
-            android:orientation="horizontal">
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_alignParentLeft="true"
+                android:text="0 hrs"
+                android:textColor="@color/primary"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/deep"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="0h 0m" />
-
-
-
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Deep"
-                    android:textColor="@color/grey" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_alignParentRight="true"
+                android:text="24 hrs"
+                android:textColor="@color/primary"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/light"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="0h 0m" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
-
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Light"
-                    android:textColor="@color/grey" />
-            </LinearLayout>
-
-            <LinearLayout
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_height="20dp"
+                android:backgroundTint="@color/primary"
+                android:indeterminateDrawable="@drawable/ic_running"
+                android:progress="0" />
 
-                <TextView
-                    android:id="@+id/stayUp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="0h 0m" />
+        </RelativeLayout>
+    </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Stay up late"
-                    android:textStyle="bold"
-                    android:textColor="@color/grey" />
-            </LinearLayout>
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -246,12 +331,15 @@
 
 
     <Button
-        android:layout_margin="@dimen/margin_20dp"
-        android:layout_alignParentBottom="true"
-        android:text="Show All data"
+        android:id="@+id/showData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/showData"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/margin_20dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_marginEnd="@dimen/margin_20dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:text="Show All data" />
 
 
 </RelativeLayout>

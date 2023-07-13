@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.CalendarContract;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.algebratech.pulse_wellness.R;
@@ -23,7 +24,7 @@ import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpItemPack
 import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpPacket;
 import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
 import com.wosmart.ukprotocollibary.model.hrp.HrpData;
-import com.wosmart.ukprotocollibary.model.sleep.SleepData;
+//import com.wosmart.ukprotocollibary.model.sleep.hrpData;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,12 +38,14 @@ public class HeartRateActivity extends AppCompatActivity {
     List<Integer> hr;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
+    GraphView graphView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heart_rate);
         CM.showProgressLoader(HeartRateActivity.this);
+        graphView = findViewById(R.id.graphSleepView2);
 
         sharedPreferences = getSharedPreferences(com.algebratech.pulse_wellness.utils.Constants.PREF_NAME, MODE_PRIVATE);
         myEdit = sharedPreferences.edit();
@@ -52,6 +55,8 @@ public class HeartRateActivity extends AppCompatActivity {
         highestValue = findViewById(R.id.highestValue);
         averageValue = findViewById(R.id.averageHeart);
         lowestValue = findViewById(R.id.lowestValue);
+
+
 //         graph = (GraphView) findViewById(R.id.graph);
         hr = new ArrayList<Integer>();
         initHrData();
@@ -66,6 +71,15 @@ public class HeartRateActivity extends AppCompatActivity {
                 },
                 20000
         );
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        stopMeasure();
+
+        // Call super.onBackPressed() to allow the default back button behavior (navigating back)
+        super.onBackPressed();
     }
 
     private void calculate() {
@@ -116,6 +130,36 @@ public class HeartRateActivity extends AppCompatActivity {
         tvDate.setText(year +"-"+month+"-"+day);
 
        List<HrpData> hrpData = GlobalGreenDAO.getInstance().loadHrpDataByDate(year,month,day);
+
+        DataPoint[] dataPoints = new DataPoint[hrpData.size()];
+        DataPoint[] dataPoints1 = new DataPoint[hrpData.size()];
+        int i = 0;
+
+        for (HrpData item : hrpData) {
+            dataPoints[i] = new DataPoint(i, item.getDay());
+            int hour = item.getValue();
+            dataPoints1[i] =new DataPoint(i,hour);
+            i = i +1;
+        }
+
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(dataPoints1);
+        LineGraphSeries<DataPoint> series1 = new LineGraphSeries<DataPoint>(dataPoints);
+
+        series1.setBackgroundColor(R.color.primary);
+        series1.setBackgroundColor(R.color.red);
+
+        graphView.addSeries(series);
+        graphView.addSeries(series1);
+
+//        try {
+//            progressBar.setProgress(sleepSubData.getTotalSleepTime());
+//            tvTotalDuration.setText(""+sleepSubData.getTotalSleepTime());
+//            deep.setText(""+sleepSubData.getDeepSleepTime());
+//            light.setText(""+sleepSubData.getLightSleepTime());
+//            stayUp.setText(""+sleepSubData.getAwakeTimes());
+//        }catch (Exception e){
+//            System.out.println("++++++++++Exception"+e);
+//        }
        // List<HrpData> hrpData = GlobalGreenDAO.getInstance().loadAllHrpData();
 
 
@@ -178,4 +222,6 @@ public class HeartRateActivity extends AppCompatActivity {
         });
         thread.start();
     }
+
+
 }

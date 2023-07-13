@@ -6,6 +6,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 import static com.inuker.bluetooth.library.utils.BluetoothUtils.registerReceiver;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -81,6 +82,8 @@ import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpItemPack
 import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerPrivateBpPacket;
 import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerTemperatureControlPacket;
 import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
+import com.wosmart.ukprotocollibary.model.sleep.SleepData;
+import com.wosmart.ukprotocollibary.model.sleep.SleepSubData;
 import com.wosmart.ukprotocollibary.model.sport.SportData;
 import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerNotifyPacket;
 
@@ -98,6 +101,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import com.algebratech.pulse_wellness.services.NotificationService;
+import com.wosmart.ukprotocollibary.util.WristbandCalculator;
 
 public class HomeFragment extends Fragment {
 
@@ -145,7 +149,7 @@ public class HomeFragment extends Fragment {
     private ActivitiesSummaryAdapter activitiesSummaryAdapter;
     private RecyclerView.Adapter mAdapter;
     TextView seeAll,currentWeight,tmpReading,weightDate,weightMessage;
-    CardView cardWeight,stepsCard,cardSleep,cardHeart;
+    CardView cardWeight,stepsCard,cardSleep,cardHeart, cardTemp;
     List<TodaysActivityModel> todaysActivityModels = new ArrayList<>();
     Intent intent1;
     String today_kcals,today_distance,today_steps,deepSleep,tmp_original,sync_status;
@@ -223,6 +227,7 @@ public class HomeFragment extends Fragment {
           //  bpReading = root.findViewById(R.id.bpReading);
             cardSleep = root.findViewById(R.id.cardSleep);
             cardHeart = root.findViewById(R.id.cardHeart);
+            cardTemp = root.findViewById(R.id.cardTemp);
 //            currentWeight = root.findViewById(R.id.currentWeight);
             total_calories = root.findViewById(R.id.total_calories);
             total_steps = root.findViewById(R.id.total_steps);
@@ -266,6 +271,7 @@ public class HomeFragment extends Fragment {
 
 
              BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+                @SuppressLint("SetTextI18n")
                 @Override
                 public void onReceive(Context context, Intent intent) {
                      today_kcals = intent.getStringExtra("kcals");
@@ -274,7 +280,11 @@ public class HomeFragment extends Fragment {
 
 
                      try {
-                         deepSleep = intent.getStringExtra("deepSleep");
+                         List<SleepData> sleepData = GlobalGreenDAO.getInstance().loadAllSleepData();
+                         SleepData lastItem = sleepData.get(sleepData.size() - 1);
+                         SleepSubData sleepSubData = WristbandCalculator.sumOfSleepDataByDate(lastItem.getYear(),lastItem.getMonth(),lastItem.getDay(),sleepData);
+//                         deepSleep = intent.getStringExtra("deepSleep");
+                         deepSleep = String.valueOf(sleepSubData.getDeepSleepTime());
                          tvDeepSleep.setText("Deep Sleep :"+deepSleep +" Hrs");
                      }
                      catch (Exception e){
@@ -282,7 +292,7 @@ public class HomeFragment extends Fragment {
                      }
 
                      today_steps = intent.getStringExtra("steps");
-                     tmp_original = intent.getStringExtra("tempreture");
+                     tmp_original = intent.getStringExtra("temperature");
 
                     avarageHeart.setText(sharedPreferences.getString("latestHr","--")+" BPS");
                     tmpSteps.setText(today_steps);
@@ -376,6 +386,14 @@ public class HomeFragment extends Fragment {
                 public void onClick(View view) {
                     Intent intent1 = new Intent(mContext, HeartRateActivity.class);
                     startActivity(intent1);
+
+                }
+            });
+
+            cardTemp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    WristbandManager.getInstance(getContext()).setTemperatureStatus(true);
 
                 }
             });
@@ -534,7 +552,11 @@ public class HomeFragment extends Fragment {
                                                 myPlanKcalProText.setText("100 %");
                                                 txtPlanStatus.setText("Well done, You have achieved your Weekly Goals.");
                                             } else if(tempweekKCal >= 50 && tempweekKCal < 100) {
-                                                notif = new NotificationService();
+//                                                notif = new NotificationService();
+                                                if(tempweekKCal == 50) {
+                                                    WristbandManager.getInstance(getContext()).sendCustomNotify("You have Achieved 50% of your Goal");
+                                                }
+
 
                                                 txtPlanStatus.setText("Great! You are almost there.");
                                             } else if(tempweekKCal < 50) {

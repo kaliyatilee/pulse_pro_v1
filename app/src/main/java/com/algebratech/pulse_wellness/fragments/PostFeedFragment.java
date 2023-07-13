@@ -338,7 +338,7 @@ public class PostFeedFragment extends Fragment {
                         bitmap = BitmapFactory.decodeFile(f.getAbsolutePath());
                         Log.d(Constants.TAG + "Bitmap", BitmapUtils.decodeImage(bitmap));
                         //Glide.with(context).load(StaticMethods.RotateBitmap(bitmap,-90)).into(imgPreview);
-                        Picasso.with(context).load("file:" + f.getAbsolutePath()).error(R.drawable.ic_insert_photo).into(imgPreview);
+                        Picasso.get().load("file:" + f.getAbsolutePath()).error(R.drawable.ic_insert_photo).into(imgPreview);
                         post_data = f.getAbsolutePath();
 
                     }

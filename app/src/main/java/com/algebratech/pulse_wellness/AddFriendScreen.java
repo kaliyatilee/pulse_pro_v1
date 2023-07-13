@@ -67,9 +67,10 @@ public class AddFriendScreen extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recycle_friend);
         addFriendAdapter adapter = new addFriendAdapter(addFriendModels,this);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
 
 
 //        DividerItemDecoration itemDecoration =

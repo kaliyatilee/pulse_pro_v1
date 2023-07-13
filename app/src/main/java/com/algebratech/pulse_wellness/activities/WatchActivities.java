@@ -206,6 +206,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
     Boolean isSyncing = true;
     Boolean wasStopActivityClicked = false;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -259,6 +260,9 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
                 TTS("Activity started");
                 countdown.setVisibility(View.GONE);
                 findViewById(R.id.relcount).setVisibility(View.GONE);
+                startSport();
+                WristbandManager.getInstance(WatchActivities.this).setAppSportRateDetect(true);
+                getReadings();
 
             }
         });
@@ -310,7 +314,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
 
 
     void StopActivity() {
-        CM.showProgressLoader(WatchActivities.this);
+//        CM.showProgressLoader(WatchActivities.this);
         WristbandManager.getInstance(WatchActivities.this).setAppSportRateDetect(false);
         Log.d(TAG,"StopActivity");
         drawlines = false;
@@ -798,9 +802,12 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
 
         try {
 
-            finalDistance = Double.parseDouble(distances);
-            finalKcals = Double.parseDouble(kcals);
-            finalSteps = Integer.parseInt(steps);
+//            finalDistance = Double.parseDouble(distances);
+//            finalKcals = Double.parseDouble(kcals);
+//            finalSteps = Integer.parseInt(steps);
+            finalDistance = distances != null ? Double.parseDouble(distances) : 0.0;
+            finalKcals = kcals != null ? Double.parseDouble(kcals) : 0.0;
+            finalSteps = steps != null ? Integer.parseInt(steps) : 0;
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
@@ -864,7 +871,7 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
                     countdown.setVisibility(View.GONE);
                     findViewById(R.id.relcount).setVisibility(View.GONE);
                     Log.d(TAG,"startCount running 2");
-                    getReadings();
+
 
                 }
 
@@ -1123,6 +1130,22 @@ public class WatchActivities extends AppCompatActivity implements OnMapReadyCall
 
             }
         }, 2000);
+    }
+
+
+    private void startSport() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                WristbandManager.getInstance(WatchActivities.this).setAppSportRateDetect(true);
+//                if () {
+//                    handler.sendEmptyMessage(0x01);
+//                } else {
+//                    handler.sendEmptyMessage(0x02);
+//                }
+            }
+        });
+        thread.start();
     }
 
 

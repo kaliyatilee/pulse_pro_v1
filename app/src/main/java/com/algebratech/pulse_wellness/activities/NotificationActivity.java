@@ -94,7 +94,7 @@ public class NotificationActivity extends AppCompatActivity implements NewsFeedL
 
         RecyclerView recyclerView = findViewById(R.id.recyclerviewGreetings);
         GreetingNotificationAdapter adapter = new GreetingNotificationAdapter(greetingsNotificationModels);
-        recyclerView.setHasFixedSize(true);
+        // recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 

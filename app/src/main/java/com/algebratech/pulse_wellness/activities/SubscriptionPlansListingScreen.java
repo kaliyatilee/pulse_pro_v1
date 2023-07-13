@@ -333,7 +333,7 @@ public class SubscriptionPlansListingScreen extends AppCompatActivity implements
     void setDataAdapter() {
         plan_id = subscriptionPlanModelsList.get(0).getId();
         subscriptionAdapter = new subscriptionAdapter(subscriptionPlanModelsList, getContext(), this);
-        subscription_recycle.setHasFixedSize(true);
+        // subscription_recycle.setHasFixedSize(true);
         subscription_recycle.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         mAdapter = subscriptionAdapter;
         subscription_recycle.setAdapter(mAdapter);

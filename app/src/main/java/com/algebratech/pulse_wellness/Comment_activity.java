@@ -241,7 +241,7 @@ public class Comment_activity extends AppCompatActivity implements FeedCommentLi
 
     void setDataAdapter() {
         commentAdapter = new commentAdapter(commentModelList, getContext(), this, false, 0);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = commentAdapter;
         recyclerView.setAdapter(mAdapter);

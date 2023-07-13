@@ -214,6 +214,7 @@ OutdoorRunActivity extends AppCompatActivity implements OnMapReadyCallback, Goog
     private String base64String = "";
     TextView stepss, distancee, caloriess;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

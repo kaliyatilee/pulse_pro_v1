@@ -151,7 +151,7 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.ViewHold
 
             holder.nestedComment.setVisibility(View.VISIBLE);
             commentAdapter commentAdapter = new commentAdapter(commentModel.get(position).getComments_arr(), getContext(), feedCommentListner, true, position);
-            holder.nestedComment.setHasFixedSize(true);
+            // holder.nestedComment.setHasFixedSize(true);
             holder.nestedComment.setLayoutManager(new LinearLayoutManager(getContext()));
             mAdapter = commentAdapter;
             holder.nestedComment.setAdapter(mAdapter);

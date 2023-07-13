@@ -640,18 +640,20 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_16"
                         android:text="Heart State"/>
+
                     <TextView
-                        android:textColor="@color/grey_60"
-                        android:textSize="@dimen/text_14"
+                        android:id="@+id/avarageHeart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="10 BP /sec"
-                        android:id="@+id/avarageHeart"/>
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14" />
                 </LinearLayout>
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardTemp"
             android:layout_margin="@dimen/margin_5dp"
             android:elevation="@dimen/margin_5dp"
             app:cardBackgroundColor="@color/white"
@@ -825,26 +827,31 @@
                     app:civ_border_width="1dp" />
 
                 <LinearLayout
-                    android:layout_toRightOf="@+id/sleepIcon"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/margin_10dp"
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_toRightOf="@+id/sleepIcon"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/muli_semibold"
+                        android:text="Sleep"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text_16"
-                        android:text="Sleep"/>
+                        android:textSize="@dimen/text_16" />
+
                     <TextView
                         android:id="@+id/tvDeepSleep"
-                        android:textColor="@color/grey_60"
-                        android:textSize="@dimen/text_14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Deep: None"/>
+                        android:text="Deep: None"
+                        android:textColor="@color/grey_60"
+                        android:textSize="@dimen/text_14" />
                 </LinearLayout>
 
                 <LinearLayout

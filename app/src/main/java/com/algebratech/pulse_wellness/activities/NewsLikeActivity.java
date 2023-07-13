@@ -150,7 +150,7 @@ public class NewsLikeActivity extends AppCompatActivity {
         like_count.setText(likeCount + " Pulse");
         RecyclerView recyclerView = findViewById(R.id.recycle_likes);
         likeAdapter = new LikeAdapter(likeModelList, getContext());
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = likeAdapter;
         recyclerView.setAdapter(mAdapter);

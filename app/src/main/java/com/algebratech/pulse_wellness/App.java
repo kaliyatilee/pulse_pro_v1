@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -76,13 +77,21 @@ public class App extends Application  {
             Intent serviceIntent = new Intent(getApplicationContext(), SyncWearableService.class);
             serviceIntent.putExtra(Constants.START_SERVICE, true);
 
-            if(!SyncWearableService.IsRunning) {
+//            if(!SyncWearableService.IsRunning) {
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                    ContextCompat.startForegroundService(this, serviceIntent);
+//                } else {
+//                    getApplicationContext().startService(serviceIntent);
+//                }
+//
+//            }
+
+            if (!SyncWearableService.IsRunning) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     ContextCompat.startForegroundService(this, serviceIntent);
                 } else {
-                    getApplicationContext().startService(serviceIntent);
+                    startService(serviceIntent);
                 }
-
             }
 
 

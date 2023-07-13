@@ -307,7 +307,7 @@ public class ProfileActivity extends AppCompatActivity {
                     Log.d(Constants.TAG + "File", f.getAbsolutePath());
                     bitmap = BitmapFactory.decodeFile(f.getAbsolutePath());
                     Log.d(Constants.TAG + "Bitmap", BitmapUtils.decodeImage(bitmap));
-                    Picasso.with(this).load("file:" + f.getAbsolutePath()).error(R.drawable.placeholder).into(profilePic);
+                    Picasso.get().load("file:" + f.getAbsolutePath()).error(R.drawable.placeholder).into(profilePic);
                     Uri uri = Uri.fromFile(new File(f.getAbsolutePath()));
                     String displayName = Calendar.getInstance().getTimeInMillis() + "." + extension;
 

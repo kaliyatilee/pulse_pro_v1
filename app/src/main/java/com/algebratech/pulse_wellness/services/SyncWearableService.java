@@ -203,7 +203,7 @@ public class SyncWearableService  extends Service {
         public void onTemperatureData(ApplicationLayerHrpPacket packet) {
             super.onTemperatureData(packet);
             for (ApplicationLayerHrpItemPacket item : packet.getHrpItems()) {
-                intent.putExtra("tempreture",String.valueOf(item.getTempOriginValue()));
+                intent.putExtra("temperature",String.valueOf(item.getTemperature()));
                 sendBroadcast(intent);
                 Log.d(TAG, "temp origin value :" + item.getTempOriginValue() + " temperature adjust value : " + item.getTemperature() + " is wear :" + item.isWearStatus() + " is adjust : " + item.isAdjustStatus() + "is animation :" + item.isAnimationStatus());
             }

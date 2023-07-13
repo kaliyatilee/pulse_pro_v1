@@ -1,11 +1,9 @@
 package com.algebratech.pulse_wellness.activities;
 
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,8 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,19 +22,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.algebratech.pulse_wellness.R;
 import com.algebratech.pulse_wellness.adapters.FriendsAdapter;
-import com.algebratech.pulse_wellness.adapters.NewsFeedAdapter;
 import com.algebratech.pulse_wellness.api.Api;
 import com.algebratech.pulse_wellness.interfaces.DialogClickListener;
 import com.algebratech.pulse_wellness.models.FriendsModel;
-import com.algebratech.pulse_wellness.models.GraphModel;
-import com.algebratech.pulse_wellness.models.NewsFeedModel;
 import com.algebratech.pulse_wellness.utils.CM;
 import com.algebratech.pulse_wellness.utils.Constants;
 import com.algebratech.pulse_wellness.utils.NewsFeedListner;
@@ -48,7 +40,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -56,57 +47,44 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AddFriendActivity extends AppCompatActivity implements NewsFeedListner {
-    private Toolbar toolbarPolicy;
     RecyclerView recyclerView;
     List<FriendsModel> friendsModelList = new ArrayList<>();
     List<FriendsModel> tempModelList = new ArrayList<>();
     private RecyclerView.Adapter mAdapter;
-    private LinearLayoutManager mLayoutManager;
-    private EditText etSearchKey;
-    private SharedPreferences sharedPreferences;
     private String userId;
     private TextView no_data;
     private TextView search_user;
     BottomSheetDialog bottomSheetDialog;
-    private int requestCountmain = 1;
-    private RequestQueue requestQueue;
     int decorationCount = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friend);
-        toolbarPolicy = findViewById(R.id.toolbarpolicy);
-        sharedPreferences = getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
+        Toolbar toolbarPolicy = findViewById(R.id.toolbarpolicy);
+        SharedPreferences sharedPreferences = getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
         userId = sharedPreferences.getString("userID", null);
 
         recyclerView = findViewById(R.id.recyclerView);
-        etSearchKey = findViewById(R.id.etSearchKey);
+        EditText etSearchKey = findViewById(R.id.etSearchKey);
         no_data = findViewById(R.id.no_data);
         search_user = findViewById(R.id.search_user);
-        mLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
 
         setSupportActionBar(toolbarPolicy);
         setTitle("Add Friends");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbarPolicy.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        toolbarPolicy.setNavigationOnClickListener(view -> onBackPressed());
         bottomSheetDialog = new BottomSheetDialog(AddFriendActivity.this, R.style.BottomSheetDialog);
 
         if (CM.isConnected(AddFriendActivity.this)) {
@@ -159,51 +137,42 @@ public class AddFriendActivity extends AppCompatActivity implements NewsFeedList
         }
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Api.allusers, object,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
+                response -> {
 
-                        Log.e(Constants.TAG, String.valueOf(response));
-                        try {
+                    Log.e(Constants.TAG, String.valueOf(response));
+                    try {
 
-                            JSONArray array = new JSONArray(response.getString("data"));
-                            for (int i = 0; i < array.length(); i++) {
+                        JSONArray array = new JSONArray(response.getString("data"));
+                        for (int i = 0; i < array.length(); i++) {
 
-                                JSONObject object = array.getJSONObject(i);
+                            JSONObject object1 = array.getJSONObject(i);
 
-                                String userid = object.getString("id");
-                                String imageurl = object.getString("profileurl");
-                                String username = object.getString("firstname") + " " + object.getString("lastname");
+                            String userid = object1.getString("id");
+                            String imageurl = object1.getString("profileurl");
+                            String username = object1.getString("firstname") + " " + object1.getString("lastname");
 
 
-                                FriendsModel friendsModel = new FriendsModel(username, imageurl, userid, "", "");
-                                friendsModelList.add(friendsModel);
-                                tempModelList.add(friendsModel);
-                            }
-                            //setAdapter();
-                            CM.HideProgressLoader();
-                        } catch (Exception e) {
-                            CM.HideProgressLoader();
-                            Log.e(Constants.TAG, e.getMessage());
-
+                            FriendsModel friendsModel = new FriendsModel(username, imageurl, userid, "", "");
+                            friendsModelList.add(friendsModel);
+                            tempModelList.add(friendsModel);
                         }
-
+                        //setAdapter();
+                        CM.HideProgressLoader();
+                    } catch (Exception e) {
+                        CM.HideProgressLoader();
+                        Log.e(Constants.TAG, e.getMessage());
 
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
 
-                CM.HideProgressLoader();
 
-            }
-        });
+                }, error -> CM.HideProgressLoader());
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(jsonObjectRequest);
 
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     void setAdapter() {
         mAdapter = new FriendsAdapter(AddFriendActivity.this, friendsModelList, this);
         recyclerView.setAdapter(mAdapter);
@@ -221,6 +190,7 @@ public class AddFriendActivity extends AppCompatActivity implements NewsFeedList
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
     private void filter(String text) {
         friendsModelList.clear();
         friendsModelList.addAll(tempModelList);
@@ -289,39 +259,28 @@ public class AddFriendActivity extends AppCompatActivity implements NewsFeedList
                 e.printStackTrace();
             }
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Api.addfriend, object,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            CM.HideProgressLoader();
-                            friendsModelList.remove(position);
-                            mAdapter.notifyItemRemoved(position);
-                            mAdapter.notifyItemRangeChanged(position, friendsModelList.size());
+                    response -> {
+                        CM.HideProgressLoader();
+                        friendsModelList.remove(position);
+                        mAdapter.notifyItemRemoved(position);
+                        mAdapter.notifyItemRangeChanged(position, friendsModelList.size());
 
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(AddFriendActivity.this);
-                            LayoutInflater factory = LayoutInflater.from(AddFriendActivity.this);
-                            final View v = factory.inflate(R.layout.friendreq_success, null);
-                            builder.setView(v);
-                            Button button = v.findViewById(R.id.ok);
-                            AlertDialog alert = builder.create();
-                            alert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                            button.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    alert.dismiss();
-                                    onBackPressed();
-                                    finish();
-                                }
-                            });
-                            alert.show();
-                        }
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AddFriendActivity.this);
+                        LayoutInflater factory = LayoutInflater.from(AddFriendActivity.this);
+                        final View v = factory.inflate(R.layout.friendreq_success, null);
+                        builder.setView(v);
+                        Button button = v.findViewById(R.id.ok);
+                        AlertDialog alert = builder.create();
+                        alert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                        button.setOnClickListener(view -> {
+                            alert.dismiss();
+                            onBackPressed();
+                            finish();
+                        });
+                        alert.show();
                     },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(AddFriendActivity.this, "Friend request failed , please try again.", Toast.LENGTH_LONG).show();
-                        }
-                    });
+                    error -> Toast.makeText(AddFriendActivity.this, "Friend request failed , please try again.", Toast.LENGTH_LONG).show());
 
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             requestQueue.add(jsonObjectRequest);
@@ -351,63 +310,55 @@ public class AddFriendActivity extends AppCompatActivity implements NewsFeedList
             }
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Api.getUserDetails, object,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
+                    response -> {
 
-                            try {
+                        try {
 
-                                if (response.getString("status").equals("true")) {
-                                    JSONObject data = new JSONObject(response.getString("data"));
-                                    Log.e("DATA", data.toString());
-                                    String name = data.getString("firstname") + " " + data.getString("lastname");
-                                    String profile = data.getString("profileurl");
-                                    String dob = data.getString("dob");
-                                    String gender = data.getString("gender");
-                                    String country = data.getString("country");
-                                    String created_at = data.getString("created_at");
+                            if (response.getString("status").equals("true")) {
+                                JSONObject data = new JSONObject(response.getString("data"));
+                                Log.e("DATA", data.toString());
+                                String name = data.getString("firstname") + " " + data.getString("lastname");
+                                String profile = data.getString("profileurl");
+                                String dob = data.getString("dob");
+                                String gender = data.getString("gender");
+                                String country = data.getString("country");
+                                String created_at = data.getString("created_at");
 
-                                    if (dob.isEmpty() || dob.equals("null") || dob.equals(""))
-                                        dob = "N/A";
-                                    if (gender.isEmpty() || gender.equals("null") || gender.equals(""))
-                                        gender = "N/A";
-                                    if (country.isEmpty() || country.equals("null") || country.equals(""))
-                                        country = "N/A";
-                                    if (created_at.isEmpty() || created_at.equals("null") || created_at.equals(""))
-                                        created_at = "N/A";
+                                if (dob.isEmpty() || dob.equals("null"))
+                                    dob = "N/A";
+                                if (gender.isEmpty() || gender.equals("null"))
+                                    gender = "N/A";
+                                if (country.isEmpty() || country.equals("null"))
+                                    country = "N/A";
+                                if (created_at.isEmpty() || created_at.equals("null"))
+                                    created_at = "N/A";
 
-                                    CM.HideProgressLoader();
+                                CM.HideProgressLoader();
 
-                                    showBottomSheetDialog(position, name, profile, gender, country, dob, created_at);
-                                } else {
-                                    CM.HideProgressLoader();
-                                }
-
-                            } catch (Exception e) {
-
-                                Log.e(Constants.TAG, e.getMessage());
+                                showBottomSheetDialog(position, name, profile, gender, country, dob, created_at);
+                            } else {
                                 CM.HideProgressLoader();
                             }
 
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    CM.HideProgressLoader();
-                }
-            });
+                        } catch (Exception e) {
 
-            requestQueue = Volley.newRequestQueue(this);
+                            Log.e(Constants.TAG, e.getMessage());
+                            CM.HideProgressLoader();
+                        }
+
+                    }, error -> CM.HideProgressLoader());
+
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
             requestQueue.add(jsonObjectRequest);
-            requestCountmain++;
         } else
             Toast.makeText(AddFriendActivity.this, R.string.noInternet, Toast.LENGTH_SHORT).show();
 
 
     }
 
+    @SuppressLint("SetTextI18n")
     private void showBottomSheetDialog(int position, String namee, String profile, String genderr, String countryy, String dobb, String created_at) {
-        View view = LayoutInflater.from(AddFriendActivity.this).inflate(R.layout.user_detail_bottomsheet, null);
+        @SuppressLint("InflateParams") View view = LayoutInflater.from(AddFriendActivity.this).inflate(R.layout.user_detail_bottomsheet, null);
         bottomSheetDialog.setContentView(view);
         Button addFriend = view.findViewById(R.id.addFriend);
         ImageView close = view.findViewById(R.id.close);
@@ -430,12 +381,7 @@ public class AddFriendActivity extends AppCompatActivity implements NewsFeedList
 
         Glide.with(this).load(profile).error(R.drawable.placeholder).into(profilePic);
 
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bottomSheetDialog.hide();
-            }
-        });
+        close.setOnClickListener(v -> bottomSheetDialog.hide());
 
         addFriend.setOnClickListener(new View.OnClickListener() {
             @Override

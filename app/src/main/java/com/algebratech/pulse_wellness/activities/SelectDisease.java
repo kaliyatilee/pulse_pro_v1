@@ -213,7 +213,7 @@ public class SelectDisease extends AppCompatActivity implements NewsFeedListner 
     void setDataAdapter() {
         RecyclerView recyclerView = findViewById(R.id.recycle_diseases);
         diseaseAdapter = new DiseaseAdapter(diseaseModels, this);
-        recyclerView.setHasFixedSize(true);
+        // recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(SelectDisease.this));
         mAdapter = diseaseAdapter;
         recyclerView.setAdapter(mAdapter);

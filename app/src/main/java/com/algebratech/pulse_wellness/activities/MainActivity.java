@@ -1,7 +1,5 @@
 package com.algebratech.pulse_wellness.activities;
 
-import static android.bluetooth.BluetoothProfile.GATT;
-import static com.algebratech.pulse_wellness.services.DeviceConnect.BROADCAST_ACTION;
 import static com.algebratech.pulse_wellness.utils.Constants.TAG;
 import static com.inuker.bluetooth.library.BluetoothService.getContext;
 
@@ -13,6 +11,7 @@ import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
+import android.bluetooth.BluetoothProfile;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -35,7 +34,6 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +43,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -55,15 +52,12 @@ import com.algebratech.pulse_wellness.FragmentTabLeaderboardFriendlist;
 import com.algebratech.pulse_wellness.R;
 import com.algebratech.pulse_wellness.adapters.gridActivityAdapter;
 import com.algebratech.pulse_wellness.api.Api;
-import com.algebratech.pulse_wellness.db.DBHelper;
 import com.algebratech.pulse_wellness.fragment_tab_newsfeed_dashboard;
 import com.algebratech.pulse_wellness.fragments.CommunityFragment;
 import com.algebratech.pulse_wellness.fragments.RewardsFragment;
-import com.algebratech.pulse_wellness.models.WeightMonitoringModel;
 import com.algebratech.pulse_wellness.models.gridActivityModel;
 import com.algebratech.pulse_wellness.services.DeviceConnect;
 import com.algebratech.pulse_wellness.services.DeviceSyncService;
-import com.algebratech.pulse_wellness.services.MyFirebaseInstanceIDService;
 import com.algebratech.pulse_wellness.services.NotificationService;
 import com.algebratech.pulse_wellness.utils.CM;
 import com.algebratech.pulse_wellness.utils.Constants;
@@ -91,56 +85,29 @@ import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.UpdateAvailability;
-//import com.google.firebase.iid.FirebaseInstanceId;
 import com.stripe.android.PaymentConfiguration;
-import com.wosmart.ukprotocollibary.WristbandManager;
-import com.wosmart.ukprotocollibary.WristbandManagerCallback;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBeginPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBpListItemPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerBpListPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpItemPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerHrpPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerPrivateBpPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerRateItemPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerRateListPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSleepItemPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSleepPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSportItemPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerSportPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerStepItemPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerStepPacket;
-import com.wosmart.ukprotocollibary.applicationlayer.ApplicationLayerTodaySumSportPacket;
-import com.wosmart.ukprotocollibary.model.db.GlobalGreenDAO;
-import com.wosmart.ukprotocollibary.model.db.HrpDataDao;
-import com.wosmart.ukprotocollibary.model.hrp.HrpData;
-import com.wosmart.ukprotocollibary.model.sleep.SleepData;
-import com.wosmart.ukprotocollibary.model.sport.SportData;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_ENABLE_BT = 1;
     private static final int REQUESTCODE_TURNON_GPS = 199;
-    private FragmentTransaction fragmentTransaction;
     TextView tvUsername;
     static BottomNavigationView bottomNavigationView;
-    BottomNavigationView navView;
-    private RelativeLayout qr_scan;
+
+    private static final int REQUEST_PERMISSION_CODE = 1; // Define the request code
+
 
     FragmentManager FM;
     FragmentTransaction FT;
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor myEdit;
-    Intent intent;
     ImageView watch_icon;
 
     String hasMac, userId;
@@ -148,32 +115,28 @@ public class MainActivity extends AppCompatActivity {
     Dialog dialog;
     private AppUpdateManager mAppUpdateManager;
     private static final int MY_REQUEST_CODE = 444;
-    private FloatingActionButton fab;
-    private ImageView notifications, search;
     LinearLayout bottomSheetParent;
     BottomSheetBehavior mBottomSheetBehaviour;
     boolean isActivityReady = false;
     boolean isActivityClicked = false;
-    String clickedActivity,clickedActivityCode;
+    String clickedActivity, clickedActivityCode;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         startService(new Intent(this, NotificationService.class));
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-            StrictMode.setVmPolicy(builder.build());
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
 
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
 
         setContentView(R.layout.activity_main);
-        fab = findViewById(R.id.fab);
-        notifications = findViewById(R.id.notifications);
-        search = findViewById(R.id.search);
+        FloatingActionButton fab = findViewById(R.id.fab);
+        ImageView notifications = findViewById(R.id.notifications);
+        ImageView search = findViewById(R.id.search);
         bottomSheetParent = findViewById(R.id.bottom_sheet_parent);
 
         mBottomSheetBehaviour = BottomSheetBehavior.from(bottomSheetParent);
@@ -197,257 +160,163 @@ public class MainActivity extends AppCompatActivity {
         gridActivityAdapter adapter = new gridActivityAdapter(this, gridActivityModels);
         gridView.setAdapter(adapter);
 
-
         registerReceiver(broadcastReceiver, new IntentFilter(DeviceConnect.BROADCAST_ACTION));
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (hasMac == null) {
-                    Toast.makeText(MainActivity.this, "Please connect your wearable device", Toast.LENGTH_SHORT).show();
-                    return;
+        gridView.setOnItemClickListener((adapterView, view, i, l) -> {
+
+            if (hasMac == null) {
+                Toast.makeText(MainActivity.this, "Please connect your wearable device", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
+            BluetoothManager btManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+            if (btManager == null) {
+                // Bluetooth is not supported on this device
+                return;
+            }
+
+            BluetoothAdapter btAdapter = btManager.getAdapter();
+            if (btAdapter == null || !btAdapter.isEnabled()) {
+                // Bluetooth is not enabled
+                return;
+            }
+
+            if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // Request location permission if required for Bluetooth scanning
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSION_CODE);
+                return;
+            }
+
+            List<BluetoothDevice> connectedDevices = null;
+            connectedDevices = btManager.getConnectedDevices(BluetoothProfile.GATT);
+            boolean isConnected = false;
+            if (connectedDevices != null) {
+                for (BluetoothDevice device : connectedDevices) {
+                    if (device.getAddress().equalsIgnoreCase(hasMac)) {
+                        isConnected = true;
+                        break;
+                    }
                 }
+            }
+
+            if (isConnected) {
+
+                // The device with the specified MAC address is connected
+            } else {
+                // The device with the specified MAC address is not connected
+            }
 
 
-                BluetoothManager btManager = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
-//                List<BluetoothDevice> connectedDevices = btManager.getConnectedDevices(GATT);
-//                boolean isConnected = false;
-//                if (connectedDevices != null) {
-//                    for (int j = 0; j < connectedDevices.size(); j++) {
-//                        if (connectedDevices.get(j).getAddress().equalsIgnoreCase(hasMac)) {
-//                            isConnected = true;
-//                            break;
-//                        }
-//                    }
-//                }
-
-                if(!WristbandManager.getInstance(MainActivity.this).isConnect()){
-                    Toast.makeText(MainActivity.this, "Please connect your wearable device", Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
 //                if (!isConnected) {
 //                    Toast.makeText(MainActivity.this, "Please connect your wearable device", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
 
-                if (i == 0) {
-                    //here
-                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                    if(isActivityReady) {
-                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                        intent.putExtra("activity", "Outdoor Run");
-                        intent.putExtra("activityCode", "1");
-                        startActivity(intent);
-                    }
-                    else{
-                        CM.showProgressLoader(MainActivity.this);
-                        isActivityClicked = true;
-                        clickedActivity = "Outdoor Run";
-                        clickedActivityCode = "1";
-                    }
+            if (i == 0) {
+                //here
+                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+//                    Intent intent = new Intent(MainActivity.this, OutdoorRunActivity.class);
+//                    startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                intent.putExtra("activity", "Outdoor Run");
+                intent.putExtra("activityCode", "1");
+                startActivity(intent);
 
-
-
-                } else if (i == 1) {
-                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                    if(isActivityReady) {
-                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                        intent.putExtra("activity", "Outdoor Walk");
-                        intent.putExtra("activityCode", "2");
-                        startActivity(intent);
-                    }
-                    else{
-                        CM.showProgressLoader(MainActivity.this);
-                        isActivityClicked = true;
-                        clickedActivity = "Outdoor Walk";
-                        clickedActivityCode = "2";
-                    }
-                } else if (i == 2) {
-                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            } else if (i == 1) {
+                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+//                    Intent intent = new Intent(MainActivity.this, OutdoorWalkingActivity.class);
+//                    startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                intent.putExtra("activity", "Outdoor Walk");
+                intent.putExtra("activityCode", "2");
+                startActivity(intent);
+            } else if (i == 2) {
+                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, IndoorRunActivity.class);
 //                    startActivity(intent);
-                    if(isActivityReady) {
-                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                        intent.putExtra("activity", "Indoor Run");
-                        intent.putExtra("activityCode", "3");
-                        startActivity(intent);
-                    }
-                    else{
-                        CM.showProgressLoader(MainActivity.this);
-                        isActivityClicked = true;
-                        clickedActivity = "Indoor Run";
-                        clickedActivityCode = "3";
-                    }
+                Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                intent.putExtra("activity", "Indoor Run");
+                intent.putExtra("activityCode", "3");
+                startActivity(intent);
 
-
-                } else if (i == 3) {
-                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            } else if (i == 3) {
+                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, IndoorWalkActivity.class);
 //                    startActivity(intent);
-                    if(isActivityReady) {
-                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                        intent.putExtra("activity", "Indoor Walk");
-                        intent.putExtra("activityCode", "4");
-                        startActivity(intent);
-                    }
-                    else{
-                        CM.showProgressLoader(MainActivity.this);
-                        isActivityClicked = true;
-                        clickedActivity = "Indoor Walk";
-                        clickedActivityCode = "4";
-                    }
-                } else if (i == 4) {
-                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                intent.putExtra("activity", "Indoor Walk");
+                intent.putExtra("activityCode", "4");
+                startActivity(intent);
+            } else if (i == 4) {
+                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, HikingActivity.class);
 //                    startActivity(intent);
-                    if(isActivityReady) {
-                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                        intent.putExtra("activity", "Hiking");
-                        intent.putExtra("activityCode", "5");
-                        startActivity(intent);
-                    }
-                    else{
-                        CM.showProgressLoader(MainActivity.this);
-                        isActivityClicked = true;
-                        clickedActivity = "Hiking";
-                        clickedActivityCode = "5";
-                    }
-//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-//                    intent.putExtra("activity", "Hiking");
-//                    intent.putExtra("activityCode", "5");
-//                    startActivity(intent);
-                } else if (i == 5) {
+                Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                intent.putExtra("activity", "Hiking");
+                intent.putExtra("activityCode", "5");
+                startActivity(intent);
+            } else if (i == 5) {
+                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, StairStepperActivity.class);
 //                    startActivity(intent);
-                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                    if(isActivityReady) {
-                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                        intent.putExtra("activity", "Stair Stepper");
-                        intent.putExtra("activityCode", "6");
-                        startActivity(intent);
-                    }
-                    else{
-                        CM.showProgressLoader(MainActivity.this);
-                        isActivityClicked = true;
-                        clickedActivity = "Stair Stepper";
-                        clickedActivityCode = "6";
-                    }
-//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-//                    intent.putExtra("activity", "Stair Stepper");
-//                    intent.putExtra("activityCode", "6");
-//                    startActivity(intent);
-                } else if (i == 6) {
-                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                intent.putExtra("activity", "Stair Stepper");
+                intent.putExtra("activityCode", "6");
+                startActivity(intent);
+            } else if (i == 6) {
+                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, OutdoorCyclingActivity.class);
 //                    startActivity(intent);
-//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-//                    intent.putExtra("activity", "Outdoor Cycle");
-//                    intent.putExtra("activityCode", "7");
-//                    startActivity(intent);
-                    if(isActivityReady) {
-                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                        intent.putExtra("activity", "Outdoor Cycle");
-                        intent.putExtra("activityCode", "7");
-                        startActivity(intent);
-                    }
-                    else{
-                        CM.showProgressLoader(MainActivity.this);
-                        isActivityClicked = true;
-                        clickedActivity = "Outdoor Cycle";
-                        clickedActivityCode = "7";
-                    }
-                } else if (i == 7) {
-                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                intent.putExtra("activity", "Outdoor Cycle");
+                intent.putExtra("activityCode", "7");
+                startActivity(intent);
+            } else if (i == 7) {
+                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, StationaryBikeActivity.class);
 //                    startActivity(intent);
-                    if(isActivityReady) {
-                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                        intent.putExtra("activity", "Stationary Bike");
-                        intent.putExtra("activityCode", "8");
-                        startActivity(intent);
-                    }
-                    else{
-                        CM.showProgressLoader(MainActivity.this);
-                        isActivityClicked = true;
-                        clickedActivity = "Stationary Bike";
-                        clickedActivityCode = "8";
-                    }
-//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-//                    intent.putExtra("activity", "Stationary Bike");
-//                    intent.putExtra("activityCode", "8");
-//                    startActivity(intent);
-                } else if (i == 8) {
-                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                intent.putExtra("activity", "Stationary Bike");
+                intent.putExtra("activityCode", "8");
+                startActivity(intent);
+            } else if (i == 8) {
+                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, TreadmillActivity.class);
 //                    startActivity(intent);
-                    if(isActivityReady) {
-                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                        intent.putExtra("activity", "Treadmill");
-                        intent.putExtra("activityCode", "9");
-                        startActivity(intent);
-                    }
-                    else{
-                        CM.showProgressLoader(MainActivity.this);
-                        isActivityClicked = true;
-                        clickedActivity = "Treadmill";
-                        clickedActivityCode = "9";
-                    }
-//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-//                    intent.putExtra("activity", "Treadmill");
-//                    intent.putExtra("activityCode", "9");
-//                    startActivity(intent);
-                } else if (i == 9) {
-                    mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                intent.putExtra("activity", "Treadmill");
+                intent.putExtra("activityCode", "9");
+                startActivity(intent);
+            } else if (i == 9) {
+                mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 //                    Intent intent = new Intent(MainActivity.this, RowingMachineActivity.class);
 //                    startActivity(intent);
-                    if(isActivityReady) {
-                        Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-                        intent.putExtra("activity", "Rowing Machine");
-                        intent.putExtra("activityCode", "10");
-                        startActivity(intent);
-                    }
-                    else{
-                        CM.showProgressLoader(MainActivity.this);
-                        isActivityClicked = true;
-                        clickedActivity = "Rowing Machine";
-                        clickedActivityCode = "1o";
-                    }
-//                    Intent intent = new Intent(MainActivity.this, WatchActivities.class);
-//                    intent.putExtra("activity", "Rowing Machine");
-//                    intent.putExtra("activityCode", "10");
-//                    startActivity(intent);
-                }
-            }
-        });
-
-
-        notifications.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), NotificationActivity.class);
-                intent.putExtra("fcm", "");
+                Intent intent = new Intent(MainActivity.this, WatchActivities.class);
+                intent.putExtra("activity", "Rowing Machine");
+                intent.putExtra("activityCode", "10");
                 startActivity(intent);
             }
         });
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), AddFriendActivity.class);
-                startActivity(intent);
-            }
+        notifications.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
+            intent.putExtra("fcm", "");
+            startActivity(intent);
+        });
+
+        search.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, AddFriendActivity.class);
+            startActivity(intent);
         });
 //        Log.e("Refreshed token", "Refreshed token: " + refreshedToken);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showBottomSheetDialog();
+        fab.setOnClickListener(view -> {
+            showBottomSheetDialog();
 //                Intent intent = new Intent(MainActivity.this, gridDemo.class);
 //                startActivity(intent);
-            }
         });
 
         try {
@@ -477,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
 
         //activityOptions();
 
-        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new fragment_tab_newsfeed_dashboard());
         fragmentTransaction.commit();
 
@@ -563,11 +432,11 @@ public class MainActivity extends AppCompatActivity {
 //        startService(deviceConnect);
         //  ContextCompat.startForegroundService(MainActivity.this,deviceConnect);
 
-         if (hasMac != null && !hasMac.equals("0")) {
-                  Intent serviceIntent1 = new Intent(this, DeviceSyncService.class);
-                  this.startService(serviceIntent1);
+        if (hasMac != null && !hasMac.equals("0")) {
+            Intent serviceIntent1 = new Intent(this, DeviceSyncService.class);
+            this.startService(serviceIntent1);
 
-          }
+        }
 
 
         watch_icon.setOnClickListener(new View.OnClickListener() {
@@ -675,6 +544,8 @@ public class MainActivity extends AppCompatActivity {
                     switch (menuItem.getItemId()) {
                         case R.id.navigation_home:
 
+                        case R.id.newsFeed:
+
                             Log.e("IDIGIT_21_07_View", "HOME ICON CLICKED");
 
                             mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
@@ -710,15 +581,6 @@ public class MainActivity extends AppCompatActivity {
                             FM = getSupportFragmentManager();
                             FT = FM.beginTransaction();
                             FT.replace(R.id.content_frame, new RewardsFragment()).commit();
-                            FM.popBackStack();
-                            break;
-
-                        case R.id.newsFeed:
-                            Log.e("IDIGIT_21_07_View", "HOME ICON CLICKED");
-                            mBottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                            FM = getSupportFragmentManager();
-                            FT = FM.beginTransaction();
-                            FT.replace(R.id.content_frame, new fragment_tab_newsfeed_dashboard()).commit();
                             FM.popBackStack();
                             break;
 
@@ -805,7 +667,7 @@ public class MainActivity extends AppCompatActivity {
             Log.e("IDIGIT_21_07_CONNECTED", "DEVICE IS CONNECTED");
             //profile_image.setBorderColor(ResourcesCompat.getColor(getResources(), R.color.green, null));
             watch_icon.setColorFilter(ResourcesCompat.getColor(getResources(), R.color.green, null));
-             //hidedialog();
+            //hidedialog();
             //  successDialog();
             //checkForResumeActivity();
         }
@@ -1158,6 +1020,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 //
 }
