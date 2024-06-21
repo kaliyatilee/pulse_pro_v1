@@ -3,9 +3,10 @@ package com.algebratech.pulse_wellness.api;
 public class Api {
 
     //BASE URL
-    public static final String protocol = "https://";
-    //public static final String protocol = "http://";
-    public static final String baseurl = "pulse-wellness.tech/dev/app";
+   // public static final String protocol = "https://";
+    public static final String protocol = "http://";
+//    public static final String baseurl = "pulse-wellness.tech/dev/app";
+    public static final String baseurl = "pulse.eshagi.com";
 //    public static final String baseurl = "jedaidevbed.in/pluse-wellness/dev/app";
 //    public static final String baseurl = "3.7.53.246/pulsehealth";
     //public static final String baseurl = "trysoftpulse.com";

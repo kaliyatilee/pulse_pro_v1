@@ -1,5 +1,7 @@
 package com.algebratech.pulse_wellness.fragments;
 
+import static java.security.AccessController.getContext;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -76,7 +78,6 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static com.inuker.bluetooth.library.BluetoothService.getContext;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -183,7 +184,7 @@ public class ProfileActivity extends AppCompatActivity {
         activityToken.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+                final AlertDialog.Builder mBuilder = new AlertDialog.Builder(ProfileActivity.this);
                 View mView = getLayoutInflater().inflate(R.layout.dialog_token_activation, null);
                 mBuilder.setIcon(R.mipmap.ic_launcher);
                 mBuilder.setView(mView);
@@ -500,7 +501,7 @@ public class ProfileActivity extends AppCompatActivity {
 //                                }
 
                                     final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(ProfileActivity.this, R.style.BottomSheetDialog);
-                                    View view = LayoutInflater.from(getContext()).inflate(R.layout.activity_my_subscriptionplan, null);
+                                    View view = LayoutInflater.from(ProfileActivity.this).inflate(R.layout.activity_my_subscriptionplan, null);
                                     bottomSheetDialog.setContentView(view);
                                     bottomSheetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                                     CM.HideProgressLoader();
@@ -546,7 +547,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                                 } else {
 
-                                    Toast.makeText(getContext(), response.getString("No plan found"), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(ProfileActivity.this, response.getString("No plan found"), Toast.LENGTH_LONG).show();
 
                                 }
 
@@ -562,7 +563,7 @@ public class ProfileActivity extends AppCompatActivity {
                     VolleyLog.d("Error", "Error: " + error.toString());
                 }
             });
-            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
             requestQueue.add(jsonObjectRequest);
         } else
             Toast.makeText(ProfileActivity.this, R.string.noInternet, Toast.LENGTH_SHORT).show();
@@ -670,7 +671,7 @@ public class ProfileActivity extends AppCompatActivity {
                     VolleyLog.d("Error", "Error: " + error.toString());
                 }
             });
-            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
             requestQueue.add(jsonObjectRequest);
         } else
             Toast.makeText(ProfileActivity.this, R.string.noInternet, Toast.LENGTH_SHORT).show();

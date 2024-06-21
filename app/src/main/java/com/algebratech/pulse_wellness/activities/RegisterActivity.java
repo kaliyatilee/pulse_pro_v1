@@ -8,18 +8,14 @@ import android.text.Spanned;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.algebratech.pulse_wellness.BuildConfig;
+//import com.algebratech.pulse_wellness.BuildConfig;
 import com.algebratech.pulse_wellness.R;
 import com.algebratech.pulse_wellness.api.Api;
 import com.algebratech.pulse_wellness.utils.CM;
@@ -37,9 +33,6 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -66,19 +59,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         btnRegister.setOnClickListener(this);
         redirect.setOnClickListener(this);
 
-        if (BuildConfig.DEBUG) {
-
-            etEmail.getEditText().setText(Constants.DEBUG_EMAIL);
-            etPassword.getEditText().setText(Constants.DEBUG_PASS);
-            etConfirmPassword.getEditText().setText(Constants.DEBUG_PASS);
-
-        } else {
+//        if (BuildConfig.DEBUG) {
+//
+//            etEmail.getEditText().setText(Constants.DEBUG_EMAIL);
+//            etPassword.getEditText().setText(Constants.DEBUG_PASS);
+//            etConfirmPassword.getEditText().setText(Constants.DEBUG_PASS);
+//
+//        } else {
 
             etEmail.getEditText().setText("");
             etPassword.getEditText().setText("");
             etConfirmPassword.getEditText().setText("");
 
-        }
+//        }
 
         etEmail.getEditText().addTextChangedListener(textWatcher);
         etPassword.getEditText().addTextChangedListener(textWatcher);

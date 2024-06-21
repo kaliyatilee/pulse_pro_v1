@@ -194,9 +194,7 @@ public class CreateProfileActivity extends AppCompatActivity {
                 _date = dateOfbirth;
 
                 UserModel user = new UserModel(firstname, lastname, phoneNumber, dateOfbirth, weight, height, gender, userId, "", "", email, "", "", "https://immedilet-invest.com/wp-content/uploads/2016/01/user-placeholder.jpg", 0, bmi, timeStamp, weightRecord);
-                System.out.println("+++++++++++++++++");
-                System.out.println(user);
-                System.out.println("+++++++++++++++++");
+
 
                 Log.d(Constants.TAG + "Country", _country + " : " + _phoneNo + "::" + " : " + _firstname + " : " + _lastname + " : " + _height + " : " + _weight + " : " + _bmi + " : " + _gender + " : " + _date);
                 if (CM.isConnected(CreateProfileActivity.this)) {
@@ -307,12 +305,15 @@ public class CreateProfileActivity extends AppCompatActivity {
     }
 
     void regenerateWellnessplan() {
+        System.out.println("Runnning regenerate wellness plam");
 
         if (CM.isConnected(CreateProfileActivity.this)) {
             CM.showProgressLoader(this);
             JSONObject object = new JSONObject();
             try {
                 object.put("user_id", userId);
+                System.out.println("+++++++++++++++++++++++");
+                System.out.println(userId);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -321,6 +322,10 @@ public class CreateProfileActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             CM.HideProgressLoader();
+                            System.out.println("+++++++++++++++++++");
+                            System.out.println(response);
+                            System.out.println("++++++++++++++++++++");
+
 
                             try {
                                 if (response.getString("status").equals("true")) {

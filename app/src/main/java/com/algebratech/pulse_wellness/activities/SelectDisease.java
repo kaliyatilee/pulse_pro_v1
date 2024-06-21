@@ -240,6 +240,8 @@ public class SelectDisease extends AppCompatActivity implements NewsFeedListner 
 
 
     private void WellnessPlan() {
+        System.out.println("Generate Wellness +++++++++");
+        System.out.println(userId);
 
         if (CM.isConnected(SelectDisease.this)) {
             CM.showProgressLoader(this);
@@ -269,6 +271,8 @@ public class SelectDisease extends AppCompatActivity implements NewsFeedListner 
                             CM.HideProgressLoader();
                             Log.d(Constants.TAG, String.valueOf(response));
                             Log.d(Constants.TAG, String.valueOf(object));
+                            System.out.println("+++++++++++++++++++++++++");
+                            System.out.println(response);
 
                             try {
                                 if (response.getString("status").equals("true")) {
@@ -288,6 +292,8 @@ public class SelectDisease extends AppCompatActivity implements NewsFeedListner 
                 public void onErrorResponse(VolleyError error) {
                     CM.HideProgressLoader();
                     VolleyLog.d("Error", "Error: " + error.toString());
+                    System.out.println("+++++++++++++++++++++++");
+                    System.out.println(error.toString());
                 }
             });
             requestQueue = Volley.newRequestQueue(this);

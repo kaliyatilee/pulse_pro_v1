@@ -60,20 +60,13 @@ public class SplashActivity extends AppCompatActivity {
 
 //        String fcm_token = sharedPreferences.getString("fcm_token", null);
 //        Log.e("FCM_TOKEN",fcm_token);
-
-        checkUpdate();
-
-
+//        checkUpdate();
         if (!pref_date.equals(currentDate)){
             myEdit.putInt("stepCounter", 0);
             myEdit.putString("updated_at", currentDate);
             myEdit.commit();
         }
 
-//        RNCryptorNative rnCryptorNative = new RNCryptorNative();
-//        String encrypted = new String(rnCryptorNative.encrypt("Trynos Much",Constants.KEY));
-//        Log.d("Trynos:Encrypt",encrypted);
-//        Log.d("Trynos:De-Encrypt",rnCryptorNative.decrypt(encrypted,Constants.KEY));
 
         String[] permissions = {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -97,30 +90,25 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 
-    private void checkUpdate() {
-
-
-    }
 
     private void openNext() {
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 if (sharedPreferences.getBoolean("isLogin",false)){
-
                     if (sharedPreferences.getBoolean("availableProfile",false)){
-
                         startActivity( new Intent(getApplicationContext(),MainActivity.class));
+                        Toast.makeText(SplashActivity.this, "I am here 1", Toast.LENGTH_SHORT).show();
                         finish();
                     }else {
+                        Toast.makeText(SplashActivity.this, "I am here 2", Toast.LENGTH_SHORT).show();
 
                         startActivity( new Intent(getApplicationContext(),CreateProfileOneActivity.class));
                         finish();
                     }
-
                 }else {
+                    Toast.makeText(SplashActivity.this, "I am here 3", Toast.LENGTH_SHORT).show();
 
                     startActivity( new Intent(getApplicationContext(),LoginActivity.class));
                     finish();
@@ -143,6 +131,8 @@ public class SplashActivity extends AppCompatActivity {
                     openNext();
                 }
                 else{
+                    openNext();
+                    System.out.println("Permission denied");
                     //Permission denied.
                 }
                 break;

@@ -105,7 +105,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".FunctionsActivity" />
+        <activity android:name=".FunctionsActivity"
+            android:exported="false"/>
         <activity
             android:name=".activities.DailyWalkReport"
             android:exported="false">

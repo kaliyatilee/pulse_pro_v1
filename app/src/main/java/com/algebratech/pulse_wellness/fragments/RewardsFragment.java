@@ -165,10 +165,13 @@ public class RewardsFragment extends Fragment {
     }
 
     private void getProducts() {
+        System.out.println("All rewards");
         CM.showProgressLoader(getActivity());
         StringRequest sr = new StringRequest(Request.Method.POST, Api.allrewards, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                System.out.println("Response");
+                System.out.println(response);
                 try {
 
                     JSONArray array = new JSONArray(response);
@@ -186,8 +189,8 @@ public class RewardsFragment extends Fragment {
 
                         String description = object.getString("description");
                         String imageurl = object.getString("imageurl");
-                        String merchant_name = object.getString("name");
-
+//                        String merchant_name = object.getString("name");
+                        String merchant_name = "";
 
                         RewardsModel product = new RewardsModel(id, title, imageurl, description, pulse_points,merchant_name);
                         products.add(product);
@@ -207,7 +210,8 @@ public class RewardsFragment extends Fragment {
                     }
 
                 } catch (Exception e) {
-
+                    System.out.println("This is the exception");
+                    System.out.println(e.getMessage());
                     CM.HideProgressLoader();
                     Log.e(Constants.TAG, e.getMessage());
                 }

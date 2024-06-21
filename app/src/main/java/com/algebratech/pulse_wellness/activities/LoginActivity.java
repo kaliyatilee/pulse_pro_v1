@@ -136,7 +136,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void doLogin() {
         fcm_token = sharedPreferencesToken.getString("fcm_token", null);
-        Log.e("FCM_TOKEN",fcm_token);
+//        Log.e("FCM_TOKEN",fcm_token);
         if (!validateEmail() | !validatePassword()) {
             return;
         }
@@ -163,7 +163,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         CM.HideProgressLoader();
 
                         try {
-
                             if (response.getString("status").equals("success")) {
 
                                 myEdit.putInt(Constants.PHONE, 0);
@@ -190,7 +189,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     myEdit.putString("userID", userData.getString("id"));
                                     myEdit.putBoolean("isLogin", true);
                                     myEdit.putString("isDatabaseInitialised", "true");
-                                    myEdit.putString("card_status", userData.getString("card_status"));
+//                                    myEdit.putString("card_status", userData.getString("card_status"));
                                     myEdit.putString("Pulse_Points", userData.getString("loyaltpoints"));
                                     myEdit.putString("macAddress", userData.getString("macAddress"));
                                     myEdit.putBoolean("availableProfile", false);
@@ -203,7 +202,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     finish();
 
                                 } else {
-
                                     Toast.makeText(getApplicationContext(), "Successful Login", Toast.LENGTH_LONG).show();
 
                                     myEdit.putString("userID", userData.getString("id"));
@@ -224,14 +222,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     myEdit.putString("profileURL", userData.getString("profileurl"));
                                     myEdit.putString("dateCreated", userData.getString("created_at"));
                                     myEdit.putString("email", userData.getString("email"));
-                                    myEdit.putString("card_status", userData.getString("card_status"));
+//                                    myEdit.putString("card_status", userData.getString("card_status"));
                                     myEdit.putString("sub_token", String.valueOf(subToken));
                                     myEdit.putBoolean("availableProfile", true);
                                     myEdit.apply();
-                                    String user_id = userData.getString("id");
-                                    Log.e("SUBTOKEN", String.valueOf(subToken));
+//                                    String user_id = userData.getString("id");
+//                                    Log.e("SUBTOKEN", String.valueOf(subToken));
                                     //addNoticationId(user_id, getApplicationContext());
-                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+//                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(intent);
                                     finish();
 
                                 }

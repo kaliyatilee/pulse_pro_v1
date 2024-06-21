@@ -550,13 +550,13 @@ public class HomeFragment extends Fragment {
                                     double intBMI = Double.valueOf(bmiText);
                                     if (intBMI < 18) {
                                         bmi.setText("You are underweight");
-                                        bmi.setTextColor(getResources().getColor(R.color.blue));
+                                        bmi.setTextColor(getResources().getColor(com.potyvideo.library.R.color.blue));
                                     } else if (intBMI > 18 && intBMI < 25) {
                                         bmi.setText("You are normal");
                                         bmi.setTextColor(getResources().getColor(R.color.primary));
                                     } else if (intBMI > 25 && intBMI < 30) {
                                         bmi.setText("You are overweight");
-                                        bmi.setTextColor(getResources().getColor(R.color.yellow));
+                                        bmi.setTextColor(getResources().getColor(com.potyvideo.library.R.color.yellow));
                                     } else if (intBMI > 30 && intBMI < 35) {
                                         bmi.setText("You are obese");
                                         bmi.setTextColor(getResources().getColor(R.color.orange));

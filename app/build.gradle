@@ -2,25 +2,16 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
 googleServices.disableVersionCheck = true
-// Apply the Crashlytics Gradle plugin
 apply plugin: 'com.google.firebase.crashlytics'
 
-
 android {
-//    signingConfigs {
-//        keystore {
-//            storeFile file('D:\\Pulse Health\\Mobile Applications\\PulseGit_July22\\pulseAppkeys.jks')
-//            storePassword 'admin#2020'
-//            keyAlias 'key0'
-//            keyPassword 'admin#2020'
-//        }
-//    }
-    compileSdkVersion 31
+    namespace 'com.algebratech.pulse_wellness'
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId "com.algebratech.pulse_wellness"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 148
         versionName "7.0.8"
         multiDexEnabled true
@@ -32,20 +23,16 @@ android {
                 onesignal_google_project_number: "1068465656262"
         ]
     }
-//    dexOptions {
-//        incremental true
-//        javaMaxHeapSize "4g"
-//    }
+
     buildTypes {
-        debug{
+        debug {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-           // signingConfig signingConfigs.keystore
         }
         release {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-          //  signingConfig signingConfigs.keystore
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -73,52 +60,39 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation project(':lightcompressor')
+
+    androidTestImplementation 'androidx.test:core:1.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
-    //implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.navigation:navigation-fragment:2.3.3'
-    implementation 'androidx.navigation:navigation-ui:2.3.3'
+    implementation 'androidx.navigation:navigation-fragment:2.7.7'
+    implementation 'androidx.navigation:navigation-ui:2.7.7'
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation 'androidx.annotation:annotation:1.5.0'
-//    implementation files('libs/gson-2.2.4.jar')
-    //confirm if we still need these two
+    implementation 'androidx.annotation:annotation:1.8.0'
     implementation files('libs\\vpbluetooth_1.0.3.jar')
     implementation files('libs\\vpprotocol_2.1.27.15.jar')
-//    implementation files('libs/UkProtocolLibary-release-1.2.8.aar')
-//    implementation files('libs/RealtekSDK-1.0.1-release.aar')
-
-
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation files('libs/UkProtocolLibary-release-1.2.11.aar')
     implementation files('libs/RealtekSDK-1.0.1-release.aar')
     implementation files('libs/rtk-core-1.2.4.jar')
     implementation files('libs/rtk-dfu-3.3.11.jar')
     implementation files('libs/rtk-bbpro-core-1.6.6.jar')
-
-    //Test & Debug
-  //  implementation 'com.bugsnag:bugsnag-android:4.2.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.orhanobut:logger:1.15'
-
-    //Network
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-
-    //View & Processing
     implementation 'de.hdodenhof:circleimageview:3.0.0'
-    //implementation 'com.github.shinelw:library:1.0.1'
     implementation 'me.itangqi.waveloadingview:library:0.3.5'
     implementation 'com.jjoe64:graphview:4.2.2'
-    //implementation 'com.theartofdev.edmodo:android-image-cropper:2.4.+'
     implementation 'com.squareup.picasso:picasso:2.5.0'
-    //implementation 'com.github.amalChandran:trail-android:v1.51'
     implementation 'me.zhanghai.android.systemuihelper:library:1.0.0'
     implementation 'com.zhihu.android:matisse:0.5.3-beta3'
-   // implementation project(path: ':cameraView')
     implementation 'com.hbb20:ccp:2.3.1'
     implementation 'com.chaos.view:pinview:1.4.3'
     implementation 'com.github.nisrulz:screenshott:2.0.0'
@@ -127,52 +101,28 @@ dependencies {
     implementation 'net.zetetic:android-database-sqlcipher:4.4.3@aar'
     implementation "androidx.sqlite:sqlite:2.0.1"
     implementation 'com.github.HamidrezaAmz:MagicalExoPlayer:2.0.6'
-//    implementation 'com.googlecode.mp4parser:isoparser:1.1.22'
-//    implementation 'com.iceteck.silicompressorr:silicompressor:2.2.4'
-
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3"
-    implementation project(path: ':lightcompressor')
-    //implementation 'com.github.AbedElazizShe:LightCompressor:0.9.3'
-
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
     implementation 'com.wang.avi:library:2.1.3'
-
-    //Google
     implementation 'com.google.android.gms:play-services-location:17.0.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.play:core:1.7.3'
-
-    //Firebase
     implementation 'com.google.firebase:firebase-analytics:17.2.0'
-
-    //YouTube
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
     implementation "androidx.core:core-ktx:1.9.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    //Notification
-//    implementation('com.onesignal:OneSignal:3.15.1') {
-//        exclude group: 'com.android.support', module: 'customtabs'
-//        exclude group: 'com.google.android.gms'
-//    }
-
-    // Add the Firebase Crashlytics SDK.
-
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.20"
     implementation 'com.google.firebase:firebase-crashlytics:18.2.11'
-
     implementation 'com.google.firebase:firebase-core:21.1.0'
     implementation 'com.google.firebase:firebase-auth:21.0.6'
     implementation 'com.google.firebase:firebase-messaging:23.0.6'
-
-    //Stripe
     implementation 'com.stripe:stripe-android:20.16.1'
-
     implementation 'com.github.smarteist:autoimageslider:1.3.9'
-
     implementation 'com.google.zxing:core:3.4.0'
     implementation 'com.google.zxing:android-core:3.3.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
+
+
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }

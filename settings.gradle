@@ -1,3 +1,3 @@
-include ':lightcompressor'
+//include ':lightcompressor'
 rootProject.name='Pulse Health'
 include ':app'

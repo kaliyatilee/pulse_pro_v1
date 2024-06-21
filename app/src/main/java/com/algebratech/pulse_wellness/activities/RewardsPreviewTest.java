@@ -72,7 +72,9 @@ public class RewardsPreviewTest extends AppCompatActivity {
 
         parent_view = findViewById(R.id.parent_view);
 
-        sharedPreferences = getContext().getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
+         sharedPreferences = getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
+
+//        sharedPreferences = getContext().getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
         userId = sharedPreferences.getString("userID", null);
         initToolbar();
         initComponent();
@@ -237,7 +239,7 @@ public class RewardsPreviewTest extends AppCompatActivity {
                     CM.HideProgressLoader();
                 }
             });
-            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
             requestQueue.add(jsonObjectRequest);
         } else
             Toast.makeText(RewardsPreviewTest.this, R.string.noInternet, Toast.LENGTH_SHORT).show();

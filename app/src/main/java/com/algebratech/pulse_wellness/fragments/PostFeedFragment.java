@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.ThumbnailUtils;
@@ -33,10 +34,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.abedelazizshe.lightcompressorlibrary.CompressionListener;
-import com.abedelazizshe.lightcompressorlibrary.VideoCompressor;
-import com.abedelazizshe.lightcompressorlibrary.VideoQuality;
-import com.abedelazizshe.lightcompressorlibrary.config.Configuration;
 import com.algebratech.pulse_wellness.R;
 import com.algebratech.pulse_wellness.activities.Camera2Activity;
 import com.algebratech.pulse_wellness.activities.CreateProfileOneActivity;
@@ -205,6 +202,8 @@ public class PostFeedFragment extends Fragment {
                 object.put("post_category", postcategory);
                 object.put("post_desc", post_desc);
                 object.put("post_privacy", "Friends Only");
+
+                System.out.println(object);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -356,58 +355,58 @@ public class PostFeedFragment extends Fragment {
 
     }
 
-    private void compressVideo(String absolutePath) {
-        Uri uri = Uri.parse(absolutePath);
-
-        VideoCompressor.INSTANCE.start(
-                context, // => This is required if srcUri is provided. If not, pass null.
-                uri, // => Source can be provided as content uri, it requires context.
-                null, // => This could be null if srcUri and context are provided.
-                outputSource + "/1.mp4",
-                new CompressionListener() {
-                    @Override
-                    public void onStart() {
-                        // Compression start
-                    }
-
-                    @Override
-                    public void onSuccess() {
-                        // On Compression success
-                    }
-
-                    @Override
-                    public void onFailure(String failureMessage) {
-                        // On Failure
-                    }
-
-                    @Override
-                    public void onProgress(float v) {
-                        // Update UI with progress value
-                        getActivity().runOnUiThread(new Runnable() {
-                            @SuppressLint("LongLogTag")
-                            public void run() {
-//                                progress.setText(progressPercent + "%");
-//                                progressBar.setProgress((int) progressPercent);
-                                // Toast.makeText(context,v + "%",Toast.LENGTH_LONG).show();
-                                Log.d(Constants.TAG + "FileCompressed", v + "%");
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onCancelled() {
-                        // On Cancelled
-                    }
-                }, new Configuration(
-                        VideoQuality.MEDIUM,
-                        false,
-                        false,
-                        null /*videoHeight: double, or null*/,
-                        null /*videoWidth: double, or null*/,
-                        null /*videoBitrate: int, or null*/
-                )
-        );
-    }
+//    private void compressVideo(String absolutePath) {
+//        Uri uri = Uri.parse(absolutePath);
+//
+//        VideoCompressor.INSTANCE.start(
+//                context, // => This is required if srcUri is provided. If not, pass null.
+//                uri, // => Source can be provided as content uri, it requires context.
+//                null, // => This could be null if srcUri and context are provided.
+//                outputSource + "/1.mp4",
+//                new CompressionListener() {
+//                    @Override
+//                    public void onStart() {
+//                        // Compression start
+//                    }
+//
+//                    @Override
+//                    public void onSuccess() {
+//                        // On Compression success
+//                    }
+//
+//                    @Override
+//                    public void onFailure(String failureMessage) {
+//                        // On Failure
+//                    }
+//
+//                    @Override
+//                    public void onProgress(float v) {
+//                        // Update UI with progress value
+//                        getActivity().runOnUiThread(new Runnable() {
+//                            @SuppressLint("LongLogTag")
+//                            public void run() {
+////                                progress.setText(progressPercent + "%");
+////                                progressBar.setProgress((int) progressPercent);
+//                                // Toast.makeText(context,v + "%",Toast.LENGTH_LONG).show();
+//                                Log.d(Constants.TAG + "FileCompressed", v + "%");
+//                            }
+//                        });
+//                    }
+//
+//                    @Override
+//                    public void onCancelled() {
+//                        // On Cancelled
+//                    }
+//                }, new Configuration(
+//                        VideoQuality.MEDIUM,
+//                        false,
+//                        false,
+//                        null /*videoHeight: double, or null*/,
+//                        null /*videoWidth: double, or null*/,
+//                        null /*videoBitrate: int, or null*/
+//                )
+//        );
+//    }
 
     private void uploadPost(final String pdfname, Uri pdffile) {
         if (CM.isConnected(getActivity())) {

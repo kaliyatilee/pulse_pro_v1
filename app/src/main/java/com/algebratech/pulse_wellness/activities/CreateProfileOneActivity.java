@@ -56,14 +56,10 @@ public class CreateProfileOneActivity extends AppCompatActivity {
                 finish();
             } else
                 Toast.makeText(CreateProfileOneActivity.this,  R.string.noInternet, Toast.LENGTH_SHORT).show();
-
-
-
         }
 
 
     }
-
 
 //    private boolean validateGender() {
 //        if (radioGroup.getCheckedRadioButtonId() == -1) {

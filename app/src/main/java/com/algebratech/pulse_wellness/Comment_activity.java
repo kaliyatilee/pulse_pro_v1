@@ -88,7 +88,7 @@ public class Comment_activity extends AppCompatActivity implements FeedCommentLi
                 onBackPressed();
             }
         });
-        sharedPreferences = getContext().getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
+        sharedPreferences = Comment_activity.this.getSharedPreferences(Constants.PREF_NAME, MODE_PRIVATE);
         userId = sharedPreferences.getString("userID", null);
 
         GetComments();
@@ -108,7 +108,7 @@ public class Comment_activity extends AppCompatActivity implements FeedCommentLi
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (editText.getText().toString().trim().isEmpty()) {
-                    send.setTextColor(getResources().getColor(R.color.gray));
+                    send.setTextColor(getResources().getColor(com.potyvideo.library.R.color.gray));
                 }
                 if (!editText.getText().toString().trim().isEmpty()) {
                     send.setTextColor(getResources().getColor(R.color.primary));
